@@ -23,18 +23,23 @@ def fetch_lc17_only():
     
     try:
         response = requests.get(url, params=params, timeout=60)
-        # Verify we got a real JSON list and not an error/HTML page
-        if response.status_code == 200 and response.text.startswith('['):
+        # LinkConnector sometimes wraps JSON in a way that looks like a string. 
+        # We need to ensure we have a list.
+        try:
             data = response.json()
-            # Filter to ensure we only save if data exists
-            if len(data) > 0:
-                with open("data/feeds/lc17_products.json", "w") as f:
-                    json.dump(data, f)
-                print(f"✅ SUCCESS: Captured {len(data)} LC-17 Products.")
-            else:
-                print("⚠️ API Connection Good, but 0 products returned for these 17 merchants.")
+        except:
+            print("⚠️ Direct JSON failed, attempting to parse text...")
+            data = json.loads(response.text)
+
+        if isinstance(data, list) and len(data) > 0:
+            with open("data/feeds/lc17_products.json", "w") as f:
+                json.dump(data, f)
+            print(f"✅ SUCCESS: Captured {len(data)} LC-17 Products.")
         else:
-            print("❌ LC API Error: Invalid response format.")
+            print("⚠️ API returned 0 results. Check LC dashboard subscriptions.")
+            # Keep an empty list to prevent the Generator from crashing
+            with open("data/feeds/lc17_products.json", "w") as f:
+                json.dump([], f)
     except Exception as e:
         print(f"❌ Connection Error: {e}")
 
