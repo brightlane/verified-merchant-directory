@@ -3,10 +3,11 @@ import json
 import os
 import sys
 
+# Uses the key from your Titan Engine settings
 API_KEY = os.getenv("LC_API_KEY")
 
 def fetch_lc17_feeds():
-    print("🚀 VULTURE: Harvesting LinkConnector 17 Campaigns...")
+    print("🚀 VULTURE: Handshaking with LinkConnector v17...")
     
     if not API_KEY:
         print("❌ CRITICAL: LC_API_KEY is missing!")
@@ -14,22 +15,26 @@ def fetch_lc17_feeds():
 
     os.makedirs("data/feeds", exist_ok=True)
 
-    # NEW URL: Using the common Merchant Campaigns function
-    url = f"https://www.linkconnector.com/api/v17/GetMerchantCampaigns.php?api_key={API_KEY}&output=json"
+    # REPAIRED GATEWAY: LC-17 uses this specific gateway for all API calls
+    url = "https://www.linkconnector.com/api/"
     
-    # We add a 'User-Agent' to pretend we are a browser. This stops the "Site Map" redirect.
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    # EXACT PARAMETERS: LC-17 is case-sensitive for 'Key' and 'Function'
+    params = {
+        'Key': API_KEY,
+        'Function': 'getCampaignListApproved', # This is the standard function for your merchants
+        'Format': 'JSON'
     }
     
     try:
-        response = requests.get(url, headers=headers, timeout=30)
+        # We send the request using 'params' to ensure proper encoding
+        response = requests.get(url, params=params, timeout=30)
+        
         print(f"📡 Server Response Code: {response.status_code}")
 
-        # If it looks like HTML again, we need to stop and investigate
+        # Check if we got HTML again (Redirect)
         if "<!DOCTYPE html>" in response.text:
-            print("❌ REDIRECT DETECTED: LinkConnector sent a webpage instead of data.")
-            print("Check if your API Key has 'API Access' enabled in your LC Dashboard.")
+            print("❌ REDIRECT DETECTED: Still getting HTML.")
+            print("Please log into LinkConnector and ensure your API Key is 'Active'.")
             sys.exit(1)
 
         data = response.json()
@@ -37,14 +42,13 @@ def fetch_lc17_feeds():
         with open("data/feeds/lc17_data.json", "w") as f:
             json.dump(data, f)
             
-        print(f"✅ SUCCESS: Data captured. Items found: {len(data)}")
+        # This will tell us if it found your campaigns
+        count = len(data) if isinstance(data, list) else "Unknown"
+        print(f"✅ SUCCESS: Captured {count} LC-17 campaigns.")
         
     except Exception as e:
-        print(f"❌ LC-17 CONNECTION FAILED: {e}")
-        # We create a dummy file so the generator doesn't crash while you check your key
-        with open("data/feeds/lc17_data.json", "w") as f:
-            json.dump([{"campaign_name": "API_CONNECTION_PENDING"}], f)
-        sys.exit(0) 
+        print(f"❌ CONNECTION FAILED: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     fetch_lc17_feeds()
