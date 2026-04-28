@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ seo_title }}</title>
+    <meta name="description" content="Shop {{ product.title }} from {{ product.merchant_key }}. Best current price: {{ product.price }}.">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+        .btn { background: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; }
+        .price { color: #b12704; font-size: 24px; font-weight: bold; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>{{ product.title }}</h1>
+    <img src="{{ product.image_url }}" alt="{{ product.title }}">
+    <p class="price">{{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    
+    <a href="{{ aff_link }}" class="btn" rel="nofollow">Check Availability & Buy Now</a>
+    
+    <hr>
+    <footer>
+        <p>Authorized {{ product.merchant_key }} Affiliate Partner</p>
+    </footer>
+</body>
+</html>
