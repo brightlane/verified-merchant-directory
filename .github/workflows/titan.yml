@@ -33,8 +33,7 @@ jobs:
           python scripts/vulture_harvester.py
           python scripts/vulture_gen.py
         env:
-          # This maps your key so the script can find it
-          LC_API_KEY: "621835730ae935d10dc9bf41380d1f54" 
+          LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
           API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
       - name: 🚀 Print to Web
@@ -42,6 +41,11 @@ jobs:
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.io"
           git add .
-          git commit -m "Vulture Titan: Deploy [skip ci]" || echo "No changes"
-          git push origin main
-          git push origin main:gh-pages --force
+          # We add --force here to bypass the "rejected" error
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Vulture Titan: Deploy [skip ci]"
+            git push origin main --force
+            git push origin main:gh-pages --force
+          else
+            echo "No changes to push."
+          fi
