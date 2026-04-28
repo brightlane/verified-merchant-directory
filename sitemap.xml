@@ -1,3 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-</sitemapindex>
+import os
+from datetime import datetime
+
+# --- CONFIGURATION ---
+BASE_URL = "https://brightlane.github.io/verified-merchant-directory/"
+MERCHANT_DIR = "merchants"
+SITEMAP_FILE = "sitemap.xml"
+
+def generate_sitemap():
+    print("🗺️ Starting Sitemap Generation...")
+    
+    pages = []
+    # Add the home page
+    pages.append(BASE_URL)
+    
+    # Scan merchant directories
+    if os.path.exists(MERCHANT_DIR):
+        for merchant_id in os.listdir(MERCHANT_DIR):
+            merchant_path = os.path.join(MERCHANT_DIR, merchant_id)
+            if os.path.isdir(merchant_path):
+                for filename in os.listdir(merchant_path):
+                    if filename.endswith(".html"):
+                        # Create the full URL for the product page
+                        url = f"{BASE_URL}merchants/{merchant_id}/{filename}"
+                        pages.append(url)
+
+    # Build the XML structure
+    now = datetime.now().strftime("%Y-%m-%d")
+    xml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    xml_footer = '</urlset>'
+    
+    with open(SITEMAP_FILE, "w", encoding="utf-8") as f:
+        f.write(xml_header)
+        for page in pages:
+            f.write(f"  <url>\n    <loc>{page}</loc>\n    <lastmod>{now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n")
+        f.write(xml_footer)
+
+    print(f"✅ Sitemap created with {len(pages)} URLs.")
+
+if __name__ == "__main__":
+    generate_sitemap()
