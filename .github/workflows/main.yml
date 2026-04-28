@@ -5,15 +5,13 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *' # Fires daily at midnight to refresh all 17 campaigns
+    - cron: '0 0 * * *' # Daily at midnight
 
 jobs:
   build-and-sync:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pages: write
-      id-token: write
     steps:
       - name: 1. Pull Latest Repository State
         uses: actions/checkout@v4
@@ -31,52 +29,33 @@ jobs:
       - name: 4. Execute Vulture 10K Protocol
         run: |
           mkdir -p data/feeds merchants sitemaps assets
-          
-          # A: Fetch Merchant Data (E-file, Build A Sign, HalloweenCostumes, etc.)
           python scripts/vulture_harvester.py
-          
-          # B: Generate 10,000+ SEO Pages with unique Parallel Tracking IDs
           python scripts/vulture_gen.py
-          
-          # C: Build Global SEO Sitemap for Google Search Console
           python scripts/vulture_sitemap.py
-          
-          # D: Generate Master Directory Homepage
           python scripts/vulture_index.py
-          
-          # E: Daily Blog Intelligence Write (Authority Builder)
           python scripts/vulture_blog.py
-          
-          # F: Daily Social Media Caption Generator (ManyChat Lead-Gen)
           python scripts/vulture_social.py
-
-          # G: AI Intelligence Sync (For SearchGPT/Perplexity/Custom GPTs)
           python scripts/vulture_ai_sync.py
         env:
-          LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
+          LC_API_KEY: ${{ secrets.LC_API_KEY }}
 
       - name: 5. Force-Sync and Commit to GitHub
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           
-          # Track every asset required for the ecosystem to function
-          git add data/feeds/*.json \
-                  merchants/ \
-                  sitemaps/ \
-                  sitemap.xml \
-                  lmss.txt \
-                  robots.txt \
-                  404.html \
-                  affiliate.json \
-                  index.html \
-                  blog.html \
-                  daily_caption.txt \
-                  ai_briefing.json
+          # SAFETY PROTOCOL: Check for directory existence before adding
+          # This prevents the 'pathspec' error if the harvester finds 0 products
+          if [ -d "data/feeds" ]; then git add data/feeds/*.json || echo "No JSON feeds"; fi
+          if [ -d "merchants" ]; then git add merchants/ || echo "No merchant folders"; fi
+          if [ -d "sitemaps" ]; then git add sitemaps/ || echo "No sitemaps folder"; fi
           
-          git commit -m "Vulture Empire Sync: 17 Campaigns + Blog + Social + AI [$(date)]" || echo "No changes detected"
+          # Add core operational files
+          git add sitemap.xml lmss.txt robots.txt 404.html affiliate.json index.html blog.html daily_caption.txt ai_briefing.json || echo "Some core files missing"
           
-          # The 'Steamroller' logic: Bot version always overrides conflicts
+          git commit -m "Vulture Empire Sync: Omni-Protocol Update [$(date)]" || echo "No changes to commit"
+          
+          # Steamroller Rebase logic
           git fetch origin main
           git rebase -X theirs origin/main || (git rebase --abort && git pull --no-rebase origin main --strategy-option=theirs)
           
