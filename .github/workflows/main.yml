@@ -2,11 +2,6 @@ name: Vulture Sync 2026
 
 on:
   workflow_dispatch:
-    inputs:
-      manual_trigger:
-        description: 'Force a full empire rebuild'
-        default: 'true'
-        required: false
   push:
     branches:
       - main
@@ -18,32 +13,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: 🛰️ Checkout Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       
-      - name: Install
+      - name: 📦 Install Dependencies
         run: pip install requests
 
-      - name: Sync Repo
+      - name: 🔄 Sync Workspace
         run: |
           git config --global user.name "vulture-bot"
           git config --global user.email "vulture@brightlane.net"
           git pull --rebase origin main
 
-      - name: Harvest & Generate
+      - name: 🏗️ Run Vulture Engine
         env:
           LC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: |
-          python scripts/vulture_harvester.py
           python scripts/vulture_gen.py
 
-      - name: Deploy
+      - name: 🚀 Deploy to GitHub Pages
         run: |
           git add .
-          git commit -m "🔥 Automated Empire Sync [$(date)]" || exit 0
+          # The '|| exit 0' prevents failure if no files changed
+          git commit -m "🔥 Vulture Empire Sync: $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
           git push origin main
