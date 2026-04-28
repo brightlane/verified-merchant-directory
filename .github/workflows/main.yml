@@ -15,24 +15,25 @@ jobs:
       - name: 🛰️ Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Essential for rebase sync
+          fetch-depth: 0
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
+      - name: 🔄 Sync Repository First
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # This cleans the slate before the script runs
+          git pull origin main --rebase
+
       - name: 🚀 Run Vulture Protocol
         run: python scripts/vulture_gen.py
 
       - name: 💾 Commit & Push Global Update
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Pull current state to prevent "rejected" errors
-          git pull origin main --rebase
-          
           git add index.html lmss.txt
           
           if git diff --staged --quiet; then
