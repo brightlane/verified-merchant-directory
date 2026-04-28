@@ -1,52 +1,39 @@
+import requests
 import json
 import os
+import sys
 
-FEED_DIR = "data/feeds"
-OUTPUT_DIR = "merchants"
+# The key we put in your titan.yml
+API_KEY = os.getenv("LC_API_KEY")
 
-def generate_pages():
-    print(f"🏗️ GENERATOR: Starting build...")
+def fetch_lc17_feeds():
+    print("🚀 VULTURE: Harvesting LinkConnector 17 Campaigns...")
     
-    # 1. Ensure output directory exists
-    if not os.path.exists(OUTPUT_DIR):
-        print(f"📁 Creating directory: {OUTPUT_DIR}")
-        os.makedirs(OUTPUT_DIR)
+    if not API_KEY:
+        print("❌ CRITICAL: LC_API_KEY is missing from environment!")
+        sys.exit(1)
+
+    os.makedirs("data/feeds", exist_ok=True)
+
+    # LinkConnector API v17 Endpoint for your campaigns
+    # Note: We use the 'campaigns' endpoint to get your merchant list
+    url = f"https://api.linkconnector.com/v17/campaigns?api_key={API_KEY}"
+    
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
         
-    # 2. Check if we actually have data
-    if not os.path.exists(FEED_DIR):
-        print(f"❌ ERROR: {FEED_DIR} does not exist. Harvester failed!")
-        return
-
-    feed_files = [f for f in os.listdir(FEED_DIR) if f.endswith(".json")]
-    print(f"📂 Found {len(feed_files)} feed files in {FEED_DIR}")
-
-    if len(feed_files) == 0:
-        print("⚠️ WARNING: No JSON data found. Check your Harvester API key!")
-        return
-
-    count = 0
-    for filename in feed_files:
-        print(f"📄 Processing feed: {filename}")
-        try:
-            with open(os.path.join(FEED_DIR, filename), 'r') as f:
-                products = json.load(f)
+        data = response.json()
+        
+        # We save it specifically for the generator to find
+        with open("data/feeds/lc17_data.json", "w") as f:
+            json.dump(data, f)
             
-            for p in products:
-                # Use a unique identifier for the filename
-                m_id = str(p.get('id', 'item'))
-                p_name = p.get('Title', 'product').replace(' ', '-').lower()
-                
-                # We save it directly in the 'merchants' folder for the sitemap to find
-                file_name = f"{m_id}-{p_name}.html"
-                path = os.path.join(OUTPUT_DIR, file_name)
-                
-                with open(path, 'w', encoding='utf-8') as f:
-                    f.write(f"<html><body><h1>{p.get('Title')}</h1></body></html>")
-                count += 1
-        except Exception as e:
-            print(f"❌ FAILED to process {filename}: {e}")
-                
-    print(f"✅ SUCCESS: Generated {count} static HTML pages in /{OUTPUT_DIR}")
+        print(f"✅ SUCCESS: Harvested LC-17 data. Status: {response.status_code}")
+    except Exception as e:
+        print(f"❌ LC-17 HARVEST FAILED: {e}")
+        # We don't want the engine to crash, but we need to know why it failed
+        sys.exit(1)
 
 if __name__ == "__main__":
-    generate_pages()
+    fetch_lc17_feeds()
