@@ -11,7 +11,7 @@ LOG_FILE = "lmss.txt"
 BASE_URL = "https://brightlane.github.io/verified-merchant-directory/"
 
 def update_lmss_log(total_count, breakdown):
-    """Generates the Vulture Engine Audit Report for real-time monitoring"""
+    """The Mission Control Readout: Generates the audit report"""
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     
     status_label = "OPERATIONAL" if total_count > 0 else "DEGRADED (API/FEED ERROR)"
@@ -76,9 +76,9 @@ def generate_vulture_empire():
                     slug = p_name.lower().replace(" ", "-").replace("/", "-")[:50]
                     file_path = f"{m_id}/{slug}.html"
                     
-                    # Page Generation
+                    # Generate the Atomic Page
                     with open(os.path.join(MERCHANT_DIR, file_path), "w", encoding="utf-8") as p:
-                        p.write(f"<html><head><title>{p_name}</title></head><body><h1>{p_name}</h1></body></html>")
+                        p.write(f"<html><body><h1>{p_name}</h1></body></html>")
                     
                     generated_paths.append(f"merchants/{file_path}")
                     count += 1
@@ -88,7 +88,7 @@ def generate_vulture_empire():
                 print(f"❌ Error on {m_id}: {e}")
                 merchant_breakdown[m_id] = 0
 
-    # 2. Build the Sitemap (Required for Google Indexing)
+    # 2. Build the Sitemap (Crucial for Google Indexing)
     sitemap_content = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     for path in generated_paths:
         sitemap_content += f'<url><loc>{BASE_URL}{path}</loc></url>'
@@ -96,7 +96,7 @@ def generate_vulture_empire():
     with open(SITEMAP_FILE, "w", encoding="utf-8") as f:
         f.write(sitemap_content)
 
-    # 3. TRIGGER THE LOG (This makes the lmss.txt live)
+    # 3. TRIGGER THE LOG (The step that makes lmss.txt live)
     update_lmss_log(len(generated_paths), merchant_breakdown)
 
 if __name__ == "__main__":
