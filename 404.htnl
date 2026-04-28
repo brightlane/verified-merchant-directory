@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Verified Directory</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/chameleon.js" defer></script>
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center;">
+    <div class="container">
+        <div class="card" style="padding: 50px; border: 2px solid var(--accent-blue);">
+            <h1 style="font-size: 4rem; margin-bottom: 10px;">404</h1>
+            <h2 id="brand-name" style="color: var(--accent-blue);">Verified Merchant Directory</h2>
+            <p style="margin: 20px 0; color: var(--text-muted); font-size: 1.2rem;">
+                Oops! That specific product listing has moved or is currently being updated by the Vulture Engine.
+            </p>
+            
+            <div style="margin-top: 30px;">
+                <a href="index.html" class="cta-btn" style="display: inline-block;">Return to Directory Home</a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem;">
+                <a href="javascript:history.back()" style="color: var(--accent-blue);">← Go Back</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
