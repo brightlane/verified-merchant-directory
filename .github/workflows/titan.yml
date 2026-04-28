@@ -34,21 +34,19 @@ jobs:
           python -u scripts/vulture_gen.py
           python -u scripts/vulture_sitemap.py
         env:
+          # Providing both variable names to satisfy all scripts
+          LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
           API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
       - name: 🚀 Force Sync to GitHub
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.io"
-          
-          # Stage all changes (HTML, Sitemap, etc.)
           git add .
-          
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Vulture Titan: Fresh Sync [skip ci]"
-            # This force-pushes to both main and gh-pages to clear all conflicts
+            git commit -m "Vulture Titan: Syncing Data and Sitemap [skip ci]"
             git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:main --force
             git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:gh-pages --force
           else
-            echo "No new pages detected."
+            echo "No changes to sync."
           fi
