@@ -6,49 +6,48 @@ import sys
 API_KEY = os.getenv("LC_API_KEY")
 
 def fetch_lc17_feeds():
-    print("🚀 VULTURE: Handshaking with LinkConnector v17...")
+    print("🚀 VULTURE: Deep-Scanning LC-17 Functions...")
     
     if not API_KEY:
         print("❌ CRITICAL: LC_API_KEY is missing!")
         sys.exit(1)
 
     os.makedirs("data/feeds", exist_ok=True)
-
-    # OFFICIAL LC-17 GATEWAY
     url = "https://www.linkconnector.com/api/"
     
-    # We add 'JSON=1' to the URL itself as a backup flag
-    params = {
-        'Key': API_KEY,
-        'Function': 'getCampaignListApproved',
-        'Format': 'JSON',
-        'JSON': '1' 
-    }
-    
-    try:
-        response = requests.get(url, params=params, timeout=30)
-        print(f"📡 Server Response Code: {response.status_code}")
+    # We will try these functions in order until one works
+    functions_to_try = [
+        'getMerchantCampaigns',      # Most common for affiliate data
+        'getCampaignListApproved',   # Standard approved list
+        'getCreatives'               # Backdoor: gets data via your links
+    ]
 
-        # Check if the response is empty
-        if not response.text.strip():
-            print("⚠️ WARNING: Server returned an empty response. Creating test node...")
-            data = [{"campaign_name": "Check Approved Campaigns in LC Dashboard"}]
-        else:
-            try:
-                data = response.json()
-            except Exception:
-                print(f"📄 Non-JSON Response Detected: {response.text[:100]}")
-                # If it's not JSON, we'll try to treat it as a string to avoid the crash
-                data = [{"campaign_name": "Check API Permissions"}]
-
-        with open("data/feeds/lc17_data.json", "w") as f:
-            json.dump(data, f)
-            
-        print("✅ SUCCESS: Feed captured.")
+    data = []
+    for func in functions_to_try:
+        print(f"📡 Trying Function: {func}...")
+        params = {'Key': API_KEY, 'Function': func, 'Format': 'JSON', 'JSON': '1'}
         
-    except Exception as e:
-        print(f"❌ CONNECTION FAILED: {e}")
-        sys.exit(1)
+        try:
+            response = requests.get(url, params=params, timeout=20)
+            if response.status_code == 200 and "<!DOCTYPE html>" not in response.text:
+                temp_data = response.json()
+                # Check if we actually got a list of items
+                if isinstance(temp_data, list) and len(temp_data) > 0:
+                    data = temp_data
+                    print(f"✅ SUCCESS: Found {len(data)} items using {func}!")
+                    break
+        except Exception:
+            continue
+
+    # If all fail, we save a specific error message for the sitemap to show us
+    if not data:
+        print("⚠️ All LC-17 functions returned empty. Check LC Dashboard for 'Approved' status.")
+        data = [{"campaign_name": "No-Approved-Campaigns-Found"}]
+
+    with open("data/feeds/lc17_data.json", "w") as f:
+        json.dump(data, f)
+            
+    print("✅ Feed Sync Complete.")
 
 if __name__ == "__main__":
     fetch_lc17_feeds()
