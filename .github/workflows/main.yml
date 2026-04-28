@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 1' # Automatic weekly refresh
+    - cron: '0 0 * * 1' # Automatic weekly refresh at midnight
 
 jobs:
   run-vulture:
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history so rebase works perfectly
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -34,20 +36,24 @@ jobs:
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
-      - name: 2. Build Sitemaps (Google/Bing Map)
+      - name: 2. Build Sitemaps
         run: python scripts/vulture_sitemap.py
 
-      - name: 3. Commit and Push Changes
+      - name: 3. Sync and Push to Repo
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
-          # Adding everything including the new sitemaps
           git add data/feeds/ merchants/ sitemaps/ sitemap.xml
           git commit -m "Vulture Full Build: $(date)" || echo "No changes to commit"
-          git push
+          
+          # The fix for the 'rejected' error: 
+          # Pull the latest changes from you before pushing the bot's work
+          git pull --rebase origin main
+          git push origin main
 
       - name: 4. Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
+          publish_branch: gh-pages # Separates the 'live' site from the 'code' branch
