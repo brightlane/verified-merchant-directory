@@ -30,8 +30,10 @@ jobs:
 
       - name: 🦅 Run Vulture
         run: |
-          python scripts/vulture_harvester.py
-          python scripts/vulture_gen.py
+          # Running with -u to ensure logs are visible immediately
+          python -u scripts/vulture_harvester.py
+          python -u scripts/vulture_gen.py
+          python -u scripts/vulture_sitemap.py
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
           API_KEY: "621835730ae935d10dc9bf41380d1f54"
@@ -40,12 +42,12 @@ jobs:
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.io"
+          
           git add .
-          # We add --force here to bypass the "rejected" error
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Vulture Titan: Deploy [skip ci]"
+            git commit -m "Vulture Titan: Syncing Nodes & Sitemap [skip ci]"
             git push origin main --force
             git push origin main:gh-pages --force
           else
-            echo "No changes to push."
+            echo "No changes to deploy."
           fi
