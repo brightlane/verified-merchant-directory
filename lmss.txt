@@ -1,28 +1,37 @@
-import os
-import json
-
-# ... (inside your generate_network function) ...
-
-def generate_network():
-    # 1. PATH FIX: Use absolute paths for GitHub Actions
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    feed_dir = os.path.join(base_dir, "data", "feeds")
+def update_lmss_log(total_count, breakdown):
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     
-    print(f"🔍 Checking for feeds in: {feed_dir}")
-    
-    if not os.path.exists(feed_dir) or not os.listdir(feed_dir):
-        print("❌ ERROR: No JSON feeds found in data/feeds. Check your Harvester script.")
-        return 0 # This will trigger the 0 in your lmss.txt
+    # Check if we are in a "Zero Data" state
+    status_label = "OPERATIONAL" if total_count > 0 else "DEGRADED (API/FEED ERROR)"
+    status_icon = "✅" if total_count > 0 else "⚠️"
 
-    # 2. FILE VALIDATION: Ensure JSON isn't empty
-    total_count = 0
-    for filename in os.listdir(feed_dir):
-        if filename.endswith(".json"):
-            with open(os.path.join(feed_dir, filename), 'r') as f:
-                products = json.load(f)
-                if len(products) == 0:
-                    print(f"⚠️ Warning: {filename} is empty.")
-                    continue
-                # ... (rest of your generation logic) ...
-                total_count += len(products)
-    return total_count
+    log_content = [
+        "==========================================",
+        "      VULTURE ENGINE 10K PRO v17          ",
+        f"      STATUS: {status_label} {status_icon} ",
+        "==========================================",
+        f"OPERATOR: brightlane",
+        f"LAST BUILD: {timestamp}",
+        f"TOTAL PAGES LIVE: {total_count}",
+        "------------------------------------------",
+        "CAMPAIGN AUDIT STATUS:"
+    ]
+    
+    # If 0 pages, alert on every campaign
+    if total_count == 0:
+        log_content.append("!!! ALERT: ALL FEEDS RETURNED 0 PRODUCTS !!!")
+        log_content.append("Check LinkConnector API Key or Feed URLs.")
+    
+    for m_id in sorted(breakdown.keys()):
+        count = breakdown[m_id]
+        indicator = "✅" if count > 0 else "❌"
+        log_content.append(f"ID {m_id}: {count} Pages | {indicator}")
+
+    log_content.extend([
+        "------------------------------------------",
+        "BUILD STATUS: LOGGED",
+        "=========================================="
+    ])
+    
+    with open("lmss.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(log_content))
