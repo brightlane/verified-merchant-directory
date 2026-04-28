@@ -5,45 +5,36 @@ from datetime import datetime
 BASE_URL = "https://brightlane.github.io/verified-merchant-directory/"
 
 def generate_sitemap():
-    print("🛰️ VULTURE MAPPER: DEEP SCAN STARTING...")
-    
-    # Get the current directory (the root of the repo)
+    print("🛰️ SITEMAP: Starting Deep Scan...")
     root_dir = os.getcwd()
-    print(f"🔍 Root Directory: {root_dir}")
-    
-    sitemap_header = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    sitemap_header += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap_header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     
     urls = []
     now = datetime.now().strftime("%Y-%m-%d")
     
-    # 1. Always include the homepage
-    urls.append(f'  <url>\n    <loc>{BASE_URL}</loc>\n    <lastmod>{now}</lastmod>\n    <priority>1.0</priority>\n  </url>')
+    # 1. Add Homepage
+    urls.append(f'  <url><loc>{BASE_URL}</loc><lastmod>{now}</lastmod><priority>1.0</priority></url>')
 
-    # 2. DEEP SCAN: Walk through every folder
+    # 2. Deep Scan every directory for .html files
     for root, dirs, files in os.walk(root_dir):
-        # Ignore system and data folders to keep the sitemap clean
-        if any(ignored in root for ignored in [".git", ".github", "scripts", "data"]):
+        # Ignore system folders
+        if any(x in root for x in [".git", ".github", "scripts", "data"]): 
             continue
             
         for file in files:
-            if file.endswith(".html") and file != "index.html" and file != "404.html":
-                # Calculate path relative to root
-                rel_path = os.path.relpath(os.path.join(root, file), root_dir)
-                web_path = rel_path.replace("\\", "/") # Ensure web-safe slashes
-                
-                full_url = f"{BASE_URL}{web_path}"
+            # Find any HTML file that isn't a system page
+            if file.endswith(".html") and file not in ["index.html", "404.html"]:
+                rel_path = os.path.relpath(os.path.join(root, file), root_dir).replace("\\", "/")
+                full_url = f"{BASE_URL}{rel_path}"
                 
                 entry = f'  <url>\n    <loc>{full_url}</loc>\n    <lastmod>{now}</lastmod>\n    <priority>0.8</priority>\n  </url>'
                 urls.append(entry)
 
-    # 3. Save the Sitemap to the root
+    # 3. Save sitemap.xml to the root
     with open("sitemap.xml", "w", encoding="utf-8") as f:
-        f.write(sitemap_header)
-        f.write("\n".join(urls))
-        f.write("\n</urlset>")
+        f.write(sitemap_header + "\n".join(urls) + "\n</urlset>")
     
-    print(f"✅ SUCCESS: Sitemap generated with {len(urls)} total URLs.")
+    print(f"✅ SUCCESS: Sitemap updated with {len(urls)} total URLs.")
 
 if __name__ == "__main__":
     generate_sitemap()
