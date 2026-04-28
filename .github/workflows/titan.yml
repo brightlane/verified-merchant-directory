@@ -1,0 +1,45 @@
+name: 🦅 VULTURE TITAN ENGINE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛰️ Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 📦 Install
+        run: pip install requests
+
+      - name: 🏗️ Create Dirs
+        run: mkdir -p data/feeds merchants scripts assets
+
+      - name: 🦅 Run Vulture
+        run: |
+          python scripts/vulture_harvester.py
+          python scripts/vulture_gen.py
+        env:
+          API_KEY: "621835730ae935d10dc9bf41380d1f54"
+
+      - name: 🚀 Print to Web
+        run: |
+          git config --global user.name "Vulture Bot"
+          git config --global user.email "vulture@brightlane.io"
+          git add .
+          git commit -m "Vulture Titan: Deploy [skip ci]" || echo "No changes"
+          git push origin main
+          git push origin main:gh-pages --force
