@@ -1,75 +1,51 @@
 name: Vulture-Empire-2026-Omni-Protocol
+
 on:
-  workflow_dispatch: # This creates the "Run workflow" button in the Actions tab
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 0 * * *' # Automated daily run
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch: # Allows you to run it manually with the "Run workflow" button
+
+permissions:
+  contents: write
 
 jobs:
-  build-and-sync:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: 1. Pull Latest Repository State
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 
 
-      - name: 2. Initialize Python Environment
+    steps:
+      - name: 🛰️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python Environment
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: 3. Install Core Logic Dependencies
-        run: pip install requests
-
-      - name: 4. Execute Vulture 10K Protocol
+      - name: 📦 Install Dependencies
         run: |
-          mkdir -p data/feeds merchants sitemaps assets
-          python scripts/vulture_harvester.py
-          python scripts/vulture_gen.py
-          python scripts/vulture_sitemap.py
-          python scripts/vulture_index.py
-          python scripts/vulture_blog.py
-          python scripts/vulture_social.py
-          python scripts/vulture_ai_sync.py
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: 📥 Phase 1: Harvest Merchant Feeds
         env:
           LC_API_KEY: ${{ secrets.LC_API_KEY }}
+        run: python scripts/vulture_harvester.py
 
-      - name: 5. Force-Sync and Commit to GitHub
+      - name: 🎨 Phase 2: Generate SEO Empire
+        run: python scripts/vulture_gen.py
+
+      - name: 🚀 Phase 3: Deploy to GitHub Pages
         run: |
-          git config --global user.name "Vulture Bot"
+          git config --global user.name "Vulture-Bot"
           git config --global user.email "vulture@brightlane.net"
           
-          # 1. Stage ALL generated/modified files to prevent rebase errors
-          git add index.html blog.html daily_caption.txt ai_briefing.json lmss.txt sitemap.xml || echo "Some files missing"
+          # Stage all generated merchant pages and the updated index.html
+          git add index.html merchants/ data/feeds/
           
-          # 2. Stage directories if they exist
-          if [ -d "data/feeds" ]; then git add data/feeds/*.json || echo "No feeds"; fi
-          if [ -d "merchants" ]; then git add merchants/ || echo "No merchants"; fi
-          if [ -d "sitemaps" ]; then git add sitemaps/ || echo "No sitemaps"; fi
-          
-          # 3. Final sweep to catch everything else
-          git add *.txt *.html *.json 2>/dev/null || echo "Cleanup complete"
-
-          # 4. Commit and Push ONLY if there are changes
+          # Check if there are changes before committing to avoid empty commit errors
           if git diff --staged --quiet; then
-            echo "No changes to commit. Your site is already up to date."
+            echo "No changes to commit. System is already up to date."
           else
-            git commit -m "Vulture Empire Sync: Omni-Protocol Update [$(date)]"
-            
-            # 5. The Steamroller Rebase
-            git fetch origin main
-            git rebase -X theirs origin/main || (git rebase --abort && git pull --no-rebase origin main --strategy-option=theirs)
-            git push origin main
+            git commit -m "🔥 Vulture Sync: $(date +'%Y-%m-%d %H:%M:%S') [10K Pro]"
+            git push
           fi
-
-      - name: 6. Deploy Live to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
