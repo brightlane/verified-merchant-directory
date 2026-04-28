@@ -1,11 +1,11 @@
-name: Vulture-Build-Pro
+name: Vulture-Build-Pro-v17
 on:
   workflow_dispatch:
   push:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '0 0 * * 1' # Weekly refresh
 
 jobs:
   run-vulture:
@@ -26,38 +26,37 @@ jobs:
       - name: Install Dependencies
         run: pip install requests
 
-      - name: 1. Harvest & Generate (The 10K Engine)
+      - name: 1. Full Engine Build (The 10K Protocol)
         run: |
-          mkdir -p data/feeds
-          mkdir -p merchants
-          mkdir -p sitemaps
+          mkdir -p data/feeds merchants sitemaps
+          # A: Fetch latest data
           python scripts/vulture_harvester.py
+          # B: Generate pages with correct Campaign IDs
           python scripts/vulture_gen.py
+          # C: Build SEO Sitemap
+          python scripts/vulture_sitemap.py
+          # D: Generate Master Index for all 17 merchants
+          python scripts/vulture_index.py
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
-      - name: 2. Build Sitemaps
-        run: python scripts/vulture_sitemap.py
-
-      - name: 3. Sync and Push to Repo
+      - name: 2. Sync and Push to Repo
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           
-          # Stage all generated files
-          git add data/feeds/ merchants/ sitemaps/ sitemap.xml lmss.txt
+          # Track all generated assets and metadata
+          git add data/feeds/ merchants/ sitemaps/ sitemap.xml lmss.txt robots.txt 404.html affiliate.json index.html
           
-          # Commit the changes
-          git commit -m "Vulture Full Build & Meta Update: $(date)" || echo "No changes to commit"
+          git commit -m "Full Build: 17 Campaigns Updated $(date)" || echo "No changes to commit"
           
-          # FORCED SYNC LOGIC: 
-          # This tells Git to favor the "local" (Bot) changes during a rebase conflict.
+          # Conflict Prevention: Bot version always overrides server version
           git fetch origin main
           git rebase -X theirs origin/main || (git rebase --abort && git pull --no-rebase origin main --strategy-option=theirs)
           
           git push origin main
 
-      - name: 4. Deploy to GitHub Pages
+      - name: 3. Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
