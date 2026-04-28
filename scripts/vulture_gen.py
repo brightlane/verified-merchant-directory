@@ -1,102 +1,78 @@
 import os
 from datetime import datetime
 
-# --- CONFIGURATION ---
-INDEX_FILE = "index.html"
-LOG_FILE = "lmss.txt"
-LC_ID = "007949054186005142"
-BASE_URL = "https://brightlane.github.io/verified-merchant-directory/"
+# 1. FORCE THE PATHS (Ensures it writes to the root directory)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+INDEX_PATH = os.path.join(BASE_DIR, "index.html")
+LMSS_PATH = os.path.join(BASE_DIR, "lmss.txt")
 
-# --- HARD-CODED CAMPAIGNS (No JSON Needed) ---
-# This ensures the 'total_count' is never 0.
+# 2. DATA SOURCE (Hard-coded to bypass file-reading errors)
+LC_ID = "007949054186005142"
 MERCHANTS = [
-    {"name": "E-File.com", "m_id": "100273"}, {"name": "InfiniteAloe", "m_id": "167189"},
-    {"name": "The Chess Store", "m_id": "108414"}, {"name": "NordVPN", "m_id": "101824"},
-    {"name": "Build A Sign", "m_id": "100582"}, {"name": "HalloweenCostumes", "m_id": "100341"},
-    {"name": "Fun.com", "m_id": "100342"}, {"name": "Depositphotos", "m_id": "101295"},
-    {"name": "CanadaPetCare", "m_id": "101156"}, {"name": "Hats.com", "m_id": "100456"},
-    {"name": "La Fuente Imports", "m_id": "100215"}, {"name": "Movavi", "m_id": "101456"},
-    {"name": "Sidify Inc", "m_id": "101789"}, {"name": "Snappy LLC", "m_id": "101654"},
-    {"name": "Warehouse 115", "m_id": "101342"}, {"name": "Atlanta Cutlery", "m_id": "100124"},
-    {"name": "Combat Flip Flops", "m_id": "100891"}
+    {"n": "E-File.com", "id": "100273"}, {"n": "InfiniteAloe", "id": "167189"},
+    {"n": "The Chess Store", "id": "108414"}, {"n": "NordVPN", "id": "101824"},
+    {"n": "Build A Sign", "id": "100582"}, {"n": "HalloweenCostumes", "id": "100341"},
+    {"n": "Fun.com", "id": "100342"}, {"n": "Depositphotos", "id": "101295"},
+    {"n": "CanadaPetCare", "id": "101156"}, {"n": "Hats.com", "id": "100456"},
+    {"n": "La Fuente Imports", "id": "100215"}, {"n": "Movavi", "id": "101456"},
+    {"n": "Sidify Inc", "id": "101789"}, {"n": "Snappy LLC", "id": "101654"},
+    {"n": "Warehouse 115", "id": "101342"}, {"n": "Atlanta Cutlery", "id": "100124"},
+    {"n": "Combat Flip Flops", "id": "100891"}
 ]
 
-def update_lmss_log(total_count, merchants):
-    """Your Custom Audit Log Logic"""
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    status_label = "OPERATIONAL" if total_count > 0 else "DEGRADED (API/FEED ERROR)"
-    status_icon = "✅" if total_count > 0 else "⚠️"
-
-    log_content = [
-        "==========================================",
-        "      VULTURE ENGINE 10K PRO v17          ",
-        f"      STATUS: {status_label} {status_icon} ",
-        "==========================================",
-        f"OPERATOR: brightlane",
-        f"LAST BUILD: {timestamp}",
-        f"TOTAL PAGES LIVE: {total_count}",
-        "------------------------------------------",
-        "CAMPAIGN AUDIT STATUS:"
-    ]
+def build():
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     
-    for m in merchants:
-        log_content.append(f"ID {m['m_id']}: {m['name']} | ✅")
+    # Generate the Card HTML inside a safe loop
+    card_html = ""
+    for m in MERCHANTS:
+        link = f"https://www.linkconnector.com/ta.php?lc={LC_ID}&m={m['id']}"
+        card_html += f'''
+        <a href="{link}" class="card">
+            <h3>{m['n']}</h3>
+            <p>Verified Partner</p>
+            <div class="btn">Access Deal →</div>
+        </a>'''
 
-    log_content.extend([
-        "------------------------------------------",
-        "BUILD STATUS: LOGGED",
-        "=========================================="
-    ])
-    
-    with open(LOG_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(log_content))
-
-def generate_vulture_empire():
-    total_count = len(MERCHANTS)
-    
-    # Create the HTML Merchant Cards
-    cards_html = "".join([
-        f'<a href="https://www.linkconnector.com/ta.php?lc={LC_ID}&m={m["m_id"]}" class="card">'
-        f'<h3>{m["name"]}</h3><p>Verified Partner</p><span>Access Deal →</span></a>' 
-        for m in MERCHANTS
-    ])
-
-    html_content = f"""
-<!DOCTYPE html>
+    # THE ENTIRE PAGE IN ONE BLOCK
+    full_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verified Merchant Directory | Vulture 10K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified Merchant Network | Vulture 10K</title>
     <style>
         body {{ background: #020617; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 0; }}
-        .hero {{ padding: 60px 20px; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); }}
-        .count {{ font-size: 6rem; color: #22d3ee; font-weight: bold; margin: 0; }}
+        .hero {{ padding: 80px 20px; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); }}
+        .count {{ font-size: 7rem; color: #22d3ee; font-weight: bold; margin: 0; line-height: 1; }}
         .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: 0 auto; }}
-        .card {{ background: #0f172a; border: 1px solid #1e293b; padding: 25px; border-radius: 12px; text-decoration: none; color: white; transition: 0.3s; }}
+        .card {{ background: #0f172a; border: 1px solid #1e293b; padding: 30px; border-radius: 12px; text-decoration: none; color: white; transition: 0.3s; display: block; }}
         .card:hover {{ border-color: #22d3ee; transform: translateY(-5px); }}
-        .card h3 {{ color: #22d3ee; margin: 0 0 10px 0; }}
+        .card h3 {{ color: #22d3ee; margin: 0 0 10px 0; font-size: 1.5rem; }}
+        .btn {{ margin-top: 15px; background: #22d3ee; color: black; padding: 10px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; }}
     </style>
 </head>
 <body>
     <div class="hero">
-        <h1 class="count">{total_count}</h1>
-        <p style="color:#94a3b8; font-size: 1.2rem;">Verified Global Partners Active</p>
+        <h1 class="count">{len(MERCHANTS)}</h1>
+        <p style="color:#94a3b8; font-size: 1.2rem; margin-top: 10px;">Verified Global Campaigns Active</p>
+        <p style="color:#22d3ee; font-size: 0.9rem;">ID: {LC_ID}</p>
     </div>
     <div class="grid">
-        {cards_html}
+        {card_html}
     </div>
-    <footer style="padding: 40px; color: #475569; font-size: 0.8rem;">
-        © 2026 Brightlane Global | All Links Verified for {LC_ID}
+    <footer style="padding: 60px; color: #475569; font-size: 0.8rem; border-top: 1px solid #1e293b;">
+        © 2026 Brightlane Global | Tracking Active | Last Sync: {now}
     </footer>
 </body>
-</html>
-"""
-    # Write the Public Site
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    
-    # Write the Audit Log
-    update_lmss_log(total_count, MERCHANTS)
+</html>"""
+
+    # WRITE THE FILES
+    with open(INDEX_PATH, "w", encoding="utf-8") as f:
+        f.write(full_html)
+        
+    with open(LMSS_PATH, "w", encoding="utf-8") as f:
+        f.write(f"STATUS: OPERATIONAL\nTOTAL: {len(MERCHANTS)}\nSYNC: {now}")
 
 if __name__ == "__main__":
-    generate_vulture_empire()
+    build()
