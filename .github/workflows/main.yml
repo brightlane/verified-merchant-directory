@@ -1,54 +1,49 @@
-name: Vulture Sync
+name: Vulture Sync 2026
 
 on:
   workflow_dispatch:
     inputs:
-      reason:
-        description: 'Reason for manual run'
+      manual_trigger:
+        description: 'Force a full empire rebuild'
+        default: 'true'
         required: false
-        default: 'Manual Empire Refresh'
   push:
     branches:
       - main
-      - master # Added for compatibility
 
 permissions:
   contents: write
 
 jobs:
-  vulture-sync:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🛰️ Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: 🐍 Python Setup
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+      
+      - name: Install
+        run: pip install requests
 
-      - name: 🔄 Force Sync Remote
+      - name: Sync Repo
         run: |
           git config --global user.name "vulture-bot"
           git config --global user.email "vulture@brightlane.net"
-          git pull --rebase origin ${{ github.ref_name }}
+          git pull --rebase origin main
 
-      - name: 📥 Phase 1: Harvest
+      - name: Harvest & Generate
         env:
           LC_API_KEY: ${{ secrets.LC_API_KEY }}
-        run: python scripts/vulture_harvester.py
+        run: |
+          python scripts/vulture_harvester.py
+          python scripts/vulture_gen.py
 
-      - name: 🎨 Phase 2: Generate
-        run: python scripts/vulture_gen.py
-
-      - name: 🚀 Phase 3: Push Changes
+      - name: Deploy
         run: |
           git add .
-          if git diff --staged --quiet; then
-            echo "No changes found."
-          else
-            git commit -m "🔥 Vulture Sync: $(date +'%Y-%m-%d %H:%M:%S')"
-            git push origin ${{ github.ref_name }}
-          fi
+          git commit -m "🔥 Automated Empire Sync [$(date)]" || exit 0
+          git push origin main
