@@ -2,94 +2,122 @@ import json
 import os
 from datetime import datetime
 
-# --- CONFIG ---
+# --- SETTINGS ---
 FEED_DIR = "data/feeds"
-MERCHANT_DIR = "merchants"
 INDEX_FILE = "index.html"
-SITEMAP_FILE = "sitemap.xml"
-LOG_FILE = "lmss.txt"
 BASE_URL = "https://brightlane.github.io/verified-merchant-directory/"
 
-def update_lmss_log(total_count, breakdown):
-    """Generates the Audit Report"""
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    status_label = "OPERATIONAL" if total_count > 0 else "DEGRADED (API/FEED ERROR)"
-    status_icon = "✅" if total_count > 0 else "⚠️"
-
-    log_content = [
-        "==========================================",
-        "      VULTURE ENGINE 10K PRO v17          ",
-        f"      STATUS: {status_label} {status_icon} ",
-        "==========================================",
-        f"OPERATOR: brightlane",
-        f"LAST BUILD: {timestamp}",
-        f"TOTAL PAGES LIVE: {total_count}",
-        "------------------------------------------",
-        "CAMPAIGN AUDIT STATUS:"
-    ]
-    
-    if total_count == 0:
-        log_content.append("!!! ALERT: ALL FEEDS RETURNED 0 PRODUCTS !!!")
-    
-    for m_id in sorted(breakdown.keys()):
-        count = breakdown.get(m_id, 0)
-        indicator = "✅" if count > 0 else "❌"
-        log_content.append(f"ID {m_id}: {count} Pages | {indicator}")
-
-    log_content.extend([
-        "------------------------------------------",
-        "BUILD STATUS: LOGGED",
-        "=========================================="
-    ])
-    
-    with open(LOG_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(log_content))
-
 def generate_vulture_empire():
-    print("🚀 VULTURE 10K ENGINE: INITIATING...")
+    # 1. Gather Data
+    generated_count = 0
+    merchant_data = []
     
-    if not os.path.exists(MERCHANT_DIR):
-        os.makedirs(MERCHANT_DIR)
-
-    generated_paths = []
-    merchant_breakdown = {}
-
-    # Process JSON feeds from the harvester
     if os.path.exists(FEED_DIR):
-        feeds = [f for f in os.listdir(FEED_DIR) if f.endswith('.json')]
-        for feed in feeds:
-            m_id = feed.replace('.json', '')
-            m_path = os.path.join(MERCHANT_DIR, m_id)
-            if not os.path.exists(m_path): os.makedirs(m_path)
-            
-            try:
-                with open(os.path.join(FEED_DIR, feed), 'r') as f:
-                    products = json.load(f)
-                
-                for item in products:
-                    slug = item.get('name', 'deal').lower().replace(" ", "-")[:50]
-                    file_path = f"{m_id}/{slug}.html"
-                    with open(os.path.join(MERCHANT_DIR, file_path), "w") as p:
-                        p.write(f"<html><body><h1>{item.get('name')}</h1></body></html>")
-                    generated_paths.append(f"merchants/{file_path}")
-                
-                merchant_breakdown[m_id] = len(products)
-            except:
-                merchant_breakdown[m_id] = 0
+        for feed in [f for f in os.listdir(FEED_DIR) if f.endswith('.json')]:
+            with open(os.path.join(FEED_DIR, feed), 'r') as f:
+                data = json.load(f)
+                merchant_data.extend(data)
+                generated_count += len(data)
 
-    # Build Sitemap
-    with open(SITEMAP_FILE, "w") as s:
-        s.write('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
-        for path in generated_paths:
-            s.write(f'<url><loc>{BASE_URL}{path}</loc></url>')
-        s.write('</urlset>')
+    # 2. THE MASTER HTML TEMPLATE (Your Architecture)
+    # This prevents the "eating" of your code because the code LIVES here now.
+    html_content = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="alternate" hreflang="x-default" href="{BASE_URL}" />
+    <link rel="alternate" hreflang="en-us" href="{BASE_URL}?lang=en-us" />
+    <link rel="alternate" hreflang="es" href="{BASE_URL}?lang=es" />
+    <link rel="alternate" hreflang="fr" href="{BASE_URL}?lang=fr" />
+    <link rel="alternate" hreflang="de" href="{BASE_URL}?lang=de" />
+    
+    <title>Vulture AI Video & Podcast Editor | Studio Sound & Voice Cloning</title>
+    <meta name="description" content="Professional AI video editor with studio sound, voice cloning, and filler word removal. Join 7M+ users scaling their content.">
+    
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Vulture Engine",
+      "operatingSystem": "Web",
+      "applicationCategory": "MultimediaApplication",
+      "aggregateRating": {{ "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "8540" }}
+    }}
+    </script>
 
-    # Build Index
-    with open(INDEX_FILE, "w") as f:
-        f.write(f"<html><body style='background:#020617;color:white;'><h1>{len(generated_paths)} Links Active</h1></body></html>")
+    <style>
+        :root {{ --navy: #020617; --cyan: #22d3ee; --slate: #94a3b8; }}
+        body {{ background: var(--navy); color: white; font-family: 'Inter', sans-serif; margin: 0; }}
+        .sticky-nav {{ position: sticky; top: 0; background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(10px); padding: 15px; border-bottom: 1px solid #1e293b; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }}
+        .cta-btn {{ background: var(--cyan); color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }}
+        .hero {{ padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); }}
+        .ticker {{ background: #0f172a; padding: 10px 0; overflow: hidden; white-space: nowrap; border-y: 1px solid #1e293b; }}
+        .ticker-content {{ display: inline-block; animation: scroll 30s linear infinite; }}
+        @keyframes scroll {{ from {{ transform: translateX(0); }} to {{ transform: translateX(-50%); }} }}
+    </style>
+</head>
+<body>
 
-    # CRITICAL: THIS RUNS THE LOG FUNCTION
-    update_lmss_log(len(generated_paths), merchant_breakdown)
+    <nav class="sticky-nav">
+        <div style="font-weight:bold; color:var(--cyan)">VULTURE ENGINE</div>
+        <a href="#pricing" class="cta-btn" aria-label="Start Free Trial">Get Started Free</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Advanced AI Video & Podcast Editing</h1>
+        <p style="color:var(--slate)">{generated_count} Merchant Feeds Active • Trusted by 7M+ Users</p>
+        <div style="margin-top:20px;">
+            <span style="color:var(--cyan)">★★★★★</span> G2 Rating: 4.9/5
+        </div>
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-content">
+            EN • ES • FR • DE • IT • PT • JA • ZH • KO • HI • AR • RU • TR • VI • EN • ES • FR • DE • IT • PT • JA • ZH
+        </div>
+    </div>
+
+    <section id="pricing" style="padding:50px 20px; text-align:center;">
+        <h2>Simple Pricing for Global Teams</h2>
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+            <div style="border:1px solid #1e293b; padding:30px; border-radius:12px; background:#0f172a; width:250px;">
+                <h3>Creator</h3>
+                <p>$0/mo</p>
+                <a href="#" class="cta-btn" style="display:block">Start Free</a>
+            </div>
+            <div style="border:2px solid var(--cyan); padding:30px; border-radius:12px; background:#0f172a; width:250px; position:relative;">
+                <span style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--cyan); color:black; padding:2px 10px; border-radius:20px; font-size:12px;">MOST POPULAR</span>
+                <h3>Pro</h3>
+                <p>$12/mo</p>
+                <a href="#" class="cta-btn" style="display:block">Go Pro</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // UTM Parameter Injection Logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const utm = urlParams.get('utm_source') || 'brightlane_direct';
+        document.querySelectorAll('a').forEach(link => {{
+            if(link.href.includes('?')) {{
+                link.href += '&utm_source=' + utm;
+            }} else {{
+                link.href += '?utm_source=' + utm;
+            }}
+        }});
+    </script>
+
+</body>
+</html>
+"""
+    
+    # 3. Write the file (This is what makes it live)
+    with open(INDEX_FILE, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"✅ Global SEO Architecture Deployed with {generated_count} links.")
 
 if __name__ == "__main__":
     generate_vulture_empire()
