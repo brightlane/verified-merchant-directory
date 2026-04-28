@@ -1,31 +1,34 @@
 import json
 import urllib.parse
 
-def generate_affiliate_link(merchant_key, target_url=None):
-    # Load the approved data
-    with open('approved_merchants.json', 'r') as f:
-        data = json.load(f)
-    
-    merchant = data['merchants'].get(merchant_key)
-    if not merchant:
-        return "Merchant not in approved list."
+def generate_affiliate_link(merchant_key, target_url):
+    # 1. Load the master config (rebuild_config.py ensures this exists)
+    try:
+        with open('approved_merchants.json', 'r') as f:
+            config = json.load(f)
+    except FileNotFoundError:
+        return "Error: Config Missing"
 
-    # Use base URL if no specific product URL is provided
-    final_target = target_url if target_url else merchant['base_url']
-    
-    # URL Encode the target for the 'url' parameter
-    encoded_url = urllib.parse.quote(final_target, safe='')
-    
-    # Construct the LinkConnector deep link
-    # Format: ta.php?lc=[AFF_ID][LC_ID]&url=[ENCODED_TARGET]
-    aff_link = f"https://www.linkconnector.com/ta.php?lc={data['affiliate_id']}{merchant['lc_id']}&url={encoded_url}"
-    
-    return aff_link
+    # 2. Get User ID (Your ID: 014538)
+    aff_id = config.get('affiliate_id', '014538')
 
-# EXAMPLES FOR YOUR LANDING PAGES
-# 1. Broad Home Page Link
-print(f"Main Store: {generate_affiliate_link('lyst')}")
+    # 3. Get Merchant Specific Data
+    # This is where the e-file.com leak usually happens
+    merchant_data = config['merchants'].get(merchant_key)
 
-# 2. Deep Product Link (e.g. from an AbeBooks search result)
-product_url = "https://www.abebooks.com/servlet/BookDetailsPL?bi=12345"
-print(f"Deep Product Link: {generate_affiliate_link('abebooks', product_url)}")
+    if not merchant_data:
+        # Fallback to prevent dead links, but log the error
+        print(f"CRITICAL: No merchant data for {merchant_key}")
+        return target_url 
+
+    # 4. Construct the Merchant-Specific LC String
+    # Format: https://www.linkconnector.com/ta.php?lc=[AFF_ID][LC_ID]&url=[ENCODED_URL]
+    lc_id = merchant_data['lc_id']
+    encoded_url = urllib.parse.quote(target_url, safe='')
+    
+    final_link = f"https://www.linkconnector.com/ta.php?lc={aff_id}{lc_id}&url={encoded_url}"
+    
+    return final_link
+
+# TEST RUN: 
+# print(generate_affiliate_link('build_a_sign', 'https://www.buildasign.com/banners'))
