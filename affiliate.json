@@ -1,91 +1,23 @@
 {
   "global_affiliate_id": "007949054186005142",
   "campaigns": {
-    "70695": {
-      "name": "Build A Sign LLC",
-      "lc_pid": "70695",
-      "niche": "Retail/Custom"
-    },
-    "88473": {
-      "name": "HalloweenCostumes.com",
-      "lc_pid": "88473",
-      "niche": "Events/Apparel"
-    },
-    "100273": {
-      "name": "E-file.com",
-      "lc_pid": "100273",
-      "niche": "Finance/Tax"
-    },
-    "120034": {
-      "name": "NordVPN",
-      "lc_pid": "120034",
-      "niche": "SaaS/Security"
-    },
-    "53532": {
-      "name": "Depositphotos Inc",
-      "lc_pid": "53532",
-      "niche": "Media/Creative"
-    },
-    "139297": {
-      "name": "Fun.com",
-      "lc_pid": "139297",
-      "niche": "Events/Retail"
-    },
-    "112345": {
-      "name": "CanadaPetCare.com",
-      "lc_pid": "112345",
-      "niche": "Retail/Pets"
-    },
-    "118992": {
-      "name": "Combat Flip Flops",
-      "lc_pid": "118992",
-      "niche": "Retail/Apparel"
-    },
-    "67231": {
-      "name": "Hats.com LLC",
-      "lc_pid": "67231",
-      "niche": "Retail/Apparel"
-    },
-    "82110": {
-      "name": "InfiniteAloe",
-      "lc_pid": "82110",
-      "niche": "Health/Beauty"
-    },
-    "55432": {
-      "name": "La Fuente Imports",
-      "lc_pid": "55432",
-      "niche": "Retail/Home"
-    },
-    "99821": {
-      "name": "Movavi Software Limited",
-      "lc_pid": "99821",
-      "niche": "SaaS/Video"
-    },
-    "90122": {
-      "name": "Atlanta Cutlery Corp",
-      "lc_pid": "90122",
-      "niche": "Retail/Collector"
-    },
-    "88762": {
-      "name": "Sidify Inc",
-      "lc_pid": "88762",
-      "niche": "SaaS/Audio"
-    },
-    "133221": {
-      "name": "Snappy LLC",
-      "lc_pid": "133221",
-      "niche": "Retail/Gifts"
-    },
-    "77654": {
-      "name": "The Chess Store Inc",
-      "lc_pid": "77654",
-      "niche": "Retail/Games"
-    },
-    "94432": {
-      "name": "Warehouse 115 Inc",
-      "lc_pid": "94432",
-      "niche": "Retail/Wholesale"
-    }
+    "70695":  { "name": "Build A Sign LLC", "cat": "retail" },
+    "88473":  { "name": "HalloweenCostumes.com", "cat": "events" },
+    "100273": { "name": "E-file.com", "cat": "finance" },
+    "120034": { "name": "NordVPN", "cat": "saas" },
+    "53532":  { "name": "Depositphotos Inc", "cat": "media" },
+    "139297": { "name": "Fun.com", "cat": "events" },
+    "112345": { "name": "CanadaPetCare.com", "cat": "retail" },
+    "118992": { "name": "Combat Flip Flops", "cat": "retail" },
+    "67231":  { "name": "Hats.com LLC", "cat": "retail" },
+    "82110":  { "name": "InfiniteAloe", "cat": "retail" },
+    "55432":  { "name": "La Fuente Imports", "cat": "retail" },
+    "99821":  { "name": "Movavi Software Limited", "cat": "saas" },
+    "90122":  { "name": "Atlanta Cutlery Corp", "cat": "retail" },
+    "88762":  { "name": "Sidify Inc", "cat": "saas" },
+    "133221": { "name": "Snappy LLC", "cat": "retail" },
+    "77654":  { "name": "The Chess Store Inc", "cat": "retail" },
+    "94432":  { "name": "Warehouse 115 Inc", "cat": "retail" }
   },
-  "tracking_template": "https://www.linkconnector.com/ta.php?lc={aff_id}&lc_pid={pid}&url={target}"
+  "base_tracking_url": "https://www.linkconnector.com/ta.php"
 }
