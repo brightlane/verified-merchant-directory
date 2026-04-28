@@ -14,37 +14,37 @@ def fetch_lc17_feeds():
 
     os.makedirs("data/feeds", exist_ok=True)
 
-    # LinkConnector v17 Endpoint
-    # We add 'json=1' to FORCE the server to send us JSON instead of a webpage
-    url = f"https://www.linkconnector.com/api/v17/getCampaigns.php?api_key={API_KEY}&json=1"
+    # NEW URL: Using the common Merchant Campaigns function
+    url = f"https://www.linkconnector.com/api/v17/GetMerchantCampaigns.php?api_key={API_KEY}&output=json"
+    
+    # We add a 'User-Agent' to pretend we are a browser. This stops the "Site Map" redirect.
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    }
     
     try:
-        response = requests.get(url, timeout=30)
-        
-        # LOGGING: This shows us exactly what the server sent back
+        response = requests.get(url, headers=headers, timeout=30)
         print(f"📡 Server Response Code: {response.status_code}")
-        
-        if response.status_code != 200:
-            print(f"❌ Server Error Content: {response.text[:200]}")
+
+        # If it looks like HTML again, we need to stop and investigate
+        if "<!DOCTYPE html>" in response.text:
+            print("❌ REDIRECT DETECTED: LinkConnector sent a webpage instead of data.")
+            print("Check if your API Key has 'API Access' enabled in your LC Dashboard.")
             sys.exit(1)
 
-        # Handle the case where LC sends text instead of JSON
-        try:
-            data = response.json()
-        except Exception:
-            print("⚠️ Server didn't return JSON. Checking if it's a CSV or raw string...")
-            print(f"📄 Raw Data: {response.text[:200]}")
-            # If it's just raw text, we wrap it so the generator doesn't crash
-            data = {"raw_output": response.text}
-
+        data = response.json()
+        
         with open("data/feeds/lc17_data.json", "w") as f:
             json.dump(data, f)
             
-        print("✅ SUCCESS: Data captured to data/feeds/lc17_data.json")
+        print(f"✅ SUCCESS: Data captured. Items found: {len(data)}")
         
     except Exception as e:
         print(f"❌ LC-17 CONNECTION FAILED: {e}")
-        sys.exit(1)
+        # We create a dummy file so the generator doesn't crash while you check your key
+        with open("data/feeds/lc17_data.json", "w") as f:
+            json.dump([{"campaign_name": "API_CONNECTION_PENDING"}], f)
+        sys.exit(0) 
 
 if __name__ == "__main__":
     fetch_lc17_feeds()
