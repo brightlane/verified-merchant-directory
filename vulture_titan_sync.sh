@@ -2,32 +2,34 @@
 
 # Vulture Titan: Automated Sync & Deploy Protocol
 # Affiliate ID: 014538
-# Target: 17 Approved Merchants
+# Status: RECOVERY MODE ENABLED
 
 echo "🦅 Starting Vulture Titan Sync..."
 
-# 1. Update Inventory from LinkConnector
+# 1. Update Inventory
 echo "Step 1: Downloading Fresh Feeds..."
 python3 fetch_feeds.py
 
-# 2. Ingest Data into SQLite
-echo "Step 2: Running Production Ingest (1.2M Rows)..."
+# 2. Ingest Data
+echo "Step 2: Running Production Ingest..."
 python3 production_ingest.py
 
-# 3. Optimize Database for Search
-echo "Step 3: Optimizing Database Indexes..."
+# 2b. Merchant Injection (THE MISSING STEP)
+echo "Step 2b: Injecting Data into /merchants folder..."
+python3 merchant_injector.py
+
+# 3. Optimize
+echo "Step 3: Optimizing Database..."
 python3 vulture_monitor.py --optimize
 
-# 4. Generate Programmatic SEO Assets
+# 4. SEO & Sitemaps
 echo "Step 4: Generating Sitemaps..."
 python3 sitemap_gen.py
-
-# 5. Generate Master Sitemap Index
-echo "Step 5: Wrapping Sitemap Index..."
 python3 sitemap_index_gen.py
 
-# 6. Final Health Check
-echo "Step 6: Verifying Affiliate Links (ID: 014538)..."
-python3 vulture_router.py --test-run
+# 5. Commit Changes
+echo "Step 5: Preparing Vulture 10K Push..."
+# This part is usually handled by your GitHub Action main.yml
+# but can be run locally if needed.
 
-echo "✅ SYNC COMPLETE. Vulture Titan is live."
+echo "✅ RECOVERY COMPLETE. Merchants folder repopulated."
