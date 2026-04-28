@@ -1,42 +1,37 @@
 import requests, json, os
 
 API_KEY = os.getenv("LC_API_KEY")
-# Testing with only the most reliable IDs first to confirm the connection
-MERCHANTS = ["53532", "18340", "138882"] 
+# Testing with IDs that usually have massive, open datafeeds
+MERCHANTS = ["154977", "138882", "53532"] 
 
 def harvest():
-    print(f"📡 API CHECK: Using Key prefix {API_KEY[:5]}...")
+    print(f"📡 VULTURE: Connecting to LinkConnector...")
     all_data = []
     os.makedirs("data/feeds", exist_ok=True)
     
     for mid in MERCHANTS:
-        # LinkConnector sometimes requires specific search types
+        # We are using getFeedProductSearch but removing 'Limit' to get everything
         url = f"https://www.linkconnector.com/api/?Key={API_KEY}&Function=getFeedProductSearch&MerchantID={mid}&Format=JSON&JSON=1"
         
         try:
             r = requests.get(url, timeout=30)
             print(f"📡 MID {mid} Status: {r.status_code}")
             
-            # Check if the response is actually JSON or an error message
-            try:
-                data = r.json()
-            except:
-                print(f"❌ MID {mid} returned non-JSON: {r.text[:100]}")
-                continue
-
+            # If the response is empty, it might be an auth issue or feed access issue
+            data = r.json()
             if isinstance(data, list) and len(data) > 0:
                 all_data.extend(data)
-                print(f"✅ MID {mid}: Found {len(data)} items.")
+                print(f"✅ MID {mid}: Captured {len(data)} items.")
             else:
-                print(f"⚠️ MID {mid}: No products found in feed.")
+                print(f"⚠️ MID {mid}: Feed returned 0 items. Check Datafeed Approval in LC.")
                 
         except Exception as e:
-            print(f"❌ MID {mid} Connection Error: {e}")
+            print(f"❌ MID {mid} Error: {e}")
         
     with open("data/feeds/lc17_products.json", "w") as f:
         json.dump(all_data, f)
     
-    print(f"🔥 HARVEST COMPLETE: {len(all_data)} TOTAL PRODUCTS.")
+    print(f"🔥 TOTAL PRODUCTS: {len(all_data)}")
 
 if __name__ == "__main__":
     harvest()
