@@ -13,35 +13,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: 🛰️ Checkout
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches full history so rebase works
+          fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - name: 🐍 Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       
-      - name: Install
+      - name: 📦 Deps
         run: pip install requests
 
-      - name: Harvest
+      - name: 🔄 Sync Remote Changes
+        run: |
+          git config --global user.name "vulture-bot"
+          git config --global user.email "vulture@brightlane.net"
+          # Pull any manual changes you made before we start generating
+          git pull --rebase origin main
+
+      - name: 📥 Phase 1: Harvest
         env:
           LC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: python scripts/vulture_harvester.py
 
-      - name: Generate
+      - name: 🎨 Phase 2: Generate (Empire + Sitemap)
         run: python scripts/vulture_gen.py
 
-      - name: Deploy
+      - name: 🚀 Phase 3: Deploy
         run: |
-          git config --global user.name "vulture-bot"
-          git config --global user.email "vulture@brightlane.net"
           git add .
-          
-          # Pull latest changes to avoid the [rejected] error
-          git pull --rebase origin main
-          
-          # Only commit and push if there are actual changes
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
