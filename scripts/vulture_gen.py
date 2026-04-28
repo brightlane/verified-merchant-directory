@@ -1,50 +1,60 @@
 import json
 import os
 
-def generate_product_pages():
-    print("🏗️ GENERATOR: Printing LC-17 Product Pages...")
-    feed_path = "data/feeds/lc17_data.json"
+def generate_pages():
+    print("🏗️ GENERATOR: Scaling to 10,000 Pages...")
+    feed_dir = "data/feeds"
     output_dir = "merchants"
+    os.makedirs(output_dir, exist_ok=True)
     
-    # Ensure the directory exists
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    total_count = 0
     
-    if not os.path.exists(feed_path):
-        print("⚠️ FEED MISSING: No data to process.")
+    if not os.path.exists(feed_dir):
         return
 
-    with open(feed_path, 'r') as f:
-        try:
-            data = json.load(f)
-        except Exception as e:
-            print(f"❌ JSON ERROR: {e}")
-            return
-
-    # Handle both list format and dictionary wrap
-    products = data if isinstance(data, list) else data.get('results', [])
-
-    count = 0
-    for p in products:
-        # If the product is just a string (the error we saw), skip it
-        if not isinstance(p, dict):
-            continue
-            
-        # Extracting data based on LC-17 Feed structure
-        name = p.get('ProductName', p.get('campaign_name', 'Verified Product'))
-        merchant = p.get('Merchant', 'LC-Partner')
-        
-        # Clean the slug for the URL
-        safe_name = "".join([c for c in name if c.isalnum() or c==' ']).strip().replace(' ', '-')
-        file_name = f"{merchant.lower()}-{safe_name.lower()}.html"
-        path = os.path.join(output_dir, file_name)
-        
-        with open(path, 'w', encoding='utf-8') as f:
-            f.write(f"<html><head><title>{name}</title></head>")
-            f.write(f"<body><h1>{name}</h1><p>Merchant: {merchant}</p></body></html>")
-        count += 1
-        
-    print(f"✅ SUCCESS: Generated {count} Merchant Product pages.")
+    for filename in os.listdir(feed_dir):
+        if filename.endswith(".json"):
+            with open(os.path.join(feed_dir, filename), 'r') as f:
+                try:
+                    data = json.load(f)
+                    products = data if isinstance(data, list) else []
+                    
+                    for p in products:
+                        if not isinstance(p, dict): continue
+                        
+                        name = p.get('ProductName', p.get('campaign_name', 'Product'))
+                        merchant = p.get('Merchant', 'Verified-Merchant')
+                        
+                        # Generate high-performance SEO URL
+                        slug = f"{merchant}-{name}".lower().replace(' ', '-').replace('.', '')
+                        path = os.path.join(output_dir, f"{slug}.html")
+                        
+                        # The HTML Template
+                        html_content = f"""
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>{name} | {merchant} Verified</title>
+                            <style>body{{font-family:sans-serif;padding:50px;line-height:1.6;}} .box{{border:2px solid #eee;padding:20px;}}</style>
+                        </head>
+                        <body>
+                            <div class="box">
+                                <h1>{name}</h1>
+                                <p>Official Merchant: <strong>{merchant}</strong></p>
+                                <hr>
+                                <p>Welcome to the 2026 Verified Merchant Directory. This landing page is optimized for <strong>{name}</strong>.</p>
+                                <a href="https://brightlane.github.io/verified-merchant-directory/">Back to Directory</a>
+                            </div>
+                        </body>
+                        </html>
+                        """
+                        with open(path, 'w', encoding='utf-8') as out:
+                            out.write(html_content)
+                        total_count += 1
+                except:
+                    continue
+                    
+    print(f"✅ TOTAL SUCCESS: Generated {total_count} pages.")
 
 if __name__ == "__main__":
-    generate_product_pages()
+    generate_pages()
