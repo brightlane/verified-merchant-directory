@@ -1,19 +1,15 @@
 import requests
 import json
 import os
-import sys
 
 API_KEY = os.getenv("LC_API_KEY")
 
-def fetch_lc17_only():
+def fetch_lc17_data():
     print("🚀 VULTURE: Harvesting Official LinkConnector 17...")
-    if not API_KEY:
-        print("❌ CRITICAL: LC_API_KEY is missing!")
-        sys.exit(1)
-
     os.makedirs("data/feeds", exist_ok=True)
-    url = "https://www.linkconnector.com/api/"
+    feed_path = "data/feeds/lc17_products.json"
     
+    url = "https://www.linkconnector.com/api/"
     params = {
         'Key': API_KEY,
         'Function': 'getFeedProductSearch',
@@ -23,25 +19,19 @@ def fetch_lc17_only():
     
     try:
         response = requests.get(url, params=params, timeout=60)
-        # LinkConnector sometimes wraps JSON in a way that looks like a string. 
-        # We need to ensure we have a list.
-        try:
+        
+        # Check if the API actually gave us content
+        if response.status_code == 200 and len(response.text) > 10:
             data = response.json()
-        except:
-            print("⚠️ Direct JSON failed, attempting to parse text...")
-            data = json.loads(response.text)
-
-        if isinstance(data, list) and len(data) > 0:
-            with open("data/feeds/lc17_products.json", "w") as f:
-                json.dump(data, f)
-            print(f"✅ SUCCESS: Captured {len(data)} LC-17 Products.")
-        else:
-            print("⚠️ API returned 0 results. Check LC dashboard subscriptions.")
-            # Keep an empty list to prevent the Generator from crashing
-            with open("data/feeds/lc17_products.json", "w") as f:
-                json.dump([], f)
+            if isinstance(data, list) and len(data) > 0:
+                with open(feed_path, "w") as f:
+                    json.dump(data, f)
+                print(f"✅ SUCCESS: Captured {len(data)} items.")
+                return
+        
+        print("⚠️ API returned no new data. Preserving existing feed file.")
     except Exception as e:
-        print(f"❌ Connection Error: {e}")
+        print(f"❌ Connection Error: {e}. Holding last known data.")
 
 if __name__ == "__main__":
-    fetch_lc17_only()
+    fetch_lc17_data()
