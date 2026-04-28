@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Skyscanner Flight Deals 2026",
+    "description": "Cheap flights to World Cup host cities.",
+    "buy_link": "https://www.skyscanner.com/transport/flights/us/2026-world-cup/?associateid=brightlane",
+    "merchant_id": "skyscanner",
+    "category": "Travel"
+  },
+  {
+    "name": "TurboRefund Express Tax Filing",
+    "description": "Fast IRS refund status and professional tax filing for 2026.",
+    "buy_link": "https://www.e-file.com/index.php?afid=007949054186005142",
+    "merchant_id": "100273",
+    "category": "Finance"
+  },
+  {
+    "name": "StadiumStay Global Hotels",
+    "description": "Luxury hotels within walking distance of World Cup stadiums.",
+    "buy_link": "https://www.booking.com/stadiumstay/?aid=brightlane",
+    "merchant_id": "stadiumstay",
+    "category": "Travel"
+  }
+]
