@@ -1,27 +1,75 @@
-- name: 5. Force-Sync and Commit to GitHub
+name: Vulture-Empire-2026-Omni-Protocol
+on:
+  workflow_dispatch: # This creates the "Run workflow" button in the Actions tab
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Automated daily run
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 1. Pull Latest Repository State
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: 2. Initialize Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 3. Install Core Logic Dependencies
+        run: pip install requests
+
+      - name: 4. Execute Vulture 10K Protocol
+        run: |
+          mkdir -p data/feeds merchants sitemaps assets
+          python scripts/vulture_harvester.py
+          python scripts/vulture_gen.py
+          python scripts/vulture_sitemap.py
+          python scripts/vulture_index.py
+          python scripts/vulture_blog.py
+          python scripts/vulture_social.py
+          python scripts/vulture_ai_sync.py
+        env:
+          LC_API_KEY: ${{ secrets.LC_API_KEY }}
+
+      - name: 5. Force-Sync and Commit to GitHub
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           
-          # AGGRESSIVE ADD: Stage everything that was just created/modified
-          git add index.html blog.html daily_caption.txt ai_briefing.json lmss.txt sitemap.xml || echo "Non-critical files skipped"
+          # 1. Stage ALL generated/modified files to prevent rebase errors
+          git add index.html blog.html daily_caption.txt ai_briefing.json lmss.txt sitemap.xml || echo "Some files missing"
           
-          # Directory checks - adding whatever exists
-          if [ -d "data/feeds" ]; then git add data/feeds/*.json || echo "No feeds found"; fi
-          if [ -d "merchants" ]; then git add merchants/ || echo "No merchant pages found"; fi
-          if [ -d "sitemaps" ]; then git add sitemaps/ || echo "No sitemaps found"; fi
+          # 2. Stage directories if they exist
+          if [ -d "data/feeds" ]; then git add data/feeds/*.json || echo "No feeds"; fi
+          if [ -d "merchants" ]; then git add merchants/ || echo "No merchants"; fi
+          if [ -d "sitemaps" ]; then git add sitemaps/ || echo "No sitemaps"; fi
           
-          # Final safety add for everything else in the root
-          git add *.txt *.html *.json 2>/dev/null || echo "Final sweep complete"
+          # 3. Final sweep to catch everything else
+          git add *.txt *.html *.json 2>/dev/null || echo "Cleanup complete"
 
-          # COMMIT: Only proceed if there is actually something to save
+          # 4. Commit and Push ONLY if there are changes
           if git diff --staged --quiet; then
-            echo "No changes to commit. Skipping sync."
+            echo "No changes to commit. Your site is already up to date."
           else
             git commit -m "Vulture Empire Sync: Omni-Protocol Update [$(date)]"
             
-            # STEAMROLLER REBASE: This is the critical part to fix your error
+            # 5. The Steamroller Rebase
             git fetch origin main
             git rebase -X theirs origin/main || (git rebase --abort && git pull --no-rebase origin main --strategy-option=theirs)
             git push origin main
           fi
+
+      - name: 6. Deploy Live to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
