@@ -1,9 +1,11 @@
-name: Vulture-Build
+name: Vulture-Build-Pro
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * 1' # Automatic weekly refresh
 
 jobs:
   run-vulture:
@@ -11,7 +13,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -19,24 +21,33 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install
+      - name: Install Dependencies
         run: pip install requests
 
-      - name: Harvest and Generate
+      - name: 1. Harvest & Generate (The 10K Engine)
         run: |
           mkdir -p data/feeds
           mkdir -p merchants
+          mkdir -p sitemaps
           python scripts/vulture_harvester.py
           python scripts/vulture_gen.py
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
-      - name: Push to Repo
+      - name: 2. Build Sitemaps (Google/Bing Map)
+        run: python scripts/vulture_sitemap.py
+
+      - name: 3. Commit and Push Changes
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
-          # This forces git to see the new folders
-          git add data/feeds/ merchants/ 
-          # This commit command won't crash if nothing changed
-          git commit -m "Vulture Update: $(date)" || echo "No changes to commit"
+          # Adding everything including the new sitemaps
+          git add data/feeds/ merchants/ sitemaps/ sitemap.xml
+          git commit -m "Vulture Full Build: $(date)" || echo "No changes to commit"
           git push
+
+      - name: 4. Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
