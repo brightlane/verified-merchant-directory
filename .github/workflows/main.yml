@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 1' # Automatic weekly refresh at midnight
+    - cron: '0 0 * * 1' # Automatic weekly refresh at midnight on Mondays
 
 jobs:
   run-vulture:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches all history so rebase works perfectly
+          fetch-depth: 0 # Essential for the rebase-sync to work
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,6 +31,7 @@ jobs:
           mkdir -p data/feeds
           mkdir -p merchants
           mkdir -p sitemaps
+          # Creates pages and updates lmss.txt metadata
           python scripts/vulture_harvester.py
           python scripts/vulture_gen.py
         env:
@@ -43,11 +44,13 @@ jobs:
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
-          git add data/feeds/ merchants/ sitemaps/ sitemap.xml
-          git commit -m "Vulture Full Build: $(date)" || echo "No changes to commit"
           
-          # The fix for the 'rejected' error: 
-          # Pull the latest changes from you before pushing the bot's work
+          # Stage all data, merchants, sitemaps, and the meta log
+          git add data/feeds/ merchants/ sitemaps/ sitemap.xml lmss.txt
+          
+          git commit -m "Vulture Full Build & Meta Update: $(date)" || echo "No changes to commit"
+          
+          # Pull latest changes from you (brightlane) to prevent 'rejected' errors
           git pull --rebase origin main
           git push origin main
 
@@ -56,4 +59,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          publish_branch: gh-pages # Separates the 'live' site from the 'code' branch
+          publish_branch: gh-pages
