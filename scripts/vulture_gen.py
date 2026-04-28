@@ -4,58 +4,46 @@ import re
 import shutil
 
 def slugify(text):
-    text = str(text).lower()
-    text = re.sub(r'[^a-z0-9]+', '-', text)
-    return text.strip('-')
+    return re.sub(r'[^a-z0-9]+', '-', str(text).lower()).strip('-')
 
-def generate_persistent_pages():
-    print("🏗️ VULTURE LMSS: Checking for LC-17 Data...")
+def generate_production_pages():
+    print("🏗️ VULTURE: Building 10k Product Index...")
     feed_file = "data/feeds/lc17_products.json"
     output_dir = "merchants"
     
     if not os.path.exists(feed_file):
-        print("🛑 STOP: Feed file missing.")
+        print("🛑 Error: No data file found at data/feeds/lc17_products.json")
         return
 
-    # Load and validate
-    try:
-        with open(feed_file, 'r', encoding='utf-8') as f:
-            products = json.load(f)
-    except:
-        products = []
+    with open(feed_file, 'r') as f:
+        products = json.load(f)
 
-    # SAFETY GATE: If products == 0, stop here and leave the folder alone.
-    if not products or len(products) == 0:
-        print("⚠️ No products in feed. Keeping existing pages to protect sitemap.")
+    if not products:
+        print("⚠️ Feed is empty. Nothing to build.")
         return
 
-    print(f"🔥 Data Verified! Rebuilding {len(products)} merchant pages...")
-    
-    # Only wipe if we have the new data ready
+    # Clear and Rebuild
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     os.makedirs(output_dir)
 
-    count = 0
     for p in products:
-        if not isinstance(p, dict): continue
-        
-        name = p.get('ProductName', 'Verified Product')
-        merchant = p.get('Merchant', 'Official Partner')
-        
+        name = p.get('ProductName', 'Product')
+        merchant = p.get('Merchant', 'Merchant')
         slug = f"{slugify(merchant)}-{slugify(name)}"
-        path = os.path.join(output_dir, f"{slug}.html")
         
-        # Standard SEO Template
-        html = f"""<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>{name}</title></head>
-        <body style="font-family:sans-serif;padding:40px;"><h1>{name}</h1><p>Merchant: {merchant}</p>
-        <hr><a href="../">Return to Directory</a></body></html>"""
+        # High-Conversion Template
+        html = f"""<!DOCTYPE html><html><head><title>{name}</title></head>
+        <body style="font-family:sans-serif;padding:50px;">
+        <span style="color:blue;">Verified {merchant} Partner</span>
+        <h1>{name}</h1>
+        <a href="../" style="display:inline-block;margin-top:20px;">Back to Directory</a>
+        </body></html>"""
         
-        with open(path, 'w', encoding='utf-8') as out:
+        with open(os.path.join(output_dir, f"{slug}.html"), 'w') as out:
             out.write(html)
-        count += 1
-        
-    print(f"✅ SUCCESS: {count} Pages Printed.")
+
+    print(f"✅ BUILD COMPLETE: {len(products)} pages created.")
 
 if __name__ == "__main__":
-    generate_persistent_pages()
+    generate_production_pages()
