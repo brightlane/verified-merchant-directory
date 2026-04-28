@@ -4,46 +4,47 @@ import os
 
 API_KEY = os.getenv("LC_API_KEY")
 
-def fetch_aggressive_products():
-    print("🦅 VULTURE: Aggressive Product Harvest Initialized...")
+def fetch_verified_feeds():
+    print("🦅 VULTURE: Targeting Verified Merchant IDs...")
     os.makedirs("data/feeds", exist_ok=True)
-    feed_path = "data/feeds/lc17_products.json"
     
-    # We are broadening the search parameters to 'grab everything' 
-    # rather than filtering by a specific search term.
+    # IDs pulled directly from your dashboard screenshot
+    merchant_ids = [
+        "138882", "70695", "151214", "152912", "53532", 
+        "100273", "139297", "88473", "25028", "167189", 
+        "1641", "153105", "158029", "159685", "110813", 
+        "154977", "18340"
+    ]
+    
+    all_products = []
     url = "https://www.linkconnector.com/api/"
-    params = {
-        'Key': API_KEY,
-        'Function': 'getFeedProductSearch',
-        'Format': 'JSON',
-        'JSON': '1',
-        'Category': '0', # 0 often acts as a wildcard for 'All Categories'
-        'Limit': '10000' # Setting the target high
-    }
-    
-    try:
-        response = requests.get(url, params=params, timeout=90)
-        
-        # Parse the response carefully
-        raw_data = response.json()
-        
-        # LinkConnector API quirk: Sometimes the data is nested under a 'results' key
-        products = []
-        if isinstance(raw_data, list):
-            products = raw_data
-        elif isinstance(raw_data, dict):
-            products = raw_data.get('results', [])
 
-        if len(products) > 0:
-            with open(feed_path, "w") as f:
-                json.dump(products, f)
-            print(f"🔥 SUCCESS: Found {len(products)} products! Pushing to Generator...")
-        else:
-            print("⚠️ API returned 0 products. EMERGENCY: Check 'Tools > Product Feed Export' in LC Dashboard.")
-            # We don't write an empty file here to protect the sitemap
-            
-    except Exception as e:
-        print(f"❌ API Failure: {e}")
+    # We loop through each ID to ensure we grab every catalog
+    for mid in merchant_ids:
+        print(f"📡 Requesting Feed for Merchant: {mid}")
+        params = {
+            'Key': API_KEY,
+            'Function': 'getFeedProductSearch',
+            'MerchantID': mid, # This forces the API to look at THIS specific store
+            'Format': 'JSON',
+            'JSON': '1'
+        }
+        
+        try:
+            response = requests.get(url, params=params, timeout=30)
+            data = response.json()
+            if isinstance(data, list):
+                all_products.extend(data)
+                print(f"   ✅ Found {len(data)} items.")
+        except Exception as e:
+            print(f"   ❌ Skip {mid}: {e}")
+
+    if all_products:
+        with open("data/feeds/lc17_products.json", "w") as f:
+            json.dump(all_products, f)
+        print(f"🔥 TOTAL PRODUCTS CAPTURED: {len(all_products)}")
+    else:
+        print("⚠️ No products returned. Check if API Key has 'Product Feed' permissions.")
 
 if __name__ == "__main__":
-    fetch_aggressive_products()
+    fetch_verified_feeds()
