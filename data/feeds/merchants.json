@@ -1,23 +1,19 @@
 [
-  {
-    "name": "Skyscanner Flight Deals 2026",
-    "description": "Cheap flights to World Cup host cities.",
-    "buy_link": "https://www.skyscanner.com/transport/flights/us/2026-world-cup/?associateid=brightlane",
-    "merchant_id": "skyscanner",
-    "category": "Travel"
-  },
-  {
-    "name": "TurboRefund Express Tax Filing",
-    "description": "Fast IRS refund status and professional tax filing for 2026.",
-    "buy_link": "https://www.e-file.com/index.php?afid=007949054186005142",
-    "merchant_id": "100273",
-    "category": "Finance"
-  },
-  {
-    "name": "StadiumStay Global Hotels",
-    "description": "Luxury hotels within walking distance of World Cup stadiums.",
-    "buy_link": "https://www.booking.com/stadiumstay/?aid=brightlane",
-    "merchant_id": "stadiumstay",
-    "category": "Travel"
-  }
+  {"name": "E-File.com", "m_id": "100273", "category": "Finance"},
+  {"name": "Build A Sign LLC", "m_id": "100582", "category": "Retail"},
+  {"name": "HalloweenCostumes.com", "m_id": "100341", "category": "Retail"},
+  {"name": "NordVPN", "m_id": "101824", "category": "SaaS"},
+  {"name": "Depositphotos Inc", "m_id": "101295", "category": "Media"},
+  {"name": "Fun.com", "m_id": "100342", "category": "Retail"},
+  {"name": "CanadaPetCare.com", "m_id": "101156", "category": "Pets"},
+  {"name": "Combat Flip Flops", "m_id": "100891", "category": "Retail"},
+  {"name": "Hats.com LLC", "m_id": "100456", "category": "Retail"},
+  {"name": "InfiniteAloe", "m_id": "100912", "category": "Health"},
+  {"name": "La Fuente Imports", "m_id": "100215", "category": "Retail"},
+  {"name": "Movavi Software Limited", "m_id": "101456", "category": "SaaS"},
+  {"name": "Atlanta Cutlery Corp", "m_id": "100124", "category": "Retail"},
+  {"name": "Sidify Inc", "m_id": "101789", "category": "SaaS"},
+  {"name": "Snappy LLC", "m_id": "101654", "category": "SaaS"},
+  {"name": "The Chess Store Inc", "m_id": "100567", "category": "Games"},
+  {"name": "Warehouse 115 Inc", "m_id": "101342", "category": "Retail"}
 ]
