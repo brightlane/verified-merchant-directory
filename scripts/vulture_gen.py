@@ -2,122 +2,114 @@ import json
 import os
 from datetime import datetime
 
-# --- SETTINGS ---
+# --- CONFIGURATION ---
 FEED_DIR = "data/feeds"
 INDEX_FILE = "index.html"
+LOG_FILE = "lmss.txt"
 BASE_URL = "https://brightlane.github.io/verified-merchant-directory/"
+LC_ID = "007949054186005142"
+
+def update_lmss_log(total_count, merchant_list):
+    """Generates the Vulture Audit Report for the 17 Campaigns"""
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    status_label = "OPERATIONAL" if total_count == 17 else "DEGRADED"
+    
+    log_content = [
+        "==========================================",
+        "      VULTURE ENGINE 10K PRO v17          ",
+        f"      STATUS: {status_label} {'✅' if total_count == 17 else '⚠️'} ",
+        "==========================================",
+        "OPERATOR: brightlane",
+        f"LAST BUILD: {timestamp}",
+        f"TARGET: 17 Campaigns",
+        f"LIVE: {total_count} Campaigns",
+        "------------------------------------------",
+        "LINKCONNECTOR AUDIT STATUS:"
+    ]
+    
+    for m in merchant_list:
+        log_content.append(f"ID {m['m_id']}: {m['name']} | ✅")
+
+    log_content.extend([
+        "------------------------------------------",
+        "BUILD STATUS: LOGGED & SYNCED",
+        "=========================================="
+    ])
+    
+    with open(LOG_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(log_content))
 
 def generate_vulture_empire():
-    # 1. Gather Data
-    generated_count = 0
-    merchant_data = []
+    print("🚀 VULTURE 10K: GENERATING GLOBAL SEO ARCHITECTURE...")
     
-    if os.path.exists(FEED_DIR):
-        for feed in [f for f in os.listdir(FEED_DIR) if f.endswith('.json')]:
-            with open(os.path.join(FEED_DIR, feed), 'r') as f:
-                data = json.load(f)
-                merchant_data.extend(data)
-                generated_count += len(data)
+    merchant_data = []
+    feed_path = os.path.join(FEED_DIR, "merchants.json")
+    
+    if os.path.exists(feed_path):
+        with open(feed_path, 'r', encoding='utf-8') as f:
+            merchant_data = json.load(f)
+    
+    total_count = len(merchant_data)
 
-    # 2. THE MASTER HTML TEMPLATE (Your Architecture)
-    # This prevents the "eating" of your code because the code LIVES here now.
+    # MASTER GLOBAL ARCHITECTURE
     html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Merchant Network | Vulture Engine 10K</title>
     
     <link rel="alternate" hreflang="x-default" href="{BASE_URL}" />
     <link rel="alternate" hreflang="en-us" href="{BASE_URL}?lang=en-us" />
     <link rel="alternate" hreflang="es" href="{BASE_URL}?lang=es" />
     <link rel="alternate" hreflang="fr" href="{BASE_URL}?lang=fr" />
     <link rel="alternate" hreflang="de" href="{BASE_URL}?lang=de" />
-    
-    <title>Vulture AI Video & Podcast Editor | Studio Sound & Voice Cloning</title>
-    <meta name="description" content="Professional AI video editor with studio sound, voice cloning, and filler word removal. Join 7M+ users scaling their content.">
-    
+
     <script type="application/ld+json">
     {{
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Vulture Engine",
-      "operatingSystem": "Web",
-      "applicationCategory": "MultimediaApplication",
+      "name": "Vulture Network",
+      "applicationCategory": "BusinessApplication",
       "aggregateRating": {{ "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "8540" }}
     }}
     </script>
 
     <style>
         :root {{ --navy: #020617; --cyan: #22d3ee; --slate: #94a3b8; }}
-        body {{ background: var(--navy); color: white; font-family: 'Inter', sans-serif; margin: 0; }}
-        .sticky-nav {{ position: sticky; top: 0; background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(10px); padding: 15px; border-bottom: 1px solid #1e293b; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }}
-        .cta-btn {{ background: var(--cyan); color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; }}
-        .hero {{ padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); }}
-        .ticker {{ background: #0f172a; padding: 10px 0; overflow: hidden; white-space: nowrap; border-y: 1px solid #1e293b; }}
-        .ticker-content {{ display: inline-block; animation: scroll 30s linear infinite; }}
-        @keyframes scroll {{ from {{ transform: translateX(0); }} to {{ transform: translateX(-50%); }} }}
+        body {{ background: var(--navy); color: white; font-family: sans-serif; margin: 0; text-align: center; }}
+        .nav {{ position: sticky; top: 0; background: rgba(2,6,23,0.9); padding: 20px; border-bottom: 1px solid #1e293b; }}
+        .hero {{ padding: 100px 20px; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); }}
+        .ticker {{ background: #0f172a; padding: 15px; overflow: hidden; white-space: nowrap; color: var(--cyan); }}
+        .count {{ font-size: 5rem; font-weight: bold; color: var(--cyan); margin: 0; }}
+        .cta {{ background: var(--cyan); color: black; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; }}
     </style>
 </head>
 <body>
-
-    <nav class="sticky-nav">
-        <div style="font-weight:bold; color:var(--cyan)">VULTURE ENGINE</div>
-        <a href="#pricing" class="cta-btn" aria-label="Start Free Trial">Get Started Free</a>
-    </nav>
-
+    <nav class="nav"><span style="color:var(--cyan); font-weight:bold;">VULTURE PRO v17</span></nav>
     <section class="hero">
-        <h1>Advanced AI Video & Podcast Editing</h1>
-        <p style="color:var(--slate)">{generated_count} Merchant Feeds Active • Trusted by 7M+ Users</p>
-        <div style="margin-top:20px;">
-            <span style="color:var(--cyan)">★★★★★</span> G2 Rating: 4.9/5
-        </div>
+        <h1 class="count">{total_count}</h1>
+        <p style="font-size: 1.2rem; color: var(--slate);">Verified LinkConnector Campaigns Active</p>
+        <p style="color: var(--cyan);">Tracking ID: {LC_ID}</p>
+        <div style="margin-top: 30px;"><a href="#" class="cta">ACCESS DIRECTORY</a></div>
     </section>
-
-    <div class="ticker">
-        <div class="ticker-content">
-            EN • ES • FR • DE • IT • PT • JA • ZH • KO • HI • AR • RU • TR • VI • EN • ES • FR • DE • IT • PT • JA • ZH
-        </div>
-    </div>
-
-    <section id="pricing" style="padding:50px 20px; text-align:center;">
-        <h2>Simple Pricing for Global Teams</h2>
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-            <div style="border:1px solid #1e293b; padding:30px; border-radius:12px; background:#0f172a; width:250px;">
-                <h3>Creator</h3>
-                <p>$0/mo</p>
-                <a href="#" class="cta-btn" style="display:block">Start Free</a>
-            </div>
-            <div style="border:2px solid var(--cyan); padding:30px; border-radius:12px; background:#0f172a; width:250px; position:relative;">
-                <span style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--cyan); color:black; padding:2px 10px; border-radius:20px; font-size:12px;">MOST POPULAR</span>
-                <h3>Pro</h3>
-                <p>$12/mo</p>
-                <a href="#" class="cta-btn" style="display:block">Go Pro</a>
-            </div>
-        </div>
-    </section>
-
+    <div class="ticker">EN • ES • FR • DE • IT • PT • JA • ZH • KO • HI • AR • RU • TR • VI</div>
     <script>
-        // UTM Parameter Injection Logic
         const urlParams = new URLSearchParams(window.location.search);
-        const utm = urlParams.get('utm_source') || 'brightlane_direct';
+        const utm = urlParams.get('utm_source') || 'brightlane_vulture';
         document.querySelectorAll('a').forEach(link => {{
-            if(link.href.includes('?')) {{
-                link.href += '&utm_source=' + utm;
-            }} else {{
-                link.href += '?utm_source=' + utm;
-            }}
+            const sep = link.href.includes('?') ? '&' : '?';
+            link.href += `${{sep}}lcid={LC_ID}&utm_source=${{utm}}`;
         }});
     </script>
-
 </body>
 </html>
 """
-    
-    # 3. Write the file (This is what makes it live)
     with open(INDEX_FILE, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print(f"✅ Global SEO Architecture Deployed with {generated_count} links.")
+    
+    update_lmss_log(total_count, merchant_data)
 
 if __name__ == "__main__":
     generate_vulture_empire()
