@@ -6,44 +6,36 @@ import shutil
 def slugify(text):
     return re.sub(r'[^a-z0-9]+', '-', str(text).lower()).strip('-')
 
-def generate_production_pages():
-    print("🏗️ VULTURE: Building 10k Product Index...")
-    feed_file = "data/feeds/lc17_products.json"
+def build_massive_directory():
+    print("🏗️ VULTURE LMSS: Building Massive Directory...")
+    feed_path = "data/feeds/lc17_products.json"
     output_dir = "merchants"
-    
-    if not os.path.exists(feed_file):
-        print("🛑 Error: No data file found at data/feeds/lc17_products.json")
-        return
 
-    with open(feed_file, 'r') as f:
+    if not os.path.exists(feed_path): return
+
+    with open(feed_path, 'r') as f:
         products = json.load(f)
 
     if not products:
-        print("⚠️ Feed is empty. Nothing to build.")
+        print("⚠️ Feed empty.")
         return
 
-    # Clear and Rebuild
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     os.makedirs(output_dir)
 
+    # Building pages in bulk
     for p in products:
-        name = p.get('ProductName', 'Product')
-        merchant = p.get('Merchant', 'Merchant')
-        slug = f"{slugify(merchant)}-{slugify(name)}"
+        m_name = p.get('Merchant', 'Partner')
+        p_name = p.get('ProductName', 'Product')
+        slug = f"{slugify(m_name)}-{slugify(p_name)}"
         
-        # High-Conversion Template
-        html = f"""<!DOCTYPE html><html><head><title>{name}</title></head>
-        <body style="font-family:sans-serif;padding:50px;">
-        <span style="color:blue;">Verified {merchant} Partner</span>
-        <h1>{name}</h1>
-        <a href="../" style="display:inline-block;margin-top:20px;">Back to Directory</a>
-        </body></html>"""
+        html = f"<html><body><h1>{p_name}</h1><p>Via {m_name}</p></body></html>"
         
-        with open(os.path.join(output_dir, f"{slug}.html"), 'w') as out:
-            out.write(html)
+        with open(os.path.join(output_dir, f"{slug}.html"), 'w') as f:
+            f.write(html)
 
-    print(f"✅ BUILD COMPLETE: {len(products)} pages created.")
+    print(f"✅ DONE: Generated {len(products)} pages.")
 
 if __name__ == "__main__":
-    generate_production_pages()
+    build_massive_directory()
