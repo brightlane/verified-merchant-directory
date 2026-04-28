@@ -2,31 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ seo_title }}</title>
-    <link rel="canonical" href="https://yourlinkdomain.com/p/{{ product.slug }}">
-    <meta name="description" content="Official deal for {{ product.title }} from {{ merchant_name }}. Verified affiliate link.">
-    <link rel="stylesheet" href="/assets/chameleon.css"> </head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{{ product.title }} | Official Verified Merchant Partner</title>
+    <meta name="description" content="Shop {{ product.title }} at the best price. Verified affiliate link for {{ merchant_name }}.">
+    <link rel="canonical" href="https://brightlane.github.io/verified-merchant-directory/p/{{ product.slug }}">
+    
+    <link rel="stylesheet" href="/assets/chameleon.css">
+    
+    <style>
+        :root { --merchant-brand: #2c3e50; } /* Default fallback */
+        
+        .vulture-container { max-width: 1100px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .product-gallery img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-info h1 { font-size: 2.5rem; margin-top: 0; }
+        .price-tag { font-size: 2rem; color: #b12704; font-weight: bold; margin: 20px 0; }
+        .buy-now-wrapper { margin-top: 30px; }
+        .buy-btn { 
+            background: var(--merchant-brand); 
+            color: white; 
+            padding: 20px 40px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.4rem; 
+            border-radius: 8px; 
+            display: inline-block;
+            transition: transform 0.2s, filter 0.2s;
+        }
+        .buy-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .meta-data { margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.9rem; color: #666; }
+        
+        @media (max-width: 768px) {
+            .vulture-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body data-merchant="{{ product.merchant_key }}">
+
     <nav class="breadcrumbs">
-        <a href="/">Home</a> &raquo; 
-        <a href="/c/{{ product.merchant_key }}">{{ product.merchant_key|title }}</a> &raquo; 
+        <a href="/">Home</a> &nbsp;/&nbsp; 
+        <a href="/merchants/{{ product.merchant_key }}">{{ merchant_name }}</a> &nbsp;/&nbsp; 
         <span>{{ product.title }}</span>
     </nav>
 
-    <main>
-        <h1>{{ product.title }}</h1>
-        <div class="product-container">
-            <img src="{{ product.image_url }}" alt="{{ product.title }}" loading="lazy">
-            <div class="details">
-                <p class="price">{{ product.price }}</p>
-                <a href="{{ aff_link }}" class="buy-btn" rel="nofollow noreferrer">Secure Purchase via {{ product.merchant_key|title }}</a>
+    <main class="vulture-container">
+        <section class="product-gallery">
+            <img src="{{ product.image_url }}" alt="{{ product.title }}" onerror="this.src='/assets/placeholder.jpg';">
+        </section>
+
+        <section class="product-info">
+            <h1>{{ product.title }}</h1>
+            <p class="category-label">Category: {{ product.category }}</p>
+            
+            <div class="price-tag">{{ product.price }}</div>
+            
+            <p class="description">{{ product.description }}</p>
+
+            <div class="buy-now-wrapper">
+                <a href="{{ aff_link }}" class="buy-btn" id="vulture-buy-button" rel="nofollow noreferrer noopener">
+                    Buy Now from {{ merchant_name }}
+                </a>
             </div>
-        </div>
-        <article class="description">
-            <h3>Product Information</h3>
-            <p>{{ product.description }}</p>
-        </article>
+
+            <div class="meta-data">
+                <p>Merchant ID: {{ product.merchant_key }}</p>
+                <p>Affiliate Partner ID: 014538</p>
+                <p>Last Updated: {{ product.last_updated }}</p>
+            </div>
+        </section>
     </main>
+
+    <footer style="text-align:center; padding: 50px; background: #f4f4f4;">
+        <p>&copy; 2026 Verified Merchant Directory. All rights reserved.</p>
+    </footer>
 
     <script src="/assets/chameleon.js"></script>
 </body>
