@@ -1,0 +1,52 @@
+name: 🦅 VULTURE TITAN ENGINE
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *' # Automated daily harvest at 2 AM
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛰️ Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 📦 Install dependencies
+        run: pip install requests
+
+      - name: 🦅 Run Harvester (LC-17 API)
+        env:
+          LC_API_KEY: ${{ secrets.LC_API_KEY }}
+        run: python scripts/vulture_harvester.py
+
+      - name: 🏗️ Run Generator (10K pSEO & Sitemap)
+        run: python scripts/vulture_gen.py
+
+      - name: 🔄 Commit & Push to Main
+        run: |
+          git config --global user.name "VultureBot"
+          git config --global user.email "vulture@bot.com"
+          git add sitemap.xml merchants/*.html data/feeds/*.json
+          git commit -m "🦅 VULTURE: Massive Directory Update [$(date)]" || echo "No changes to commit"
+          git push origin main
+
+      - name: 📤 Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # Deploys the entire root including the new sitemap
+
+      - name: 🚀 Finalize Deployment
+        uses: actions/deploy-pages@v4
