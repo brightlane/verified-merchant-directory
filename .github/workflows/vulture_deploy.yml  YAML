@@ -1,16 +1,15 @@
 name: Vulture Auto-Build & Deploy
 on:
+  workflow_dispatch:  # <--- MUST BE EXACTLY THIS
   push:
-    branches: [ main ]
-  workflow_dispatch: # This adds the "Run workflow" button
-  schedule:
-    - cron: '0 0 * * 1' # Runs automatically every Monday at midnight
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push generated pages back to the repo
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -23,25 +22,19 @@ jobs:
       - name: Install Dependencies
         run: pip install requests
 
-      - name: Run Harvester (Get 17 Merchant Feeds)
+      - name: Run Harvester
         run: python scripts/vulture_harvester.py
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
-      - name: Run Page Generator (Build 10,000+ Pages)
+      - name: Run Page Generator
         run: python scripts/vulture_gen.py
 
-      - name: Commit and Push Changes
+      - name: Commit and Push
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           git add data/feeds/*.json
           git add merchants/*.html
-          git commit -m "Automated Vulture Build: $(date)" || echo "No changes to commit"
+          git commit -m "Automated Vulture Build: $(date)" || echo "No changes"
           git push
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
