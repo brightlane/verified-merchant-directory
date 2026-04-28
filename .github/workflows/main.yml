@@ -1,10 +1,6 @@
 name: Vulture-Build
 on:
   workflow_dispatch:
-    inputs:
-      manual:
-        description: 'Run Vulture?'
-        default: 'yes'
   push:
     branches:
       - main
@@ -26,19 +22,21 @@ jobs:
       - name: Install
         run: pip install requests
 
-      - name: Harvest
-        run: python scripts/vulture_harvester.py
+      - name: Harvest and Generate
+        run: |
+          mkdir -p data/feeds
+          mkdir -p merchants
+          python scripts/vulture_harvester.py
+          python scripts/vulture_gen.py
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
-      - name: Generate
-        run: python scripts/vulture_gen.py
-
-      - name: Push
+      - name: Push to Repo
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
-          git add data/feeds/*.json
-          git add merchants/*.html
-          git commit -m "Vulture Update" || echo "No changes"
+          # This forces git to see the new folders
+          git add data/feeds/ merchants/ 
+          # This commit command won't crash if nothing changed
+          git commit -m "Vulture Update: $(date)" || echo "No changes to commit"
           git push
