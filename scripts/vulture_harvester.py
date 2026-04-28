@@ -14,34 +14,36 @@ def fetch_lc17_feeds():
 
     os.makedirs("data/feeds", exist_ok=True)
 
-    # REPAIRED URL: LC-17 uses the 'v17' endpoint with a specific function call
-    # We are calling the 'getCampaigns' function which returns your approved merchants
-    url = f"https://api.linkconnector.com/v17/api.php?api_key={API_KEY}&function=getCampaigns"
+    # LinkConnector v17 Endpoint
+    # We add 'json=1' to FORCE the server to send us JSON instead of a webpage
+    url = f"https://www.linkconnector.com/api/v17/getCampaigns.php?api_key={API_KEY}&json=1"
     
     try:
-        # Some LC-17 endpoints prefer a simple GET, but require specific headers
         response = requests.get(url, timeout=30)
         
-        # If 404 persists, the API might be using the legacy format:
-        if response.status_code == 404:
-            print("🔄 Attempting Legacy LC-17 Format...")
-            url = f"https://www.linkconnector.com/api/v17/getCampaigns.php?api_key={API_KEY}"
-            response = requests.get(url, timeout=30)
+        # LOGGING: This shows us exactly what the server sent back
+        print(f"📡 Server Response Code: {response.status_code}")
+        
+        if response.status_code != 200:
+            print(f"❌ Server Error Content: {response.text[:200]}")
+            sys.exit(1)
 
-        response.raise_for_status()
-        
-        data = response.json()
-        
-        # LinkConnector often wraps data in a 'results' or 'campaigns' object
+        # Handle the case where LC sends text instead of JSON
+        try:
+            data = response.json()
+        except Exception:
+            print("⚠️ Server didn't return JSON. Checking if it's a CSV or raw string...")
+            print(f"📄 Raw Data: {response.text[:200]}")
+            # If it's just raw text, we wrap it so the generator doesn't crash
+            data = {"raw_output": response.text}
+
         with open("data/feeds/lc17_data.json", "w") as f:
             json.dump(data, f)
             
-        print(f"✅ SUCCESS: Harvested LC-17 data. Status: {response.status_code}")
+        print("✅ SUCCESS: Data captured to data/feeds/lc17_data.json")
         
     except Exception as e:
-        print(f"❌ LC-17 HARVEST FAILED: {e}")
-        # To prevent a total build failure while testing, you can remove sys.exit(1)
-        # but for now, we want to know if it fails.
+        print(f"❌ LC-17 CONNECTION FAILED: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
