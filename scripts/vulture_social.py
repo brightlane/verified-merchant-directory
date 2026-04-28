@@ -1,40 +1,69 @@
 import json
 import random
+import os
 from datetime import datetime
 
+# --- CONFIGURATION ---
+CONFIG_FILE = "affiliate.json"
+OUTPUT_FILE = "daily_caption.txt"
+
 def generate_social_post():
-    with open('affiliate.json', 'r') as f:
+    print("📱 Generating Daily Social Media Intelligence...")
+    
+    # 1. Load Master Config
+    if not os.path.exists(CONFIG_FILE):
+        print(f"❌ Error: {CONFIG_FILE} not found.")
+        return
+
+    with open(CONFIG_FILE, 'r') as f:
         config = json.load(f)
     
-    # Pick a random merchant to feature today
-    m_ids = list(config['campaigns'].keys())
-    featured_id = random.choice(m_ids)
-    merchant = config['campaigns'][featured_id]
+    merchants = config.get('campaigns', {})
+    if not merchants:
+        print("⚠️ No merchants found in config.")
+        return
+
+    # 2. Pick a random merchant to feature today
+    m_id = random.choice(list(merchants.keys()))
+    merchant = merchants[m_id]
     
-    # Custom triggers for ManyChat
-    trigger_words = {
+    # 3. Safe Extraction (Prevents KeyError)
+    merchant_name = merchant.get('name', 'Verified Partner')
+    # Use .get() with a fallback 'Verified Merchant' to fix your specific error
+    niche_name = merchant.get('niche', 'Verified Merchant')
+    
+    # 4. Trigger Word Logic for ManyChat
+    # We map specific IDs to trigger words, or use a default
+    trigger_map = {
         "70695": "SIGN",      # Build A Sign
         "88473": "SPOOKY",    # HalloweenCostumes
         "100273": "REFUND",   # E-file
-        "120034": "SECURE"    # NordVPN
+        "120034": "SECURE",   # NordVPN
+        "53532": "PHOTO"      # Depositphotos
     }
-    
-    word = trigger_words.get(featured_id, "DEAL")
+    trigger_word = trigger_map.get(m_id, "DEAL")
+
+    # 5. Build the Caption
+    today = datetime.now().strftime('%B %d, %2026')
     
     caption = f"""
-🚀 DAILY NETWORK UPDATE: {datetime.now().strftime('%Y-%m-%d')}
+🚀 NETWORK UPDATE: {today}
 
-Looking for the best deals on {merchant['name']}? 
-We just refreshed 1,000+ listings in our {merchant['niche']} directory.
+Looking for the best deals on {merchant_name}? 
+Our 10K Engine just refreshed all listings in the {niche_name} directory!
 
-👇 COMMENT '{word}' below and I'll DM you the direct access link!
+Everything is verified and ready for the 2026 season. 🏆
 
-#AffiliateMarketing #Travel2026 #SmartShopping #BrightlaneNetwork
+👇 COMMENT '{trigger_word}' below and I'll DM you the direct access link!
+
+#AffiliateMarketing #SmartShopping #BrightlaneNetwork #{niche_name.replace(' ', '')}
 """
+
+    # 6. Save for the Operator (You)
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write(caption.strip())
     
-    with open("daily_caption.txt", "w") as f:
-        f.write(caption)
-    print(f"✅ Social caption generated for {merchant['name']}. Use trigger word: {word}")
+    print(f"✅ Success! Social caption for {merchant_name} saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     generate_social_post()
