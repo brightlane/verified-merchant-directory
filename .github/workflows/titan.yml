@@ -33,6 +33,8 @@ jobs:
           python scripts/vulture_harvester.py
           python scripts/vulture_gen.py
         env:
+          # This maps your key so the script can find it
+          LC_API_KEY: "621835730ae935d10dc9bf41380d1f54" 
           API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
       - name: 🚀 Print to Web
