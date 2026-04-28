@@ -1,14 +1,14 @@
-name: Vulture-Empire-2026-Final
+name: Vulture-Empire-2026-Omni-Protocol
 on:
   workflow_dispatch:
   push:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *' # Fires every night at midnight to keep the Blog and Social fresh
+    - cron: '0 0 * * *' # Fires daily at midnight to refresh all 17 campaigns
 
 jobs:
-  build-and-deploy:
+  build-and-sync:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -39,7 +39,7 @@ jobs:
           # C: Build Global SEO Sitemap for Google Search Console
           python scripts/vulture_sitemap.py
           
-          # D: Generate Master Directory Homepage (SoftLife/StadiumStay Branding)
+          # D: Generate Master Directory Homepage
           python scripts/vulture_index.py
           
           # E: Daily Blog Intelligence Write (Authority Builder)
@@ -47,6 +47,9 @@ jobs:
           
           # F: Daily Social Media Caption Generator (ManyChat Lead-Gen)
           python scripts/vulture_social.py
+
+          # G: AI Intelligence Sync (For SearchGPT/Perplexity/Custom GPTs)
+          python scripts/vulture_ai_sync.py
         env:
           LC_API_KEY: "621835730ae935d10dc9bf41380d1f54"
 
@@ -55,11 +58,21 @@ jobs:
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           
-          # Track every asset required for the site to function
-          git add data/feeds/ merchants/ sitemaps/ sitemap.xml lmss.txt robots.txt \
-                  404.html affiliate.json index.html blog.html daily_caption.txt
+          # Track every asset required for the ecosystem to function
+          git add data/feeds/*.json \
+                  merchants/ \
+                  sitemaps/ \
+                  sitemap.xml \
+                  lmss.txt \
+                  robots.txt \
+                  404.html \
+                  affiliate.json \
+                  index.html \
+                  blog.html \
+                  daily_caption.txt \
+                  ai_briefing.json
           
-          git commit -m "Vulture Empire Sync: 17 Campaigns + Blog + Social [$(date)]" || echo "No changes detected"
+          git commit -m "Vulture Empire Sync: 17 Campaigns + Blog + Social + AI [$(date)]" || echo "No changes detected"
           
           # The 'Steamroller' logic: Bot version always overrides conflicts
           git fetch origin main
