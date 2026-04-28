@@ -1,37 +1,13 @@
-def update_lmss_log(total_count, breakdown):
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    
-    # Check if we are in a "Zero Data" state
-    status_label = "OPERATIONAL" if total_count > 0 else "DEGRADED (API/FEED ERROR)"
-    status_icon = "✅" if total_count > 0 else "⚠️"
-
-    log_content = [
-        "==========================================",
-        "      VULTURE ENGINE 10K PRO v17          ",
-        f"      STATUS: {status_label} {status_icon} ",
-        "==========================================",
-        f"OPERATOR: brightlane",
-        f"LAST BUILD: {timestamp}",
-        f"TOTAL PAGES LIVE: {total_count}",
-        "------------------------------------------",
-        "CAMPAIGN AUDIT STATUS:"
-    ]
-    
-    # If 0 pages, alert on every campaign
-    if total_count == 0:
-        log_content.append("!!! ALERT: ALL FEEDS RETURNED 0 PRODUCTS !!!")
-        log_content.append("Check LinkConnector API Key or Feed URLs.")
-    
-    for m_id in sorted(breakdown.keys()):
-        count = breakdown[m_id]
-        indicator = "✅" if count > 0 else "❌"
-        log_content.append(f"ID {m_id}: {count} Pages | {indicator}")
-
-    log_content.extend([
-        "------------------------------------------",
-        "BUILD STATUS: LOGGED",
-        "=========================================="
-    ])
-    
-    with open("lmss.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(log_content))
+==========================================
+      VULTURE ENGINE 10K PRO v17          
+      STATUS: DEGRADED (API/FEED ERROR) ⚠️ 
+==========================================
+OPERATOR: brightlane
+LAST BUILD: 2026-04-28 14:08:42
+TOTAL PAGES LIVE: 0
+------------------------------------------
+CAMPAIGN AUDIT STATUS:
+!!! ALERT: ALL FEEDS RETURNED 0 PRODUCTS !!!
+------------------------------------------
+BUILD STATUS: LOGGED
+==========================================
