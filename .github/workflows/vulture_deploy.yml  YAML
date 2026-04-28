@@ -1,12 +1,17 @@
 name: Vulture Auto-Build & Deploy
 on:
-  workflow_dispatch:  # <--- MUST BE EXACTLY THIS
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual run'
+        required: false
+        default: 'Manual Harvest'
   push:
     branches:
       - main
 
 jobs:
-  build-and-deploy:
+  vulture-run:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -30,11 +35,11 @@ jobs:
       - name: Run Page Generator
         run: python scripts/vulture_gen.py
 
-      - name: Commit and Push
+      - name: Push to Repo
         run: |
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           git add data/feeds/*.json
           git add merchants/*.html
-          git commit -m "Automated Vulture Build: $(date)" || echo "No changes"
+          git commit -m "Vulture Build: ${{ github.event.inputs.reason }}" || echo "No changes"
           git push
