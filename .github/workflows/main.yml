@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 1' # Automatic weekly refresh at midnight on Mondays
+    - cron: '0 0 * * 1'
 
 jobs:
   run-vulture:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Essential for the rebase-sync to work
+          fetch-depth: 0 
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -31,7 +31,6 @@ jobs:
           mkdir -p data/feeds
           mkdir -p merchants
           mkdir -p sitemaps
-          # Creates pages and updates lmss.txt metadata
           python scripts/vulture_harvester.py
           python scripts/vulture_gen.py
         env:
@@ -45,13 +44,17 @@ jobs:
           git config --global user.name "Vulture Bot"
           git config --global user.email "vulture@brightlane.net"
           
-          # Stage all data, merchants, sitemaps, and the meta log
+          # Stage all generated files
           git add data/feeds/ merchants/ sitemaps/ sitemap.xml lmss.txt
           
+          # Commit the changes
           git commit -m "Vulture Full Build & Meta Update: $(date)" || echo "No changes to commit"
           
-          # Pull latest changes from you (brightlane) to prevent 'rejected' errors
-          git pull --rebase origin main
+          # FORCED SYNC LOGIC: 
+          # This tells Git to favor the "local" (Bot) changes during a rebase conflict.
+          git fetch origin main
+          git rebase -X theirs origin/main || (git rebase --abort && git pull --no-rebase origin main --strategy-option=theirs)
+          
           git push origin main
 
       - name: 4. Deploy to GitHub Pages
