@@ -1,74 +1,44 @@
+import json
 import os
-from datetime import datetime
 
-# Setup paths to ensure it writes to the root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-INDEX_PATH = os.path.join(BASE_DIR, "index.html")
-LMSS_PATH = os.path.join(BASE_DIR, "lmss.txt")
+FEED_DIR = "data/feeds"
+OUTPUT_DIR = "merchants"
 
-def build_vulture():
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    lc_id = "007949054186005142"
+def generate_lc17_pages():
+    print("🏗️ GENERATOR: Building LC-17 Merchant Nodes...")
     
-    # 1. THE DATA - Locked in place
-    # Hard-coding the merchants directly into the HTML generation
-    html_content = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verified Merchant Directory | 2026 Global Network</title>
-    <style>
-        body {{ background: #020617; color: white; font-family: -apple-system, system-ui, sans-serif; text-align: center; margin: 0; }}
-        .hero {{ padding: 80px 20px; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); border-bottom: 1px solid #1e293b; }}
-        .count {{ font-size: 7rem; font-weight: 900; color: #22d3ee; margin: 0; line-height: 1; }}
-        .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: 0 auto; }}
-        .card {{ background: #0f172a; border: 1px solid #1e293b; padding: 30px; border-radius: 16px; text-decoration: none; color: white; transition: 0.3s; display: block; }}
-        .card:hover {{ border-color: #22d3ee; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(34, 211, 238, 0.1); }}
-        .card h3 {{ color: #22d3ee; margin: 0 0 10px 0; font-size: 1.5rem; }}
-        .btn {{ margin-top: 15px; background: #22d3ee; color: #020617; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; }}
-    </style>
-</head>
-<body>
-    <div class="hero">
-        <h1 class="count">17</h1>
-        <p style="color:#94a3b8; font-size: 1.4rem; margin-top: 15px;">Verified Global Campaigns Active</p>
-        <p style="color:#22d3ee; font-size: 0.9rem; font-family: monospace;">TRACKING ID: {lc_id}</p>
-    </div>
-
-    <div class="grid">
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100273" class="card"><h3>E-File.com</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=167189" class="card"><h3>InfiniteAloe</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=108414" class="card"><h3>The Chess Store</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101824" class="card"><h3>NordVPN</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100582" class="card"><h3>Build A Sign</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100341" class="card"><h3>HalloweenCostumes</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100342" class="card"><h3>Fun.com</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101295" class="card"><h3>Depositphotos</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101156" class="card"><h3>CanadaPetCare</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100456" class="card"><h3>Hats.com</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100215" class="card"><h3>La Fuente Imports</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101456" class="card"><h3>Movavi</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101789" class="card"><h3>Sidify Inc</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101654" class="card"><h3>Snappy LLC</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=101342" class="card"><h3>Warehouse 115</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100124" class="card"><h3>Atlanta Cutlery</h3><div class="btn">Access Deal →</div></a>
-        <a href="https://www.linkconnector.com/ta.php?lc={lc_id}&m=100891" class="card"><h3>Combat Flip Flops</h3><div class="btn">Access Deal →</div></a>
-    </div>
-
-    <footer style="padding: 80px 20px; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b;">
-        <p>© 2026 Brightlane Global | Verified Merchant Directory</p>
-        <p style="font-size: 0.7rem; opacity: 0.5;">Last Build: {now}</p>
-    </footer>
-</body>
-</html>"""
-
-    # 2. WRITE THE FILES
-    with open(INDEX_PATH, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
         
-    with open(LMSS_PATH, "w", encoding="utf-8") as f:
-        f.write(f"VULTURE STATUS: OPERATIONAL\nVERIFIED COUNT: 17\nTIMESTAMP: {now}")
+    feed_path = os.path.join(FEED_DIR, "lc17_data.json")
+    
+    if not os.path.exists(feed_path):
+        print("⚠️ EMPTY: No LC-17 data found. Generator stopping.")
+        return
+
+    with open(feed_path, 'r') as f:
+        data = json.load(f)
+
+    # LinkConnector usually returns a list under a 'campaigns' or 'data' key
+    # Adjusting for standard LC-17 JSON structure
+    campaigns = data.get('campaigns', data) if isinstance(data, dict) else data
+
+    count = 0
+    for campaign in campaigns:
+        # Get the merchant name and create a clean URL slug
+        name = campaign.get('campaign_name', campaign.get('name', 'merchant'))
+        cid = campaign.get('campaign_id', count)
+        slug = f"{cid}-{name.lower().replace(' ', '-')}"
+        
+        path = os.path.join(OUTPUT_DIR, f"{slug}.html")
+        
+        # Creating the static HTML page for each merchant
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(f"<html><head><title>{name} - Verified Merchant</title></head>")
+            f.write(f"<body><h1>{name}</h1><p>Verified LinkConnector 17 Campaign Node</p></body></html>")
+        count += 1
+                
+    print(f"✅ SUCCESS: Generated {count} Merchant Pages from LC-17.")
 
 if __name__ == "__main__":
-    build_vulture()
+    generate_lc17_pages()
