@@ -1,51 +1,49 @@
 name: Vulture-Empire-2026-Omni-Protocol
 
-# 🚀 THIS SECTION CREATES THE "RUN BUTTON"
 on:
-  workflow_dispatch: # <--- This line enables the manual "Run" button
-  schedule:
-    - cron: '0 0 * * *' # Daily automated sync
+  workflow_dispatch:
   push:
     branches:
-      - main # Runs every time you save code to main
+      - main
+  schedule:
+    - cron: '0 0 * * *'
 
 permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  vulture-sync:
     runs-on: ubuntu-latest
     steps:
-      - name: 🛰️ Checkout Repository
+      - name: 🛰️ Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: 🐍 Setup Python
+      - name: 🐍 Python Setup
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: 📦 Install Requirements
+      - name: 📦 Deps
         run: pip install requests
 
-      - name: 📥 Phase 1: Harvest Merchant Feeds
+      - name: 📥 Phase 1: Harvest
         env:
           LC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: python scripts/vulture_harvester.py
 
-      - name: 🎨 Phase 2: Generate Global Empire
+      - name: 🎨 Phase 2: Generate
         run: python scripts/vulture_gen.py
 
-      - name: 🚀 Phase 3: Push to Live Site
+      - name: 🚀 Phase 3: Commit & Push
         run: |
           git config --global user.name "Vulture-Bot"
           git config --global user.email "vulture@brightlane.net"
-          
-          git add index.html merchants/ data/feeds/
-          
-          # Only commit if there are actually changes to show
+          git add .
           if git diff --staged --quiet; then
-            echo "Network already at maximum density. Skipping commit."
+            echo "No changes detected."
           else
-            git commit -m "🔥 Vulture Sync: $(date +'%Y-%m-%d %H:%M:%S') [10K Pro]"
-            git push
+            git commit -m "🔥 Vulture Sync: $(date +'%Y-%m-%d %H:%M:%S')"
+            git push origin main
           fi
