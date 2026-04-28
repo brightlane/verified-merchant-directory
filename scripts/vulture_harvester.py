@@ -1,30 +1,52 @@
-import requests
 import json
 import os
-import sys
 
-# Looks for LC_API_KEY as requested by your script
-API_KEY = os.getenv("LC_API_KEY")
+FEED_DIR = "data/feeds"
+OUTPUT_DIR = "merchants"
 
-def fetch_feeds():
-    print("🚀 VULTURE HARVESTER STARTING...")
+def generate_pages():
+    print(f"🏗️ GENERATOR: Starting build...")
     
-    if not API_KEY:
-        print("❌ CRITICAL ERROR: LC_API_KEY environment variable is missing!")
-        sys.exit(1)
+    # 1. Ensure output directory exists
+    if not os.path.exists(OUTPUT_DIR):
+        print(f"📁 Creating directory: {OUTPUT_DIR}")
+        os.makedirs(OUTPUT_DIR)
+        
+    # 2. Check if we actually have data
+    if not os.path.exists(FEED_DIR):
+        print(f"❌ ERROR: {FEED_DIR} does not exist. Harvester failed!")
+        return
 
-    # Ensure the directory exists
-    os.makedirs("data/feeds", exist_ok=True)
+    feed_files = [f for f in os.listdir(FEED_DIR) if f.endswith(".json")]
+    print(f"📂 Found {len(feed_files)} feed files in {FEED_DIR}")
 
-    # Example Harvest Logic (Replace the URL with your actual feed endpoint)
-    # This is where your Vulture pulls its 10K pages of data
-    print("🛰️ Connecting to LC-17 Protocol...")
-    
-    # Placeholder: replace with your actual harvesting logic
-    # with open("data/feeds/sample_merchant.json", "w") as f:
-    #     json.dump([{"Title": "Sample Product"}], f)
+    if len(feed_files) == 0:
+        print("⚠️ WARNING: No JSON data found. Check your Harvester API key!")
+        return
 
-    print("✅ SUCCESS: Data harvested to data/feeds")
+    count = 0
+    for filename in feed_files:
+        print(f"📄 Processing feed: {filename}")
+        try:
+            with open(os.path.join(FEED_DIR, filename), 'r') as f:
+                products = json.load(f)
+            
+            for p in products:
+                # Use a unique identifier for the filename
+                m_id = str(p.get('id', 'item'))
+                p_name = p.get('Title', 'product').replace(' ', '-').lower()
+                
+                # We save it directly in the 'merchants' folder for the sitemap to find
+                file_name = f"{m_id}-{p_name}.html"
+                path = os.path.join(OUTPUT_DIR, file_name)
+                
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(f"<html><body><h1>{p.get('Title')}</h1></body></html>")
+                count += 1
+        except Exception as e:
+            print(f"❌ FAILED to process {filename}: {e}")
+                
+    print(f"✅ SUCCESS: Generated {count} static HTML pages in /{OUTPUT_DIR}")
 
 if __name__ == "__main__":
-    fetch_feeds()
+    generate_pages()
