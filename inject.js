@@ -1,0 +1,67 @@
+name: 🦅 VULTURE TITAN ENGINE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 * * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 🛰️ Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ✅ Validate Required Files
+        run: |
+          echo "── Checking required files ──"
+          test -f index.html     && echo "✓ index.html"     || (echo "✗ index.html MISSING"     && exit 1)
+          test -f affiliate.json && echo "✓ affiliate.json" || (echo "✗ affiliate.json MISSING"  && exit 1)
+          test -f lmss.txt       && echo "✓ lmss.txt"       || (echo "✗ lmss.txt MISSING"        && exit 1)
+          test -f inject.js      && echo "✓ inject.js"      || (echo "✗ inject.js MISSING"       && exit 1)
+
+      - name: 🔧 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 💉 Run Injector
+        run: node inject.js
+
+      - name: 💾 Commit New Post + Updated lmss.txt
+        run: |
+          git config user.name  "Vulture Titan Engine"
+          git config user.email "vulture@brightlane.bot"
+          git add blog/ lmss.txt
+          git diff --cached --quiet && echo "Nothing to commit" || git commit -m "🦅 Auto-inject: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
+
+      - name: 📤 Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
