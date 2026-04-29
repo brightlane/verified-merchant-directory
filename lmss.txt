@@ -306,7 +306,7 @@
     {
       "slug": "buildasign-custom-banners-review-2026",
       "merchant": "buildasign",
-      "published": false,
+      "published": true,
       "title_en": "BuildASign Review 2026 — Best Custom Banners and Signs Online?",
       "title_zh": "BuildASign测评2026 — 最好的网上定制横幅和标牌？",
       "title_es": "Reseña BuildASign 2026 — ¿Los Mejores Banners y Señales Personalizados Online?",
@@ -446,7 +446,8 @@
           "q": "Puis-je obtenir des remises sur volume ?",
           "a": "Oui. BuildASign propose des tarifs volume pour les commandes importantes."
         }
-      ]
+      ],
+      "published_date": "2026-04-29"
     },
     {
       "slug": "appypie-chatbot-builder-review-2026",
