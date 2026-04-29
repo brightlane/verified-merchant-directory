@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /p/
-Allow: /sitemaps/
-Disallow: /ingest/
-Disallow: /admin/
-Disallow: /scripts/
-
-# Point to your master sitemap index
-Sitemap: https://yourlinkdomain.com/sitemap_index.xml
