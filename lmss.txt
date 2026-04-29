@@ -901,7 +901,7 @@
     {
       "slug": "movavi-screen-recorder-2026",
       "merchant": "movavi",
-      "published": false,
+      "published": true,
       "title_en": "Movavi Screen Recorder Review 2026 — Best for Tutorials and Gameplay?",
       "category_en": "Software",
       "metaDesc_en": "Movavi Screen Recorder review 2026. Record screen, webcam, and audio simultaneously. Is it the best screen recorder for tutorials, online courses, and gameplay?",
@@ -937,6 +937,24 @@
           "q": "Can I edit my recording in Movavi after capturing?",
           "a": "Yes. A built-in editor is included for trimming and basic editing."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "movavi-screen-recorder-2026.html",
+        "movavi-screen-recorder-2026-zh.html",
+        "movavi-screen-recorder-2026-es.html",
+        "movavi-screen-recorder-2026-fr.html",
+        "movavi-screen-recorder-2026-de.html",
+        "movavi-screen-recorder-2026-pt.html",
+        "movavi-screen-recorder-2026-ar.html",
+        "movavi-screen-recorder-2026-hi.html",
+        "movavi-screen-recorder-2026-ru.html",
+        "movavi-screen-recorder-2026-ja.html",
+        "movavi-screen-recorder-2026-ko.html",
+        "movavi-screen-recorder-2026-id.html",
+        "movavi-screen-recorder-2026-it.html",
+        "movavi-screen-recorder-2026-nl.html",
+        "movavi-screen-recorder-2026-pl.html"
       ]
     },
     {
