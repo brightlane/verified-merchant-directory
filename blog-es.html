@@ -1,1 +1,745 @@
-gggg
+<!DOCTYPE html>
+<html lang="es" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="meta-title">Blog Brightlane — Guías de Compra y Reseñas</title>
+  <meta name="description"   id="meta-desc"     content="Guías de compra honestas: software de edición de video, impresión en canvas, certificación CPR, medicamentos para mascotas y más. 24 comerciantes verificados."/>
+  <meta name="keywords"      id="meta-keywords"  content="editor de video,impresión canvas,certificación CPR,medicamentos mascotas,certificación PMP"/>
+  <meta name="robots"        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+  <meta name="author"        content="Brightlane Verified Merchant Directory"/>
+  <link rel="canonical"      id="meta-canonical" href="https://brightlane.github.io/verified-merchant-directory/blog-es.html"/>
+
+  <link rel="alternate" hreflang="es"      href="https://brightlane.github.io/verified-merchant-directory/blog-es.html"/>
+  <link rel="alternate" hreflang="es-es"   href="https://brightlane.github.io/verified-merchant-directory/blog-es.html"/>
+  <link rel="alternate" hreflang="es-mx"   href="https://brightlane.github.io/verified-merchant-directory/blog-es.html"/>
+  <link rel="alternate" hreflang="es-ar"   href="https://brightlane.github.io/verified-merchant-directory/blog-es.html"/>
+  <link rel="alternate" hreflang="en"      href="https://brightlane.github.io/verified-merchant-directory/blog.html"/>
+  <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/verified-merchant-directory/blog.html"/>
+
+  <meta property="og:type"        content="article"/>
+  <meta property="og:site_name"   content="Brightlane Directorio de Comerciantes"/>
+  <meta property="og:title"       id="og-title"  content="Blog Brightlane — Guías de Compra"/>
+  <meta property="og:description" id="og-desc"   content="Guías honestas de compra para software, impresión, certificaciones y más"/>
+  <meta property="og:url"         id="og-url"    content="https://brightlane.github.io/verified-merchant-directory/blog-es.html"/>
+  <meta property="og:image"       content="https://brightlane.github.io/verified-merchant-directory/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height"content="630"/>
+  <meta property="og:locale"      content="es_ES"/>
+  <meta property="og:locale:alternate" content="en_US"/>
+
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       id="tw-title" content="Blog Brightlane"/>
+  <meta name="twitter:description" id="tw-desc"  content="Guías de compra honestas para software, impresión y más"/>
+  <meta name="twitter:image"       content="https://brightlane.github.io/verified-merchant-directory/og-image.png"/>
+
+  <script id="jsonld-article"    type="application/ld+json"></script>
+  <script id="jsonld-faq"        type="application/ld+json"></script>
+  <script id="jsonld-breadcrumb" type="application/ld+json"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg:#0a0b0d;--bg2:#111318;--bg3:#1a1d24;
+      --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+      --text:#e8e9ed;--muted:#8a8d99;--dim:#555866;
+      --accent:#e8ff47;--accent2:#47ffb8;--accent3:#ff6b35;--gold:#f5c842;
+      --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--radius:12px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;font-size:15px}
+    a{color:inherit;text-decoration:none}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.4}
+
+    .nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,60px);height:64px;background:rgba(10,11,13,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:1.05rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px}
+    .nav-badge{background:var(--accent);color:#0a0b0d;font-size:0.58rem;font-weight:700;letter-spacing:0.08em;padding:2px 7px;border-radius:20px;text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:14px}
+    .nav-link{font-size:0.82rem;color:var(--muted);transition:color .2s}
+    .nav-link:hover{color:var(--text)}
+    .lang-switch{font-size:0.75rem;color:var(--dim);background:var(--bg3);border:1px solid var(--border);padding:5px 12px;border-radius:6px;transition:all .15s;cursor:pointer}
+    .lang-switch:hover{border-color:var(--accent);color:var(--accent)}
+    .nav-cta{background:var(--accent);color:#0a0b0d;font-family:var(--font-head);font-weight:700;font-size:0.8rem;padding:8px 18px;border-radius:8px;transition:transform .15s,box-shadow .15s}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,255,71,0.3)}
+
+    .breadcrumb{max-width:800px;margin:0 auto;padding:90px clamp(20px,4vw,60px) 0;display:flex;align-items:center;gap:8px;font-size:0.75rem;color:var(--dim)}
+    .breadcrumb a{color:var(--dim);transition:color .15s}.breadcrumb a:hover{color:var(--accent)}
+
+    .article-wrap{max-width:800px;margin:0 auto;padding:0 clamp(20px,4vw,60px) 100px}
+    .post-header{padding:32px 0 44px;border-bottom:1px solid var(--border);margin-bottom:44px}
+    .post-cat{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+    .post-cat::before{content:'';width:18px;height:2px;background:var(--accent);display:inline-block}
+    .post-title{font-family:var(--font-head);font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:800;line-height:1.1;letter-spacing:-0.025em;margin-bottom:18px}
+    .post-title .hl{color:var(--accent)}
+    .post-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:0.78rem;color:var(--dim)}
+    .post-meta .sep{color:var(--border2)}.updated{color:var(--accent2)}
+
+    .post-body{font-size:1rem;line-height:1.85}
+    .post-body p{margin-bottom:22px;color:var(--text)}
+    .post-body h2{font-family:var(--font-head);font-size:1.35rem;font-weight:800;margin:44px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+    .post-body h3{font-family:var(--font-head);font-size:1.05rem;font-weight:700;margin:28px 0 12px}
+    .post-body ul,.post-body ol{padding-left:0;margin-bottom:22px;list-style:none}
+    .post-body ul li,.post-body ol li{padding:7px 0 7px 26px;position:relative;font-size:0.95rem;color:var(--muted);border-bottom:1px solid var(--border)}
+    .post-body ul li:last-child,.post-body ol li:last-child{border-bottom:none}
+    .post-body ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700}
+    .post-body ol{counter-reset:ol}.post-body ol li{counter-increment:ol}
+    .post-body ol li::before{content:counter(ol);position:absolute;left:0;color:var(--accent);font-weight:800;font-family:var(--font-head);font-size:0.85rem}
+    .post-body strong{color:var(--text);font-weight:500}
+
+    .callout{background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:var(--radius);padding:18px 22px;margin:28px 0;font-size:0.92rem;color:var(--muted)}
+    .callout strong{color:var(--accent);display:block;margin-bottom:6px;font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase}
+
+    .verdict{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:26px;margin:36px 0;position:relative;overflow:hidden}
+    .verdict::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(232,255,71,0.05) 0%,transparent 60%);pointer-events:none}
+    .verdict-label{font-family:var(--font-head);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .verdict-title{font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:10px}
+    .verdict-desc{font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+    .verdict-score{display:flex;gap:20px;margin-bottom:18px;flex-wrap:wrap}
+    .score-item{text-align:center}
+    .score-num{font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--accent);display:block}
+    .score-label{font-size:0.68rem;color:var(--dim);letter-spacing:0.04em}
+
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0a0b0d;font-family:var(--font-head);font-weight:700;font-size:0.9rem;padding:13px 28px;border-radius:var(--radius);transition:transform .15s,box-shadow .15s}
+    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,255,71,0.25)}
+    .cta-btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-family:var(--font-head);font-weight:600;font-size:0.9rem;padding:13px 28px;border-radius:var(--radius);border:1px solid var(--border2);transition:border-color .2s}
+    .cta-btn-outline:hover{border-color:var(--accent)}
+
+    .comp-table{width:100%;border-collapse:collapse;margin:28px 0;font-size:0.88rem}
+    .comp-table thead tr{background:var(--bg3)}
+    .comp-table th{padding:11px 14px;text-align:left;font-family:var(--font-head);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2)}
+    .comp-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:middle}
+    .comp-table tr:hover td{background:rgba(255,255,255,0.02)}
+    .comp-table tr.winner td{background:rgba(232,255,71,0.04)}
+    .comp-table tr.winner td:first-child{border-left:2px solid var(--accent)}
+    .comp-table .badge-winner{background:rgba(232,255,71,0.12);color:var(--accent);font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;font-family:var(--font-head);letter-spacing:0.05em;text-transform:uppercase;margin-left:6px}
+    .comp-table .check{color:var(--accent2);font-weight:700}
+    .comp-table .cross{color:var(--dim)}
+    .comp-table td strong{color:var(--text)}
+    .comp-table a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+    .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+    @media(max-width:600px){.pros-cons{grid-template-columns:1fr}}
+    .pros,.cons{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .pros{border-top:2px solid var(--accent2)}.cons{border-top:2px solid rgba(255,71,87,0.5)}
+    .pros h4,.cons h4{font-family:var(--font-head);font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px}
+    .pros h4{color:var(--accent2)}.cons h4{color:rgba(255,71,87,0.8)}
+    .pros ul li::before{content:'✓';color:var(--accent2)}.cons ul li::before{content:'✗';color:rgba(255,71,87,0.7)}
+
+    .faq-section{margin:56px 0}
+    .faq-section h2{font-family:var(--font-head);font-size:1.25rem;font-weight:800;margin-bottom:22px}
+    .faq-item{border-top:1px solid var(--border)}.faq-item:last-child{border-bottom:1px solid var(--border)}
+    .faq-q{font-family:var(--font-head);font-weight:600;font-size:0.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 0;user-select:none}
+    .faq-icon{width:22px;height:22px;flex-shrink:0;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:transform .25s;color:var(--accent)}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .faq-a{font-size:0.88rem;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+    .faq-item.open .faq-a{max-height:400px;padding-bottom:17px}
+
+    .related{margin:56px 0 0;padding-top:36px;border-top:1px solid var(--border)}
+    .related h2{font-family:var(--font-head);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color .15s,transform .15s;display:block}
+    .related-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+    .related-cat{font-size:0.65rem;color:var(--accent);font-family:var(--font-head);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+    .related-title{font-family:var(--font-head);font-size:0.88rem;font-weight:700;line-height:1.3;color:var(--text)}
+
+    .blog-index{max-width:980px;margin:0 auto;padding:clamp(90px,10vw,120px) clamp(20px,4vw,60px) 100px}
+    .post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:36px}
+    .post-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;gap:10px}
+    .post-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+    .post-card-cat{font-size:0.65rem;color:var(--accent);font-family:var(--font-head);font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
+    .post-card-title{font-family:var(--font-head);font-size:1rem;font-weight:700;line-height:1.3}
+    .post-card-desc{font-size:0.82rem;color:var(--muted);line-height:1.55;flex:1}
+    .post-card-meta{font-size:0.72rem;color:var(--dim);display:flex;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)}
+    .post-card-read{color:var(--accent);font-family:var(--font-head);font-weight:700}
+    @media(max-width:640px){.nav-link{display:none}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-logo">Brightlane <span class="nav-badge">✓ Verificado</span></div>
+    <div class="nav-right">
+      <a href="blog.html" class="lang-switch">🌐 English</a>
+      <a href="blog-zh.html" class="lang-switch">中文</a>
+      <a href="index.html" class="nav-link">Directorio</a>
+      <a href="index.html#merchants" class="nav-cta">Ver Comerciantes →</a>
+    </div>
+  </nav>
+
+  <div id="page-root"></div>
+
+  <script>
+  const LINKS = {
+    movavi:"https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3",
+    iskysoft:"https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3",
+    tenorshare:"https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3",
+    wondershare:"https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3",
+    appypie:"https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie",
+    knowledgehut:"https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=",
+    pmtraining:"https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining",
+    cpraedcourse:"https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3",
+    cprcare:"https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=",
+    ahca:"https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3",
+    discountpetcare:"https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=",
+    canadapetcare:"https://www.linkconnector.com/ta.php?lc=014538000012006219&atid=canadapetcare",
+    buildasign:"https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3",
+    easycanvasprints:"https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3",
+    canvasdiscount:"https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3",
+    canvasonthecheap:"https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3",
+    infinitealoe:"https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0",
+    littletoe:"https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe",
+    combatflipflops:"https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0",
+    halloweencostumes:"https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=",
+    shoplww:"https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3",
+    bgmgirl:"https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=",
+    lafuent:"https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0",
+    taxextension:"https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension"
+  };
+
+  function aff(id,pos,slug){
+    const u=new URL(LINKS[id]);
+    u.searchParams.set('utm_source','brightlane-blog-es');
+    u.searchParams.set('utm_medium','affiliate');
+    u.searchParams.set('utm_campaign',slug);
+    u.searchParams.set('utm_content',`pos-${pos}`);
+    return u.toString();
+  }
+
+  const BASE="https://brightlane.github.io/verified-merchant-directory";
+
+  const POSTS = {
+
+    "mejor-editor-video-2026": {
+      title:"Mejor Software de Edición de Video en 2026",
+      titleHl:"Mejor Editor de Video",
+      titleRest:"en 2026",
+      category:"Software",
+      readTime:"6 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Comparativa 2026: Movavi vs Wondershare Filmora vs iSkysoft. ¿Cuál es el mejor software de edición de video? Análisis honesto con precios y funciones.",
+      keywords:"mejor editor de video 2026,software edición video,Movavi opiniones,Filmora alternativa,editor video sin suscripción,editar video gratis",
+      faqs:[
+        {q:"¿Cuál es el mejor editor de video para principiantes en 2026?",a:"Movavi Video Editor es la opción mejor valorada por principiantes: interfaz limpia, curva de aprendizaje rápida y opción de compra única sin suscripción."},
+        {q:"¿Es Movavi mejor que Filmora?",a:"Para la mayoría de usuarios, sí. Movavi ofrece licencia de pago único mientras Filmora requiere suscripción. Ambos tienen funciones similares a precios parecidos."},
+        {q:"¿Qué editor de video funciona en Mac y Windows?",a:"Movavi, Wondershare Filmora e iSkysoft ofrecen aplicaciones nativas para Mac y Windows con las mismas funciones en ambas plataformas."},
+        {q:"¿Existe algún editor de video gratuito que valga la pena?",a:"DaVinci Resolve es muy potente pero tiene una curva de aprendizaje pronunciada. La versión de prueba gratuita de Movavi permite probar todas las funciones antes de comprar."}
+      ],
+      render:(slug)=>`
+        <p>Elegir un editor de video en 2026 significa navegar entre suscripciones trampa y funciones innecesarias. Hemos probado las principales opciones de nuestros comerciantes verificados y las clasificamos de forma honesta.</p>
+        <div class="callout"><strong>Conclusión directa</strong>Si solo quieres una respuesta: <strong>Movavi</strong> gana para la mayoría — compra única, fácil de aprender, excelente calidad de exportación. <strong>Wondershare Filmora</strong> es el segundo con mejores herramientas de IA. <strong>iSkysoft</strong> es mejor si necesitas una suite multimedia completa.</div>
+        <h2>Comparativa Rápida</h2>
+        <table class="comp-table">
+          <thead><tr><th>Editor</th><th>Mejor Para</th><th>Precio</th><th>Mac y Win</th><th>Pago Único</th></tr></thead>
+          <tbody>
+            <tr class="winner"><td><strong>Movavi</strong><span class="badge-winner">Nuestra Elección</span></td><td>Principiantes y creadores casuales</td><td>~$60 pago único</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td><strong>Wondershare Filmora</strong></td><td>Creadores de contenido, IA</td><td>~$50/año suscripción</td><td class="check">✓</td><td class="cross">✗</td></tr>
+            <tr><td><strong>iSkysoft</strong></td><td>Usuarios multimedia avanzados</td><td>Por producto</td><td class="check">✓</td><td class="check">✓</td></tr>
+          </tbody>
+        </table>
+        <h2>Movavi Video Editor — Nuestra Elección</h2>
+        <p>Movavi lleva más de 15 años en el mercado y su reputación está ganada con méritos. La interfaz es limpia, las exportaciones son rápidas y no necesitas suscripción para tenerlo. Para editar vídeos familiares, contenido de YouTube o vídeos promocionales de pequeñas empresas, es tu editor.</p>
+        <div class="pros-cons">
+          <div class="pros"><h4>Ventajas</h4><ul><li>Compra única disponible — sin suscripción</li><li>Renderizado rápido incluso en hardware básico</li><li>Más de 200 efectos, filtros y transiciones</li><li>Apps nativas para Mac y Windows</li><li>Tutoriales integrados para nuevos usuarios</li></ul></div>
+          <div class="cons"><h4>Desventajas</h4><ul><li>La versión de prueba añade marca de agua</li><li>Corrección de color avanzada limitada vs DaVinci</li><li>Sin edición colaborativa</li></ul></div>
+        </div>
+        <div class="verdict">
+          <div class="verdict-label">Nuestro Veredicto — Movavi</div>
+          <div class="verdict-title">El editor de video con mejor relación calidad-precio en 2026</div>
+          <div class="verdict-desc">Más de 15 millones de usuarios, precio único y sin curva de aprendizaje pronunciada. Si quieres empezar a editar hoy sin suscripción, Movavi es la respuesta.</div>
+          <div class="verdict-score"><div class="score-item"><span class="score-num">9.1</span><span class="score-label">Facilidad de Uso</span></div><div class="score-item"><span class="score-num">8.8</span><span class="score-label">Valor</span></div><div class="score-item"><span class="score-num">8.6</span><span class="score-label">Calidad</span></div></div>
+          <a href="${aff('movavi',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Obtener Movavi →</a>
+        </div>
+        <h2>Wondershare Filmora — Mejor para IA</h2>
+        <p>Filmora ha apostado fuerte por la IA en 2025-2026: subtítulos automáticos, eliminador de fondos, cancelador de ruido. El inconveniente: solo con suscripción. Si creas contenido regularmente y puedes justificar ~$50/año, es excelente.</p>
+        <a href="${aff('wondershare',2,slug)}" class="cta-btn-outline" target="_blank" rel="noopener sponsored">Explorar Wondershare →</a>
+        <h2>Recomendación Final</h2>
+        <p>Para el 90% de las personas — <strong>elige Movavi</strong>. El equilibrio correcto entre capacidad, facilidad y precio. Si eres un creador intensivo, las herramientas de IA de Filmora pueden justificar la suscripción.</p>
+      `
+    },
+
+    "recuperar-fotos-borradas-iphone-2026": {
+      title:"Cómo Recuperar Fotos Borradas del iPhone en 2026",
+      titleHl:"Recuperar Fotos Borradas",
+      titleRest:"del iPhone en 2026",
+      category:"Software",
+      readTime:"4 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Guía paso a paso para recuperar fotos borradas del iPhone en 2026 con Tenorshare UltData. Funciona incluso después de vaciar el álbum 'Eliminados Recientemente'.",
+      keywords:"recuperar fotos borradas iPhone,recuperar fotos iPhone 2026,Tenorshare UltData opiniones,cómo recuperar fotos eliminadas,recuperar fotos después de resetear iPhone",
+      faqs:[
+        {q:"¿Puedo recuperar fotos del álbum 'Eliminados Recientemente' ya vaciado?",a:"Sí. Tenorshare UltData puede escanear tu iPhone directamente o desde una copia de seguridad de iTunes/iCloud para recuperar fotos incluso después de haberlas eliminado de 'Eliminados Recientemente'."},
+        {q:"¿El software de recuperación realmente funciona?",a:"Sí, si actúas rápido. Cuanto antes uses el software tras el borrado, mayor es la probabilidad de éxito. Tenorshare tiene más de 50 millones de descargas."},
+        {q:"¿Tenorshare borrará mis fotos existentes?",a:"No. El proceso de escaneo es de solo lectura y no sobrescribe ni elimina ningún dato existente en tu dispositivo."},
+        {q:"¿Funciona con los últimos modelos de iPhone?",a:"Sí. Tenorshare se actualiza regularmente para admitir los últimos modelos de iPhone y versiones de iOS."}
+      ],
+      render:(slug)=>`
+        <p>Las fotos borradas accidentalmente son uno de los problemas tecnológicos más comunes y estresantes. La buena noticia: las fotos eliminadas no desaparecen inmediatamente — muchas veces se pueden recuperar con la herramienta correcta, especialmente si actúas rápido.</p>
+        <div class="callout"><strong>Actúa ahora mismo</strong>En el momento en que te des cuenta de que faltan fotos — deja de usar tu iPhone. Cada nueva foto, actualización de app o sincronización puede sobrescribir los datos eliminados. Ejecuta el software de recuperación lo antes posible.</div>
+        <h2>La Mejor Herramienta de Recuperación para iPhone en 2026</h2>
+        <p>Tenorshare UltData es la herramienta de recuperación de datos para iPhone más descargada, con más de 50 millones de descargas. Puede recuperar fotos, videos, mensajes, contactos y más — directamente desde el dispositivo, desde copias de seguridad de iTunes o desde iCloud.</p>
+        <h2>Tres Formas de Recuperar</h2>
+        <ol>
+          <li><strong>Recuperar directamente del iPhone</strong> — conecta por USB, escanea el dispositivo, previsualiza y recupera. Mejor tasa de éxito cuando se hace inmediatamente.</li>
+          <li><strong>Recuperar desde copia de seguridad de iTunes</strong> — extrae solo las fotos sin restaurar todo el teléfono.</li>
+          <li><strong>Recuperar desde iCloud</strong> — accede a los datos de copia de seguridad sin sobrescribir el estado actual del teléfono.</li>
+        </ol>
+        <div class="verdict">
+          <div class="verdict-label">Mejor Herramienta de Recuperación</div>
+          <div class="verdict-title">Tenorshare UltData</div>
+          <div class="verdict-desc">Más de 50 millones de descargas. Recupera fotos, videos y mensajes desde iPhone, iTunes o iCloud. Compatible con los últimos modelos. Escaneo seguro de solo lectura.</div>
+          <div class="verdict-score"><div class="score-item"><span class="score-num">50M+</span><span class="score-label">Descargas</span></div><div class="score-item"><span class="score-num">Seguro</span><span class="score-label">Solo Lectura</span></div></div>
+          <a href="${aff('tenorshare',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Probar Tenorshare Gratis →</a>
+        </div>
+        <h2>¿Qué pasa con las opciones gratuitas?</h2>
+        <p>El álbum 'Eliminados Recientemente' del iPhone conserva fotos durante 30 días — compruébalo primero. iCloud.com también permite ver eliminaciones recientes si tienes Fotos de iCloud activado. Si esas opciones están agotadas, Tenorshare es tu mejor opción de pago con prueba gratuita para previsualizar archivos recuperables antes de comprar.</p>
+      `
+    },
+
+    "impresion-canvas-barata-2026": {
+      title:"Dónde Imprimir Fotos en Canvas Baratas en 2026 — 4 Sitios Comparados",
+      titleHl:"Impresión en Canvas",
+      titleRest:"Más Barata en 2026",
+      category:"Impresión",
+      readTime:"5 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Comparamos los 4 sitios más baratos para imprimir fotos en canvas en 2026. Canvas on the Cheap, Canvas Discount, Easy Canvas Prints y BuildASign. ¿Cuál tiene el mejor precio?",
+      keywords:"impresión canvas barata,fotos en lienzo online,canvas personalizado barato,imprimir foto canvas 2026,cuadros canvas baratos,impresión lienzo fotográfico",
+      faqs:[
+        {q:"¿Qué sitio de impresión en canvas es el más barato?",a:"Canvas on the Cheap tiene sistemáticamente los precios base más bajos con frecuentes descuentos del 50% o más. Canvas Discount es el segundo más económico con precios estables día a día."},
+        {q:"¿Barato significa mala calidad en las impresiones en canvas?",a:"No con estos cuatro sitios. Todos usan tintas de archivo y material de canvas real. Los precios bajos vienen de procesos de producción eficientes, no de recortar en calidad."},
+        {q:"¿Cuál envía más rápido?",a:"BuildASign y Easy Canvas Prints ofrecen opciones de producción urgente. Consulta los tiempos de entrega actuales en el sitio antes de pedir si tienes una fecha límite."},
+        {q:"¿Puedo conseguir envío gratuito?",a:"Canvas on the Cheap ofrece regularmente promociones de envío gratuito. Consulta su sitio para las ofertas actuales — cambian frecuentemente."}
+      ],
+      render:(slug)=>`
+        <p>Las impresiones en canvas son magníficos regalos y decoración del hogar, pero los precios varían enormemente. Analizamos los cuatro comerciantes de canvas de nuestro directorio y los comparamos honestamente en precio, calidad y envío.</p>
+        <div class="callout"><strong>Conclusión</strong><strong>Canvas on the Cheap</strong> gana en precio — especialmente cuando hay ofertas. <strong>Canvas Discount</strong> es el mejor valor cotidiano. <strong>Easy Canvas Prints</strong> gana en presentación y regalos. <strong>BuildASign</strong> es mejor si también necesitas carteles o señales.</div>
+        <h2>Comparativa Lado a Lado</h2>
+        <table class="comp-table">
+          <thead><tr><th>Sitio</th><th>Mejor Para</th><th>Rango de Precio</th><th>Envío Gratis</th><th>Opción Urgente</th></tr></thead>
+          <tbody>
+            <tr class="winner"><td><strong><a href="${aff('canvasonthecheap',1,slug)}" target="_blank" rel="noopener sponsored">Canvas on the Cheap</a></strong><span class="badge-winner">Más Barato</span></td><td>Compradores con presupuesto ajustado</td><td>$$ (en oferta: $)</td><td class="check">✓ Con frecuencia</td><td class="check">✓</td></tr>
+            <tr><td><strong><a href="${aff('canvasdiscount',2,slug)}" target="_blank" rel="noopener sponsored">Canvas Discount</a></strong></td><td>Mejor valor cotidiano</td><td>$$</td><td class="cross">Varía</td><td class="check">✓</td></tr>
+            <tr><td><strong><a href="${aff('easycanvasprints',3,slug)}" target="_blank" rel="noopener sponsored">Easy Canvas Prints</a></strong></td><td>Regalos, presentación premium</td><td>$$$</td><td class="cross">Varía</td><td class="check">✓</td></tr>
+            <tr><td><strong><a href="${aff('buildasign',4,slug)}" target="_blank" rel="noopener sponsored">BuildASign</a></strong></td><td>Empresas + combinación señales</td><td>$$$</td><td class="cross">En pedidos grandes</td><td class="check">✓</td></tr>
+          </tbody>
+        </table>
+        <h2>Canvas on the Cheap — El Precio Más Bajo</h2>
+        <p>El nombre es exacto. Canvas on the Cheap realiza ofertas frecuentes — a veces con más del 50% de descuento — siendo la primera opción cuando el precio es prioritario. La calidad es sólida: canvas real, tintas de archivo, envoltura de galería incluida.</p>
+        <a href="${aff('canvasonthecheap',5,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Comprar en Canvas on the Cheap →</a>
+        <h2>Conclusión Final</h2>
+        <p>Si tienes presupuesto ajustado — primero mira <strong>Canvas on the Cheap</strong> para ver si hay oferta. Si no la hay, <strong>Canvas Discount</strong> ofrece precios fiables día a día.</p>
+      `
+    },
+
+    "certificacion-cpr-online-2026": {
+      title:"Mejor Certificación CPR Online en 2026 — ¿Cuál Curso Elegir?",
+      titleHl:"Mejor Certificación CPR Online",
+      titleRest:"en 2026",
+      category:"Educación",
+      readTime:"5 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Comparamos los mejores cursos de certificación CPR online en 2026: CPR AED Course, CPR Care y AHCA. ¿Cuál acepta tu empleador? Comparativa honesta.",
+      keywords:"certificación CPR online 2026,curso primeros auxilios online,certificado RCP online,formación RCP y DEA,certificación primeros auxilios online,RCP certificado",
+      faqs:[
+        {q:"¿Las certificaciones CPR online son aceptadas por los empleadores?",a:"La mayoría de empleadores aceptan certificaciones CPR online de proveedores de confianza. Confirma siempre con tu empleador, hospital o escuela específica antes de comprar."},
+        {q:"¿Cuánto tiempo toma completar un curso CPR online?",a:"La mayoría de cursos CPR online se completan en 1-2 horas. Generalmente puedes pausar y continuar a tu propio ritmo."},
+        {q:"¿Por cuánto tiempo es válida una certificación CPR?",a:"Las certificaciones CPR estándar son válidas por 2 años, tras los cuales se requiere un curso de renovación."},
+        {q:"¿Cuál es la diferencia entre CPR y certificación BLS?",a:"El CPR es la certificación general para el público y el lugar de trabajo. El BLS (Soporte Vital Básico) es una certificación de nivel superior requerida específicamente para profesionales sanitarios como enfermeros y paramédicos."}
+      ],
+      render:(slug)=>`
+        <p>La certificación CPR online se ha convertido en el estándar para personas, requisitos laborales y entrenadores que necesitan un certificado válido. Comparamos nuestros tres proveedores de CPR verificados.</p>
+        <div class="callout"><strong>Respuesta Rápida</strong>Para la mayoría de personas: <strong>CPR AED Course</strong> — rápido, económico, certificado instantáneo. Para organizaciones: <strong>CPR Care</strong>. Para profesionales sanitarios con BLS compatible con OSHA: <strong>AHCA</strong>.</div>
+        <h2>Comparativa de un Vistazo</h2>
+        <table class="comp-table">
+          <thead><tr><th>Proveedor</th><th>Mejor Para</th><th>Certificado</th><th>BLS Disponible</th><th>Formación Grupal</th></tr></thead>
+          <tbody>
+            <tr class="winner"><td><strong><a href="${aff('cpraedcourse',1,slug)}" target="_blank" rel="noopener sponsored">CPR AED Course</a></strong><span class="badge-winner">Mejor Individual</span></td><td>Personas, padres, entrenadores</td><td class="check">Impresión inmediata</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+            <tr><td><strong><a href="${aff('cprcare',2,slug)}" target="_blank" rel="noopener sponsored">CPR Care</a></strong></td><td>Organizaciones, equipos</td><td class="check">Digital inmediato</td><td class="cross">✗</td><td class="check">✓</td></tr>
+            <tr><td><strong><a href="${aff('ahca',3,slug)}" target="_blank" rel="noopener sponsored">AHCA</a></strong></td><td>Profesionales sanitarios</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          </tbody>
+        </table>
+        <div class="verdict">
+          <div class="verdict-label">Mejor Opción Individual</div>
+          <div class="verdict-title">CPR AED Course</div>
+          <div class="verdict-desc">100% online a tu propio ritmo. Imprime o descarga tu tarjeta de certificación en el momento de aprobar. Más de 500.000 certificaciones emitidas.</div>
+          <a href="${aff('cpraedcourse',4,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Certificarme en CPR Ahora →</a>
+        </div>
+      `
+    },
+
+    "medicamentos-mascotas-online-2026": {
+      title:"Dónde Comprar Medicamentos para Mascotas Online en 2026 — Ahorra hasta un 50%",
+      titleHl:"Medicamentos para Mascotas",
+      titleRest:"Online en 2026",
+      category:"Mascotas",
+      readTime:"4 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Deja de pagar de más en la clínica veterinaria. Compara Discount Pet Care y Canada Pet Care — las mejores farmacias online para mascotas en 2026.",
+      keywords:"medicamentos mascotas online,medicamentos veterinarios baratos,farmacia online mascotas 2026,pipetas perros baratas,antiparasitarios perro gato online",
+      faqs:[
+        {q:"¿Es seguro comprar medicamentos para mascotas online?",a:"Sí, en farmacias online de confianza. Tanto Discount Pet Care como Canada Pet Care venden medicamentos originales aprobados por el fabricante — las mismas marcas que tu veterinario."},
+        {q:"¿Necesito receta para comprar medicamentos para mascotas online?",a:"Algunos medicamentos requieren receta veterinaria válida. Están claramente indicados en la página del producto. Los antiparasitarios sin receta se pueden pedir directamente."},
+        {q:"¿Cuánto puedo ahorrar comprando online vs la clínica veterinaria?",a:"La mayoría de clientes ahorran entre un 30% y un 50% en los mismos medicamentos. El ahorro viene de menores costes operativos, no de vender productos inferiores."},
+        {q:"¿Cuál es la mejor farmacia online para clientes en Canadá?",a:"Canada Pet Care es una farmacia online para mascotas con licencia canadiense que sirve a clientes canadienses con medicamentos aprobados por veterinarios."}
+      ],
+      render:(slug)=>`
+        <p>Tu clínica veterinaria es cómoda pero cara. Los mismos medicamentos que receta tu vet — Frontline, NexGard, Heartgard, Bravecto — están disponibles online con un 30%-50% de descuento. Aquí está dónde comprarlos de forma segura.</p>
+        <div class="callout"><strong>Importante</strong>Compra solo en farmacias para mascotas verificadas que requieren receta cuando es necesario. Los dos comerciantes de abajo venden medicamentos originales aprobados por el fabricante.</div>
+        <table class="comp-table">
+          <thead><tr><th>Sitio</th><th>Mejor Para</th><th>Ahorro vs Veterinario</th><th>Envío a</th></tr></thead>
+          <tbody>
+            <tr class="winner"><td><strong><a href="${aff('discountpetcare',1,slug)}" target="_blank" rel="noopener sponsored">Discount Pet Care</a></strong><span class="badge-winner">Mejor Precio</span></td><td>Propietarios en EE.UU.</td><td>Hasta 50%</td><td>EE.UU.</td></tr>
+            <tr><td><strong><a href="${aff('canadapetcare',2,slug)}" target="_blank" rel="noopener sponsored">Canada Pet Care</a></strong></td><td>Propietarios en Canadá</td><td>Ahorro significativo</td><td>Canadá</td></tr>
+          </tbody>
+        </table>
+        <div class="verdict">
+          <div class="verdict-label">Mejor Precio — Clientes en EE.UU.</div>
+          <div class="verdict-title">Discount Pet Care</div>
+          <div class="verdict-desc">NexGard, Frontline, Heartgard, Interceptor, Bravecto — hasta un 50% más baratos que en la clínica. Productos originales, envío rápido.</div>
+          <a href="${aff('discountpetcare',3,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Comprar en Discount Pet Care →</a>
+        </div>
+        <h2>Para Clientes en Canadá</h2>
+        <p>Canada Pet Care es una farmacia online para mascotas con licencia canadiense. Medicamentos aprobados por veterinarios, entregados directamente en tu puerta.</p>
+        <a href="${aff('canadapetcare',4,slug)}" class="cta-btn-outline" target="_blank" rel="noopener sponsored" style="margin-top:8px;display:inline-flex">Comprar en Canada Pet Care →</a>
+      `
+    },
+
+    "certificacion-pmp-online-2026": {
+      title:"Mejores Cursos de Certificación PMP Online en 2026",
+      titleHl:"Mejor Certificación PMP Online",
+      titleRest:"en 2026",
+      category:"Educación",
+      readTime:"5 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Comparativa KnowledgeHut vs PM Training para la certificación PMP en 2026. ¿Cuál tiene mejor tasa de aprobación, precio y calidad de instructores?",
+      keywords:"certificación PMP online 2026,curso preparación PMP,KnowledgeHut opiniones,PM Training opiniones,cómo obtener certificación PMP,gestión de proyectos certificación",
+      faqs:[
+        {q:"¿Cuánto tiempo requiere prepararse para el examen PMP?",a:"La mayoría de estudiantes necesitan 8-12 semanas de estudio con un programa estructurado. Tanto KnowledgeHut como PM Training ofrecen programas diseñados para este plazo."},
+        {q:"¿Cuál es la tasa de aprobación del PMP con estos cursos?",a:"PM Training anuncia un 98% de tasa de aprobación. KnowledgeHut ofrece garantías de aprobación en programas selectos. Ambos mejoran significativamente tus probabilidades frente al autoestudio."},
+        {q:"¿Necesito experiencia laboral para presentarme al examen PMP?",a:"Sí. PMI requiere 36 meses de experiencia en gestión de proyectos con titulación universitaria, o 60 meses con bachillerato, más 35 horas de formación en gestión de proyectos."},
+        {q:"¿Cuál es mejor para el PMP: KnowledgeHut o PM Training?",a:"PM Training está más enfocado exclusivamente en PMP/PRINCE2. KnowledgeHut cubre una gama más amplia de certificaciones técnicas junto al PMP. Elige según si quieres un especialista en PMP o un proveedor de formación más amplio."}
+      ],
+      render:(slug)=>`
+        <p>La certificación PMP es una de las credenciales más valiosas en gestión de proyectos — aumento salarial medio de más de $20.000 según la propia encuesta de PMI. La pregunta es qué curso de preparación te lleva allí de forma más fiable.</p>
+        <div class="callout"><strong>Conclusión Directa</strong><strong>PM Training</strong> para estudio centrado en PMP con un 98% de tasa de aprobación. <strong>KnowledgeHut</strong> si quieres el PMP junto con AWS, ágil o certificaciones de ciberseguridad de un solo proveedor.</div>
+        <table class="comp-table">
+          <thead><tr><th>Proveedor</th><th>Enfoque</th><th>Tasa Aprobación</th><th>Clases en Vivo</th><th>PDUs Incluidos</th></tr></thead>
+          <tbody>
+            <tr class="winner"><td><strong><a href="${aff('pmtraining',1,slug)}" target="_blank" rel="noopener sponsored">PM Training</a></strong><span class="badge-winner">Especialista PMP</span></td><td>Solo PMP, PRINCE2, Ágil</td><td>98%</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td><strong><a href="${aff('knowledgehut',2,slug)}" target="_blank" rel="noopener sponsored">KnowledgeHut</a></strong></td><td>PMP + Certificaciones Tech</td><td>Alta</td><td class="check">✓</td><td class="check">✓</td></tr>
+          </tbody>
+        </table>
+        <div class="verdict">
+          <div class="verdict-label">Primera Elección para PMP</div>
+          <div class="verdict-title">PM Training</div>
+          <div class="verdict-desc">98% de tasa de aprobación. Más de 40.000 estudiantes certificados. Preparación dedicada para PMP, PRINCE2 y ágil con instructores en vivo y soporte garantizado.</div>
+          <div class="verdict-score"><div class="score-item"><span class="score-num">98%</span><span class="score-label">Aprobados</span></div><div class="score-item"><span class="score-num">40K+</span><span class="score-label">Certificados</span></div></div>
+          <a href="${aff('pmtraining',3,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Inscribirme en PM Training →</a>
+        </div>
+      `
+    },
+
+    "musica-sin-copyright-youtube-2026": {
+      title:"Mejor Música Sin Copyright para YouTube en 2026",
+      titleHl:"Mejor Música Sin Copyright",
+      titleRest:"para YouTube en 2026",
+      category:"Servicios",
+      readTime:"4 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"¡Deja de recibir reclamaciones de copyright! BGM Girl ofrece música de fondo libre de derechos segura para YouTube, creadores, podcasters y streamers en 2026.",
+      keywords:"música sin copyright YouTube 2026,música de fondo para videos,música libre de derechos,BGM Girl opiniones,música para Twitch,música podcast sin derechos",
+      faqs:[
+        {q:"¿Qué pasa si uso música con copyright en YouTube?",a:"El sistema Content ID de YouTube la detectará y silenciará tu video, lo bloqueará en ciertos países, o reclamará los ingresos publicitarios para el titular de derechos en lugar de para ti."},
+        {q:"¿La música de BGM Girl es realmente segura para YouTube con monetización?",a:"Sí. BGM Girl licencia música específicamente para uso en YouTube incluyendo canales monetizados. No recibirás reclamaciones de copyright en pistas con licencia."},
+        {q:"¿Puedo usar la música en videos comerciales?",a:"Sí. Las licencias de BGM Girl cubren uso comercial. Consulta las licencias específicas de cada pista para conocer posibles limitaciones."},
+        {q:"¿Cuál es la diferencia entre música libre de derechos y sin copyright?",a:"Libre de derechos significa que pagas una vez y no debes regalías continuas. Sin copyright significa que la música no tiene copyright en absoluto — esto es más raro. BGM Girl es libre de derechos."}
+      ],
+      render:(slug)=>`
+        <p>Una sola reclamación de copyright puede desmonetizar un video entero. Una advertencia DMCA puede acabar con un directo de Twitch. Usar la música equivocada es un riesgo constante para los creadores — pero no tiene por qué serlo.</p>
+        <div class="callout"><strong>El problema con las bibliotecas gratuitas</strong>La Biblioteca de Audio de YouTube tiene limitaciones. Las pistas pueden ser reclamadas después de subir el video, los términos de licencia cambian y la selección es limitada. Una licencia libre de derechos adecuada de un proveedor dedicado te da certeza.</div>
+        <h2>Por Qué BGM Girl</h2>
+        <p>BGM Girl está construida específicamente para creadores de contenido. El catálogo cubre ambiental, animado, cinematográfico, lo-fi y más. Cada pista está autorizada para YouTube, Twitch, podcasting y uso comercial.</p>
+        <div class="verdict">
+          <div class="verdict-label">Mejor para Creadores</div>
+          <div class="verdict-title">BGM Girl — Música Segura para YouTube y Twitch</div>
+          <div class="verdict-desc">Música de fondo libre de derechos construida para creadores de contenido. Sin reclamaciones de copyright, sin eliminaciones DMCA, sin preocupaciones. Licenciada para YouTube, Twitch, podcasts y uso comercial.</div>
+          <a href="${aff('bgmgirl',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Explorar BGM Girl →</a>
+        </div>
+      `
+    },
+
+    "crear-app-sin-programar-2026": {
+      title:"Mejor Plataforma para Crear Apps Sin Programar en 2026",
+      titleHl:"Crear Apps Sin Programar",
+      titleRest:"en 2026",
+      category:"Software",
+      readTime:"4 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"¿Crear una app sin saber programar? Reseña de Appy Pie 2026 — la plataforma sin código líder para apps, webs, chatbots y automatizaciones.",
+      keywords:"crear app sin programar 2026,plataforma no code,Appy Pie opiniones,hacer app sin código,crear app movil sin programacion,plataforma low code sin código",
+      faqs:[
+        {q:"¿De verdad puedo crear una app profesional sin saber programar?",a:"Sí. El constructor de arrastrar y soltar de Appy Pie ha sido usado para crear más de 10 millones de apps. No se requiere conocimiento de programación — si sabes usar un sitio web, puedes crear una app."},
+        {q:"¿Puedo publicar en App Store y Google Play?",a:"Sí. Appy Pie gestiona el proceso de envío tanto a la App Store de Apple como a Google Play Store."},
+        {q:"¿Qué tipos de apps puedo crear con Appy Pie?",a:"Apps de negocio, tiendas de comercio electrónico, apps de reservas, apps de eventos, apps de restaurantes, apps de fitness y más — todo usando plantillas predefinidas personalizables."},
+        {q:"¿Es Appy Pie adecuado para empresas?",a:"Sí. Appy Pie sirve tanto a creadores individuales como a empresas. Muchas pequeñas empresas lo usan para crear apps orientadas al cliente sin contratar a un desarrollador."}
+      ],
+      render:(slug)=>`
+        <p>Contratar a un desarrollador para crear una app cuesta entre $10.000 y $100.000 o más. Plataformas sin código como Appy Pie te permiten crear lo mismo en días, no meses, a una fracción del coste.</p>
+        <div class="callout"><strong>Para quién es esto</strong>Propietarios de pequeñas empresas, emprendedores, fundadores no técnicos y cualquiera que necesite una app, sitio web o chatbot sin el precio de un desarrollador.</div>
+        <h2>Qué Puedes Crear con Appy Pie</h2>
+        <ul>
+          <li>Apps móviles para iOS y Android — publicadas en App Store y Google Play</li>
+          <li>Sitios web de negocio con comercio electrónico y reservas</li>
+          <li>Chatbots con IA para atención al cliente y captación de leads</li>
+          <li>Automatizaciones de flujo de trabajo que conectan tus herramientas existentes</li>
+          <li>Apps internas de equipo y paneles de control</li>
+        </ul>
+        <div class="verdict">
+          <div class="verdict-label">Plataforma Sin Código Líder</div>
+          <div class="verdict-title">Appy Pie — Crea Sin Programar</div>
+          <div class="verdict-desc">Más de 10 millones de apps creadas. Constructor drag-and-drop para iOS, Android, sitios web, chatbots y automatizaciones. No se requieren habilidades de programación.</div>
+          <div class="verdict-score"><div class="score-item"><span class="score-num">10M+</span><span class="score-label">Apps Creadas</span></div><div class="score-item"><span class="score-num">150+</span><span class="score-label">Países</span></div></div>
+          <a href="${aff('appypie',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Empezar a Crear Gratis →</a>
+        </div>
+      `
+    },
+
+    "alivio-juanete-productos-2026": {
+      title:"Mejores Productos para el Alivio de Juanetes en 2026",
+      titleHl:"Mejores Productos para Juanetes",
+      titleRest:"en 2026",
+      category:"Salud",
+      readTime:"4 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Comparativa de los mejores correctores de juanetes y productos para el cuidado de los pies en 2026. Reseña honesta de Little Toe — qué funciona y qué no.",
+      keywords:"productos alivio juanetes 2026,corrector juanetes,separadores de dedos pies,dolor pies alivio,tratamiento juanetes sin cirugía,Little Toe reseña",
+      faqs:[
+        {q:"¿Los correctores de juanetes realmente pueden corregir un juanete?",a:"No pueden revertir una deformidad ósea, pero sí pueden reducir significativamente el dolor y frenar la progresión. La mayoría de usuarios reportan un alivio del dolor significativo con uso constante."},
+        {q:"¿Cuánto tiempo hay que llevarlos cada día?",a:"La mayoría de productos ortopédicos para los pies recomiendan uso diario — ya sea durante la actividad o por la noche — para obtener mejores resultados. La constancia importa más que la duración de cada sesión."},
+        {q:"¿Es seguro llevar separadores de dedos todo el día?",a:"Los separadores de gel y espuma blanda son generalmente seguros para uso prolongado. Si experimentas dolor o molestias aumentadas, reduce el tiempo de uso y consulta a un podólogo."},
+        {q:"¿Cuándo debo ver a un médico en lugar de usar productos?",a:"Si el dolor es severo, afecta tu capacidad de caminar, o si el juanete progresa rápidamente — visita a un podólogo. Los productos funcionan mejor para juanetes leves a moderados."}
+      ],
+      render:(slug)=>`
+        <p>Los juanetes afectan aproximadamente al 23% de los adultos y el dolor varía desde una molestia leve hasta algo debilitante. La cirugía es la única solución permanente — pero para la mayoría de personas, los productos correctos pueden gestionar el dolor de manera efectiva y frenar la progresión.</p>
+        <div class="callout"><strong>Expectativas Realistas</strong>Ningún producto revierte un juanete. Los productos correctos reducen el dolor, frenan la progresión y te ayudan a mantenerte activo sin cirugía.</div>
+        <h2>Qué Realmente Ayuda</h2>
+        <ul>
+          <li><strong>Correctores de juanetes</strong> — realinean el dedo gordo, reducen la presión articular, se llevan diariamente o por la noche</li>
+          <li><strong>Separadores de dedos</strong> — crean espacio entre los dedos apretados, reducen la fricción y el dolor</li>
+          <li><strong>Plantillas con soporte de arco</strong> — redistribuyen la presión lejos de la articulación del juanete</li>
+          <li><strong>Almohadillas de gel</strong> — amortiguan la protuberancia del juanete contra la presión del zapato</li>
+        </ul>
+        <div class="verdict">
+          <div class="verdict-label">Mejor Especialista en Cuidado del Pie</div>
+          <div class="verdict-title">Little Toe</div>
+          <div class="verdict-desc">Correctores de juanetes, separadores de dedos y productos de confort para el pie de grado ortopédico diseñados para uso diario. Materiales de grado médico, alivio del dolor específico.</div>
+          <a href="${aff('littletoe',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Comprar en Little Toe →</a>
+        </div>
+      `
+    },
+
+    "extension-impuestos-online-2026": {
+      title:"Cómo Solicitar una Extensión de Impuestos Online en 2026 — 5 Minutos",
+      titleHl:"Extensión de Impuestos Online",
+      titleRest:"en 2026",
+      category:"Servicios",
+      readTime:"3 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Solicitar una extensión de impuestos federales en 2026 tarda 5 minutos online. Esta guía te muestra cómo presentar el Formulario 4868 del IRS y obtener 6 meses más.",
+      keywords:"extensión impuestos online 2026,solicitar prórroga impuestos IRS,formulario 4868 IRS,extensión declaración impuestos federal,más tiempo para declarar impuestos",
+      faqs:[
+        {q:"¿Una extensión de impuestos me da más tiempo para pagar?",a:"No. Una extensión te da más tiempo para PRESENTAR tu declaración pero no para pagar. Debes estimar y pagar cualquier impuesto adeudado antes del 15 de abril para evitar intereses."},
+        {q:"¿Cuánto tiempo dura una extensión de impuestos federales?",a:"Una extensión federal mueve tu fecha límite de presentación del 15 de abril al 15 de octubre — 6 meses adicionales."},
+        {q:"¿Qué pasa si no presento a tiempo sin extensión?",a:"Enfrentarás una multa por no presentar del 5% de los impuestos no pagados por mes, hasta el 25%. Presentar una extensión — incluso si debes — elimina esta multa."},
+        {q:"¿Puedo solicitar una extensión estatal al mismo tiempo?",a:"Sí. Tax Extension permite presentar extensiones tanto federales como estatales en la mayoría de estados de EE.UU. en la misma sesión."}
+      ],
+      render:(slug)=>`
+        <p>¿Se acerca la fecha límite de impuestos y tu declaración no está lista? Solicitar una extensión tarda 5 minutos online y te da hasta el 15 de octubre para presentar. Aquí está todo lo que necesitas saber.</p>
+        <div class="callout"><strong>Distinción Crítica</strong>Una extensión te da más tiempo para <strong>presentar</strong> — no para <strong>pagar</strong>. Si debes impuestos, estima el monto y paga antes del 15 de abril para evitar cargos por intereses. La extensión solo elimina la multa por no presentar.</div>
+        <h2>Cómo Solicitar tu Extensión en 5 Minutos</h2>
+        <ol>
+          <li>Accede a Tax Extension a través de nuestro enlace verificado</li>
+          <li>Introduce tu información básica — nombre, SSN, obligación fiscal estimada</li>
+          <li>Elige solo federal, o añade tu extensión estatal</li>
+          <li>Envía — recibe confirmación del IRS inmediatamente</li>
+          <li>Ahora tienes hasta el 15 de octubre para presentar tu declaración completa</li>
+        </ol>
+        <div class="verdict">
+          <div class="verdict-label">Solicita tu Extensión Ahora</div>
+          <div class="verdict-title">Tax Extension — Presentación Online Aceptada por el IRS</div>
+          <div class="verdict-desc">Complétalo en 5 minutos. Extensiones federales y estatales disponibles. Confirmación inmediata del IRS. La forma más rápida de evitar multas por no presentar.</div>
+          <a href="${aff('taxextension',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Solicitar Extensión de Impuestos →</a>
+        </div>
+      `
+    },
+
+    "cuidado-piel-sensible-natural-2026": {
+      title:"Mejor Crema Natural para Piel Sensible en 2026",
+      titleHl:"Mejor Crema Natural",
+      titleRest:"para Piel Sensible en 2026",
+      category:"Salud",
+      readTime:"4 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Reseña de Infinite Aloe 2026 — crema orgánica de aloe vera para piel sensible, reactiva y con eczema. Sin perfume, sin parabenos, genuinamente efectiva.",
+      keywords:"crema natural piel sensible 2026,aloe vera orgánico hidratante,crema sin perfume piel sensible,Infinite Aloe opiniones,mejor crema eczema,cosmética natural 2026",
+      faqs:[
+        {q:"¿Infinite Aloe es bueno para el eczema?",a:"Muchos usuarios con eczema y psoriasis reportan resultados positivos. La fórmula suave y sin perfume está específicamente diseñada para pieles sensibles y reactivas."},
+        {q:"¿Qué diferencia Infinite Aloe del gel de aloe vera normal?",a:"Infinite Aloe usa aloe vera orgánico como ingrediente principal (no agua como la mayoría de hidratantes) combinado con una fórmula multiusos. El gel de aloe vera de farmacia suele tener agua como ingrediente principal y aloe en pequeña cantidad."},
+        {q:"¿Es sin perfume?",a:"Sí. Infinite Aloe no contiene fragancias añadidas, lo que lo hace adecuado para personas con sensibilidades y alergias a las fragancias."},
+        {q:"¿Puedo usarlo en cara y cuerpo?",a:"Sí. Infinite Aloe es una fórmula multiusos apta para cara y cuerpo. Muchos usuarios lo aplican como hidratante facial y loción corporal."}
+      ],
+      render:(slug)=>`
+        <p>La piel sensible reacciona a casi todo — fragancias, conservantes, colorantes artificiales, activos agresivos. La respuesta no son más productos, sino mejores ingredientes. El aloe vera orgánico lleva miles de años usándose para curar la piel por buenas razones.</p>
+        <div class="callout"><strong>El Problema con los Ingredientes</strong>La mayoría de hidratantes listan agua como primer ingrediente y usan aloe vera como un añadido de marketing. Infinite Aloe invierte esto — el aloe vera orgánico ES la base, no la decoración.</div>
+        <h2>Por Qué Funciona el Aloe Vera</h2>
+        <ul>
+          <li>Antiinflamatorio — reduce el enrojecimiento y la irritación de forma natural</li>
+          <li>Hidratación profunda — el aloe penetra las capas de la piel más eficazmente que las cremas a base de agua</li>
+          <li>Antimicrobiano — ayuda a prevenir los granos sin químicos agresivos</li>
+          <li>Cicatrizante — acelera la reparación de la piel en cortes, quemaduras y erupciones</li>
+          <li>No comedogénico — no obstruye los poros</li>
+        </ul>
+        <div class="pros-cons">
+          <div class="pros"><h4>Ventajas</h4><ul><li>Aloe vera orgánico como ingrediente principal — no agua</li><li>Completamente sin fragancia — seguro para sensibilidades</li><li>Multiusos — cara, cuerpo, post-solar, calmante</li><li>Sin parabenos ni aditivos artificiales</li><li>Adecuado para todas las edades incluyendo niños</li></ul></div>
+          <div class="cons"><h4>Consideraciones</h4><ul><li>Textura más ligera que las cremas pesadas</li><li>Precio superior a alternativas de farmacia</li></ul></div>
+        </div>
+        <div class="verdict">
+          <div class="verdict-label">Mejor para Piel Sensible</div>
+          <div class="verdict-title">Infinite Aloe Skincare Orgánico</div>
+          <div class="verdict-desc">Base de aloe vera orgánico, sin fragancia, sin parabenos. Genuinamente diferente de los hidratantes convencionales. De confianza en la comunidad de pieles sensibles y eczema.</div>
+          <a href="${aff('infinitealoe',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Comprar Infinite Aloe →</a>
+        </div>
+      `
+    },
+
+    "movavi-resena-2026": {
+      title:"Reseña Movavi Video Editor 2026 — ¿Vale la Pena Comprarlo?",
+      titleHl:"Reseña Movavi 2026",
+      titleRest:"— ¿Vale la Pena?",
+      category:"Software",
+      readTime:"5 min de lectura",
+      date:"2026-04-29",
+      metaDesc:"Reseña honesta de Movavi Video Editor para 2026. Precios, funciones, pros y contras y recomendación de compra. Actualizado para la última versión.",
+      keywords:"Movavi reseña 2026,Movavi Video Editor opiniones,vale la pena comprar Movavi,Movavi pros contras,comprar Movavi precio",
+      faqs:[
+        {q:"¿Vale la pena comprar Movavi Video Editor en 2026?",a:"Sí para la mayoría de usuarios. El precio de pago único, la facilidad de uso y la sólida calidad de salida lo convierten en uno de los editores de video con mejor relación calidad-precio disponibles."},
+        {q:"¿Movavi tiene prueba gratuita?",a:"Sí. La prueba gratuita incluye funciones completas pero añade una marca de agua a los videos exportados hasta que compras una licencia."},
+        {q:"¿Cuál es la diferencia entre Movavi Video Editor y Video Suite?",a:"Video Suite incluye herramientas adicionales como un grabador de pantalla y reproductor multimedia. El Video Editor estándar es suficiente para la mayoría de usuarios."},
+        {q:"¿Puedo usar Movavi para videos de YouTube?",a:"Absolutamente. Movavi tiene ajustes de exportación optimizados para YouTube y admite la subida directa. Es uno de los editores más populares entre los YouTubers."}
+      ],
+      render:(slug)=>`
+        <p>Movavi Video Editor ha sido uno de los editores de video más recomendados para usuarios de nivel principiante a intermedio durante años. ¿Sigue siendo relevante en 2026 frente a la competencia con IA? Lo analizamos en profundidad.</p>
+        <div class="callout"><strong>Veredicto Rápido</strong>Movavi sigue siendo excelente en 2026. El modelo de precio único por sí solo lo distingue de la competencia llena de suscripciones. Si estás dudando — prueba primero la versión gratuita.</div>
+        <h2>En Qué Destaca Movavi</h2>
+        <ul>
+          <li>Compra única — lo tienes para siempre, sin cargos recurrentes</li>
+          <li>Apps nativas para Mac y Windows — ambas versiones con funciones completas</li>
+          <li>Más de 200 filtros, transiciones y títulos integrados</li>
+          <li>Eliminación de ruido de fondo y normalización de audio incluidos</li>
+          <li>Exportación a cualquier formato — MP4, MOV, AVI, GIF — o directo a YouTube</li>
+          <li>Videos tutoriales integrados para que los principiantes no se pierdan</li>
+        </ul>
+        <div class="pros-cons">
+          <div class="pros"><h4>Quién Debe Comprarlo</h4><ul><li>Usuarios que editan video por primera vez</li><li>Creadores de YouTube y vloggers</li><li>Pequeñas empresas que hacen videos promocionales</li><li>Cualquiera que odie los precios de suscripción</li><li>Usuarios de Mac y Windows que quieren paridad de funciones</li></ul></div>
+          <div class="cons"><h4>Quién Debe Buscar Otra Opción</h4><ul><li>Coloristas profesionales que necesitan corrección de color avanzada</li><li>Editores de producción multicámara</li><li>Equipos que necesitan flujos de trabajo colaborativos</li></ul></div>
+        </div>
+        <div class="verdict">
+          <div class="verdict-label">Veredicto Final</div>
+          <div class="verdict-title">Movavi Video Editor 2026 — Recomendado</div>
+          <div class="verdict-desc">Sigue siendo el mejor editor de video por relación calidad-precio para no profesionales. Precio único, buen conjunto de funciones e interfaz que no requiere manual. Cómpralo una vez, úsalo durante años.</div>
+          <div class="verdict-score"><div class="score-item"><span class="score-num">9.1</span><span class="score-label">Facilidad</span></div><div class="score-item"><span class="score-num">9.3</span><span class="score-label">Valor</span></div><div class="score-item"><span class="score-num">8.9</span><span class="score-label">General</span></div></div>
+          <a href="${aff('movavi',1,slug)}" class="cta-btn" target="_blank" rel="noopener sponsored">Comprar Movavi — Mejor Precio →</a>
+        </div>
+      `
+    }
+
+  };
+
+  const RELATED = {
+    "mejor-editor-video-2026":             ["movavi-resena-2026","recuperar-fotos-borradas-iphone-2026","crear-app-sin-programar-2026"],
+    "movavi-resena-2026":                  ["mejor-editor-video-2026","recuperar-fotos-borradas-iphone-2026","musica-sin-copyright-youtube-2026"],
+    "recuperar-fotos-borradas-iphone-2026":["mejor-editor-video-2026","movavi-resena-2026","crear-app-sin-programar-2026"],
+    "impresion-canvas-barata-2026":        ["cuidado-piel-sensible-natural-2026","alivio-juanete-productos-2026","medicamentos-mascotas-online-2026"],
+    "certificacion-cpr-online-2026":       ["certificacion-pmp-online-2026","extension-impuestos-online-2026","medicamentos-mascotas-online-2026"],
+    "medicamentos-mascotas-online-2026":   ["certificacion-cpr-online-2026","alivio-juanete-productos-2026","cuidado-piel-sensible-natural-2026"],
+    "certificacion-pmp-online-2026":       ["certificacion-cpr-online-2026","crear-app-sin-programar-2026","extension-impuestos-online-2026"],
+    "musica-sin-copyright-youtube-2026":   ["mejor-editor-video-2026","movavi-resena-2026","crear-app-sin-programar-2026"],
+    "crear-app-sin-programar-2026":        ["mejor-editor-video-2026","musica-sin-copyright-youtube-2026","certificacion-pmp-online-2026"],
+    "alivio-juanete-productos-2026":       ["cuidado-piel-sensible-natural-2026","medicamentos-mascotas-online-2026","certificacion-cpr-online-2026"],
+    "extension-impuestos-online-2026":     ["certificacion-pmp-online-2026","certificacion-cpr-online-2026","musica-sin-copyright-youtube-2026"],
+    "cuidado-piel-sensible-natural-2026":  ["alivio-juanete-productos-2026","medicamentos-mascotas-online-2026","impresion-canvas-barata-2026"]
+  };
+
+  function init(){
+    const params=new URLSearchParams(window.location.search);
+    const slug=params.get('p');
+    if(!slug||!POSTS[slug]){renderIndex();return;}
+    const post=POSTS[slug];
+    const pageUrl=`${BASE}/blog-es.html?p=${slug}`;
+    document.title=`${post.title} | Brightlane`;
+    document.getElementById('meta-title').textContent=`${post.title} | Brightlane`;
+    document.getElementById('meta-desc').setAttribute('content',post.metaDesc);
+    document.getElementById('meta-keywords').setAttribute('content',post.keywords);
+    document.getElementById('meta-canonical').setAttribute('href',pageUrl);
+    document.getElementById('og-title').setAttribute('content',post.title);
+    document.getElementById('og-desc').setAttribute('content',post.metaDesc);
+    document.getElementById('og-url').setAttribute('content',pageUrl);
+    document.getElementById('tw-title').setAttribute('content',post.title);
+    document.getElementById('tw-desc').setAttribute('content',post.metaDesc);
+    document.getElementById('jsonld-article').textContent=JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":post.title,"description":post.metaDesc,"url":pageUrl,"datePublished":post.date,"dateModified":post.date,"inLanguage":"es","author":{"@type":"Organization","name":"Brightlane Directorio de Comerciantes"},"publisher":{"@type":"Organization","name":"Brightlane","url":`${BASE}/`}});
+    document.getElementById('jsonld-faq').textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":post.faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))});
+    document.getElementById('jsonld-breadcrumb').textContent=JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":`${BASE}/`},{"@type":"ListItem","position":2,"name":"Blog","item":`${BASE}/blog-es.html`},{"@type":"ListItem","position":3,"name":post.title,"item":pageUrl}]});
+    renderPost(post,slug);
+  }
+
+  function renderPost(post,slug){
+    const relSlugs=RELATED[slug]||[];
+    const relHTML=relSlugs.map(rs=>{const rp=POSTS[rs];if(!rp)return'';return`<a href="blog-es.html?p=${rs}" class="related-card"><div class="related-cat">${rp.category}</div><div class="related-title">${rp.title}</div></a>`;}).join('');
+    const faqHTML=post.faqs.map(f=>`<div class="faq-item"><div class="faq-q" tabindex="0">${f.q}<span class="faq-icon">+</span></div><div class="faq-a">${f.a}</div></div>`).join('');
+    document.getElementById('page-root').innerHTML=`
+      <div class="breadcrumb"><a href="index.html">Inicio</a><span>›</span><a href="blog-es.html">Blog</a><span>›</span><span>${post.category}</span></div>
+      <div class="article-wrap">
+        <header class="post-header">
+          <div class="post-cat">${post.category}</div>
+          <h1 class="post-title"><span class="hl">${post.titleHl}</span> ${post.titleRest}</h1>
+          <div class="post-meta">
+            <span>Brightlane Editorial</span><span class="sep">·</span>
+            <span>⏱ ${post.readTime}</span><span class="sep">·</span>
+            <span class="updated">Actualizado ${post.date}</span><span class="sep">·</span>
+            <a href="blog.html" style="color:var(--dim);font-size:0.75rem">🌐 Read in English</a>
+          </div>
+        </header>
+        <article class="post-body">${post.render(slug)}</article>
+        <section class="faq-section"><h2>Preguntas Frecuentes</h2>${faqHTML}</section>
+        <div class="related"><h2>Artículos Relacionados</h2><div class="related-grid">${relHTML}</div></div>
+        <div style="margin-top:44px;padding-top:22px;border-top:1px solid var(--border);font-size:0.75rem;color:var(--dim);line-height:1.7"><strong style="color:var(--muted)">Divulgación de afiliados:</strong> Este artículo contiene enlaces de afiliados. Podemos ganar una comisión cuando realizas una compra a través de nuestros enlaces sin coste adicional para ti. Todos los comerciantes son socios verificados a través de la red LinkConnector.</div>
+      </div>`;
+    document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')q.click();});});
+  }
+
+  function renderIndex(){
+    document.title='Blog — Brightlane Directorio de Comerciantes';
+    const cards=Object.entries(POSTS).map(([slug,post])=>`<a href="blog-es.html?p=${slug}" class="post-card"><div class="post-card-cat">${post.category}</div><div class="post-card-title">${post.title}</div><div class="post-card-desc">${post.metaDesc}</div><div class="post-card-meta"><span>${post.readTime}</span><span class="post-card-read">Leer →</span></div></a>`).join('');
+    document.getElementById('page-root').innerHTML=`
+      <div class="blog-index">
+        <div style="margin-bottom:40px">
+          <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Blog Brightlane en Español</div>
+          <h1 style="font-family:var(--font-head);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:12px">Guías de Compra y Reseñas</h1>
+          <p style="color:var(--muted);font-size:1rem">Reseñas honestas y comparativas para ayudarte a encontrar el producto correcto — con enlaces verificados a los mejores precios.</p>
+          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+            <a href="blog.html" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--dim);border:1px solid var(--border);padding:6px 14px;border-radius:6px">🌐 English</a>
+            <a href="blog-zh.html" style="display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--dim);border:1px solid var(--border);padding:6px 14px;border-radius:6px">🌐 中文</a>
+          </div>
+        </div>
+        <div class="post-grid">${cards}</div>
+      </div>`;
+  }
+
+  init();
+  </script>
+</body>
+</html>
