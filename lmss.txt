@@ -1,3 +1,444 @@
-VULTURE STATUS: OPERATIONAL
-VERIFIED COUNT: 17
-TIMESTAMP: 2026-04-28 20:11:16
+================================================================================
+  BRIGHTLANE VERIFIED MERCHANT DIRECTORY
+  LINK MANAGEMENT STATUS SHEET (LMSS)
+================================================================================
+  VULTURE STATUS: OPERATIONAL
+  VERIFIED COUNT: 23
+  NETWORK: LinkConnector
+  BASE URL: https://brightlane.github.io/verified-merchant-directory/
+  TIMESTAMP: 2026-04-29
+================================================================================
+
+--------------------------------------------------------------------------------
+  CATEGORY 1 — SOFTWARE & PRODUCTIVITY  [5 campaigns]
+--------------------------------------------------------------------------------
+
+[01] MOVAVI
+  ID          : movavi
+  STATUS      : ACTIVE
+  CATEGORY    : software
+  TAG         : Video Editor
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.movavi.com/
+  LC CODE     : 014538108972006513
+  ATID        : movavi
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-1
+  NOTES       : Video editing suite for Win/Mac. Strong search volume on "video editor software".
+
+[02] ISKYSOFT
+  ID          : iskysoft
+  STATUS      : ACTIVE
+  CATEGORY    : software
+  TAG         : Multimedia Suite
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.iskysoft.com/
+  LC CODE     : 014538080056005679
+  ATID        : iskysoft
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-2
+  NOTES       : Data recovery + multimedia tools. Targets Mac/Windows power users.
+
+[03] TENORSHARE
+  ID          : tenorshare
+  STATUS      : ACTIVE
+  CATEGORY    : software
+  TAG         : Phone Tools
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.tenorshare.com/
+  LC CODE     : 014538147585006847
+  ATID        : tenorshare
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-3
+  NOTES       : iOS/Android data recovery. High intent keywords: "recover deleted photos iphone".
+
+[04] WONDERSHARE
+  ID          : wondershare
+  STATUS      : ACTIVE
+  CATEGORY    : software
+  TAG         : Creative Suite
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.wondershare.com/
+  LC CODE     : 014538165262004532
+  ATID        : wondershare
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-4
+  NOTES       : Filmora, PDFelement. Broad appeal — creators, students, professionals.
+
+[05] APPY PIE
+  ID          : appypie
+  STATUS      : ACTIVE
+  CATEGORY    : software
+  TAG         : No-Code Builder
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie
+  MERCHANT PG : https://www.appypie.com/
+  LC CODE     : 014538139894005541
+  ATID        : appypie
+  LCPT        : —
+  LCPF        : —
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-5
+  NOTES       : No-code app/website builder. Growing SaaS segment. No lcpt/lcpf params.
+
+--------------------------------------------------------------------------------
+  CATEGORY 2 — EDUCATION & TRAINING  [5 campaigns]
+--------------------------------------------------------------------------------
+
+[06] KNOWLEDGEHUT
+  ID          : knowledgehut
+  STATUS      : ACTIVE
+  CATEGORY    : education
+  TAG         : Tech Certification
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=
+  MERCHANT PG : https://www.knowledgehut.com/
+  LC CODE     : 014538151487007786
+  ATID        : knowledgehut
+  LCPT        : 0
+  LCPF        : (empty)
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-6
+  NOTES       : PMP, AWS, agile courses. High CPC niche — strong commission potential.
+
+[07] PM TRAINING
+  ID          : pmtraining
+  STATUS      : ACTIVE
+  CATEGORY    : education
+  TAG         : PMP / Agile
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining
+  MERCHANT PG : https://www.pmtraining.com/
+  LC CODE     : 014538081796006139
+  ATID        : pmtraining
+  LCPT        : —
+  LCPF        : —
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-7
+  NOTES       : Focused PMP/PRINCE2 cert prep. Appears twice in raw link list — confirm dedup.
+
+[08] CPR AED COURSE
+  ID          : cpraedcourse
+  STATUS      : ACTIVE
+  CATEGORY    : education
+  TAG         : CPR Certification
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.cpraedcourse.com/
+  LC CODE     : 014538047418004897
+  ATID        : cpraedcourse
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-8
+  NOTES       : Online CPR/AED cert. Evergreen demand from workplaces, parents, coaches.
+
+[09] CPR CARE
+  ID          : cprcare
+  STATUS      : ACTIVE
+  CATEGORY    : education
+  TAG         : First Aid
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=
+  MERCHANT PG : https://www.cprcare.com/
+  LC CODE     : 014538104426006955
+  ATID        : cprcare
+  LCPT        : 0
+  LCPF        : (empty)
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-9
+  NOTES       : Sister campaign to CPR AED Course. Both active — differentiate in copy.
+
+[10] AHCA
+  ID          : ahca
+  STATUS      : ACTIVE
+  CATEGORY    : education
+  TAG         : Healthcare Training
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.ahcacpr.com/
+  LC CODE     : 014538092157004897
+  ATID        : ahca
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-10
+  NOTES       : American Health Care Academy. OSHA compliance angle. B2B potential.
+
+--------------------------------------------------------------------------------
+  CATEGORY 3 — PET CARE  [2 campaigns]
+--------------------------------------------------------------------------------
+
+[11] DISCOUNT PET CARE
+  ID          : discountpetcare
+  STATUS      : ACTIVE
+  CATEGORY    : petcare
+  TAG         : Pet Meds
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=
+  MERCHANT PG : https://www.discountpetcare.com/
+  LC CODE     : 014538154581007847
+  ATID        : discountpetcare
+  LCPT        : 0
+  LCPF        : (empty)
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-11
+  NOTES       : Appears multiple times in raw link list — deduped to one card. Confirm active.
+
+[12] CANADA PET CARE
+  ID          : canadapetcare
+  STATUS      : ACTIVE
+  CATEGORY    : petcare
+  TAG         : Pet Pharmacy
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538000012006219&url=https%3A%2F%2Fwww.canadapetcare.com%2F
+  MERCHANT PG : https://www.canadapetcare.com/
+  LC CODE     : 014538000012006219
+  ATID        : (URL-based redirect — no atid param)
+  LCPT        : —
+  LCPF        : —
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-12
+  NOTES       : URL-passthrough link format. Appears 3x in raw list — deduped. Verify tracking.
+
+--------------------------------------------------------------------------------
+  CATEGORY 4 — PRINT & SIGNS  [4 campaigns]
+--------------------------------------------------------------------------------
+
+[13] BUILDASIGN
+  ID          : buildasign
+  STATUS      : ACTIVE
+  CATEGORY    : print
+  TAG         : Custom Signs
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.buildasign.com/
+  LC CODE     : 014538059259004756
+  ATID        : buildasign
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-13
+  NOTES       : Appears 3x in raw link list — deduped. Banners, yard signs, canvas.
+
+[14] EASY CANVAS PRINTS
+  ID          : easycanvasprints
+  STATUS      : ACTIVE
+  CATEGORY    : print
+  TAG         : Canvas Prints
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.easycanvasprints.com/
+  LC CODE     : 014538095217004760
+  ATID        : easycanvasprints
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-14
+  NOTES       : Photo-to-canvas. Seasonal spikes: Mother's Day, Christmas, graduation.
+
+[15] CANVAS DISCOUNT
+  ID          : canvasdiscount
+  STATUS      : ACTIVE
+  CATEGORY    : print
+  TAG         : Photo Prints
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.canvasdiscount.com/
+  LC CODE     : 014538165146007920
+  ATID        : canvasdiscount
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-15
+  NOTES       : Premium prints at discount pricing. Competes with Easy Canvas — differentiate by price angle.
+
+[16] CANVAS ON THE CHEAP
+  ID          : canvasonthecheap
+  STATUS      : ACTIVE
+  CATEGORY    : print
+  TAG         : Budget Canvas
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3
+  MERCHANT PG : https://www.canvasonthecheap.com/
+  LC CODE     : 014538153308006216
+  ATID        : canvasonthecheap
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-16
+  NOTES       : Budget-first angle. 3 canvas merchants total — use filter tags to help users choose.
+
+--------------------------------------------------------------------------------
+  CATEGORY 5 — HEALTH & WELLNESS  [2 campaigns]
+--------------------------------------------------------------------------------
+
+[17] INFINITE ALOE
+  ID          : infinitealoe
+  STATUS      : ACTIVE
+  CATEGORY    : health
+  TAG         : Natural Skincare
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0
+  MERCHANT PG : https://www.infinitealoe.com/
+  LC CODE     : 014538155218007855
+  ATID        : infinitealoe
+  LCPT        : 0
+  LCPF        : 0
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-17
+  NOTES       : Organic aloe skincare. lcpf=0 (not lcpf=3). Natural/clean beauty segment.
+
+[18] LITTLE TOE
+  ID          : littletoe
+  STATUS      : ACTIVE
+  CATEGORY    : health
+  TAG         : Foot Care
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe
+  MERCHANT PG : https://www.littletoe.com/
+  LC CODE     : 014538126445007124
+  ATID        : littletoe
+  LCPT        : —
+  LCPF        : —
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-18
+  NOTES       : Foot orthotics/bunion relief. No lcpt/lcpf params in link. Niche but high intent.
+
+--------------------------------------------------------------------------------
+  CATEGORY 6 — LIFESTYLE  [3 campaigns]
+--------------------------------------------------------------------------------
+
+[19] COMBAT FLIP FLOPS
+  ID          : combatflipflops
+  STATUS      : ACTIVE
+  CATEGORY    : lifestyle
+  TAG         : Social Impact
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0
+  MERCHANT PG : https://www.combatflipflops.com/
+  LC CODE     : 014538089787006486
+  ATID        : combatflipflops
+  LCPT        : 0
+  LCPF        : 0
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-19
+  NOTES       : Mission-driven brand. Appears 3x in raw list — deduped. lcpf=0 confirmed.
+
+[20] HALLOWEEN COSTUMES
+  ID          : halloweencostumes
+  STATUS      : ACTIVE
+  CATEGORY    : lifestyle
+  TAG         : Costumes
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=
+  MERCHANT PG : https://www.halloweencostumes.com/
+  LC CODE     : 014538069092004909
+  ATID        : halloweencostumes
+  LCPT        : 0
+  LCPF        : (empty)
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-20
+  NOTES       : Seasonal peak Aug–Oct. Plan content pushes ahead of Halloween.
+
+[21] SHOP LWW
+  ID          : shoplww
+  STATUS      : ACTIVE
+  CATEGORY    : lifestyle
+  TAG         : Medical Books
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3
+  MERCHANT PG : https://shop.lww.com/
+  LC CODE     : 014538165369003224
+  ATID        : shoplww
+  LCPT        : 0
+  LCPF        : 3
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-21
+  NOTES       : Lippincott medical/nursing textbooks. Back-to-school seasonal spikes.
+
+--------------------------------------------------------------------------------
+  CATEGORY 7 — SERVICES  [2 campaigns]
+--------------------------------------------------------------------------------
+
+[22] BGM GIRL
+  ID          : bgmgirl
+  STATUS      : ACTIVE
+  CATEGORY    : services
+  TAG         : Royalty-Free Music
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=
+  MERCHANT PG : https://www.bgmgirl.com/
+  LC CODE     : 014538163184007840
+  ATID        : bgmgirl
+  LCPT        : 0
+  LCPF        : (empty)
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-22
+  NOTES       : Background music for creators. YouTube-safe. Growing creator economy niche.
+
+[23] LAFUENT
+  ID          : lafuent
+  STATUS      : ACTIVE
+  CATEGORY    : services
+  TAG         : Auto Parts
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0
+  MERCHANT PG : https://www.lafuent.com/
+  LC CODE     : 014538034203001545
+  ATID        : lafuent
+  LCPT        : 0
+  LCPF        : 0
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-23
+  NOTES       : OEM/aftermarket auto parts. International shipping. lcpf=0 confirmed.
+
+================================================================================
+  BONUS CAMPAIGN — TAX EXTENSION  [filed under: services]
+================================================================================
+
+[SVC-1] TAX EXTENSION
+  ID          : taxextension
+  STATUS      : ACTIVE
+  CATEGORY    : services
+  TAG         : Tax Service
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension
+  MERCHANT PG : https://www.taxextension.com/
+  LC CODE     : 014538121293006198
+  ATID        : taxextension
+  LCPT        : —
+  LCPF        : —
+  UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-svc1
+  NOTES       : Seasonal peak Jan–Apr. IRS extension deadline angle. No lcpt/lcpf params.
+
+================================================================================
+  DEDUPLICATION LOG — RAW LINKS HAD DUPLICATES
+================================================================================
+
+  The following affiliate IDs appeared more than once in the original raw link list.
+  All have been deduplicated to a single canonical entry above.
+
+  DUPLICATE       | COUNT | CANONICAL ENTRY
+  ----------------|-------|----------------
+  pmtraining      |  2x   | [07]
+  discountpetcare |  2x   | [11]
+  canadapetcare   |  3x   | [12]
+  combatflipflops |  3x   | [19]
+  buildasign      |  3x   | [13]
+  appypie         |  2x   | [05]
+
+================================================================================
+  LCPF PARAM REFERENCE
+================================================================================
+
+  lcpf=3  → Standard affiliate tracking (most campaigns)
+  lcpf=0  → Alternate tracking mode (infinitealoe, combatflipflops, lafuent)
+  lcpf=   → Empty / not set (bgmgirl, cprcare, knowledgehut, discountpetcare, halloweencostumes, canadapetcare)
+  (none)  → Param absent entirely (pmtraining, appypie, littletoe, taxextension)
+
+================================================================================
+  CAMPAIGN SUMMARY TABLE
+================================================================================
+
+  #   ID                  CATEGORY    LCPF  STATUS
+  --  ------------------  ----------  ----  ------
+  01  movavi              software    3     ACTIVE
+  02  iskysoft            software    3     ACTIVE
+  03  tenorshare          software    3     ACTIVE
+  04  wondershare         software    3     ACTIVE
+  05  appypie             software    —     ACTIVE
+  06  knowledgehut        education   —     ACTIVE
+  07  pmtraining          education   —     ACTIVE
+  08  cpraedcourse        education   3     ACTIVE
+  09  cprcare             education   —     ACTIVE
+  10  ahca                education   3     ACTIVE
+  11  discountpetcare     petcare     —     ACTIVE
+  12  canadapetcare       petcare     —     ACTIVE
+  13  buildasign          print       3     ACTIVE
+  14  easycanvasprints    print       3     ACTIVE
+  15  canvasdiscount      print       3     ACTIVE
+  16  canvasonthecheap    print       3     ACTIVE
+  17  infinitealoe        health      0     ACTIVE
+  18  littletoe           health      —     ACTIVE
+  19  combatflipflops     lifestyle   0     ACTIVE
+  20  halloweencostumes   lifestyle   —     ACTIVE
+  21  shoplww             lifestyle   3     ACTIVE
+  22  bgmgirl             services    —     ACTIVE
+  23  lafuent             services    0     ACTIVE
+  S1  taxextension        services    —     ACTIVE
+
+  TOTAL ACTIVE CAMPAIGNS : 24
+  TOTAL CATEGORIES       : 7
+  NETWORK                : LinkConnector
+  DIRECTORY URL          : https://brightlane.github.io/verified-merchant-directory/
+
+================================================================================
+  END OF LMSS — BRIGHTLANE VERIFIED MERCHANT DIRECTORY
+  NEXT REVIEW: 2026-05-29
+================================================================================
