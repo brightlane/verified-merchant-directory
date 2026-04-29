@@ -1,117 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #0a0b0d;
+    font-family: 'Syne', sans-serif;
+  }
+</style>
+</head>
+<body>
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="glow1" cx="30%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#e8ff47" stop-opacity="0.12"/>
+    <radialGradient id="g1" cx="25%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#e8ff47" stop-opacity="0.1"/>
       <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="80%" cy="70%" r="50%">
-      <stop offset="0%" stop-color="#47ffb8" stop-opacity="0.07"/>
+    <radialGradient id="g2" cx="85%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#47ffb8" stop-opacity="0.06"/>
       <stop offset="100%" stop-color="#0a0b0d" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="0.8" fill="rgba(255,255,255,0.06)"/>
     </pattern>
   </defs>
 
-  <!-- Background -->
+  <!-- Base -->
   <rect width="1200" height="630" fill="#0a0b0d"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect width="1200" height="630" fill="url(#glow1)"/>
-  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="4" height="630" fill="#e8ff47"/>
+  <!-- Left accent -->
+  <rect x="0" y="0" width="5" height="630" fill="#e8ff47"/>
 
-  <!-- Top border line -->
-  <rect x="0" y="0" width="1200" height="1" fill="rgba(255,255,255,0.08)"/>
-  <rect x="0" y="629" width="1200" height="1" fill="rgba(255,255,255,0.08)"/>
+  <!-- Top + bottom edge lines -->
+  <rect x="0" y="0" width="1200" height="1" fill="rgba(255,255,255,0.07)"/>
+  <rect x="0" y="629" width="1200" height="1" fill="rgba(255,255,255,0.07)"/>
 
-  <!-- Verified badge top-left -->
-  <rect x="60" y="52" width="130" height="28" rx="14" fill="rgba(232,255,71,0.12)" stroke="rgba(232,255,71,0.3)" stroke-width="1"/>
-  <circle cx="80" cy="66" r="4" fill="#47ffb8"/>
-  <text x="92" y="71" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#e8ff47" letter-spacing="1.5">✓ VERIFIED</text>
+  <!-- VERIFIED badge -->
+  <rect x="60" y="55" width="138" height="30" rx="15" fill="rgba(232,255,71,0.1)" stroke="rgba(232,255,71,0.28)" stroke-width="1"/>
+  <circle cx="82" cy="70" r="4" fill="#47ffb8"/>
+  <text x="95" y="75" font-family="Syne,sans-serif" font-size="11" font-weight="700" fill="#e8ff47" letter-spacing="1.8">✓ VERIFIED</text>
 
-  <!-- Main heading -->
-  <text x="60" y="190" font-family="Syne,sans-serif" font-size="72" font-weight="800" fill="#e8e9ed" letter-spacing="-2">Verified Merchant</text>
-  <text x="60" y="275" font-family="Syne,sans-serif" font-size="72" font-weight="800" fill="#e8ff47" letter-spacing="-2">Directory</text>
+  <!-- Main headline -->
+  <text x="60" y="195" font-family="Syne,sans-serif" font-size="78" font-weight="800" fill="#e8e9ed" letter-spacing="-2.5">Verified Merchant</text>
+  <text x="60" y="285" font-family="Syne,sans-serif" font-size="78" font-weight="800" fill="#e8ff47" letter-spacing="-2.5">Directory</text>
 
-  <!-- Subtext -->
-  <text x="62" y="340" font-family="DM Sans,sans-serif" font-size="22" font-weight="300" fill="#8a8d99">24 vetted affiliate partners · 7 categories · LinkConnector verified</text>
+  <!-- Subline -->
+  <text x="62" y="348" font-family="DM Sans,sans-serif" font-size="21" font-weight="300" fill="#8a8d99">24 vetted affiliate partners · 7 categories · LinkConnector verified</text>
 
   <!-- Divider -->
-  <rect x="60" y="380" width="480" height="1" fill="rgba(255,255,255,0.1)"/>
+  <rect x="60" y="388" width="520" height="1" fill="rgba(255,255,255,0.09)"/>
 
-  <!-- Stats row -->
-  <!-- Stat 1 -->
-  <text x="60" y="430" font-family="Syne,sans-serif" font-size="36" font-weight="800" fill="#e8ff47">24</text>
-  <text x="60" y="455" font-family="DM Sans,sans-serif" font-size="13" font-weight="300" fill="#8a8d99" letter-spacing="1">MERCHANTS</text>
+  <!-- Stats -->
+  <text x="60"  y="436" font-family="Syne,sans-serif" font-size="38" font-weight="800" fill="#e8ff47">24</text>
+  <text x="60"  y="460" font-family="DM Sans,sans-serif" font-size="12" font-weight="300" fill="#8a8d99" letter-spacing="1.5">MERCHANTS</text>
 
-  <!-- Stat 2 -->
-  <text x="200" y="430" font-family="Syne,sans-serif" font-size="36" font-weight="800" fill="#47ffb8">7</text>
-  <text x="200" y="455" font-family="DM Sans,sans-serif" font-size="13" font-weight="300" fill="#8a8d99" letter-spacing="1">CATEGORIES</text>
+  <text x="210" y="436" font-family="Syne,sans-serif" font-size="38" font-weight="800" fill="#47ffb8">7</text>
+  <text x="210" y="460" font-family="DM Sans,sans-serif" font-size="12" font-weight="300" fill="#8a8d99" letter-spacing="1.5">CATEGORIES</text>
 
-  <!-- Stat 3 -->
-  <text x="340" y="430" font-family="Syne,sans-serif" font-size="36" font-weight="800" fill="#ff6b35">$0</text>
-  <text x="340" y="455" font-family="DM Sans,sans-serif" font-size="13" font-weight="300" fill="#8a8d99" letter-spacing="1">EXTRA COST</text>
+  <text x="360" y="436" font-family="Syne,sans-serif" font-size="38" font-weight="800" fill="#ff6b35">$0</text>
+  <text x="360" y="460" font-family="DM Sans,sans-serif" font-size="12" font-weight="300" fill="#8a8d99" letter-spacing="1.5">EXTRA COST</text>
 
-  <!-- Stat 4 -->
-  <text x="480" y="430" font-family="Syne,sans-serif" font-size="36" font-weight="800" fill="#f5c842">100%</text>
-  <text x="480" y="455" font-family="DM Sans,sans-serif" font-size="13" font-weight="300" fill="#8a8d99" letter-spacing="1">VERIFIED</text>
+  <text x="510" y="436" font-family="Syne,sans-serif" font-size="38" font-weight="800" fill="#f5c842">100%</text>
+  <text x="510" y="460" font-family="DM Sans,sans-serif" font-size="12" font-weight="300" fill="#8a8d99" letter-spacing="1.5">VERIFIED</text>
 
-  <!-- URL bottom left -->
-  <text x="60" y="590" font-family="DM Sans,sans-serif" font-size="16" font-weight="300" fill="rgba(138,141,153,0.6)">brightlane.github.io/verified-merchant-directory</text>
+  <!-- URL -->
+  <text x="62" y="592" font-family="DM Sans,sans-serif" font-size="15" font-weight="300" fill="rgba(138,141,153,0.5)">brightlane.github.io/verified-merchant-directory</text>
 
-  <!-- Right side — category pills floating -->
-  <g opacity="0.9">
-    <!-- Software -->
-    <rect x="740" y="80" width="140" height="38" rx="19" fill="rgba(255,107,53,0.1)" stroke="rgba(255,107,53,0.25)" stroke-width="1"/>
-    <text x="810" y="104" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#ff9a7a" text-anchor="middle">🎬 Software</text>
+  <!-- RIGHT SIDE — category pills -->
+  <rect x="740" y="75"  width="145" height="36" rx="18" fill="rgba(255,107,53,0.09)"  stroke="rgba(255,107,53,0.22)"  stroke-width="1"/>
+  <text x="812" y="98"  font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#ff9a7a"  text-anchor="middle">🎬 Software</text>
 
-    <!-- Education -->
-    <rect x="900" y="80" width="160" height="38" rx="19" fill="rgba(71,255,184,0.08)" stroke="rgba(71,255,184,0.2)" stroke-width="1"/>
-    <text x="980" y="104" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#47ffb8" text-anchor="middle">🎓 Education</text>
+  <rect x="900" y="75"  width="160" height="36" rx="18" fill="rgba(71,255,184,0.07)"  stroke="rgba(71,255,184,0.2)"   stroke-width="1"/>
+  <text x="980" y="98"  font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#47ffb8"  text-anchor="middle">🎓 Education</text>
 
-    <!-- Pet Care -->
-    <rect x="760" y="138" width="130" height="38" rx="19" fill="rgba(245,200,66,0.08)" stroke="rgba(245,200,66,0.2)" stroke-width="1"/>
-    <text x="825" y="162" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#f5c842" text-anchor="middle">🐾 Pet Care</text>
+  <rect x="755" y="130" width="135" height="36" rx="18" fill="rgba(245,200,66,0.07)"  stroke="rgba(245,200,66,0.2)"   stroke-width="1"/>
+  <text x="822" y="153" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#f5c842"  text-anchor="middle">🐾 Pet Care</text>
 
-    <!-- Print -->
-    <rect x="910" y="138" width="140" height="38" rx="19" fill="rgba(79,172,254,0.08)" stroke="rgba(79,172,254,0.2)" stroke-width="1"/>
-    <text x="980" y="162" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#4facfe" text-anchor="middle">🖼️ Print</text>
+  <rect x="908" y="130" width="145" height="36" rx="18" fill="rgba(79,172,254,0.07)"  stroke="rgba(79,172,254,0.2)"   stroke-width="1"/>
+  <text x="980" y="153" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#4facfe"  text-anchor="middle">🖼️ Print</text>
 
-    <!-- Health -->
-    <rect x="750" y="196" width="120" height="38" rx="19" fill="rgba(255,71,87,0.08)" stroke="rgba(255,71,87,0.2)" stroke-width="1"/>
-    <text x="810" y="220" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#ff6b78" text-anchor="middle">🌿 Health</text>
+  <rect x="748" y="185" width="125" height="36" rx="18" fill="rgba(255,71,87,0.07)"   stroke="rgba(255,71,87,0.2)"    stroke-width="1"/>
+  <text x="810" y="208" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#ff6b78"  text-anchor="middle">🌿 Health</text>
 
-    <!-- Lifestyle -->
-    <rect x="890" y="196" width="140" height="38" rx="19" fill="rgba(175,82,222,0.08)" stroke="rgba(175,82,222,0.2)" stroke-width="1"/>
-    <text x="960" y="220" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#bf7fff" text-anchor="middle">🩴 Lifestyle</text>
+  <rect x="893" y="185" width="145" height="36" rx="18" fill="rgba(175,82,222,0.07)"  stroke="rgba(175,82,222,0.2)"   stroke-width="1"/>
+  <text x="965" y="208" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#bf7fff"  text-anchor="middle">🩴 Lifestyle</text>
 
-    <!-- Services -->
-    <rect x="760" y="254" width="130" height="38" rx="19" fill="rgba(232,255,71,0.08)" stroke="rgba(232,255,71,0.2)" stroke-width="1"/>
-    <text x="825" y="278" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#e8ff47" text-anchor="middle">⚙️ Services</text>
-  </g>
+  <rect x="755" y="240" width="135" height="36" rx="18" fill="rgba(232,255,71,0.07)"  stroke="rgba(232,255,71,0.18)"  stroke-width="1"/>
+  <text x="822" y="263" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="#e8ff47"  text-anchor="middle">⚙️ Services</text>
 
-  <!-- Big decorative checkmark watermark right -->
-  <text x="1050" y="520" font-family="Syne,sans-serif" font-size="260" font-weight="800" fill="rgba(232,255,71,0.03)" text-anchor="middle">✓</text>
+  <!-- Decorative watermark check -->
+  <text x="1080" y="540" font-family="Syne,sans-serif" font-size="280" font-weight="800" fill="rgba(232,255,71,0.025)" text-anchor="middle">✓</text>
 
-  <!-- Merchant icon cloud -->
-  <text x="760" y="380" font-size="28" fill="rgba(255,255,255,0.15)">🎬</text>
-  <text x="810" y="360" font-size="22" fill="rgba(255,255,255,0.12)">📱</text>
-  <text x="855" y="385" font-size="26" fill="rgba(255,255,255,0.1)">🐾</text>
-  <text x="900" y="365" font-size="20" fill="rgba(255,255,255,0.12)">🖼️</text>
-  <text x="940" y="388" font-size="24" fill="rgba(255,255,255,0.1)">🎓</text>
-  <text x="985" y="362" font-size="22" fill="rgba(255,255,255,0.12)">🌿</text>
-  <text x="1025" y="385" font-size="26" fill="rgba(255,255,255,0.1)">🔧</text>
-  <text x="1070" y="365" font-size="20" fill="rgba(255,255,255,0.12)">📄</text>
-  <text x="780" y="440" font-size="20" fill="rgba(255,255,255,0.08)">✨</text>
-  <text x="830" y="460" font-size="24" fill="rgba(255,255,255,0.09)">🎵</text>
-  <text x="880" y="438" font-size="22" fill="rgba(255,255,255,0.08)">🩴</text>
-  <text x="930" y="458" font-size="20" fill="rgba(255,255,255,0.09)">📚</text>
-  <text x="975" y="435" font-size="26" fill="rgba(255,255,255,0.08)">🐕</text>
-  <text x="1025" y="455" font-size="22" fill="rgba(255,255,255,0.09)">🎃</text>
-  <text x="1070" y="438" font-size="20" fill="rgba(255,255,255,0.08)">💲</text>
+  <!-- Emoji cloud bottom right -->
+  <text x="755"  y="370" font-size="26" fill="rgba(255,255,255,0.13)">🎬</text>
+  <text x="800"  y="348" font-size="20" fill="rgba(255,255,255,0.10)">📱</text>
+  <text x="840"  y="372" font-size="24" fill="rgba(255,255,255,0.09)">🐾</text>
+  <text x="882"  y="352" font-size="20" fill="rgba(255,255,255,0.11)">🖼️</text>
+  <text x="920"  y="374" font-size="22" fill="rgba(255,255,255,0.09)">🎓</text>
+  <text x="960"  y="350" font-size="20" fill="rgba(255,255,255,0.10)">🌿</text>
+  <text x="998"  y="372" font-size="24" fill="rgba(255,255,255,0.09)">🔧</text>
+  <text x="1040" y="352" font-size="20" fill="rgba(255,255,255,0.10)">📄</text>
+  <text x="770"  y="432" font-size="20" fill="rgba(255,255,255,0.07)">✨</text>
+  <text x="815"  y="450" font-size="22" fill="rgba(255,255,255,0.08)">🎵</text>
+  <text x="858"  y="430" font-size="20" fill="rgba(255,255,255,0.07)">🩴</text>
+  <text x="900"  y="448" font-size="22" fill="rgba(255,255,255,0.08)">📚</text>
+  <text x="945"  y="428" font-size="24" fill="rgba(255,255,255,0.07)">🐕</text>
+  <text x="990"  y="446" font-size="20" fill="rgba(255,255,255,0.08)">🎃</text>
+  <text x="1032" y="430" font-size="22" fill="rgba(255,255,255,0.07)">💲</text>
 
-  <!-- Bottom right — Brightlane wordmark -->
-  <text x="1140" y="590" font-family="Syne,sans-serif" font-size="18" font-weight="800" fill="rgba(232,255,71,0.4)" text-anchor="end" letter-spacing="-0.5">Brightlane</text>
+  <!-- Brightlane wordmark bottom right -->
+  <text x="1140" y="592" font-family="Syne,sans-serif" font-size="17" font-weight="800" fill="rgba(232,255,71,0.35)" text-anchor="end" letter-spacing="-0.5">Brightlane</text>
 </svg>
+</body>
+</html>
