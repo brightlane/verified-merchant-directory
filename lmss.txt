@@ -452,7 +452,7 @@
     {
       "slug": "appypie-chatbot-builder-review-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "Appy Pie Chatbot Builder Review 2026 — Build an AI Chatbot Without Coding",
       "title_zh": "Appy Pie聊天机器人构建器测评2026 — 无需编程打造AI聊天机器人",
       "title_es": "Reseña Appy Pie Constructor de Chatbots 2026 — Crea un Chatbot IA Sin Código",
@@ -596,7 +596,8 @@
           "q": "Le chatbot peut-il collecter des informations client ?",
           "a": "Oui. Ajoutez des formulaires de capture de leads dans le flux de conversation."
         }
-      ]
+      ],
+      "published_date": "2026-04-29"
     },
     {
       "slug": "halloween-costumes-guide-2026",
