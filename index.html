@@ -1,67 +1,842 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verified Merchant Directory | 2026 Global Network</title>
-    <style>
-        body { background: #020617; color: white; font-family: -apple-system, system-ui, sans-serif; text-align: center; margin: 0; }
-        .hero { padding: 80px 20px; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%); border-bottom: 1px solid #1e293b; }
-        .count { font-size: 7rem; font-weight: 900; color: #22d3ee; margin: 0; line-height: 1; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: 0 auto; }
-        .card { background: #0f172a; border: 1px solid #1e293b; padding: 30px; border-radius: 16px; text-decoration: none; color: white; transition: 0.3s; display: block; position: relative; overflow: hidden; }
-        .card:hover { border-color: #22d3ee; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(34, 211, 238, 0.1); }
-        .card h3 { color: #22d3ee; margin: 0 0 10px 0; font-size: 1.5rem; }
-        .btn { margin-top: 15px; background: #22d3ee; color: #020617; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; }
-        .tag { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════════
+       PRIMARY SEO META
+  ═══════════════════════════════════════════════ -->
+  <title>Verified Merchant Directory | Brightlane Global Network 2026</title>
+  <meta name="description" content="Browse 17 verified global merchant campaigns — tax services, skincare, pet care, software, home decor, and more. Hand-curated affiliate deals updated for 2026." />
+  <meta name="keywords" content="verified merchant directory, affiliate deals 2026, NordVPN discount, BuildASign affiliate, Chess Store, tax filing online, Depositphotos stock, Movavi software, CanadaPetCare" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Brightlane Global" />
+  <link rel="canonical" href="https://brightlane.github.io/" />
+
+  <!-- ═══════════════════════════════════════════════
+       HREFLANG — 20 LANGUAGE/REGION PAIRS
+  ═══════════════════════════════════════════════ -->
+  <link rel="alternate" hreflang="x-default"  href="https://brightlane.github.io/" />
+  <link rel="alternate" hreflang="en"         href="https://brightlane.github.io/" />
+  <link rel="alternate" hreflang="en-us"      href="https://brightlane.github.io/en-us/" />
+  <link rel="alternate" hreflang="en-gb"      href="https://brightlane.github.io/en-gb/" />
+  <link rel="alternate" hreflang="en-ca"      href="https://brightlane.github.io/en-ca/" />
+  <link rel="alternate" hreflang="en-au"      href="https://brightlane.github.io/en-au/" />
+  <link rel="alternate" hreflang="es"         href="https://brightlane.github.io/es/" />
+  <link rel="alternate" hreflang="es-mx"      href="https://brightlane.github.io/es-mx/" />
+  <link rel="alternate" hreflang="fr"         href="https://brightlane.github.io/fr/" />
+  <link rel="alternate" hreflang="fr-ca"      href="https://brightlane.github.io/fr-ca/" />
+  <link rel="alternate" hreflang="de"         href="https://brightlane.github.io/de/" />
+  <link rel="alternate" hreflang="pt-br"      href="https://brightlane.github.io/pt-br/" />
+  <link rel="alternate" hreflang="pt-pt"      href="https://brightlane.github.io/pt-pt/" />
+  <link rel="alternate" hreflang="ja"         href="https://brightlane.github.io/ja/" />
+  <link rel="alternate" hreflang="zh-hans"    href="https://brightlane.github.io/zh/" />
+  <link rel="alternate" hreflang="zh-hant"    href="https://brightlane.github.io/zh-tw/" />
+  <link rel="alternate" hreflang="ko"         href="https://brightlane.github.io/ko/" />
+  <link rel="alternate" hreflang="hi"         href="https://brightlane.github.io/hi/" />
+  <link rel="alternate" hreflang="it"         href="https://brightlane.github.io/it/" />
+  <link rel="alternate" hreflang="nl"         href="https://brightlane.github.io/nl/" />
+  <link rel="alternate" hreflang="pl"         href="https://brightlane.github.io/pl/" />
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH — 8 LOCALE ALTERNATES
+  ═══════════════════════════════════════════════ -->
+  <meta property="og:type"               content="website" />
+  <meta property="og:site_name"          content="Brightlane Global" />
+  <meta property="og:title"             content="Verified Merchant Directory | Brightlane Global 2026" />
+  <meta property="og:description"       content="17 verified global merchant campaigns — curated affiliate deals in tax, skincare, software, pets, home decor &amp; more." />
+  <meta property="og:url"               content="https://brightlane.github.io/" />
+  <meta property="og:image"             content="https://brightlane.github.io/assets/og-cover.jpg" />
+  <meta property="og:image:width"       content="1200" />
+  <meta property="og:image:height"      content="630" />
+  <meta property="og:image:alt"         content="Brightlane Global Verified Merchant Directory" />
+  <meta property="og:locale"            content="en_US" />
+  <meta property="og:locale:alternate"  content="en_GB" />
+  <meta property="og:locale:alternate"  content="es_ES" />
+  <meta property="og:locale:alternate"  content="fr_FR" />
+  <meta property="og:locale:alternate"  content="de_DE" />
+  <meta property="og:locale:alternate"  content="pt_BR" />
+  <meta property="og:locale:alternate"  content="ja_JP" />
+  <meta property="og:locale:alternate"  content="ko_KR" />
+  <meta property="og:locale:alternate"  content="zh_CN" />
+
+  <!-- ═══════════════════════════════════════════════
+       TWITTER CARD
+  ═══════════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@BrightlaneGlobal" />
+  <meta name="twitter:creator"     content="@BrightlaneGlobal" />
+  <meta name="twitter:title"       content="Verified Merchant Directory | Brightlane Global 2026" />
+  <meta name="twitter:description" content="17 verified global merchant campaigns — tax, skincare, software, pets, home decor &amp; more." />
+  <meta name="twitter:image"       content="https://brightlane.github.io/assets/og-cover.jpg" />
+  <meta name="twitter:image:alt"   content="Brightlane Global Merchant Directory" />
+
+  <!-- ═══════════════════════════════════════════════
+       JSON-LD SCHEMA STACK
+  ═══════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brightlane Global",
+    "url": "https://brightlane.github.io/",
+    "logo": "https://brightlane.github.io/assets/logo.png",
+    "description": "Curated verified merchant directory featuring 17 global affiliate campaigns across 12+ verticals.",
+    "foundingDate": "2024",
+    "sameAs": [
+      "https://twitter.com/BrightlaneGlobal"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Brightlane Global Verified Merchant Directory",
+    "url": "https://brightlane.github.io/",
+    "description": "17 verified global merchant campaigns across tax, skincare, software, pets, decor and more.",
+    "inLanguage": ["en","es","fr","de","pt","ja","zh","ko","hi"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://brightlane.github.io/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are these merchant deals verified?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every merchant in the Brightlane directory is verified through the LinkConnector affiliate network, with active campaigns and confirmed commission structures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do affiliate links cost me anything extra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Clicking an affiliate link costs you nothing extra. The merchant pays a commission to Brightlane if you make a purchase, at no additional cost to you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often are merchant campaigns updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Campaigns are reviewed and updated regularly. The directory currently features 17 active campaigns as of 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which merchants are available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Current merchants include E-File.com (tax), NordVPN (security), BuildASign (business signage), The Chess Store (leisure), Depositphotos (stock media), Movavi (software), CanadaPetCare, Hats.com, La Fuente Imports, Sidify, Snappy, Warehouse 115, Atlanta Cutlery, Combat Flip Flops, InfiniteAloe, HalloweenCostumes.com, and Fun.com."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       FONTS & STYLES
+  ═══════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #020617;
+      --surface: #0f172a;
+      --border:  #1e293b;
+      --accent:  #22d3ee;
+      --accent2: #818cf8;
+      --muted:   #475569;
+      --soft:    #94a3b8;
+      --text:    #e2e8f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── STICKY NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── LANGUAGE TICKER ── */
+    .lang-ticker {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 8px 0;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 48px;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-track span {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--soft);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .ticker-track span.active { color: var(--accent); }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 90px 20px 70px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #0f2545 0%, var(--bg) 70%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(34,211,238,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(129,140,248,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(34,211,238,0.3);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    h1.count {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(5rem, 15vw, 9rem);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: -4px;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--soft);
+      margin-top: 16px;
+      font-weight: 300;
+    }
+    .hero-domain {
+      margin-top: 20px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      color: var(--accent);
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    /* ── GRID ── */
+    .section-label {
+      text-align: center;
+      padding: 56px 20px 8px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .section-title {
+      text-align: center;
+      padding: 0 20px 40px;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+      padding: 0 40px 60px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(34,211,238,0.06), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(34,211,238,0.1);
+    }
+    .card:hover::after { opacity: 1; }
+
+    .card-tag {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      font-family: 'Syne', sans-serif;
+    }
+    .card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 8px 0 10px;
+      letter-spacing: -0.3px;
+    }
+    .card p {
+      font-size: 0.88rem;
+      color: var(--soft);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      min-height: 40px;
+    }
+    .card-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: rgba(34,211,238,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(34,211,238,0.25);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .card:hover .card-btn {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+    .faq-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    summary {
+      padding: 18px 22px;
+      cursor: pointer;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    summary::after {
+      content: '+';
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 300;
+      transition: transform 0.25s;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 22px 18px;
+      font-size: 0.9rem;
+      color: var(--soft);
+      line-height: 1.65;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 60px 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer p + p { margin-top: 8px; }
+    .footer-note {
+      font-size: 0.72rem;
+      opacity: 0.5;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 12px 20px; }
+      .grid { padding: 0 16px 48px; gap: 14px; }
+      .faq-section { padding: 40px 20px; }
+      footer { padding: 40px 20px; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="hero">
-        <h1 class="count">17</h1>
-        <p style="color:#94a3b8; font-size: 1.4rem; margin-top: 15px;">Verified Global Campaigns Active</p>
-        <p style="color:#22d3ee; font-size: 0.9rem; font-family: monospace;">DOMAIN: brightlane.github.io</p>
-    </div>
 
+  <!-- ═══ STICKY NAV ═══ -->
+  <nav aria-label="Site navigation">
+    <div class="nav-logo">Bright<span>lane</span> Global</div>
+    <a href="#merchants" class="nav-cta" aria-label="Browse all verified merchant campaigns">Browse Merchants →</a>
+  </nav>
+
+  <!-- ═══ LANGUAGE TICKER ═══ -->
+  <div class="lang-ticker" aria-label="Supported languages and regions" role="marquee">
+    <div class="ticker-track" aria-hidden="true">
+      <span class="active">English (US)</span><span>English (UK)</span><span>Español</span>
+      <span>Français</span><span>Deutsch</span><span>Português (BR)</span><span>日本語</span>
+      <span>한국어</span><span>中文</span><span>हिन्दी</span><span>Italiano</span>
+      <span>Nederlands</span><span>Polski</span><span>العربية</span>
+      <!-- duplicate for seamless loop -->
+      <span class="active">English (US)</span><span>English (UK)</span><span>Español</span>
+      <span>Français</span><span>Deutsch</span><span>Português (BR)</span><span>日本語</span>
+      <span>한국어</span><span>中文</span><span>हिन्दी</span><span>Italiano</span>
+      <span>Nederlands</span><span>Polski</span><span>العربية</span>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <header class="hero" role="banner">
+    <p class="hero-tag">2026 Network · LinkConnector Verified</p>
+    <h1 class="count" aria-label="17 verified campaigns">17</h1>
+    <p class="hero-sub">Verified Global Campaigns Active</p>
+    <p class="hero-domain" aria-label="Domain: brightlane.github.io">DOMAIN: brightlane.github.io</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">1.2M+</div>
+        <div class="stat-label">Products Indexed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Verticals</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">20</div>
+        <div class="stat-label">Language Regions</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MERCHANT GRID ═══ -->
+  <p class="section-label">Curated Campaigns</p>
+  <h2 class="section-title">Verified Merchant Directory</h2>
+
+  <main id="merchants">
     <div class="grid">
-        <a href="/merchants/efile/" class="card"><span class="tag">Tax Services</span><h3>E-File.com</h3><div class="btn">View 10k+ Products →</div></a>
-        
-        <a href="/merchants/infinite_aloe/" class="card"><span class="tag">Skincare</span><h3>InfiniteAloe</h3><div class="btn">View Catalog →</div></a>
-        
-        <a href="/merchants/chess_store/" class="card"><span class="tag">Leisure</span><h3>The Chess Store</h3><div class="btn">View Inventory →</div></a>
-        
-        <a href="/merchants/nordvpn/" class="card"><span class="tag">Security</span><h3>NordVPN</h3><div class="btn">View Software →</div></a>
-        
-        <a href="/merchants/build_a_sign/" class="card"><span class="tag">Business</span><h3>Build A Sign</h3><div class="btn">Custom Designs →</div></a>
-        
-        <a href="/merchants/halloweencostumes/" class="card"><span class="tag">Apparel</span><h3>HalloweenCostumes</h3><div class="btn">View Costumes →</div></a>
-        
-        <a href="/merchants/fun/" class="card"><span class="tag">Gifts</span><h3>Fun.com</h3><div class="btn">Shop Items →</div></a>
-        
-        <a href="/merchants/depositphotos/" class="card"><span class="tag">Digital</span><h3>Depositphotos</h3><div class="btn">View Stock →</div></a>
-        
-        <a href="/merchants/canadapetcare/" class="card"><span class="tag">Pets</span><h3>CanadaPetCare</h3><div class="btn">Pet Supplies →</div></a>
-        
-        <a href="/merchants/hats/" class="card"><span class="tag">Apparel</span><h3>Hats.com</h3><div class="btn">Browse Hats →</div></a>
-        
-        <a href="/merchants/la_fuente/" class="card"><span class="tag">Home Decor</span><h3>La Fuente Imports</h3><div class="btn">View Decor →</div></a>
-        
-        <a href="/merchants/movavi/" class="card"><span class="tag">Creative</span><h3>Movavi</h3><div class="btn">Software Deals →</div></a>
-        
-        <a href="/merchants/sidify/" class="card"><span class="tag">Audio</span><h3>Sidify Inc</h3><div class="btn">View Tools →</div></a>
-        
-        <a href="/merchants/snappy/" class="card"><span class="tag">Gifts</span><h3>Snappy LLC</h3><div class="btn">View Rewards →</div></a>
-        
-        <a href="/merchants/warehouse115/" class="card"><span class="tag">Wholesale</span><h3>Warehouse 115</h3><div class="btn">Bulk Deals →</div></a>
-        
-        <a href="/merchants/atlanta_cutlery/" class="card"><span class="tag">Tools</span><h3>Atlanta Cutlery</h3><div class="btn">View Forge →</div></a>
-        
-        <a href="/merchants/combat_flip_flops/" class="card"><span class="tag">Apparel</span><h3>Combat Flip Flops</h3><div class="btn">Shop Footwear →</div></a>
-    </div>
 
-    <footer style="padding: 80px 20px; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b;">
-        <p>© 2026 Brightlane Global | Verified Merchant Directory</p>
-        <p style="font-size: 0.7rem; opacity: 0.5;">Scale: 1.2M Products Indexed | Network ID: 014538</p>
-    </footer>
+      <!--
+        ╔══════════════════════════════════════════════════════════════╗
+        ║  AFFILIATE LINK INSTRUCTIONS                                ║
+        ║  Replace each href with YOUR LinkConnector tracking URL.    ║
+        ║  Format (standard):                                         ║
+        ║    https://www.linkconnector.com/ta.php?lc=XXXXXXXX         ║
+        ║  Format (Naked Link / deep link):                           ║
+        ║    Use the merchant URL directly if NLT is enabled,         ║
+        ║    e.g. https://www.buildasign.com/custom-signs             ║
+        ║  Generate deep links via:                                   ║
+        ║    LC Dashboard → Campaigns → Get Links/HTML → Shortcuts    ║
+        ╚══════════════════════════════════════════════════════════════╝
+      -->
+
+      <!-- 1. E-File.com — Tax Services -->
+      <a href="https://www.efile.com/"
+         class="card"
+         data-merchant="efile"
+         data-position="1"
+         aria-label="E-File.com — Online tax filing services">
+        <span class="card-tag">Tax Services</span>
+        <h3>E-File.com</h3>
+        <p>Fast, IRS-authorized online tax filing. Simple returns to complex situations — 10k+ products &amp; guides.</p>
+        <span class="card-btn">File Taxes Online →</span>
+      </a>
+
+      <!-- 2. InfiniteAloe — Skincare -->
+      <a href="https://www.infinitealoe.com/"
+         class="card"
+         data-merchant="infinite_aloe"
+         data-position="2"
+         aria-label="InfiniteAloe — Aloe-based skincare products">
+        <span class="card-tag">Skincare</span>
+        <h3>InfiniteAloe</h3>
+        <p>Certified organic aloe vera skincare — moisturizers, cleansers, and body care made with natural ingredients.</p>
+        <span class="card-btn">Shop Skincare →</span>
+      </a>
+
+      <!-- 3. The Chess Store — Leisure -->
+      <a href="https://www.thechessstore.com/"
+         class="card"
+         data-merchant="chess_store"
+         data-position="3"
+         aria-label="The Chess Store — Chess sets, boards, and accessories">
+        <span class="card-tag">Leisure</span>
+        <h3>The Chess Store</h3>
+        <p>Premium chess sets, boards, clocks, and accessories. Beginner to grandmaster — the web's largest chess inventory.</p>
+        <span class="card-btn">Shop Chess Sets →</span>
+      </a>
+
+      <!-- 4. NordVPN — Security -->
+      <a href="https://nordvpn.com/"
+         class="card"
+         data-merchant="nordvpn"
+         data-position="4"
+         aria-label="NordVPN — VPN security software">
+        <span class="card-tag">Security</span>
+        <h3>NordVPN</h3>
+        <p>Military-grade encryption, 6000+ servers in 60+ countries. The world's leading VPN for privacy and speed.</p>
+        <span class="card-btn">Get NordVPN →</span>
+      </a>
+
+      <!-- 5. BuildASign — Business Signage -->
+      <a href="https://www.buildasign.com/"
+         class="card"
+         data-merchant="build_a_sign"
+         data-position="5"
+         aria-label="BuildASign — Custom signs, banners, and decals">
+        <span class="card-tag">Business</span>
+        <h3>Build A Sign</h3>
+        <p>Custom signs, banners, yard signs, car magnets, and decals. Design online and ship fast — business to personal.</p>
+        <span class="card-btn">Design Custom Signs →</span>
+      </a>
+
+      <!-- 6. HalloweenCostumes.com — Apparel -->
+      <a href="https://www.halloweencostumes.com/"
+         class="card"
+         data-merchant="halloweencostumes"
+         data-position="6"
+         aria-label="HalloweenCostumes.com — Costumes for all ages">
+        <span class="card-tag">Apparel</span>
+        <h3>HalloweenCostumes</h3>
+        <p>Thousands of costumes for adults, kids, and pets. Year-round selection from classic horror to trending pop culture.</p>
+        <span class="card-btn">Browse Costumes →</span>
+      </a>
+
+      <!-- 7. Fun.com — Gifts -->
+      <a href="https://www.fun.com/"
+         class="card"
+         data-merchant="fun"
+         data-position="7"
+         aria-label="Fun.com — Gifts, toys, and novelty items">
+        <span class="card-tag">Gifts</span>
+        <h3>Fun.com</h3>
+        <p>Gifts, toys, collectibles, and novelties for every occasion. Pop culture, gaming, licensed merchandise &amp; more.</p>
+        <span class="card-btn">Shop Fun Gifts →</span>
+      </a>
+
+      <!-- 8. Depositphotos — Digital Media -->
+      <a href="https://depositphotos.com/"
+         class="card"
+         data-merchant="depositphotos"
+         data-position="8"
+         aria-label="Depositphotos — Stock photos, vectors, and videos">
+        <span class="card-tag">Digital Media</span>
+        <h3>Depositphotos</h3>
+        <p>300M+ stock photos, vectors, illustrations, and video clips. Flexible plans for designers, marketers, and agencies.</p>
+        <span class="card-btn">Browse Stock →</span>
+      </a>
+
+      <!-- 9. CanadaPetCare — Pets -->
+      <a href="https://www.canadapetcare.com/"
+         class="card"
+         data-merchant="canadapetcare"
+         data-position="9"
+         aria-label="CanadaPetCare — Affordable pet medications and supplies">
+        <span class="card-tag">Pets</span>
+        <h3>CanadaPetCare</h3>
+        <p>Licensed Canadian pet pharmacy — flea, tick, and heartworm treatments at prices up to 70% less than vets.</p>
+        <span class="card-btn">Shop Pet Care →</span>
+      </a>
+
+      <!-- 10. Hats.com — Apparel -->
+      <a href="https://www.hats.com/"
+         class="card"
+         data-merchant="hats"
+         data-position="10"
+         aria-label="Hats.com — Hats, caps, and headwear">
+        <span class="card-tag">Apparel</span>
+        <h3>Hats.com</h3>
+        <p>The internet's largest hat store — baseball caps, fedoras, beanies, sun hats, and custom embroidery.</p>
+        <span class="card-btn">Browse Hats →</span>
+      </a>
+
+      <!-- 11. La Fuente Imports — Home Decor -->
+      <a href="https://www.lafuente.com/"
+         class="card"
+         data-merchant="la_fuente"
+         data-position="11"
+         aria-label="La Fuente Imports — Mexican and Talavera home decor">
+        <span class="card-tag">Home Decor</span>
+        <h3>La Fuente Imports</h3>
+        <p>Authentic Mexican and Talavera pottery, furniture, and decor imported directly from artisan workshops.</p>
+        <span class="card-btn">View Decor →</span>
+      </a>
+
+      <!-- 12. Movavi — Creative Software -->
+      <a href="https://www.movavi.com/"
+         class="card"
+         data-merchant="movavi"
+         data-position="12"
+         aria-label="Movavi — Video editing and creative software">
+        <span class="card-tag">Creative Software</span>
+        <h3>Movavi</h3>
+        <p>Video editors, screen recorders, photo editors, and media converters for Windows and Mac. Beginner-friendly.</p>
+        <span class="card-btn">Get Software Deals →</span>
+      </a>
+
+      <!-- 13. Sidify — Audio Software -->
+      <a href="https://www.sidify.com/"
+         class="card"
+         data-merchant="sidify"
+         data-position="13"
+         aria-label="Sidify — Spotify and Apple Music converter tools">
+        <span class="card-tag">Audio Software</span>
+        <h3>Sidify Inc</h3>
+        <p>Convert Spotify and Apple Music to MP3, FLAC, WAV — keep your music forever at full audio quality.</p>
+        <span class="card-btn">View Audio Tools →</span>
+      </a>
+
+      <!-- 14. Snappy — Corporate Gifts -->
+      <a href="https://www.snappy.com/"
+         class="card"
+         data-merchant="snappy"
+         data-position="14"
+         aria-label="Snappy — Corporate gifting and employee rewards">
+        <span class="card-tag">Corporate Gifts</span>
+        <h3>Snappy LLC</h3>
+        <p>Modern employee gifting and rewards platform. Branded gift experiences for teams, clients, and milestones.</p>
+        <span class="card-btn">View Rewards →</span>
+      </a>
+
+      <!-- 15. Warehouse115 — Wholesale -->
+      <a href="https://www.warehouse115.com/"
+         class="card"
+         data-merchant="warehouse115"
+         data-position="15"
+         aria-label="Warehouse 115 — Wholesale bulk deals">
+        <span class="card-tag">Wholesale</span>
+        <h3>Warehouse 115</h3>
+        <p>Bulk wholesale pricing on general merchandise — home goods, electronics, toys, and seasonal products.</p>
+        <span class="card-btn">Browse Bulk Deals →</span>
+      </a>
+
+      <!-- 16. Atlanta Cutlery — Tools & Blades -->
+      <a href="https://www.atlantacutlery.com/"
+         class="card"
+         data-merchant="atlanta_cutlery"
+         data-position="16"
+         aria-label="Atlanta Cutlery — Knives, swords, and historical blades">
+        <span class="card-tag">Tools &amp; Blades</span>
+        <h3>Atlanta Cutlery</h3>
+        <p>Historic reproduction swords, knives, daggers, and military edged weapons. Collectors and re-enactors since 1971.</p>
+        <span class="card-btn">View Forge →</span>
+      </a>
+
+      <!-- 17. Combat Flip Flops — Apparel -->
+      <a href="https://www.combatflipflops.com/"
+         class="card"
+         data-merchant="combat_flip_flops"
+         data-position="17"
+         aria-label="Combat Flip Flops — Footwear with a social mission">
+        <span class="card-tag">Apparel</span>
+        <h3>Combat Flip Flops</h3>
+        <p>Veteran-founded footwear and apparel brand — each purchase funds education and demining in conflict zones.</p>
+        <span class="card-btn">Shop Footwear →</span>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- ═══ FAQ (Schema-backed) ═══ -->
+  <section class="faq-section" aria-label="Frequently asked questions">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>Are these merchant deals verified?</summary>
+      <div class="faq-answer">Yes. Every merchant in the Brightlane directory is verified through the LinkConnector affiliate network, with active campaigns and confirmed commission structures.</div>
+    </details>
+
+    <details>
+      <summary>Do affiliate links cost me anything extra?</summary>
+      <div class="faq-answer">No. Clicking an affiliate link costs you nothing extra. The merchant pays a small commission to Brightlane if you make a purchase — at no additional cost to you whatsoever.</div>
+    </details>
+
+    <details>
+      <summary>How often are merchant campaigns updated?</summary>
+      <div class="faq-answer">Campaigns are reviewed and updated regularly. The directory currently features 17 active campaigns as of 2026, with new merchants added as they are verified.</div>
+    </details>
+
+    <details>
+      <summary>Which merchants are currently available?</summary>
+      <div class="faq-answer">Current merchants include E-File.com (tax), NordVPN (security), BuildASign (business signage), The Chess Store (leisure), Depositphotos (stock media), Movavi (creative software), CanadaPetCare, Hats.com, La Fuente Imports, Sidify, Snappy, Warehouse 115, Atlanta Cutlery, Combat Flip Flops, InfiniteAloe, HalloweenCostumes.com, and Fun.com.</div>
+    </details>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <p>© 2026 Brightlane Global | Verified Merchant Directory</p>
+    <p>Powered by the <a href="https://www.linkconnector.com/" style="color:var(--accent);text-decoration:none;" rel="nofollow">LinkConnector</a> Affiliate Network</p>
+    <p class="footer-note">Scale: 1.2M Products Indexed | Network ID: 014538 | 20 Language Regions</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       UTM PARAMETER INJECTION
+       Automatically appends ?utm_source=brightlane
+       &utm_medium=affiliate&utm_campaign=directory
+       &utm_content=card-{position}
+       to every affiliate card link on click.
+       Replace href values with your LC tracking URLs
+       first — UTM params append on top of those.
+  ═══════════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var cards = document.querySelectorAll('.card[data-merchant]');
+
+      cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          var href   = card.getAttribute('href');
+          var pos    = card.getAttribute('data-position') || '0';
+          var merch  = card.getAttribute('data-merchant') || 'unknown';
+
+          // Skip if href is a relative path (sub-page links)
+          if (!href || href.startsWith('/') || href.startsWith('#')) return;
+
+          try {
+            var url = new URL(href);
+            url.searchParams.set('utm_source',   'brightlane');
+            url.searchParams.set('utm_medium',   'affiliate');
+            url.searchParams.set('utm_campaign', 'directory-2026');
+            url.searchParams.set('utm_content',  'card-' + pos + '-' + merch);
+
+            e.preventDefault();
+            window.open(url.toString(), '_blank', 'noopener,noreferrer');
+          } catch (err) {
+            // If URL parse fails, let natural navigation happen
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
