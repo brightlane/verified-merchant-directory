@@ -790,7 +790,7 @@
     {
       "slug": "shoplww-nursing-textbooks-2026",
       "merchant": "shoplww",
-      "published": false,
+      "published": true,
       "title_en": "Best Nursing Textbooks 2026 — Where to Buy Lippincott Books Online",
       "category_en": "Education",
       "metaDesc_en": "Best nursing textbooks for 2026 nursing students. Where to buy Lippincott nursing books online at the best price. NCLEX prep, fundamentals, pharmacology guides.",
@@ -826,6 +826,24 @@
           "q": "Are the digital editions the same content as print?",
           "a": "Yes. Digital editions contain the same content as print editions."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "shoplww-nursing-textbooks-2026.html",
+        "shoplww-nursing-textbooks-2026-zh.html",
+        "shoplww-nursing-textbooks-2026-es.html",
+        "shoplww-nursing-textbooks-2026-fr.html",
+        "shoplww-nursing-textbooks-2026-de.html",
+        "shoplww-nursing-textbooks-2026-pt.html",
+        "shoplww-nursing-textbooks-2026-ar.html",
+        "shoplww-nursing-textbooks-2026-hi.html",
+        "shoplww-nursing-textbooks-2026-ru.html",
+        "shoplww-nursing-textbooks-2026-ja.html",
+        "shoplww-nursing-textbooks-2026-ko.html",
+        "shoplww-nursing-textbooks-2026-id.html",
+        "shoplww-nursing-textbooks-2026-it.html",
+        "shoplww-nursing-textbooks-2026-nl.html",
+        "shoplww-nursing-textbooks-2026-pl.html"
       ]
     },
     {
