@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ DYNAMIC META — injected by JS before page renders ═══ -->
+  <title id="meta-title">Brightlane — Verified Merchant</title>
+  <meta name="description"    id="meta-desc"     content="" />
+  <meta name="keywords"       id="meta-keywords" content="" />
+  <meta name="robots"         content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author"         content="Brightlane Verified Merchant Directory" />
+  <link rel="canonical"       id="meta-canonical" href="" />
+
+  <!-- ═══ HREFLANG × 20 (injected by JS) ═══ -->
+  <div id="hreflang-container"></div>
+
+  <!-- ═══ OPEN GRAPH (injected by JS) ═══ -->
+  <meta property="og:type"             content="website" />
+  <meta property="og:site_name"        content="Brightlane Verified Merchant Directory" />
+  <meta property="og:title"            id="og-title"       content="" />
+  <meta property="og:description"      id="og-desc"        content="" />
+  <meta property="og:url"              id="og-url"         content="" />
+  <meta property="og:image"            id="og-image"       content="https://brightlane.github.io/verified-merchant-directory/og-image.png" />
+  <meta property="og:image:width"      content="1200" />
+  <meta property="og:image:height"     content="630" />
+  <meta property="og:image:alt"        id="og-image-alt"   content="" />
+  <meta property="og:locale"           content="en_US" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="de_DE" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:locale:alternate" content="zh_CN" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       id="tw-title" content="" />
+  <meta name="twitter:description" id="tw-desc"  content="" />
+  <meta name="twitter:image"       content="https://brightlane.github.io/verified-merchant-directory/og-image.png" />
+
+  <!-- ═══ JSON-LD placeholder (injected by JS) ═══ -->
+  <script id="jsonld-product"  type="application/ld+json"></script>
+  <script id="jsonld-org"      type="application/ld+json"></script>
+  <script id="jsonld-faq"      type="application/ld+json"></script>
+
+  <!-- ═══ FONTS ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #0a0b0d;
+      --bg2:       #111318;
+      --bg3:       #1a1d24;
+      --border:    rgba(255,255,255,0.07);
+      --border2:   rgba(255,255,255,0.13);
+      --text:      #e8e9ed;
+      --muted:     #8a8d99;
+      --accent:    #e8ff47;
+      --accent2:   #47ffb8;
+      --accent3:   #ff6b35;
+      --gold:      #f5c842;
+      --red:       #ff4757;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius:    12px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1000; opacity: .4;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(20px,4vw,60px); height: 64px;
+      background: rgba(10,11,13,0.88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+    .nav-badge { background: var(--accent); color: #0a0b0d; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-back { font-size: 0.8rem; color: var(--muted); transition: color .2s; }
+    .nav-back:hover { color: var(--text); }
+    .nav-cta-btn {
+      background: var(--accent); color: #0a0b0d;
+      font-family: var(--font-head); font-weight: 700; font-size: 0.8rem;
+      padding: 8px 18px; border-radius: 8px;
+      transition: transform .15s, box-shadow .15s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,255,71,0.3); }
+
+    /* TICKER */
+    .lang-ticker { background: var(--bg2); border-bottom: 1px solid var(--border); margin-top: 64px; overflow: hidden; height: 36px; display: flex; align-items: center; }
+    .lang-ticker-inner { display: flex; gap: 40px; animation: ticker 28s linear infinite; white-space: nowrap; align-items: center; }
+    .lang-ticker-inner span { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; flex-shrink: 0; }
+    .lang-ticker-inner span em { font-style: normal; color: var(--accent); margin-right: 6px; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: clamp(70px,10vw,130px) clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; width: 700px; height: 700px; border-radius: 50%;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg3); border: 1px solid var(--border2); border-radius: 20px;
+      padding: 6px 14px; font-size: 0.75rem; color: var(--muted);
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--accent2); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+    .hero-icon { font-size: 4rem; margin-bottom: 20px; display: block; animation: fadeUp .6s .05s ease both; }
+
+    h1 {
+      font-family: var(--font-head); font-size: clamp(2.2rem,5.5vw,4.5rem);
+      font-weight: 800; line-height: 1.06; letter-spacing: -0.03em;
+      margin-bottom: 20px; animation: fadeUp .7s .1s ease both;
+    }
+    h1 .highlight { color: var(--accent); }
+
+    .hero-sub {
+      font-size: clamp(1rem,2vw,1.15rem); color: var(--muted);
+      max-width: 580px; margin: 0 auto 36px; font-weight: 300;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .hero-proof {
+      display: flex; justify-content: center; gap: clamp(16px,3vw,48px);
+      flex-wrap: wrap; margin-bottom: 40px;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .proof-item { text-align: center; }
+    .proof-num { font-family: var(--font-head); font-size: 1.7rem; font-weight: 800; color: var(--accent); display: block; line-height: 1; }
+    .proof-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
+
+    .hero-cta {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp .7s .4s ease both;
+    }
+    .btn-primary {
+      background: var(--accent); color: #0a0b0d;
+      font-family: var(--font-head); font-weight: 700; font-size: 1rem;
+      padding: 15px 36px; border-radius: var(--radius); border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(232,255,71,0.25); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      font-family: var(--font-head); font-weight: 600; font-size: 1rem;
+      padding: 15px 32px; border-radius: var(--radius);
+      border: 1px solid var(--border2); cursor: pointer;
+      transition: border-color .2s, background .2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(232,255,71,0.05); }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 20px clamp(20px,4vw,60px);
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(20px,4vw,60px); flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted); }
+    .trust-item .icon { font-size: 1rem; }
+    .trust-item strong { color: var(--text); }
+
+    /* FEATURES */
+    .features-section { max-width: 1100px; margin: 0 auto; padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px); }
+    .section-eyebrow { font-family: var(--font-head); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-family: var(--font-head); font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 48px; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+    .feature-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 28px; position: relative; overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 90% 0%, rgba(232,255,71,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .feature-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+    .feature-title { font-family: var(--font-head); font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .feature-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* WHY BUY THROUGH US */
+    .why-section {
+      background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px);
+    }
+    .why-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media(max-width:700px){ .why-inner { grid-template-columns: 1fr; gap: 40px; } }
+    .why-text .section-title { margin-bottom: 20px; }
+    .why-text p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .why-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: var(--muted); }
+    .why-list li::before { content: '✓'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .why-list li strong { color: var(--text); }
+
+    .why-card {
+      background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius-lg);
+      padding: 36px; text-align: center;
+    }
+    .why-card-icon { font-size: 3rem; display: block; margin-bottom: 16px; }
+    .why-card-title { font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; margin-bottom: 10px; }
+    .why-card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .why-card-tag { display: inline-block; background: rgba(232,255,71,0.08); border: 1px solid rgba(232,255,71,0.2); color: var(--accent); font-size: 0.72rem; font-family: var(--font-head); font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* FAQ */
+    .faq-section { max-width: 760px; margin: 0 auto; padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px); }
+    .faq-section .section-title { text-align: center; margin-bottom: 48px; }
+    .faq-item { border-top: 1px solid var(--border); padding: 22px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: var(--font-head); font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; user-select: none; }
+    .faq-icon { width: 24px; height: 24px; flex-shrink: 0; border: 1px solid var(--border2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: transform .25s; color: var(--accent); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { font-size: 0.88rem; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .35s ease, margin .35s ease; margin-top: 0; }
+    .faq-item.open .faq-a { max-height: 300px; margin-top: 14px; }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px); text-align: center;
+    }
+    .final-cta h2 { font-family: var(--font-head); font-size: clamp(1.8rem,4vw,3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .final-cta p { color: var(--muted); font-size: 1rem; max-width: 480px; margin: 0 auto 32px; }
+    .benefit-chips { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .chip { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 6px 14px; font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .chip::before { content: '✓'; color: var(--accent2); font-weight: 700; }
+
+    /* FOOTER */
+    footer { padding: 36px clamp(20px,4vw,60px); max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border); }
+    .footer-brand { font-family: var(--font-head); font-weight: 700; font-size: 0.88rem; }
+    .footer-note { font-size: 0.73rem; color: var(--muted); max-width: 500px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links a { font-size: 0.75rem; color: var(--muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* NOT FOUND */
+    .not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center; padding: 40px; }
+    .not-found h1 { font-family: var(--font-head); font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+    .not-found p { color: var(--muted); margin-bottom: 28px; }
+
+    @media(max-width:640px){ .nav-back{display:none} }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      Brightlane <span class="nav-badge">✓ Verified</span>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back">← All Merchants</a>
+      <a href="#" class="nav-cta-btn" id="nav-cta-link" target="_blank" rel="noopener sponsored">
+        Visit Site →
+      </a>
+    </div>
+  </nav>
+
+  <!-- LANGUAGE TICKER -->
+  <div class="lang-ticker" aria-hidden="true">
+    <div class="lang-ticker-inner" id="ticker"></div>
+  </div>
+
+  <!-- PAGE CONTENT (rendered by JS) -->
+  <div id="page-content"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Brightlane Verified Merchant Directory</div>
+    <p class="footer-note">This page contains affiliate links. We may earn a commission when you purchase through our links at no additional cost to you. All merchants are verified partners through LinkConnector.</p>
+    <div class="footer-links">
+      <a href="index.html">Directory</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+  </footer>
+
+  <script>
+  // ═══════════════════════════════════════════════════════════
+  //  CAMPAIGN DATA — 24 campaigns, full metadata
+  // ═══════════════════════════════════════════════════════════
+  const CAMPAIGNS = {
+
+    movavi: {
+      name: "Movavi",
+      tagline: "Award-Winning Video Editor for Everyone",
+      category: "Software & Productivity",
+      icon: "🎬",
+      tag: "Video Editor",
+      color: "rgba(255,107,53,0.08)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.movavi.com/",
+      desc: "Movavi Video Editor is award-winning video editing software for Windows and Mac. Cut, trim, add effects, transitions and music, then export in minutes — no experience needed.",
+      metaDesc: "Buy Movavi Video Editor through our verified affiliate link. Award-winning video editing software for Windows & Mac. Best price guaranteed, instant download.",
+      keywords: "buy movavi, movavi video editor, movavi discount, movavi affiliate, video editing software, movavi windows, movavi mac, best video editor 2026",
+      proof: [
+        { num: "15M+", label: "Users Worldwide" },
+        { num: "4.8★", label: "Average Rating" },
+        { num: "10+", label: "Years Trusted" }
+      ],
+      features: [
+        { icon: "✂️", title: "Smart Cutting Tools", desc: "Trim, split, and merge clips with frame-accurate precision. Drag-and-drop timeline makes editing intuitive." },
+        { icon: "🎨", title: "Effects & Filters", desc: "200+ filters, transitions, and titles. Apply cinematic looks with one click." },
+        { icon: "🎵", title: "Audio Tools", desc: "Background noise removal, audio normalization, and built-in music library." },
+        { icon: "📤", title: "Fast Export", desc: "Export to any format — MP4, MOV, AVI, GIF — or directly to YouTube and Vimeo." },
+        { icon: "🖥️", title: "Windows & Mac", desc: "Native app for both platforms. Smooth performance on any modern computer." },
+        { icon: "🎓", title: "Built-in Tutorials", desc: "Learn as you go with built-in video guides. Perfect for beginners and pros alike." }
+      ],
+      faqs: [
+        { q: "Is Movavi a one-time purchase or subscription?", a: "Movavi offers both — a one-time perpetual license and an annual subscription. The perpetual license is popular for users who prefer to own their software outright." },
+        { q: "Does Movavi work on both Windows and Mac?", a: "Yes, Movavi Video Editor is available as native apps for both Windows 10/11 and macOS. Both versions receive regular updates." },
+        { q: "Is there a free trial?", a: "Yes. Movavi offers a free trial with full features. Exported videos include a watermark until you purchase a license." },
+        { q: "Do I pay more buying through your affiliate link?", a: "No — you pay exactly the same price as buying directly. We earn a small commission from Movavi that helps fund this directory at no cost to you." }
+      ],
+      whyCard: { icon: "🎬", title: "Movavi Video Editor", desc: "Trusted by 15M+ creators. One-time purchase available. Works on Windows & Mac.", tag: "Verified Partner" }
+    },
+
+    iskysoft: {
+      name: "iSkysoft",
+      tagline: "Powerful Multimedia & Recovery Software Suite",
+      category: "Software & Productivity",
+      icon: "💿",
+      tag: "Multimedia Suite",
+      color: "rgba(71,255,184,0.08)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.iskysoft.com/",
+      desc: "iSkysoft offers a versatile suite of multimedia and data recovery tools for Mac and Windows. From video converters to PDF editors and data recovery — professional tools made accessible.",
+      metaDesc: "Buy iSkysoft software through our verified affiliate link. Multimedia tools, data recovery, PDF editing and more for Mac and Windows. Best price guaranteed.",
+      keywords: "buy iskysoft, iskysoft software, iskysoft data recovery, iskysoft video converter, iskysoft pdf editor, mac software, windows software 2026",
+      proof: [
+        { num: "10M+", label: "Users Worldwide" },
+        { num: "4.7★", label: "Average Rating" },
+        { num: "15+", label: "Products Available" }
+      ],
+      features: [
+        { icon: "🔄", title: "Video Converter", desc: "Convert between 1000+ formats with zero quality loss. Batch conversion supported." },
+        { icon: "💾", title: "Data Recovery", desc: "Recover deleted files, photos, and documents from any drive or device." },
+        { icon: "📄", title: "PDF Editor", desc: "Edit, annotate, convert, and sign PDF files with a full-featured editor." },
+        { icon: "📱", title: "iPhone Manager", desc: "Transfer, backup, and manage iPhone and iPad content directly from your computer." },
+        { icon: "🎥", title: "Screen Recorder", desc: "Record your screen in HD with audio. Perfect for tutorials and presentations." },
+        { icon: "🖥️", title: "Mac & Windows", desc: "Full native support for both Mac and Windows operating systems." }
+      ],
+      faqs: [
+        { q: "What products does iSkysoft offer?", a: "iSkysoft offers a wide range covering video conversion, data recovery, PDF editing, iPhone management, screen recording, and more — all available for Mac and Windows." },
+        { q: "Is iSkysoft safe to use?", a: "Yes. iSkysoft is a well-established software company with 15+ years of history, trusted by millions worldwide." },
+        { q: "Is there a free trial available?", a: "Most iSkysoft products offer a free trial with limited features so you can test before purchasing." },
+        { q: "Do I pay more using your affiliate link?", a: "No — you pay the same price as buying directly. We earn a small commission that supports this directory." }
+      ],
+      whyCard: { icon: "💿", title: "iSkysoft Suite", desc: "15+ professional tools for multimedia, recovery, and productivity. Mac & Windows.", tag: "Verified Partner" }
+    },
+
+    tenorshare: {
+      name: "Tenorshare",
+      tagline: "iOS & Android Recovery Tools Trusted by Millions",
+      category: "Software & Productivity",
+      icon: "📱",
+      tag: "Phone Tools",
+      color: "rgba(232,255,71,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.tenorshare.com/",
+      desc: "Tenorshare specializes in iOS and Android data recovery, phone management, and system repair tools. Recover deleted photos, fix stuck iPhones, and manage your mobile devices with ease.",
+      metaDesc: "Buy Tenorshare software through our verified affiliate link. iOS & Android data recovery, system repair, and phone management tools. Best price guaranteed.",
+      keywords: "buy tenorshare, tenorshare iphone recovery, recover deleted photos iphone, tenorshare android, ios system repair, phone data recovery 2026",
+      proof: [
+        { num: "50M+", label: "Downloads" },
+        { num: "4.8★", label: "Average Rating" },
+        { num: "#1", label: "iOS Recovery Tool" }
+      ],
+      features: [
+        { icon: "📸", title: "Photo Recovery", desc: "Recover deleted photos, videos, and messages from iPhone, iPad, and Android devices." },
+        { icon: "🔧", title: "iOS System Repair", desc: "Fix 150+ iOS issues — stuck on Apple logo, boot loop, black screen — without data loss." },
+        { icon: "🔐", title: "Passcode Removal", desc: "Remove iPhone screen locks, Apple ID, and MDM restrictions safely." },
+        { icon: "📲", title: "Phone Transfer", desc: "Transfer data between iPhone, Android, and computer with one click." },
+        { icon: "💾", title: "iTunes Backup", desc: "Recover data directly from iTunes and iCloud backups without restoring." },
+        { icon: "🛡️", title: "Safe & Certified", desc: "Trusted by Apple users worldwide. Safe process with no data overwrite risk." }
+      ],
+      faqs: [
+        { q: "Can Tenorshare recover permanently deleted photos from iPhone?", a: "Yes — Tenorshare UltData can scan your iPhone, iTunes backup, or iCloud backup to recover deleted photos, even if they've been removed from Recently Deleted." },
+        { q: "Does it work with the latest iPhone models?", a: "Yes. Tenorshare regularly updates its tools to support the latest iPhone models and iOS versions." },
+        { q: "Will the recovery process erase my existing data?", a: "No. Tenorshare's recovery tools are read-only during scanning and do not overwrite or erase existing data." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "📱", title: "Tenorshare", desc: "50M+ downloads. The #1 trusted tool for iPhone data recovery and iOS repair.", tag: "Verified Partner" }
+    },
+
+    wondershare: {
+      name: "Wondershare",
+      tagline: "Professional Creative Tools for Everyone",
+      category: "Software & Productivity",
+      icon: "✨",
+      tag: "Creative Suite",
+      color: "rgba(245,200,66,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.wondershare.com/",
+      desc: "Wondershare is the creator of Filmora, PDFelement, Dr.Fone, and more — a full suite of professional-grade creative and productivity tools made accessible for everyone.",
+      metaDesc: "Buy Wondershare software through our verified affiliate link. Filmora video editor, PDFelement, Dr.Fone and more. Best price guaranteed.",
+      keywords: "buy wondershare, wondershare filmora, wondershare pdfelement, wondershare drfone, filmora discount, video editor, pdf editor 2026",
+      proof: [
+        { num: "100M+", label: "Users Worldwide" },
+        { num: "150+", label: "Countries" },
+        { num: "4.8★", label: "App Store Rating" }
+      ],
+      features: [
+        { icon: "🎬", title: "Filmora Video Editor", desc: "Easy-to-use video editor with AI tools, effects, and templates for creators of all levels." },
+        { icon: "📄", title: "PDFelement", desc: "Edit, convert, annotate, and sign PDFs with a powerful yet intuitive PDF editor." },
+        { icon: "📱", title: "Dr.Fone", desc: "Mobile toolkit for data recovery, transfer, backup, and system repair." },
+        { icon: "🖼️", title: "UniConverter", desc: "Convert, compress, and edit videos in 1000+ formats with GPU acceleration." },
+        { icon: "🔄", title: "MobileTrans", desc: "Transfer data between phones — iOS to Android and vice versa — instantly." },
+        { icon: "🤖", title: "AI-Powered Tools", desc: "AI background remover, noise canceller, and auto-subtitle generation built in." }
+      ],
+      faqs: [
+        { q: "What is Wondershare's most popular product?", a: "Filmora is Wondershare's flagship video editor, popular with YouTubers, content creators, and students. PDFelement and Dr.Fone are also widely used." },
+        { q: "Is Wondershare software safe?", a: "Yes. Wondershare is a publicly traded company with 100M+ users globally and a long track record of safe, legitimate software." },
+        { q: "Do products come with free trials?", a: "Yes. Most Wondershare products offer free trials with full features, limited only by export watermarks or usage caps until you purchase." },
+        { q: "Do I pay more through your affiliate link?", a: "No — you pay the same price as buying directly. We earn a small commission that supports this free directory." }
+      ],
+      whyCard: { icon: "✨", title: "Wondershare Suite", desc: "100M+ users globally. Filmora, PDFelement, Dr.Fone and more in one ecosystem.", tag: "Verified Partner" }
+    },
+
+    appypie: {
+      name: "Appy Pie",
+      tagline: "Build Apps, Websites & Chatbots — No Code Needed",
+      category: "Software & Productivity",
+      icon: "⚙️",
+      tag: "No-Code Builder",
+      color: "rgba(255,107,53,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie",
+      merchantUrl: "https://www.appypie.com/",
+      desc: "Appy Pie is a leading no-code platform that lets anyone build mobile apps, websites, chatbots, and automation workflows — no programming skills required.",
+      metaDesc: "Build apps and websites with Appy Pie no-code platform through our verified affiliate link. Create mobile apps, chatbots, and automations without coding.",
+      keywords: "appy pie, no code app builder, build app without coding, appy pie discount, mobile app builder, chatbot builder, no code platform 2026",
+      proof: [
+        { num: "10M+", label: "Apps Created" },
+        { num: "150+", label: "Countries" },
+        { num: "4.6★", label: "G2 Rating" }
+      ],
+      features: [
+        { icon: "📱", title: "Mobile App Builder", desc: "Build iOS and Android apps with drag-and-drop. No coding, no app store experience needed." },
+        { icon: "🌐", title: "Website Builder", desc: "Create professional websites in minutes with customizable templates and easy editing." },
+        { icon: "🤖", title: "Chatbot Builder", desc: "Deploy AI-powered chatbots for customer support, lead generation, and automation." },
+        { icon: "🔗", title: "Workflow Automation", desc: "Connect apps and automate repetitive tasks without writing a single line of code." },
+        { icon: "🛒", title: "E-commerce Ready", desc: "Add shopping, payments, and product catalogs to your app or website instantly." },
+        { icon: "📊", title: "Analytics Built-in", desc: "Track users, sessions, and conversions with built-in analytics dashboards." }
+      ],
+      faqs: [
+        { q: "Do I need coding experience to use Appy Pie?", a: "No. Appy Pie is designed for non-technical users. The drag-and-drop interface means anyone can build professional apps and websites." },
+        { q: "What platforms can I publish my app to?", a: "You can publish to both the Apple App Store and Google Play Store directly from the Appy Pie platform." },
+        { q: "Is there a free plan?", a: "Yes. Appy Pie offers a free plan with limited features, plus paid plans that unlock advanced functionality." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "⚙️", title: "Appy Pie", desc: "10M+ apps created worldwide. Build without code — apps, websites, chatbots.", tag: "Verified Partner" }
+    },
+
+    knowledgehut: {
+      name: "KnowledgeHut",
+      tagline: "Instructor-Led Tech & Project Management Courses",
+      category: "Education & Training",
+      icon: "🎓",
+      tag: "Tech Certification",
+      color: "rgba(71,255,184,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=",
+      merchantUrl: "https://www.knowledgehut.com/",
+      desc: "KnowledgeHut offers instructor-led courses and certifications in agile, cloud computing, cybersecurity, data science, and project management. Upskill with globally recognized credentials.",
+      metaDesc: "Enroll in KnowledgeHut courses through our verified affiliate link. PMP, AWS, cybersecurity, data science certifications. Best price guaranteed.",
+      keywords: "knowledgehut, pmp certification, aws training, agile courses, cybersecurity certification, data science course, project management training 2026",
+      proof: [
+        { num: "250K+", label: "Learners Trained" },
+        { num: "100+", label: "Courses Available" },
+        { num: "70+", label: "Countries Reached" }
+      ],
+      features: [
+        { icon: "🏆", title: "PMP Certification", desc: "PMI-approved PMP exam prep with live instruction, practice exams, and guaranteed pass support." },
+        { icon: "☁️", title: "Cloud Computing", desc: "AWS, Azure, and GCP certifications taught by certified cloud architects." },
+        { icon: "🛡️", title: "Cybersecurity", desc: "CISSP, CEH, CompTIA Security+ — hands-on training for security professionals." },
+        { icon: "📊", title: "Data Science & AI", desc: "Python, machine learning, and AI courses with real-world projects." },
+        { icon: "🔄", title: "Agile & Scrum", desc: "CSM, SAFe, and agile coaching certifications from experienced practitioners." },
+        { icon: "🎥", title: "Live Online Classes", desc: "Real-time instructor-led sessions with recordings available for review." }
+      ],
+      faqs: [
+        { q: "Are KnowledgeHut certifications recognized globally?", a: "Yes. KnowledgeHut is an Authorized Training Partner for PMI, Scrum Alliance, and other major certification bodies. Their credentials are recognized worldwide." },
+        { q: "Are courses live or self-paced?", a: "KnowledgeHut specializes in live, instructor-led training. Recordings are typically available after sessions." },
+        { q: "Is there a money-back guarantee?", a: "KnowledgeHut offers guarantees on select courses. Check the specific course page for details." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as enrolling directly. We earn a commission at no cost to you." }
+      ],
+      whyCard: { icon: "🎓", title: "KnowledgeHut", desc: "250K+ learners trained. PMI authorized partner for PMP and agile certifications.", tag: "Verified Partner" }
+    },
+
+    pmtraining: {
+      name: "PM Training",
+      tagline: "PMP, PRINCE2 & Agile Certification Prep",
+      category: "Education & Training",
+      icon: "📋",
+      tag: "PMP / Agile",
+      color: "rgba(232,255,71,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining",
+      merchantUrl: "https://www.pmtraining.com/",
+      desc: "PM Training is a dedicated project management certification prep provider offering PMP, PRINCE2, and agile training. Pass your certification exam with expert-led courses.",
+      metaDesc: "Enroll in PM Training PMP and PRINCE2 courses through our verified affiliate link. Expert-led project management certification prep. Best price guaranteed.",
+      keywords: "pm training, pmp certification prep, prince2 training, agile project management, pmp exam prep, project management course 2026",
+      proof: [
+        { num: "98%", label: "Pass Rate" },
+        { num: "40K+", label: "Students Certified" },
+        { num: "4.9★", label: "Student Rating" }
+      ],
+      features: [
+        { icon: "📋", title: "PMP Exam Prep", desc: "Comprehensive PMP prep covering all PMBOK domains with practice exams and live coaching." },
+        { icon: "👑", title: "PRINCE2 Training", desc: "PRINCE2 Foundation and Practitioner courses with official exam vouchers included." },
+        { icon: "🔄", title: "Agile & Scrum", desc: "PMI-ACP, CSM, and agile frameworks training for modern project managers." },
+        { icon: "📝", title: "Practice Exams", desc: "1000+ practice questions mirroring the real PMP exam format and difficulty." },
+        { icon: "👨‍🏫", title: "Expert Instructors", desc: "Taught by PMP-certified instructors with real-world project management experience." },
+        { icon: "📜", title: "PDU Credits", desc: "Earn Professional Development Units (PDUs) required to maintain your PMP certification." }
+      ],
+      faqs: [
+        { q: "What is included in the PMP exam prep course?", a: "The PMP prep course includes live training sessions, study materials, practice exams, PDU credits, and access to instructor support until you pass." },
+        { q: "How long does it take to prepare for the PMP exam?", a: "Most students prepare in 8–12 weeks with PM Training's structured program, though timelines vary based on prior experience." },
+        { q: "Is PRINCE2 training included?", a: "Yes. PM Training offers dedicated PRINCE2 Foundation and Practitioner courses alongside PMP preparation." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as enrolling directly. We earn a commission at no cost to you." }
+      ],
+      whyCard: { icon: "📋", title: "PM Training", desc: "98% PMP pass rate. 40K+ students certified. Expert-led exam prep.", tag: "Verified Partner" }
+    },
+
+    cpraedcourse: {
+      name: "CPR AED Course",
+      tagline: "Online CPR & AED Certification — Print Instantly",
+      category: "Education & Training",
+      icon: "❤️‍🔥",
+      tag: "CPR Certification",
+      color: "rgba(255,71,87,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.cpraedcourse.com/",
+      desc: "CPR AED Course provides online CPR, AED, and First Aid certifications you can complete at your own pace. Print your certificate immediately upon passing.",
+      metaDesc: "Get CPR AED certification online through our verified affiliate link. Complete at your own pace, print certificate instantly. Accepted by most employers.",
+      keywords: "cpr certification online, aed certification, cpr aed course, online cpr training, first aid certification, cpr certificate 2026",
+      proof: [
+        { num: "500K+", label: "Certifications Issued" },
+        { num: "100%", label: "Online — No Classroom" },
+        { num: "Instant", label: "Certificate Print" }
+      ],
+      features: [
+        { icon: "💻", title: "100% Online", desc: "Complete your CPR and AED training entirely online at your own pace, any device." },
+        { icon: "🖨️", title: "Instant Certificate", desc: "Print or download your certification card immediately upon passing the course." },
+        { icon: "❤️", title: "CPR for Adults, Kids & Infants", desc: "Covers CPR techniques for all age groups including adult, child, and infant rescue." },
+        { icon: "⚡", title: "AED Training", desc: "Learn how to use an Automated External Defibrillator in an emergency situation." },
+        { icon: "🏥", title: "First Aid Module", desc: "Optional first aid training covering choking, bleeding, burns, and common emergencies." },
+        { icon: "🔄", title: "2-Year Certification", desc: "Certifications valid for 2 years. Renewal courses available and quick to complete." }
+      ],
+      faqs: [
+        { q: "Is this CPR certification accepted by employers?", a: "CPR AED Course certifications are accepted by most employers, schools, and organizations. Check with your specific employer if you have requirements." },
+        { q: "How long does the course take?", a: "Most students complete the course in 1–2 hours. You can pause and resume at any time." },
+        { q: "Can I print my certificate right away?", a: "Yes — upon passing, you can immediately print or download your certification card." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as enrolling directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "❤️‍🔥", title: "CPR AED Course", desc: "500K+ certifications issued. 100% online, instant certificate, any device.", tag: "Verified Partner" }
+    },
+
+    cprcare: {
+      name: "CPR Care",
+      tagline: "Accredited CPR & First Aid Training Online",
+      category: "Education & Training",
+      icon: "🏥",
+      tag: "First Aid",
+      color: "rgba(255,71,87,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=",
+      merchantUrl: "https://www.cprcare.com/",
+      desc: "CPR Care provides accredited CPR and First Aid training for individuals and organizations. Earn your digital certification instantly upon course completion.",
+      metaDesc: "Get accredited CPR and First Aid certification through CPR Care via our verified affiliate link. Individual and group training available. Instant digital certificate.",
+      keywords: "cpr care, cpr certification, first aid training online, accredited cpr course, cpr for organizations, digital cpr certificate 2026",
+      proof: [
+        { num: "Accredited", label: "Certification Body" },
+        { num: "Instant", label: "Digital Certificate" },
+        { num: "Group", label: "Training Available" }
+      ],
+      features: [
+        { icon: "✅", title: "Accredited Training", desc: "CPR Care courses are accredited and recognized by healthcare and workplace organizations." },
+        { icon: "👥", title: "Group & Individual", desc: "Training available for individuals, teams, schools, and large organizations." },
+        { icon: "📱", title: "Mobile-Friendly", desc: "Complete training on any device — phone, tablet, or computer." },
+        { icon: "🏆", title: "Digital Certificate", desc: "Receive a digital certification card instantly upon successful completion." },
+        { icon: "❤️", title: "Full CPR Coverage", desc: "Adult, child, and infant CPR techniques covered in one comprehensive course." },
+        { icon: "🔄", title: "Easy Renewal", desc: "Quick renewal course available when your certification is due for renewal." }
+      ],
+      faqs: [
+        { q: "How is CPR Care different from CPR AED Course?", a: "Both offer online CPR certification. CPR Care emphasizes accreditation and is particularly suited for organizations and group training needs." },
+        { q: "Can organizations enroll multiple employees?", a: "Yes. CPR Care offers group enrollment options for businesses, schools, and healthcare organizations." },
+        { q: "How quickly do I get my certificate?", a: "Your digital certification is issued immediately upon passing the course assessment." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as enrolling directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🏥", title: "CPR Care", desc: "Accredited CPR and First Aid training for individuals and organizations.", tag: "Verified Partner" }
+    },
+
+    ahca: {
+      name: "AHCA",
+      tagline: "OSHA-Compliant Healthcare Safety Certifications",
+      category: "Education & Training",
+      icon: "🩺",
+      tag: "Healthcare Training",
+      color: "rgba(71,255,184,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.ahcacpr.com/",
+      desc: "American Health Care Academy offers OSHA-compliant safety training and healthcare certification programs including CPR, First Aid, BLS, and workplace safety courses.",
+      metaDesc: "Get AHCA healthcare certifications through our verified affiliate link. OSHA-compliant CPR, BLS, First Aid, and workplace safety training. Best price guaranteed.",
+      keywords: "ahca certification, american health care academy, osha cpr training, bls certification, healthcare safety training, workplace first aid 2026",
+      proof: [
+        { num: "OSHA", label: "Compliant Training" },
+        { num: "BLS", label: "Certification Available" },
+        { num: "B2B", label: "Enterprise Ready" }
+      ],
+      features: [
+        { icon: "🛡️", title: "OSHA Compliance", desc: "All courses meet OSHA workplace safety requirements for healthcare and general industry." },
+        { icon: "🫀", title: "BLS Certification", desc: "Basic Life Support (BLS) certification for healthcare providers and professionals." },
+        { icon: "🏢", title: "Workplace Safety", desc: "Bloodborne pathogens, workplace first aid, and safety compliance training." },
+        { icon: "👩‍⚕️", title: "Healthcare Focus", desc: "Courses designed specifically for healthcare workers, clinicians, and medical staff." },
+        { icon: "📜", title: "Recognized Credentials", desc: "Certifications recognized by healthcare employers, hospitals, and clinics." },
+        { icon: "🔄", title: "Annual Renewal", desc: "Easy renewal courses available to keep your certifications current and compliant." }
+      ],
+      faqs: [
+        { q: "Are AHCA certifications accepted by hospitals?", a: "AHCA certifications are OSHA-compliant and accepted by many healthcare employers. Always confirm specific requirements with your employer." },
+        { q: "What is BLS and who needs it?", a: "Basic Life Support (BLS) is a higher level of CPR training required for healthcare providers, nurses, doctors, and medical first responders." },
+        { q: "Can AHCA train entire organizations?", a: "Yes. AHCA offers group and enterprise training solutions for healthcare organizations and businesses." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as enrolling directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🩺", title: "AHCA", desc: "OSHA-compliant healthcare certifications. BLS, CPR, and workplace safety.", tag: "Verified Partner" }
+    },
+
+    discountpetcare: {
+      name: "Discount Pet Care",
+      tagline: "Affordable Pet Medications & Health Products",
+      category: "Pet Care",
+      icon: "🐾",
+      tag: "Pet Meds",
+      color: "rgba(245,200,66,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=",
+      merchantUrl: "https://www.discountpetcare.com/",
+      desc: "Discount Pet Care offers affordable pet medications, flea and tick treatments, heartworm prevention, and health products for dogs, cats, and other pets at the lowest prices.",
+      metaDesc: "Buy pet medications at discount prices through our verified affiliate link. Flea treatments, heartworm prevention, and pet health products. Best price guaranteed.",
+      keywords: "discount pet care, cheap pet medication, flea treatment dogs, heartworm prevention, pet meds online, affordable pet health 2026",
+      proof: [
+        { num: "Save", label: "Up to 50% vs Vet" },
+        { num: "Dogs", label: "Cats & More" },
+        { num: "Fast", label: "Shipping Available" }
+      ],
+      features: [
+        { icon: "🦟", title: "Flea & Tick Control", desc: "Frontline, NexGard, Bravecto, and more — proven flea and tick prevention products." },
+        { icon: "❤️", title: "Heartworm Prevention", desc: "Heartgard, Interceptor, and other heartworm preventatives at discounted prices." },
+        { icon: "💊", title: "Prescription Medications", desc: "Wide range of prescription and over-the-counter pet medications at affordable prices." },
+        { icon: "🐕", title: "Dogs & Cats", desc: "Products for dogs and cats of all sizes, ages, and breeds." },
+        { icon: "💰", title: "Lowest Prices", desc: "Save up to 50% compared to traditional vet office prices on the same brands." },
+        { icon: "🚚", title: "Fast Shipping", desc: "Quick delivery so your pet's health is never compromised by waiting." }
+      ],
+      faqs: [
+        { q: "Are the pet medications authentic?", a: "Yes. Discount Pet Care sells genuine, manufacturer-sourced pet medications — the same products you'd get from your vet at lower prices." },
+        { q: "Do I need a prescription for pet medications?", a: "Some medications require a valid prescription from your veterinarian. The site clearly indicates which products require one." },
+        { q: "How much can I save compared to my vet?", a: "Savings vary by product but many customers save 30–50% on the same medications compared to purchasing at a vet's office." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🐾", title: "Discount Pet Care", desc: "Save up to 50% on the same pet meds your vet prescribes. Fast shipping.", tag: "Verified Partner" }
+    },
+
+    canadapetcare: {
+      name: "Canada Pet Care",
+      tagline: "Canada's Trusted Online Pet Pharmacy",
+      category: "Pet Care",
+      icon: "🐕",
+      tag: "Pet Pharmacy",
+      color: "rgba(71,255,184,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538000012006219&atid=canadapetcare",
+      merchantUrl: "https://www.canadapetcare.com/",
+      desc: "Canada Pet Care is Canada's trusted online pet pharmacy, offering vet-approved medications and health products shipped directly to your door at prices lower than your local vet.",
+      metaDesc: "Buy vet-approved pet medications from Canada Pet Care through our verified affiliate link. Trusted Canadian pet pharmacy, fast shipping, best prices guaranteed.",
+      keywords: "canada pet care, canadian pet pharmacy, buy pet meds canada, pet medication delivery, vet approved pet meds, nexgard canada, advantage canada 2026",
+      proof: [
+        { num: "Vet", label: "Approved Products" },
+        { num: "Canada", label: "Based & Trusted" },
+        { num: "Direct", label: "Door Delivery" }
+      ],
+      features: [
+        { icon: "🏥", title: "Vet-Approved Products", desc: "Every product is vet-approved and sourced from legitimate pharmaceutical suppliers." },
+        { icon: "🇨🇦", title: "Canadian Pharmacy", desc: "Trusted Canadian pet pharmacy operating under Canadian pharmaceutical regulations." },
+        { icon: "🦟", title: "Flea & Tick", desc: "Advantage, Revolution, NexGard, Bravecto and other leading brands at great prices." },
+        { icon: "❤️", title: "Heartworm & Deworming", desc: "Heartgard, Interceptor, Milbemax, and more to keep your pet parasite-free." },
+        { icon: "🚚", title: "Home Delivery", desc: "Medications delivered directly to your door — no vet office trip required." },
+        { icon: "💰", title: "Competitive Prices", desc: "Save significantly on the same vet-approved brands compared to clinic prices." }
+      ],
+      faqs: [
+        { q: "Is Canada Pet Care a licensed pharmacy?", a: "Yes. Canada Pet Care operates as a licensed online pet pharmacy under Canadian regulations, ensuring product authenticity and safety." },
+        { q: "Do they ship outside of Canada?", a: "Canada Pet Care primarily serves Canadian customers. Check their website for current shipping availability to your location." },
+        { q: "Are products the same as what my vet sells?", a: "Yes — the same brands and formulations your veterinarian stocks, sourced from licensed pharmaceutical distributors." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🐕", title: "Canada Pet Care", desc: "Licensed Canadian pet pharmacy. Vet-approved meds delivered to your door.", tag: "Verified Partner" }
+    },
+
+    buildasign: {
+      name: "BuildASign",
+      tagline: "Custom Signs, Banners & Canvas Prints",
+      category: "Print & Signs",
+      icon: "🪧",
+      tag: "Custom Signs",
+      color: "rgba(255,107,53,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.buildasign.com/",
+      desc: "BuildASign creates custom banners, signs, canvas prints, and yard signs for businesses and personal occasions. Upload your design or use their online editor to create professional signage.",
+      metaDesc: "Order custom signs, banners, and canvas prints from BuildASign through our verified affiliate link. Business signs, yard signs, and custom banners. Best price guaranteed.",
+      keywords: "buildasign, custom banner printing, custom yard signs, business signs, canvas prints, custom banners online, cheap custom signs 2026",
+      proof: [
+        { num: "10M+", label: "Signs Produced" },
+        { num: "Fast", label: "Turnaround" },
+        { num: "Business", label: "& Personal" }
+      ],
+      features: [
+        { icon: "🖼️", title: "Canvas Prints", desc: "Turn photos into gallery-wrapped canvas prints for home or office decor." },
+        { icon: "🪧", title: "Yard Signs", desc: "Corrugated plastic yard signs for events, real estate, campaigns, and businesses." },
+        { icon: "🎌", title: "Custom Banners", desc: "Vinyl banners in any size for trade shows, storefronts, events, and promotions." },
+        { icon: "🏢", title: "Business Signage", desc: "Interior and exterior signs, window decals, and branded displays for businesses." },
+        { icon: "✏️", title: "Online Design Tool", desc: "Easy online editor with templates, fonts, and clip art. Upload your own artwork too." },
+        { icon: "🚀", title: "Fast Production", desc: "Quick turnaround options available. Reliable shipping to meet your deadline." }
+      ],
+      faqs: [
+        { q: "What file formats can I upload for my design?", a: "BuildASign accepts most common image formats including JPG, PNG, PDF, AI, and EPS. Higher resolution files produce better print quality." },
+        { q: "How quickly can I receive my order?", a: "Standard production and shipping timelines apply, with rush options available. Check the site for current turnaround times." },
+        { q: "Can I order in bulk for my business?", a: "Yes. BuildASign offers bulk pricing for businesses ordering multiple signs, banners, or canvas prints." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as ordering directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🪧", title: "BuildASign", desc: "10M+ signs produced. Custom banners, yard signs, canvas — any size, fast.", tag: "Verified Partner" }
+    },
+
+    easycanvasprints: {
+      name: "Easy Canvas Prints",
+      tagline: "Turn Your Photos Into Stunning Canvas Art",
+      category: "Print & Signs",
+      icon: "🖼️",
+      tag: "Canvas Prints",
+      color: "rgba(232,255,71,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.easycanvasprints.com/",
+      desc: "Easy Canvas Prints transforms your photos into stunning gallery-wrapped canvas prints. Choose from dozens of sizes, upload your image, and receive a beautifully crafted canvas delivered to your door.",
+      metaDesc: "Order custom canvas prints from Easy Canvas Prints through our verified affiliate link. Gallery-wrapped canvas from your photos. Best price, fast delivery.",
+      keywords: "easy canvas prints, custom canvas prints, photo to canvas, canvas wall art, gallery wrapped canvas, personalized canvas prints 2026",
+      proof: [
+        { num: "Gallery", label: "Wrap Included" },
+        { num: "Dozens", label: "of Sizes Available" },
+        { num: "Gift", label: "Ready Packaging" }
+      ],
+      features: [
+        { icon: "📸", title: "Any Photo to Canvas", desc: "Upload any photo — family portraits, vacations, pets, landscapes — and we'll print it beautifully." },
+        { icon: "📐", title: "Dozens of Sizes", desc: "From small 8x10 prints to large statement pieces. Find the perfect size for any wall." },
+        { icon: "🖼️", title: "Gallery-Wrapped", desc: "Professional gallery wrap — image continues around the edges for a polished, frameless look." },
+        { icon: "🎁", title: "Gift Ready", desc: "Perfect gift for birthdays, anniversaries, and holidays. Gift packaging available." },
+        { icon: "🎨", title: "Photo Editing Tools", desc: "Online tools to crop, adjust brightness, and preview your canvas before ordering." },
+        { icon: "🚚", title: "Fast Delivery", desc: "Reliable shipping with tracking. Rush options available for last-minute gifts." }
+      ],
+      faqs: [
+        { q: "What photo resolution do I need for a good canvas print?", a: "For best results, use photos with at least 1MB file size. The online tool will warn you if your image resolution is too low for the selected size." },
+        { q: "Are sizes measured in inches?", a: "Yes. All sizes are listed in inches. Custom sizes may also be available." },
+        { q: "Is gallery wrapping included in the price?", a: "Yes — all canvas prints include gallery wrapping at no extra charge." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as ordering directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🖼️", title: "Easy Canvas Prints", desc: "Gallery-wrapped canvas from your photos. Dozens of sizes. Gift-ready packaging.", tag: "Verified Partner" }
+    },
+
+    canvasdiscount: {
+      name: "Canvas Discount",
+      tagline: "Premium Canvas Prints at Unbeatable Prices",
+      category: "Print & Signs",
+      icon: "🎨",
+      tag: "Photo Prints",
+      color: "rgba(71,255,184,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.canvasdiscount.com/",
+      desc: "Canvas Discount offers premium photo canvas prints, posters, and wall art at unbeatable prices with fast shipping. Professional quality printing without the premium price tag.",
+      metaDesc: "Order premium canvas prints and wall art from Canvas Discount through our verified affiliate link. Professional quality at discount prices. Fast shipping guaranteed.",
+      keywords: "canvas discount, cheap canvas prints, discount photo canvas, canvas wall art cheap, photo prints online, canvas prints discount 2026",
+      proof: [
+        { num: "Premium", label: "Print Quality" },
+        { num: "Discount", label: "Prices Always" },
+        { num: "Fast", label: "Shipping" }
+      ],
+      features: [
+        { icon: "🎨", title: "Premium Print Quality", desc: "Archival inks and high-quality canvas materials for rich, long-lasting prints." },
+        { icon: "💰", title: "Discount Pricing", desc: "Premium quality at prices well below traditional print shops." },
+        { icon: "🖼️", title: "Canvas & Posters", desc: "Gallery-wrapped canvas prints, framed prints, posters, and photo panels available." },
+        { icon: "📐", title: "Custom Sizes", desc: "Wide range of standard and custom sizes to fit any wall space." },
+        { icon: "🎨", title: "Design Tools", desc: "Online editor for cropping, adjusting, and previewing your print before ordering." },
+        { icon: "🚚", title: "Fast Shipping", desc: "Quick production and delivery. Track your order from print to doorstep." }
+      ],
+      faqs: [
+        { q: "How does Canvas Discount keep prices low?", a: "Canvas Discount uses efficient production processes and direct-to-consumer sales to eliminate markup, passing savings directly to you." },
+        { q: "What's the difference between canvas and poster prints?", a: "Canvas prints are wrapped around a wooden frame for a 3D art-like effect. Posters are flat prints on paper or photo paper." },
+        { q: "Is print quality really as good as premium providers?", a: "Yes. Canvas Discount uses the same archival-quality inks and materials as premium providers, just at better prices." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as ordering directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🎨", title: "Canvas Discount", desc: "Premium print quality at discount prices. Canvas, posters, wall art.", tag: "Verified Partner" }
+    },
+
+    canvasonthecheap: {
+      name: "Canvas on the Cheap",
+      tagline: "Budget-Friendly Canvas Prints Without Compromise",
+      category: "Print & Signs",
+      icon: "💲",
+      tag: "Budget Canvas",
+      color: "rgba(245,200,66,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3",
+      merchantUrl: "https://www.canvasonthecheap.com/",
+      desc: "Canvas on the Cheap specializes in budget-friendly canvas prints without sacrificing quality. Frequent sales, free shipping options, and consistent print quality make it the go-to for value-conscious shoppers.",
+      metaDesc: "Order cheap canvas prints from Canvas on the Cheap through our verified affiliate link. Budget-friendly canvas without sacrificing quality. Free shipping available.",
+      keywords: "canvas on the cheap, cheapest canvas prints, budget canvas prints, canvas prints free shipping, cheap canvas wall art, discount canvas 2026",
+      proof: [
+        { num: "Cheapest", label: "Canvas Prints Online" },
+        { num: "Free", label: "Shipping Options" },
+        { num: "Frequent", label: "Sales & Deals" }
+      ],
+      features: [
+        { icon: "💲", title: "Lowest Canvas Prices", desc: "Consistently the most affordable canvas print option online without quality trade-offs." },
+        { icon: "🎉", title: "Frequent Sales", desc: "Regular discounts and promotions — often 50%+ off. Check back often for deals." },
+        { icon: "🚚", title: "Free Shipping Options", desc: "Free shipping available on qualifying orders. Great for buying multiple prints." },
+        { icon: "📸", title: "Photo Upload Easy", desc: "Simple upload process. Online preview shows exactly how your photo will look." },
+        { icon: "🖼️", title: "Gallery Wrapped", desc: "All canvas prints are gallery-wrapped and ready to hang." },
+        { icon: "📐", title: "Multiple Sizes", desc: "Full range of standard canvas sizes to fit any room and budget." }
+      ],
+      faqs: [
+        { q: "Is the quality really good at such low prices?", a: "Yes. Canvas on the Cheap uses real canvas and archival inks. The low price comes from efficient production, not corners cut on materials." },
+        { q: "How often do sales happen?", a: "Very frequently — often weekly. Sales of 50%+ are common, especially around holidays and seasonal events." },
+        { q: "Is free shipping always available?", a: "Free shipping is available on qualifying orders. Check the site for current shipping promotions." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as ordering directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "💲", title: "Canvas on the Cheap", desc: "The most affordable canvas prints online. Free shipping. Frequent sales.", tag: "Verified Partner" }
+    },
+
+    infinitealoe: {
+      name: "Infinite Aloe",
+      tagline: "Organic Aloe Vera Skin Care for All Skin Types",
+      category: "Health & Wellness",
+      icon: "🌿",
+      tag: "Natural Skincare",
+      color: "rgba(71,255,184,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0",
+      merchantUrl: "https://www.infinitealoe.com/",
+      desc: "Infinite Aloe offers an organic aloe vera skin care line that is natural, fragrance-free, and suitable for sensitive and all skin types. Clean beauty with real results.",
+      metaDesc: "Shop Infinite Aloe organic skincare through our verified affiliate link. Natural, fragrance-free aloe vera products for sensitive skin. Best price guaranteed.",
+      keywords: "infinite aloe, organic aloe vera skincare, natural skin care, fragrance free moisturizer, sensitive skin products, clean beauty skincare 2026",
+      proof: [
+        { num: "Organic", label: "Aloe Based" },
+        { num: "Fragrance", label: "Free Formula" },
+        { num: "All Skin", label: "Types Suitable" }
+      ],
+      features: [
+        { icon: "🌱", title: "Organic Aloe Base", desc: "High-concentration organic aloe vera as the base ingredient — not water like most products." },
+        { icon: "🚫", title: "Fragrance Free", desc: "No added fragrances. Safe for people with sensitivities, allergies, and reactive skin." },
+        { icon: "✨", title: "Multi-Use Formula", desc: "Works as moisturizer, after-sun care, and skin soother all in one product." },
+        { icon: "🌿", title: "Clean Ingredients", desc: "No parabens, no artificial colors, no harsh chemicals. Just clean, effective skincare." },
+        { icon: "👶", title: "Gentle Enough for All", desc: "Gentle formula suitable for all ages, skin types, and conditions including eczema." },
+        { icon: "💧", title: "Deeply Hydrating", desc: "Aloe penetrates deeper than water-based moisturizers for lasting hydration." }
+      ],
+      faqs: [
+        { q: "Is Infinite Aloe suitable for eczema or psoriasis?", a: "Many customers with eczema and psoriasis use Infinite Aloe with positive results. The fragrance-free, gentle formula is designed for sensitive and reactive skin." },
+        { q: "What makes it different from drugstore aloe gel?", a: "Infinite Aloe uses organic aloe vera as the primary base ingredient with a multi-use formula, versus drugstore aloe gels that often use water as the main ingredient." },
+        { q: "Is it tested on animals?", a: "Infinite Aloe is committed to cruelty-free practices. Check their website for current certification status." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🌿", title: "Infinite Aloe", desc: "Organic aloe vera base. Fragrance-free. For sensitive and all skin types.", tag: "Verified Partner" }
+    },
+
+    littletoe: {
+      name: "Little Toe",
+      tagline: "Foot Care & Orthopedic Comfort Solutions",
+      category: "Health & Wellness",
+      icon: "🦶",
+      tag: "Foot Care",
+      color: "rgba(232,255,71,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe",
+      merchantUrl: "https://www.littletoe.com/",
+      desc: "Little Toe specializes in foot care and orthopedic solutions including bunion relief, toe separators, and foot comfort products that help you walk pain-free.",
+      metaDesc: "Shop Little Toe foot care products through our verified affiliate link. Bunion relief, toe separators, and orthopedic foot comfort solutions. Best price guaranteed.",
+      keywords: "little toe, bunion relief, toe separators, foot care products, orthopedic foot, foot pain relief, bunion corrector 2026",
+      proof: [
+        { num: "Bunion", label: "Relief Specialists" },
+        { num: "Ortho", label: "Grade Materials" },
+        { num: "Wear", label: "Daily Comfort" }
+      ],
+      features: [
+        { icon: "🦶", title: "Bunion Relief", desc: "Clinically designed bunion correctors and toe spacers to reduce pain and realign toes." },
+        { icon: "👟", title: "Toe Separators", desc: "Gel and foam toe separators to correct overlapping toes and relieve pressure." },
+        { icon: "🛡️", title: "Orthopedic Grade", desc: "Medical-grade materials designed for daily wear comfort and durability." },
+        { icon: "😌", title: "Pain Relief", desc: "Targeted products to reduce foot, toe, and ball-of-foot pain from daily activity." },
+        { icon: "👣", title: "Arch Support", desc: "Insoles and arch support products for flat feet and plantar fasciitis." },
+        { icon: "🔄", title: "Prevention", desc: "Wearable correctors help prevent bunion progression with consistent daily use." }
+      ],
+      faqs: [
+        { q: "Can bunion correctors reverse a bunion?", a: "Bunion correctors can reduce pain and help slow progression, but they cannot fully reverse a bone deformity. They are most effective for mild to moderate bunions." },
+        { q: "How long do you need to wear them each day?", a: "Most Little Toe products are designed for daily wear — either during activity or overnight, depending on the specific product." },
+        { q: "Are these products suitable for diabetics?", a: "People with diabetes should consult their doctor before using any foot care devices. Many products are gentle enough, but medical guidance is recommended." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🦶", title: "Little Toe", desc: "Bunion relief and foot comfort specialists. Orthopedic grade daily-wear solutions.", tag: "Verified Partner" }
+    },
+
+    combatflipflops: {
+      name: "Combat Flip Flops",
+      tagline: "Footwear That Funds Peace in Conflict Zones",
+      category: "Lifestyle",
+      icon: "🩴",
+      tag: "Social Impact",
+      color: "rgba(255,107,53,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0",
+      merchantUrl: "https://www.combatflipflops.com/",
+      desc: "Combat Flip Flops is a mission-driven footwear and apparel brand founded by US Army Rangers. Every purchase funds education and de-mining in Afghanistan and conflict zones worldwide.",
+      metaDesc: "Shop Combat Flip Flops mission-driven footwear and apparel through our verified affiliate link. Every purchase funds education and de-mining in conflict zones.",
+      keywords: "combat flip flops, social impact footwear, mission driven brand, army ranger brand, flip flops that give back, ethical footwear 2026",
+      proof: [
+        { num: "Mines", label: "Cleared Per Sale" },
+        { num: "Schools", label: "Funded Globally" },
+        { num: "Ranger", label: "Founded Brand" }
+      ],
+      features: [
+        { icon: "💣", title: "Funds De-Mining", desc: "Each purchase helps fund landmine removal in Afghanistan and other conflict-affected regions." },
+        { icon: "🏫", title: "Education Funding", desc: "Proceeds support school programs and scholarships for children in conflict zones." },
+        { icon: "👟", title: "Quality Footwear", desc: "Sandals, flip flops, and footwear built tough — inspired by military durability standards." },
+        { icon: "👕", title: "Apparel Line", desc: "T-shirts, hats, and accessories with mission-driven messaging and quality construction." },
+        { icon: "🎖️", title: "Veteran Founded", desc: "Founded by US Army Rangers who wanted to rebuild countries through business, not just bullets." },
+        { icon: "🌍", title: "Global Impact", desc: "Operating in Afghanistan, Colombia, and other regions affected by conflict and mines." }
+      ],
+      faqs: [
+        { q: "How exactly does my purchase help?", a: "Combat Flip Flops donates a portion of every purchase to fund landmine clearance and education programs in Afghanistan and other conflict zones through verified partner organizations." },
+        { q: "Who founded Combat Flip Flops?", a: "The brand was founded by US Army Rangers Matthew Griffin and Donald Lee, who wanted to use entrepreneurship as a tool for peace." },
+        { q: "Are the products high quality beyond the mission?", a: "Yes. Products are designed and built to quality standards inspired by military durability — the mission doesn't compromise the product." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🩴", title: "Combat Flip Flops", desc: "Army Ranger-founded. Every purchase funds de-mining and education in conflict zones.", tag: "Verified Partner" }
+    },
+
+    halloweencostumes: {
+      name: "Halloween Costumes",
+      tagline: "Huge Selection of Costumes for Everyone",
+      category: "Lifestyle",
+      icon: "🎃",
+      tag: "Costumes",
+      color: "rgba(255,107,53,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=",
+      merchantUrl: "https://www.halloweencostumes.com/",
+      desc: "HalloweenCostumes.com offers a massive selection of Halloween costumes for adults, kids, and pets — from funny and family-friendly to terrifying and elaborate.",
+      metaDesc: "Shop Halloween costumes for adults, kids, and pets through our verified affiliate link. Huge selection, fast shipping. Best prices on Halloween costumes.",
+      keywords: "halloween costumes, adult halloween costumes, kids costumes, pet costumes, cheap halloween costumes, costume ideas 2026",
+      proof: [
+        { num: "10K+", label: "Costumes Available" },
+        { num: "Adults", label: "Kids & Pets" },
+        { num: "Fast", label: "Pre-Halloween Ship" }
+      ],
+      features: [
+        { icon: "🧟", title: "Adult Costumes", desc: "Thousands of adult costumes — horror, pop culture, historical, funny, and couples costumes." },
+        { icon: "👧", title: "Kids Costumes", desc: "Safe, comfortable costumes for children of all ages — superheroes, princesses, animals." },
+        { icon: "🐶", title: "Pet Costumes", desc: "Don't leave your pet out — adorable and comfortable pet costumes for dogs and cats." },
+        { icon: "👥", title: "Group & Couples", desc: "Coordinated group and couples costume sets for the full Halloween squad." },
+        { icon: "🎭", title: "Accessories", desc: "Complete your look with wigs, masks, makeup, and costume accessories." },
+        { icon: "🚚", title: "Fast Shipping", desc: "Guaranteed delivery before Halloween with express shipping options available." }
+      ],
+      faqs: [
+        { q: "When should I order to guarantee delivery before Halloween?", a: "Check the site for current cutoff dates. Generally ordering 1–2 weeks before Halloween with standard shipping ensures timely delivery." },
+        { q: "What is the return policy if the costume doesn't fit?", a: "HalloweenCostumes.com has a standard return policy. Check their site for current return window and conditions." },
+        { q: "Are there costumes for plus sizes?", a: "Yes. A wide range of adult costumes are available in plus sizes." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🎃", title: "Halloween Costumes", desc: "10K+ costumes for adults, kids, and pets. Fast pre-Halloween shipping.", tag: "Verified Partner" }
+    },
+
+    shoplww: {
+      name: "Shop LWW",
+      tagline: "Medical & Nursing Textbooks from Lippincott",
+      category: "Lifestyle",
+      icon: "📚",
+      tag: "Medical Books",
+      color: "rgba(71,255,184,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3",
+      merchantUrl: "https://shop.lww.com/",
+      desc: "Shop LWW (Lippincott Williams & Wilkins) is the premier source for medical, nursing, and allied health textbooks and study resources — trusted by healthcare students and professionals worldwide.",
+      metaDesc: "Buy Lippincott medical and nursing textbooks from Shop LWW through our verified affiliate link. Healthcare, nursing, and allied health study resources. Best price.",
+      keywords: "lippincott textbooks, nursing textbooks, medical textbooks, lww books, allied health books, nclex prep books, medical reference 2026",
+      proof: [
+        { num: "200+", label: "Years Publishing" },
+        { num: "#1", label: "Nursing Publisher" },
+        { num: "Global", label: "Healthcare Trusted" }
+      ],
+      features: [
+        { icon: "🏥", title: "Nursing Textbooks", desc: "Comprehensive nursing textbooks covering fundamentals, pharmacology, clinical practice, and NCLEX prep." },
+        { icon: "🩺", title: "Medical References", desc: "Clinical handbooks, drug guides, and medical references for practicing physicians." },
+        { icon: "💊", title: "Pharmacology", desc: "Drug handbooks and pharmacology textbooks — Nurse's Drug Handbook and more." },
+        { icon: "🎓", title: "Student Resources", desc: "Study guides, NCLEX prep, and allied health educational materials." },
+        { icon: "📱", title: "Digital Options", desc: "eBooks and digital access codes for textbooks available alongside print editions." },
+        { icon: "🔬", title: "Allied Health", desc: "Physical therapy, occupational therapy, respiratory therapy, and more." }
+      ],
+      faqs: [
+        { q: "Is Shop LWW the official Lippincott store?", a: "Yes. Shop LWW is the official online store for Lippincott Williams & Wilkins, a Wolters Kluwer company and one of the world's leading medical publishers." },
+        { q: "Do they offer digital editions of textbooks?", a: "Yes. Many titles are available in both print and digital formats, including eBooks and access codes for online platforms." },
+        { q: "Are these the same books my nursing school uses?", a: "Very likely yes — Lippincott is the #1 publisher in nursing education and its titles are used in nursing programs worldwide." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "📚", title: "Shop LWW", desc: "Lippincott — the #1 nursing and medical publisher. 200+ years of healthcare education.", tag: "Verified Partner" }
+    },
+
+    bgmgirl: {
+      name: "BGM Girl",
+      tagline: "Royalty-Free Background Music for Creators",
+      category: "Services",
+      icon: "🎵",
+      tag: "Royalty-Free Music",
+      color: "rgba(232,255,71,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=",
+      merchantUrl: "https://www.bgmgirl.com/",
+      desc: "BGM Girl provides royalty-free background music for content creators. Safe for YouTube, Twitch, podcasts, and commercial use — never worry about copyright strikes again.",
+      metaDesc: "Get royalty-free background music from BGM Girl through our verified affiliate link. YouTube-safe music for creators, podcasters, and streamers. Best price.",
+      keywords: "bgm girl, royalty free music, youtube safe music, background music for videos, no copyright music, music for content creators, twitch music 2026",
+      proof: [
+        { num: "YouTube", label: "Safe Guaranteed" },
+        { num: "Twitch", label: "& Podcast Ready" },
+        { num: "No", label: "Copyright Strikes" }
+      ],
+      features: [
+        { icon: "▶️", title: "YouTube Safe", desc: "All music is cleared for YouTube monetization. No copyright claims or strikes." },
+        { icon: "📡", title: "Twitch Safe", desc: "Safe to use on Twitch streams without DMCA takedown risk." },
+        { icon: "🎙️", title: "Podcast Ready", desc: "Background music cleared for podcast distribution on all major platforms." },
+        { icon: "🎬", title: "Commercial Use", desc: "Use in commercial videos, ads, and professional productions." },
+        { icon: "🎶", title: "Multiple Genres", desc: "Ambient, upbeat, cinematic, lo-fi, and more — music for every type of content." },
+        { icon: "📥", title: "Easy Download", desc: "Simple licensing and download process. Get your music and start creating." }
+      ],
+      faqs: [
+        { q: "Will I get a copyright strike using BGM Girl music on YouTube?", a: "No — BGM Girl music is licensed for YouTube use. You can monetize your videos without copyright claims." },
+        { q: "Can I use the music in commercial projects?", a: "Yes. BGM Girl licenses cover commercial use including ads and paid productions. Check specific track licenses for details." },
+        { q: "Is there a subscription or pay-per-track?", a: "BGM Girl offers various licensing options. Check their site for current pricing and subscription plans." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🎵", title: "BGM Girl", desc: "YouTube and Twitch safe royalty-free music. No copyright strikes ever.", tag: "Verified Partner" }
+    },
+
+    lafuent: {
+      name: "Lafuent",
+      tagline: "OEM & Aftermarket Auto Parts Shipped Globally",
+      category: "Services",
+      icon: "🔧",
+      tag: "Auto Parts",
+      color: "rgba(245,200,66,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0",
+      merchantUrl: "https://www.lafuent.com/",
+      desc: "Lafuent is an automotive spare parts specialist offering quality OEM and aftermarket car parts for a wide range of vehicle makes and models, shipped globally.",
+      metaDesc: "Buy OEM and aftermarket auto parts from Lafuent through our verified affiliate link. Quality car parts shipped worldwide. Best price guaranteed.",
+      keywords: "lafuent, auto parts online, oem car parts, aftermarket parts, cheap auto parts, car spare parts, vehicle parts online 2026",
+      proof: [
+        { num: "OEM", label: "& Aftermarket" },
+        { num: "Global", label: "Shipping" },
+        { num: "Wide", label: "Vehicle Coverage" }
+      ],
+      features: [
+        { icon: "🔩", title: "OEM Parts", desc: "Original Equipment Manufacturer parts for guaranteed fit and factory-spec performance." },
+        { icon: "💰", title: "Aftermarket Options", desc: "Quality aftermarket alternatives at lower prices — performance or budget, your choice." },
+        { icon: "🌍", title: "International Shipping", desc: "Ships globally so you can source the right part regardless of your location." },
+        { icon: "🚗", title: "Wide Vehicle Coverage", desc: "Parts for European, Asian, and American vehicle makes — broad catalog coverage." },
+        { icon: "🔍", title: "Easy Part Search", desc: "Search by make, model, year, or part number to find exactly what you need." },
+        { icon: "✅", title: "Quality Guaranteed", desc: "Parts sourced from trusted suppliers with quality assurance processes in place." }
+      ],
+      faqs: [
+        { q: "Does Lafuent ship to my country?", a: "Lafuent ships internationally to many countries. Check their site for current shipping destinations and rates." },
+        { q: "How do I find the right part for my car?", a: "Use the search tool on Lafuent's site — you can search by vehicle make, model, year, and part number or description." },
+        { q: "Are OEM parts worth the extra cost over aftermarket?", a: "OEM parts guarantee exact fit and factory specs. Aftermarket parts can be a cost-effective alternative — the right choice depends on your vehicle and budget." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as buying directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "🔧", title: "Lafuent", desc: "OEM and aftermarket auto parts. Wide vehicle coverage. Ships globally.", tag: "Verified Partner" }
+    },
+
+    taxextension: {
+      name: "Tax Extension",
+      tagline: "File Your Federal Tax Extension Online in Minutes",
+      category: "Services",
+      icon: "📄",
+      tag: "Tax Service",
+      color: "rgba(232,255,71,0.07)",
+      url: "https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension",
+      merchantUrl: "https://www.taxextension.com/",
+      desc: "Tax Extension lets you file a federal or state tax extension online in minutes. Fast, IRS-accepted, and stress-free — get more time to file your taxes without the penalty.",
+      metaDesc: "File your tax extension online through our verified affiliate link. IRS-accepted federal and state tax extensions filed in minutes. Avoid penalties easily.",
+      keywords: "tax extension, file tax extension online, irs extension, federal tax extension, how to get tax extension, more time to file taxes 2026",
+      proof: [
+        { num: "IRS", label: "Accepted Filing" },
+        { num: "Minutes", label: "to Complete" },
+        { num: "Avoid", label: "Late Penalties" }
+      ],
+      features: [
+        { icon: "⚡", title: "File in Minutes", desc: "Complete your tax extension filing in just a few minutes — no complicated forms." },
+        { icon: "✅", title: "IRS Accepted", desc: "All filings are IRS-accepted. Get confirmation your extension was received." },
+        { icon: "📅", title: "6 More Months", desc: "A federal tax extension gives you until October to file your return." },
+        { icon: "🏛️", title: "State Extensions Too", desc: "File state tax extensions for most US states alongside your federal extension." },
+        { icon: "🛡️", title: "Avoid Penalties", desc: "Prevent failure-to-file penalties — an extension is always better than missing the deadline." },
+        { icon: "🔒", title: "Secure Filing", desc: "Encrypted, secure submission process to protect your personal tax information." }
+      ],
+      faqs: [
+        { q: "Does a tax extension give me more time to pay?", a: "No — a tax extension gives you more time to FILE your return, not more time to pay. If you owe taxes, you should still estimate and pay by the original deadline to avoid interest." },
+        { q: "How long does a federal tax extension give me?", a: "A federal tax extension moves your filing deadline from April 15 to October 15 — giving you 6 extra months." },
+        { q: "Will the IRS confirm my extension was received?", a: "Yes. Tax Extension provides confirmation that your filing was accepted by the IRS." },
+        { q: "Do I pay more through your affiliate link?", a: "No — same price as filing directly. We earn a small commission at no cost to you." }
+      ],
+      whyCard: { icon: "📄", title: "Tax Extension", desc: "File your IRS extension in minutes. 6 extra months. Avoid late penalties.", tag: "Verified Partner" }
+    }
+
+  }; // end CAMPAIGNS
+
+  // ═══════════════════════════════════════════════════════════
+  //  HREFLANG DATA
+  // ═══════════════════════════════════════════════════════════
+  const HREFLANGS = [
+    ['x-default',''],['en',''],['en-us','?hl=en-us'],['en-gb','?hl=en-gb'],
+    ['en-ca','?hl=en-ca'],['en-au','?hl=en-au'],['es','?hl=es'],['es-mx','?hl=es-mx'],
+    ['fr','?hl=fr'],['fr-ca','?hl=fr-ca'],['de','?hl=de'],['pt-br','?hl=pt-br'],
+    ['pt','?hl=pt'],['ja','?hl=ja'],['zh','?hl=zh'],['zh-tw','?hl=zh-tw'],
+    ['ko','?hl=ko'],['hi','?hl=hi'],['it','?hl=it'],['nl','?hl=nl'],['pl','?hl=pl']
+  ];
+
+  const LANGS = [
+    ['🇺🇸','English'],['🇪🇸','Español'],['🇫🇷','Français'],['🇩🇪','Deutsch'],
+    ['🇧🇷','Português'],['🇯🇵','日本語'],['🇨🇳','中文'],['🇰🇷','한국어'],
+    ['🇮🇳','हिंदी'],['🇮🇹','Italiano'],['🇳🇱','Nederlands'],['🇵🇱','Polski'],
+    ['🇨🇦','English (CA)'],['🇬🇧','English (UK)']
+  ];
+
+  // ═══════════════════════════════════════════════════════════
+  //  UTM LINK BUILDER
+  // ═══════════════════════════════════════════════════════════
+  function buildLink(url, position, campaignId) {
+    const u = new URL(url);
+    u.searchParams.set('utm_source', 'brightlane-directory');
+    u.searchParams.set('utm_medium', 'affiliate');
+    u.searchParams.set('utm_campaign', campaignId);
+    u.searchParams.set('utm_content', `pos-${position}`);
+    return u.toString();
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  //  INIT
+  // ═══════════════════════════════════════════════════════════
+  function init() {
+    const params = new URLSearchParams(window.location.search);
+    const cid = params.get('c') || params.get('campaign');
+
+    // Language ticker (always rendered)
+    const ticker = document.getElementById('ticker');
+    [...LANGS, ...LANGS].forEach(([flag, label]) => {
+      const s = document.createElement('span');
+      s.innerHTML = `<em>${flag}</em>${label}`;
+      ticker.appendChild(s);
+    });
+
+    if (!cid || !CAMPAIGNS[cid]) {
+      renderIndex();
+      return;
+    }
+
+    const c = CAMPAIGNS[cid];
+    const pageUrl = `https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=${cid}`;
+    const affiliateLink = buildLink(c.url, 1, cid);
+
+    // ── Meta tags
+    document.title = `${c.name} — ${c.tagline} | Brightlane`;
+    document.getElementById('meta-title').textContent = `${c.name} — ${c.tagline} | Brightlane`;
+    document.getElementById('meta-desc').setAttribute('content', c.metaDesc);
+    document.getElementById('meta-keywords').setAttribute('content', c.keywords);
+    document.getElementById('meta-canonical').setAttribute('href', pageUrl);
+    document.getElementById('og-title').setAttribute('content', `${c.name} — ${c.tagline}`);
+    document.getElementById('og-desc').setAttribute('content', c.metaDesc);
+    document.getElementById('og-url').setAttribute('content', pageUrl);
+    document.getElementById('og-image-alt').setAttribute('content', `${c.name} via Brightlane Verified Merchant Directory`);
+    document.getElementById('tw-title').setAttribute('content', `${c.name} — ${c.tagline}`);
+    document.getElementById('tw-desc').setAttribute('content', c.metaDesc);
+
+    // ── Hreflang
+    const hc = document.getElementById('hreflang-container');
+    HREFLANGS.forEach(([lang, suffix]) => {
+      const l = document.createElement('link');
+      l.rel = 'alternate';
+      l.hreflang = lang;
+      l.href = pageUrl + suffix;
+      hc.appendChild(l);
+    });
+
+    // ── JSON-LD: Product/Service
+    document.getElementById('jsonld-product').textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": c.name,
+      "description": c.desc,
+      "url": c.merchantUrl,
+      "offers": {
+        "@type": "Offer",
+        "url": affiliateLink,
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": c.name }
+      }
+    });
+
+    // ── JSON-LD: Organization
+    document.getElementById('jsonld-org').textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Brightlane Verified Merchant Directory",
+      "url": "https://brightlane.github.io/verified-merchant-directory/",
+      "description": "A curated directory of verified affiliate merchant partners."
+    });
+
+    // ── JSON-LD: FAQPage
+    document.getElementById('jsonld-faq').textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": c.faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    });
+
+    // ── Nav CTA
+    const navCta = document.getElementById('nav-cta-link');
+    navCta.href = affiliateLink;
+    navCta.textContent = `Visit ${c.name} →`;
+
+    // ── Render page
+    renderCampaignPage(c, cid, affiliateLink);
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  //  RENDER CAMPAIGN PAGE
+  // ═══════════════════════════════════════════════════════════
+  function renderCampaignPage(c, cid, affiliateLink) {
+    const proofHTML = c.proof.map(p => `
+      <div class="proof-item">
+        <span class="proof-num">${p.num}</span>
+        <span class="proof-label">${p.label}</span>
+      </div>`).join('');
+
+    const featuresHTML = c.features.map(f => `
+      <div class="feature-card">
+        <span class="feature-icon">${f.icon}</span>
+        <div class="feature-title">${f.title}</div>
+        <div class="feature-desc">${f.desc}</div>
+      </div>`).join('');
+
+    const faqsHTML = c.faqs.map(f => `
+      <div class="faq-item">
+        <div class="faq-q" tabindex="0" aria-expanded="false">
+          ${f.q}
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </div>
+        <div class="faq-a">${f.a}</div>
+      </div>`).join('');
+
+    const affiliateLink2 = buildLink(c.url, 2, cid);
+    const affiliateLink3 = buildLink(c.url, 3, cid);
+
+    document.getElementById('page-content').innerHTML = `
+      <!-- HERO -->
+      <header class="hero" role="banner">
+        <div class="hero-glow"></div>
+        <div class="hero-inner">
+          <div class="hero-eyebrow">
+            <span class="dot"></span>
+            ${c.category} · Verified Partner
+          </div>
+          <span class="hero-icon">${c.icon}</span>
+          <h1><span class="highlight">${c.name}</span><br/>${c.tagline}</h1>
+          <p class="hero-sub">${c.desc}</p>
+          <div class="hero-proof">${proofHTML}</div>
+          <div class="hero-cta">
+            <a href="${affiliateLink}" class="btn-primary" target="_blank" rel="noopener sponsored" aria-label="Visit ${c.name} official site">
+              Visit ${c.name} →
+            </a>
+            <a href="#features" class="btn-outline">See Features ↓</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- TRUST BAR -->
+      <div class="trust-bar" role="complementary" aria-label="Trust indicators">
+        <div class="trust-item"><span class="icon">✓</span> <span>Verified affiliate partner</span></div>
+        <div class="trust-item"><span class="icon">$</span> <span><strong>No extra cost</strong> to you</span></div>
+        <div class="trust-item"><span class="icon">🔒</span> <span>LinkConnector tracked</span></div>
+        <div class="trust-item"><span class="icon">↗</span> <span>Goes direct to <strong>${c.name}</strong></span></div>
+      </div>
+
+      <!-- FEATURES -->
+      <section class="features-section" id="features" aria-labelledby="features-heading">
+        <div class="section-eyebrow">What You Get</div>
+        <h2 class="section-title" id="features-heading">Everything ${c.name} Offers</h2>
+        <div class="features-grid">${featuresHTML}</div>
+      </section>
+
+      <!-- WHY BUY THROUGH US -->
+      <section class="why-section" aria-labelledby="why-heading">
+        <div class="why-inner">
+          <div class="why-text">
+            <div class="section-eyebrow">Why Brightlane</div>
+            <h2 class="section-title" id="why-heading">Why Buy Through Our Link?</h2>
+            <p>Our affiliate link goes directly to ${c.name}'s official website. You get the same price, the same product, and the same customer service — we just earn a small commission that keeps this directory free.</p>
+            <ul class="why-list">
+              <li><strong>Same price</strong> — affiliate links never increase what you pay</li>
+              <li><strong>Direct to ${c.name}</strong> — you're buying from them, not us</li>
+              <li><strong>Verified partner</strong> — tracked through LinkConnector network</li>
+              <li><strong>Supports this directory</strong> — commissions keep this resource free</li>
+              <li><strong>Same warranty & support</strong> — all ${c.name} policies apply normally</li>
+            </ul>
+          </div>
+          <div class="why-card">
+            <span class="why-card-icon">${c.whyCard.icon}</span>
+            <div class="why-card-title">${c.whyCard.title}</div>
+            <div class="why-card-desc">${c.whyCard.desc}</div>
+            <span class="why-card-tag">${c.whyCard.tag}</span>
+            <br/><br/>
+            <a href="${affiliateLink2}" class="btn-primary" target="_blank" rel="noopener sponsored" style="display:inline-flex;justify-content:center;width:100%">
+              Shop Now →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+        <h2 class="section-title" id="faq-heading">Frequently Asked Questions</h2>
+        ${faqsHTML}
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="final-cta" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Ready to Visit ${c.name}?</h2>
+        <p>Click through our verified affiliate link — same price, direct to their site, no extra steps.</p>
+        <div class="benefit-chips">
+          <span class="chip">No extra cost</span>
+          <span class="chip">Verified partner</span>
+          <span class="chip">Direct to ${c.name}</span>
+          <span class="chip">Supports this directory</span>
+        </div>
+        <a href="${affiliateLink3}" class="btn-primary" target="_blank" rel="noopener sponsored" aria-label="Visit ${c.name} now">
+          Visit ${c.name} Now →
+        </a>
+      </section>
+    `;
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        q.setAttribute('aria-expanded', String(!isOpen));
+      });
+      q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') q.click(); });
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  //  RENDER INDEX (no ?c= param — show campaign picker)
+  // ═══════════════════════════════════════════════════════════
+  function renderIndex() {
+    document.title = 'Campaign Pages — Brightlane Verified Merchant Directory';
+    document.getElementById('nav-cta-link').href = 'index.html';
+    document.getElementById('nav-cta-link').textContent = 'All Merchants →';
+
+    const cats = {};
+    Object.entries(CAMPAIGNS).forEach(([id, c]) => {
+      if (!cats[c.category]) cats[c.category] = [];
+      cats[c.category].push({ id, ...c });
+    });
+
+    const catHTML = Object.entries(cats).map(([cat, list]) => `
+      <div style="margin-bottom:40px">
+        <h3 style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">${cat}</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px">
+          ${list.map(c => `
+            <a href="?c=${c.id}" style="display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .15s,transform .15s" onmouseover="this.style.borderColor='rgba(232,255,71,0.3)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='none'">
+              <span style="font-size:1.5rem;flex-shrink:0">${c.icon}</span>
+              <div>
+                <div style="font-family:var(--font-head);font-weight:700;font-size:0.9rem">${c.name}</div>
+                <div style="font-size:0.72rem;color:var(--muted);margin-top:2px">${c.tag}</div>
+              </div>
+              <span style="margin-left:auto;color:var(--accent);font-size:0.8rem">→</span>
+            </a>`).join('')}
+        </div>
+      </div>`).join('');
+
+    document.getElementById('page-content').innerHTML = `
+      <div style="max-width:960px;margin:0 auto;padding:clamp(60px,8vw,100px) clamp(20px,4vw,60px)">
+        <div style="margin-bottom:48px">
+          <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Campaign Pages</div>
+          <h1 style="font-family:var(--font-head);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:12px">Select a Merchant</h1>
+          <p style="color:var(--muted);font-size:0.95rem">Each campaign has a full SEO-optimized landing page. Use <code style="background:var(--bg3);padding:2px 8px;border-radius:4px;font-size:0.85rem">?c=merchantid</code> to load any campaign.</p>
+        </div>
+        ${catHTML}
+      </div>
+    `;
+  }
+
+  // ── Boot
+  init();
+  </script>
+
+</body>
+</html>
