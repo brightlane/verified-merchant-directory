@@ -672,7 +672,7 @@
     {
       "slug": "combat-flip-flops-review-2026",
       "merchant": "combatflipflops",
-      "published": false,
+      "published": true,
       "title_en": "Combat Flip Flops Review 2026 — The Brand That Funds Peace",
       "category_en": "Lifestyle",
       "metaDesc_en": "Combat Flip Flops review 2026. Army Ranger-founded footwear brand that funds landmine removal and education in conflict zones.",
@@ -708,6 +708,24 @@
           "q": "Do they ship internationally?",
           "a": "Yes. Combat Flip Flops ships globally. Check their site for current shipping rates."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "combat-flip-flops-review-2026.html",
+        "combat-flip-flops-review-2026-zh.html",
+        "combat-flip-flops-review-2026-es.html",
+        "combat-flip-flops-review-2026-fr.html",
+        "combat-flip-flops-review-2026-de.html",
+        "combat-flip-flops-review-2026-pt.html",
+        "combat-flip-flops-review-2026-ar.html",
+        "combat-flip-flops-review-2026-hi.html",
+        "combat-flip-flops-review-2026-ru.html",
+        "combat-flip-flops-review-2026-ja.html",
+        "combat-flip-flops-review-2026-ko.html",
+        "combat-flip-flops-review-2026-id.html",
+        "combat-flip-flops-review-2026-it.html",
+        "combat-flip-flops-review-2026-nl.html",
+        "combat-flip-flops-review-2026-pl.html"
       ]
     },
     {
