@@ -160,7 +160,7 @@
     {
       "slug": "iskysoft-data-recovery-review-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft Data Recovery Review 2026 — Can It Really Recover Lost Files?",
       "title_zh": "iSkysoft数据恢复软件测评2026 — 真的能找回丢失文件吗？",
       "title_es": "Reseña iSkysoft Recuperación de Datos 2026 — ¿Puede Recuperar Archivos Perdidos?",
@@ -300,7 +300,8 @@
           "q": "Combien de temps dure un scan ?",
           "a": "Un scan rapide prend quelques minutes. Un scan profond peut prendre des heures."
         }
-      ]
+      ],
+      "published_date": "2026-04-29"
     },
     {
       "slug": "buildasign-custom-banners-review-2026",
