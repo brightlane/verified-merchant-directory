@@ -936,7 +936,7 @@
     {
       "slug": "infinite-aloe-review-2026",
       "merchant": "infinitealoe",
-      "published": false,
+      "published": true,
       "title_en": "Infinite Aloe Review 2026 — Does Organic Aloe Vera Skincare Really Work?",
       "title_zh": "Infinite Aloe测评2026 — 有机芦荟护肤品真的有效吗？",
       "title_es": "Reseña Infinite Aloe 2026 — ¿Funciona Realmente el Skincare de Aloe Vera Orgánico?",
@@ -1080,6 +1080,24 @@
           "q": "Convient-il aux peaux grasses ?",
           "a": "Oui. La base d'aloe vera est legere et non comedonique."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "infinite-aloe-review-2026.html",
+        "infinite-aloe-review-2026-zh.html",
+        "infinite-aloe-review-2026-es.html",
+        "infinite-aloe-review-2026-fr.html",
+        "infinite-aloe-review-2026-de.html",
+        "infinite-aloe-review-2026-pt.html",
+        "infinite-aloe-review-2026-ar.html",
+        "infinite-aloe-review-2026-hi.html",
+        "infinite-aloe-review-2026-ru.html",
+        "infinite-aloe-review-2026-ja.html",
+        "infinite-aloe-review-2026-ko.html",
+        "infinite-aloe-review-2026-id.html",
+        "infinite-aloe-review-2026-it.html",
+        "infinite-aloe-review-2026-nl.html",
+        "infinite-aloe-review-2026-pl.html"
       ]
     },
     {
