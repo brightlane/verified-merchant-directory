@@ -1,23 +1,96 @@
 {
-  "global_affiliate_id": "007949054186005142",
-  "campaigns": {
-    "70695":  { "name": "Build A Sign LLC", "cat": "retail" },
-    "88473":  { "name": "HalloweenCostumes.com", "cat": "events" },
-    "100273": { "name": "E-file.com", "cat": "finance" },
-    "120034": { "name": "NordVPN", "cat": "saas" },
-    "53532":  { "name": "Depositphotos Inc", "cat": "media" },
-    "139297": { "name": "Fun.com", "cat": "events" },
-    "112345": { "name": "CanadaPetCare.com", "cat": "retail" },
-    "118992": { "name": "Combat Flip Flops", "cat": "retail" },
-    "67231":  { "name": "Hats.com LLC", "cat": "retail" },
-    "82110":  { "name": "InfiniteAloe", "cat": "retail" },
-    "55432":  { "name": "La Fuente Imports", "cat": "retail" },
-    "99821":  { "name": "Movavi Software Limited", "cat": "saas" },
-    "90122":  { "name": "Atlanta Cutlery Corp", "cat": "retail" },
-    "88762":  { "name": "Sidify Inc", "cat": "saas" },
-    "133221": { "name": "Snappy LLC", "cat": "retail" },
-    "77654":  { "name": "The Chess Store Inc", "cat": "retail" },
-    "94432":  { "name": "Warehouse 115 Inc", "cat": "retail" }
-  },
-  "base_tracking_url": "https://www.linkconnector.com/ta.php"
+  "affiliates": [
+    {
+      "id": "appypie",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie"
+    },
+    {
+      "id": "bgmgirl",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf="
+    },
+    {
+      "id": "buildasign",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "canvasdiscount",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "canvasonthecheap",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "combatflipflops",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0"
+    },
+    {
+      "id": "cpraedcourse",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "cprcare",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf="
+    },
+    {
+      "id": "discountpetcare",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf="
+    },
+    {
+      "id": "easycanvasprints",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "halloweencostumes",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf="
+    },
+    {
+      "id": "ahca",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "infinitealoe",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0"
+    },
+    {
+      "id": "iskysoft",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "knowledgehut",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf="
+    },
+    {
+      "id": "lafuent",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0"
+    },
+    {
+      "id": "littletoe",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe"
+    },
+    {
+      "id": "movavi",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "pmtraining",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining"
+    },
+    {
+      "id": "shoplww",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "taxextension",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension"
+    },
+    {
+      "id": "tenorshare",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3"
+    },
+    {
+      "id": "wondershare",
+      "url": "https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3"
+    }
+  ]
 }
