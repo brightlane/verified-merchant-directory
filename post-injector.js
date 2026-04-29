@@ -6,7 +6,7 @@
 //    1. Reads next unused topic from post-topics.json
 //    2. Generates a full SEO post in EN, ZH, ES, FR
 //    3. Injects each post into the matching blog file
-//    4. Updates sitemap.xml with the 4 new URLs
+//    4. Updates sitemap.xml with the 4 new URLs (full hreflang)
 //    5. Marks topic as used, logs the run
 //  Then just: git add . && git commit -m "post: [topic]" && git push
 // ═══════════════════════════════════════════════════════════════════════
@@ -232,7 +232,9 @@ function injectIntoBlog(filePath, postObjStr) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  UPDATE SITEMAP — appends 4 new <url> blocks
+//  UPDATE SITEMAP — appends 4 new <url> blocks with full hreflang tags
+//  FIX: uses campaign-page.html (singular) — correct filename
+//  FIX: full 21-language hreflang block on every blog post URL
 // ═══════════════════════════════════════════════════════════════════════
 
 function updateSitemap(slug) {
@@ -243,28 +245,59 @@ function updateSitemap(slug) {
   }
 
   const slugKey = `${slug}__${TODAY}`;
-  const files = [
+
+  // Blog files with their primary language
+  const blogFiles = [
     { file: 'blog.html',    lang: 'en' },
     { file: 'blog-zh.html', lang: 'zh' },
     { file: 'blog-es.html', lang: 'es' },
     { file: 'blog-fr.html', lang: 'fr' },
   ];
 
-  const newBlocks = files.map(({ file, lang }) => {
+  // Full hreflang config — matches the rest of the sitemap
+  const hreflangs = [
+    { tag: 'x-default', qs: '' },
+    { tag: 'en',        qs: '' },
+    { tag: 'en-us',     qs: '&hl=en-us' },
+    { tag: 'en-gb',     qs: '&hl=en-gb' },
+    { tag: 'en-ca',     qs: '&hl=en-ca' },
+    { tag: 'en-au',     qs: '&hl=en-au' },
+    { tag: 'es',        qs: '&hl=es' },
+    { tag: 'es-mx',     qs: '&hl=es-mx' },
+    { tag: 'fr',        qs: '&hl=fr' },
+    { tag: 'fr-ca',     qs: '&hl=fr-ca' },
+    { tag: 'de',        qs: '&hl=de' },
+    { tag: 'pt-br',     qs: '&hl=pt-br' },
+    { tag: 'pt',        qs: '&hl=pt' },
+    { tag: 'ja',        qs: '&hl=ja' },
+    { tag: 'zh',        qs: '&hl=zh' },
+    { tag: 'zh-tw',     qs: '&hl=zh-tw' },
+    { tag: 'ko',        qs: '&hl=ko' },
+    { tag: 'hi',        qs: '&hl=hi' },
+    { tag: 'it',        qs: '&hl=it' },
+    { tag: 'nl',        qs: '&hl=nl' },
+    { tag: 'pl',        qs: '&hl=pl' },
+  ];
+
+  const newBlocks = blogFiles.map(({ file, lang }) => {
     const loc = `${BASE_URL}/${file}?p=${slugKey}`;
+    const links = hreflangs.map(({ tag, qs }) => {
+      const href = qs ? loc + qs : loc;
+      return `    <xhtml:link rel="alternate" hreflang="${tag}" href="${href}"/>`;
+    }).join('\n');
     return `  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="${lang}" href="${loc}"/>
+${links}
   </url>`;
   }).join('\n');
 
   let sitemap = fs.readFileSync(sitemapPath, 'utf8');
   sitemap = sitemap.replace('</urlset>', newBlocks + '\n</urlset>');
   fs.writeFileSync(sitemapPath, sitemap, 'utf8');
-  console.log('  ✓ sitemap.xml updated with 4 new URLs');
+  console.log('  ✓ sitemap.xml updated with 4 new URLs (full hreflang)');
 }
 
 // ═══════════════════════════════════════════════════════════════════════
