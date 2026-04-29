@@ -32,26 +32,57 @@ jobs:
       - name: ✅ Validate Required Files
         run: |
           echo "── Checking required files ──"
-          test -f index.html     && echo "✓ index.html"     || (echo "✗ index.html MISSING"     && exit 1)
-          test -f affiliate.json && echo "✓ affiliate.json" || (echo "✗ affiliate.json MISSING"  && exit 1)
-          test -f lmss.txt       && echo "✓ lmss.txt"       || (echo "✗ lmss.txt MISSING"        && exit 1)
-          test -f inject.js      && echo "✓ inject.js"      || (echo "✗ inject.js MISSING"       && exit 1)
+          test -f index.html          && echo "✓ index.html"          || (echo "✗ index.html MISSING"          && exit 1)
+          test -f affiliate.json      && echo "✓ affiliate.json"      || (echo "✗ affiliate.json MISSING"      && exit 1)
+          test -f lmss.txt            && echo "✓ lmss.txt"            || (echo "✗ lmss.txt MISSING"            && exit 1)
+          test -f inject.js           && echo "✓ inject.js"           || (echo "✗ inject.js MISSING"           && exit 1)
+          test -f auto-topic-generator.js && echo "✓ auto-topic-generator.js" || echo "⚠ auto-topic-generator.js missing — skipping"
+          test -f keyword-injector.js     && echo "✓ keyword-injector.js"     || echo "⚠ keyword-injector.js missing — skipping"
+          test -f sitemap-updater.js      && echo "✓ sitemap-updater.js"      || echo "⚠ sitemap-updater.js missing — skipping"
 
       - name: 🔧 Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: 💉 Run Injector
+      - name: 🎯 Auto-Generate Priority Topics
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+        run: |
+          if [ -f auto-topic-generator.js ]; then
+            node auto-topic-generator.js
+          else
+            echo "⚠ auto-topic-generator.js not found — skipping"
+          fi
+
+      - name: 💉 Blog Injector
         env:
           ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
         run: node inject.js
 
-      - name: 💾 Commit New Post + Updated lmss.txt
+      - name: 🔑 Keyword Injector
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+        run: |
+          if [ -f keyword-injector.js ]; then
+            node keyword-injector.js
+          else
+            echo "⚠ keyword-injector.js not found — skipping"
+          fi
+
+      - name: 🗺️ Sitemap + Ping Search Engines
+        run: |
+          if [ -f sitemap-updater.js ]; then
+            node sitemap-updater.js
+          else
+            echo "⚠ sitemap-updater.js not found — skipping"
+          fi
+
+      - name: 💾 Commit All Changes
         run: |
           git config user.name  "Vulture Titan Engine"
           git config user.email "vulture@brightlane.bot"
-          git add blog/ lmss.txt
+          git add blog/ lmss.txt sitemap.xml
           git diff --cached --quiet && echo "Nothing to commit" || git commit -m "🦅 Auto-inject: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
