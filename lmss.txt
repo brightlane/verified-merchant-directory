@@ -849,7 +849,7 @@
     {
       "slug": "lafuent-auto-parts-review-2026",
       "merchant": "lafuent",
-      "published": false,
+      "published": true,
       "title_en": "Lafuent Auto Parts Review 2026 — Reliable OEM and Aftermarket Parts Online?",
       "category_en": "Services",
       "metaDesc_en": "Lafuent auto parts review 2026. OEM and aftermarket car parts shipped globally. Is Lafuent reliable? Pricing, selection, and shipping reviewed.",
@@ -885,6 +885,24 @@
           "q": "What if I order the wrong part?",
           "a": "Contact Lafuent customer service. Check the site for current return terms before ordering."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "lafuent-auto-parts-review-2026.html",
+        "lafuent-auto-parts-review-2026-zh.html",
+        "lafuent-auto-parts-review-2026-es.html",
+        "lafuent-auto-parts-review-2026-fr.html",
+        "lafuent-auto-parts-review-2026-de.html",
+        "lafuent-auto-parts-review-2026-pt.html",
+        "lafuent-auto-parts-review-2026-ar.html",
+        "lafuent-auto-parts-review-2026-hi.html",
+        "lafuent-auto-parts-review-2026-ru.html",
+        "lafuent-auto-parts-review-2026-ja.html",
+        "lafuent-auto-parts-review-2026-ko.html",
+        "lafuent-auto-parts-review-2026-id.html",
+        "lafuent-auto-parts-review-2026-it.html",
+        "lafuent-auto-parts-review-2026-nl.html",
+        "lafuent-auto-parts-review-2026-pl.html"
       ]
     },
     {
