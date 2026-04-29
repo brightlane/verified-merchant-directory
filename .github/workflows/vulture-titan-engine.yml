@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 * * * *'
+    - cron: '*/10 * * * *'
 
 permissions:
   contents: write
@@ -43,6 +43,8 @@ jobs:
           node-version: '20'
 
       - name: 💉 Run Injector
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
         run: node inject.js
 
       - name: 💾 Commit New Post + Updated lmss.txt
