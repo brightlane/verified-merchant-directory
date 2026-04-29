@@ -4,6 +4,16 @@ on:
   workflow_dispatch:
   push:
     branches: [ main ]
+  schedule:
+    # ┌───────────── minute (0 - 59)
+    # │ ┌───────────── hour (0 - 23)
+    # │ │ ┌───────────── day of the month (1 - 31)
+    # │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    # │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    # │ │ │ │ │
+    # │ │ │ │ │
+    # * * * * *
+    - cron: '0 * * * *'
 
 permissions:
   contents: write
@@ -15,15 +25,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-
-  # ════════════════════════════════════════
-  #  JOB 1 — BUILD
-  # ════════════════════════════════════════
+  # ... (Rest of your jobs remain exactly the same)
   build:
     runs-on: ubuntu-latest
-
     steps:
-
       - name: 🛰️ Checkout
         uses: actions/checkout@v4
         with:
@@ -34,23 +39,19 @@ jobs:
           echo "── Checking required files ──"
           test -f index.html     && echo "✓ index.html"     || (echo "✗ index.html MISSING"     && exit 1)
           test -f affiliate.json && echo "✓ affiliate.json" || (echo "✗ affiliate.json MISSING"  && exit 1)
-          test -f lmss.txt       && echo "✓ lmss.txt"       || (echo "✗ lmss.txt MISSING"        && exit 1)
+          test -f lmss.txt       && echo "✓ lmss.txt"        || (echo "✗ lmss.txt MISSING"        && exit 1)
 
       - name: 📤 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
 
-  # ════════════════════════════════════════
-  #  JOB 2 — DEPLOY
-  # ════════════════════════════════════════
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
