@@ -769,7 +769,7 @@
     {
       "slug": "combat-flip-flops-review-2026",
       "merchant": "combatflipflops",
-      "published": false,
+      "published": true,
       "title_en": "Combat Flip Flops Review 2026 — The Brand That Funds Peace",
       "title_zh": "Combat Flip Flops测评2026 — 为和平筹资的品牌",
       "title_es": "Reseña Combat Flip Flops 2026 — La Marca que Financia la Paz",
@@ -913,6 +913,24 @@
           "q": "Livrent-ils a l'international ?",
           "a": "Oui. Livraison mondiale."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "combat-flip-flops-review-2026.html",
+        "combat-flip-flops-review-2026-zh.html",
+        "combat-flip-flops-review-2026-es.html",
+        "combat-flip-flops-review-2026-fr.html",
+        "combat-flip-flops-review-2026-de.html",
+        "combat-flip-flops-review-2026-pt.html",
+        "combat-flip-flops-review-2026-ar.html",
+        "combat-flip-flops-review-2026-hi.html",
+        "combat-flip-flops-review-2026-ru.html",
+        "combat-flip-flops-review-2026-ja.html",
+        "combat-flip-flops-review-2026-ko.html",
+        "combat-flip-flops-review-2026-id.html",
+        "combat-flip-flops-review-2026-it.html",
+        "combat-flip-flops-review-2026-nl.html",
+        "combat-flip-flops-review-2026-pl.html"
       ]
     },
     {
