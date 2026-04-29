@@ -48,6 +48,7 @@ jobs:
           git config user.email "vulture@brightlane.bot"
           git add blog/ lmss.txt
           git diff --cached --quiet && echo "Nothing to commit" || git commit -m "🦅 Auto-inject: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main
           git push
 
       - name: 📤 Upload Pages Artifact
