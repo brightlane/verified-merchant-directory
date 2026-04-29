@@ -38,7 +38,7 @@ const LANGUAGES = [
 const LANG_MAP = {};
 LANGUAGES.forEach(l => { LANG_MAP[l.code] = l; });
 
-// UI strings per language
+// ─── UI strings per language ──────────────────────────────────────────────────
 const UI = {
   en: { faq: 'Frequently Asked Questions', disclosure: 'This post contains affiliate links. We may earn a commission if you purchase through our links, at no extra cost to you.', disc_label: 'Affiliate Disclosure', editorial: 'Brightlane Editorial', published: 'Published', reviewed: 'Reviewed', read_in: 'Read in' },
   zh: { faq: '常见问题', disclosure: '本文包含附属链接。如果您通过我们的链接购买，我们可能会赚取佣金，对您没有额外费用。', disc_label: '附属声明', editorial: 'Brightlane编辑部', published: '发布于', reviewed: '审核于', read_in: '阅读语言' },
@@ -112,6 +112,7 @@ ${JSON.stringify(fields, null, 2)}`;
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(body),
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
         'anthropic-version': '2023-06-01',
       }
     };
@@ -141,37 +142,36 @@ ${JSON.stringify(fields, null, 2)}`;
 // ─── Build translations for all 15 languages ─────────────────────────────────
 async function buildAllTranslations(topic) {
   const englishFields = {
-    title:        topic.title_en,
-    category:     topic.category_en,
-    metaDesc:     topic.metaDesc_en,
-    keywords:     topic.keywords_en,
-    intro:        topic.intro_en,
-    callout:      topic.callout_en,
-    h2a:          topic.h2a_en,
-    body1:        topic.body1_en,
-    bullets:      topic.bullets_en,
+    title:         topic.title_en,
+    category:      topic.category_en,
+    metaDesc:      topic.metaDesc_en,
+    keywords:      topic.keywords_en,
+    intro:         topic.intro_en,
+    callout:       topic.callout_en,
+    h2a:           topic.h2a_en,
+    body1:         topic.body1_en,
+    bullets:       topic.bullets_en,
     verdict_title: topic.verdict_title_en,
     verdict_desc:  topic.verdict_desc_en,
-    h2b:          topic.h2b_en,
-    body2:        topic.body2_en,
-    cta:          topic.cta_en,
-    cta2:         topic.cta2_en,
-    faqs:         topic.faqs_en,
+    h2b:           topic.h2b_en,
+    body2:         topic.body2_en,
+    cta:           topic.cta_en,
+    cta2:          topic.cta2_en,
+    faqs:          topic.faqs_en,
   };
 
   const translations = { en: englishFields };
 
-  // Languages already in lmss.txt — use existing translations
+  // Use existing translations from lmss.txt if available
   const existing = {
-    zh: { title: topic.title_zh, category: topic.category_zh, metaDesc: topic.metaDesc_zh, keywords: topic.keywords_zh, intro: topic.intro_zh, callout: topic.callout_zh, h2a: topic.h2a_zh, body1: topic.body1_zh, bullets: topic.bullets_zh, verdict_title: topic.verdict_title_zh, verdict_desc: topic.verdict_desc_zh, h2b: topic.h2b_zh, body2: topic.body2_zh, cta: topic.cta_zh, cta2: topic.cta2_zh, faqs: topic.faqs_zh },
-    es: { title: topic.title_es, category: topic.category_es, metaDesc: topic.metaDesc_es, keywords: topic.keywords_es, intro: topic.intro_es, callout: topic.callout_es, h2a: topic.h2a_es, body1: topic.body1_es, bullets: topic.bullets_es, verdict_title: topic.verdict_title_es, verdict_desc: topic.verdict_desc_es, h2b: topic.h2b_es, body2: topic.body2_es, cta: topic.cta_es, cta2: topic.cta2_es, faqs: topic.faqs_es },
-    fr: { title: topic.title_fr, category: topic.category_fr, metaDesc: topic.metaDesc_fr, keywords: topic.keywords_fr, intro: topic.intro_fr, callout: topic.callout_fr, h2a: topic.h2a_fr, body1: topic.body1_fr, bullets: topic.bullets_fr, verdict_title: topic.verdict_title_fr, verdict_desc: topic.verdict_desc_fr, h2b: topic.h2b_fr, body2: topic.body2_fr, cta: topic.cta_fr, cta2: topic.cta2_fr, faqs: topic.faqs_fr },
+    zh: topic.title_zh ? { title: topic.title_zh, category: topic.category_zh, metaDesc: topic.metaDesc_zh, keywords: topic.keywords_zh, intro: topic.intro_zh, callout: topic.callout_zh, h2a: topic.h2a_zh, body1: topic.body1_zh, bullets: topic.bullets_zh, verdict_title: topic.verdict_title_zh, verdict_desc: topic.verdict_desc_zh, h2b: topic.h2b_zh, body2: topic.body2_zh, cta: topic.cta_zh, cta2: topic.cta2_zh, faqs: topic.faqs_zh } : null,
+    es: topic.title_es ? { title: topic.title_es, category: topic.category_es, metaDesc: topic.metaDesc_es, keywords: topic.keywords_es, intro: topic.intro_es, callout: topic.callout_es, h2a: topic.h2a_es, body1: topic.body1_es, bullets: topic.bullets_es, verdict_title: topic.verdict_title_es, verdict_desc: topic.verdict_desc_es, h2b: topic.h2b_es, body2: topic.body2_es, cta: topic.cta_es, cta2: topic.cta2_es, faqs: topic.faqs_es } : null,
+    fr: topic.title_fr ? { title: topic.title_fr, category: topic.category_fr, metaDesc: topic.metaDesc_fr, keywords: topic.keywords_fr, intro: topic.intro_fr, callout: topic.callout_fr, h2a: topic.h2a_fr, body1: topic.body1_fr, bullets: topic.bullets_fr, verdict_title: topic.verdict_title_fr, verdict_desc: topic.verdict_desc_fr, h2b: topic.h2b_fr, body2: topic.body2_fr, cta: topic.cta_fr, cta2: topic.cta2_fr, faqs: topic.faqs_fr } : null,
   };
 
-  // Use existing if available, otherwise translate
   for (const lang of LANGUAGES) {
     if (lang.code === 'en') continue;
-    if (existing[lang.code] && existing[lang.code].title) {
+    if (existing[lang.code]) {
       console.log(`  ✓ ${lang.code} — using existing translation`);
       translations[lang.code] = existing[lang.code];
     } else {
@@ -266,7 +266,7 @@ const FONTS = `
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
 `;
 
-// ─── Generate filename for a language ────────────────────────────────────────
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 function fileName(slug, lang) {
   return lang === 'en' ? `${slug}.html` : `${slug}-${lang}.html`;
 }
@@ -275,7 +275,6 @@ function pageUrl(slug, lang) {
   return `${BASE}/blog/${fileName(slug, lang)}`;
 }
 
-// ─── Build hreflang tags ──────────────────────────────────────────────────────
 function buildHreflang(slug) {
   return LANGUAGES.map(l =>
     `  <link rel="alternate" hreflang="${l.code}" href="${pageUrl(slug, l.code)}"/>`
@@ -283,7 +282,6 @@ function buildHreflang(slug) {
   `\n  <link rel="alternate" hreflang="x-default" href="${pageUrl(slug, 'en')}"/>`;
 }
 
-// ─── Build language switcher bar ──────────────────────────────────────────────
 function buildLangBar(slug, currentLang) {
   return LANGUAGES.map(l => {
     const active = l.code === currentLang ? ' active' : '';
@@ -293,10 +291,9 @@ function buildLangBar(slug, currentLang) {
 
 // ─── Build article body ───────────────────────────────────────────────────────
 function buildBody(t, lang, slug) {
-  const affLink1 = aff(t.merchant, 1, slug, lang);
-  const affLink2 = aff(t.merchant, 2, slug, lang);
+  const affLink1 = aff(topic.merchant, 1, slug, lang);
+  const affLink2 = aff(topic.merchant, 2, slug, lang);
   const ui       = UI[lang] || UI.en;
-  const isRtl    = LANG_MAP[lang] && LANG_MAP[lang].dir === 'rtl';
 
   const bulletItems = (t.bullets || []).map(b => `<li>${b}</li>`).join('');
   const faqItems    = (t.faqs   || []).map(f => `
@@ -329,12 +326,12 @@ function buildBody(t, lang, slug) {
 
 // ─── Build full HTML page ─────────────────────────────────────────────────────
 function buildPage(topic, lang, translations) {
-  const slug   = topic.slug;
-  const t      = translations[lang];
-  const langObj= LANG_MAP[lang];
-  const ui     = UI[lang] || UI.en;
-  const isRtl  = langObj && langObj.dir === 'rtl';
-  const url    = pageUrl(slug, lang);
+  const slug    = topic.slug;
+  const t       = translations[lang];
+  const langObj = LANG_MAP[lang];
+  const ui      = UI[lang] || UI.en;
+  const isRtl   = langObj && langObj.dir === 'rtl';
+  const url     = pageUrl(slug, lang);
 
   const jsonLdArticle = JSON.stringify({
     "@context": "https://schema.org",
@@ -363,8 +360,8 @@ function buildPage(topic, lang, translations) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE}/blog/` },
+      { "@type": "ListItem", "position": 1, "name": "Home",  "item": `${BASE}/` },
+      { "@type": "ListItem", "position": 2, "name": "Blog",  "item": `${BASE}/blog/` },
       { "@type": "ListItem", "position": 3, "name": t.title, "item": url }
     ]
   });
@@ -481,9 +478,8 @@ async function main() {
     filesWritten++;
   }
 
-  // Mark published
-  topic.published      = true;
-  topic.published_date = TODAY;
+  topic.published       = true;
+  topic.published_date  = TODAY;
   topic.files_generated = LANGUAGES.map(l => fileName(topic.slug, l.code));
 
   fs.writeFileSync(LMSS, JSON.stringify(lmss, null, 2), 'utf8');
