@@ -3,7 +3,7 @@
   LINK MANAGEMENT STATUS SHEET (LMSS)
 ================================================================================
   VULTURE STATUS: OPERATIONAL
-  VERIFIED COUNT: 23
+  VERIFIED COUNT: 24
   NETWORK: LinkConnector
   BASE URL: https://brightlane.github.io/verified-merchant-directory/
   TIMESTAMP: 2026-04-29
@@ -113,7 +113,7 @@
   LCPT        : —
   LCPF        : —
   UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-7
-  NOTES       : Focused PMP/PRINCE2 cert prep. Appears twice in raw link list — confirm dedup.
+  NOTES       : Focused PMP/PRINCE2 cert prep. Deduped from 2x in original raw list.
 
 [08] CPR AED COURSE
   ID          : cpraedcourse
@@ -173,21 +173,21 @@
   LCPT        : 0
   LCPF        : (empty)
   UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-11
-  NOTES       : Appears multiple times in raw link list — deduped to one card. Confirm active.
+  NOTES       : Deduped from 2x in original raw list. Confirmed active.
 
 [12] CANADA PET CARE
   ID          : canadapetcare
   STATUS      : ACTIVE
   CATEGORY    : petcare
   TAG         : Pet Pharmacy
-  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538000012006219&url=https%3A%2F%2Fwww.canadapetcare.com%2F
+  AFFILIATE   : https://www.linkconnector.com/ta.php?lc=014538000012006219&atid=canadapetcare
   MERCHANT PG : https://www.canadapetcare.com/
   LC CODE     : 014538000012006219
-  ATID        : (URL-based redirect — no atid param)
+  ATID        : canadapetcare
   LCPT        : —
   LCPF        : —
   UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-12
-  NOTES       : URL-passthrough link format. Appears 3x in raw list — deduped. Verify tracking.
+  NOTES       : Fixed 2026-04-29 — replaced URL-passthrough format with standard atid=canadapetcare param. Deduped from 3x in original raw list.
 
 --------------------------------------------------------------------------------
   CATEGORY 4 — PRINT & SIGNS  [4 campaigns]
@@ -205,7 +205,7 @@
   LCPT        : 0
   LCPF        : 3
   UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-13
-  NOTES       : Appears 3x in raw link list — deduped. Banners, yard signs, canvas.
+  NOTES       : Deduped from 3x in original raw list. Banners, yard signs, canvas.
 
 [14] EASY CANVAS PRINTS
   ID          : easycanvasprints
@@ -233,7 +233,7 @@
   LCPT        : 0
   LCPF        : 3
   UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-15
-  NOTES       : Premium prints at discount pricing. Competes with Easy Canvas — differentiate by price angle.
+  NOTES       : Premium prints at discount pricing. Differentiate from Easy Canvas by price angle.
 
 [16] CANVAS ON THE CHEAP
   ID          : canvasonthecheap
@@ -297,7 +297,7 @@
   LCPT        : 0
   LCPF        : 0
   UTM TRACKED : utm_source=brightlane-directory&utm_medium=affiliate&utm_content=card-pos-19
-  NOTES       : Mission-driven brand. Appears 3x in raw list — deduped. lcpf=0 confirmed.
+  NOTES       : Mission-driven brand. Deduped from 3x in original raw list. lcpf=0 confirmed.
 
 [20] HALLOWEEN COSTUMES
   ID          : halloweencostumes
@@ -328,7 +328,7 @@
   NOTES       : Lippincott medical/nursing textbooks. Back-to-school seasonal spikes.
 
 --------------------------------------------------------------------------------
-  CATEGORY 7 — SERVICES  [2 campaigns]
+  CATEGORY 7 — SERVICES  [3 campaigns]
 --------------------------------------------------------------------------------
 
 [22] BGM GIRL
@@ -394,44 +394,53 @@
   appypie         |  2x   | [05]
 
 ================================================================================
+  CHANGE LOG
+================================================================================
+
+  2026-04-29  [12] CANADA PET CARE
+              BEFORE: url=https%3A%2F%2Fwww.canadapetcare.com%2F (URL-passthrough, no atid)
+              AFTER : atid=canadapetcare (standard param format)
+              FILES : index.html · affiliate.json · lmss.txt
+
+================================================================================
   LCPF PARAM REFERENCE
 ================================================================================
 
-  lcpf=3  → Standard affiliate tracking (most campaigns)
-  lcpf=0  → Alternate tracking mode (infinitealoe, combatflipflops, lafuent)
-  lcpf=   → Empty / not set (bgmgirl, cprcare, knowledgehut, discountpetcare, halloweencostumes, canadapetcare)
-  (none)  → Param absent entirely (pmtraining, appypie, littletoe, taxextension)
+  lcpf=3   → Standard affiliate tracking (most campaigns)
+  lcpf=0   → Alternate tracking mode (infinitealoe, combatflipflops, lafuent)
+  lcpf=    → Empty / not set (bgmgirl, cprcare, knowledgehut, discountpetcare, halloweencostumes, canadapetcare)
+  (none)   → Param absent entirely (pmtraining, appypie, littletoe, taxextension)
 
 ================================================================================
   CAMPAIGN SUMMARY TABLE
 ================================================================================
 
-  #   ID                  CATEGORY    LCPF  STATUS
-  --  ------------------  ----------  ----  ------
-  01  movavi              software    3     ACTIVE
-  02  iskysoft            software    3     ACTIVE
-  03  tenorshare          software    3     ACTIVE
-  04  wondershare         software    3     ACTIVE
-  05  appypie             software    —     ACTIVE
-  06  knowledgehut        education   —     ACTIVE
-  07  pmtraining          education   —     ACTIVE
-  08  cpraedcourse        education   3     ACTIVE
-  09  cprcare             education   —     ACTIVE
-  10  ahca                education   3     ACTIVE
-  11  discountpetcare     petcare     —     ACTIVE
-  12  canadapetcare       petcare     —     ACTIVE
-  13  buildasign          print       3     ACTIVE
-  14  easycanvasprints    print       3     ACTIVE
-  15  canvasdiscount      print       3     ACTIVE
-  16  canvasonthecheap    print       3     ACTIVE
-  17  infinitealoe        health      0     ACTIVE
-  18  littletoe           health      —     ACTIVE
-  19  combatflipflops     lifestyle   0     ACTIVE
-  20  halloweencostumes   lifestyle   —     ACTIVE
-  21  shoplww             lifestyle   3     ACTIVE
-  22  bgmgirl             services    —     ACTIVE
-  23  lafuent             services    0     ACTIVE
-  S1  taxextension        services    —     ACTIVE
+  #    ID                   CATEGORY    ATID               LCPF  STATUS
+  ---  -------------------  ----------  -----------------  ----  ------
+  01   movavi               software    movavi             3     ACTIVE
+  02   iskysoft             software    iskysoft           3     ACTIVE
+  03   tenorshare           software    tenorshare         3     ACTIVE
+  04   wondershare          software    wondershare        3     ACTIVE
+  05   appypie              software    appypie            —     ACTIVE
+  06   knowledgehut         education   knowledgehut       —     ACTIVE
+  07   pmtraining           education   pmtraining         —     ACTIVE
+  08   cpraedcourse         education   cpraedcourse       3     ACTIVE
+  09   cprcare              education   cprcare            —     ACTIVE
+  10   ahca                 education   ahca               3     ACTIVE
+  11   discountpetcare      petcare     discountpetcare    —     ACTIVE
+  12   canadapetcare        petcare     canadapetcare      —     ACTIVE  ← fixed 2026-04-29
+  13   buildasign           print       buildasign         3     ACTIVE
+  14   easycanvasprints     print       easycanvasprints   3     ACTIVE
+  15   canvasdiscount       print       canvasdiscount     3     ACTIVE
+  16   canvasonthecheap     print       canvasonthecheap   3     ACTIVE
+  17   infinitealoe         health      infinitealoe       0     ACTIVE
+  18   littletoe            health      littletoe          —     ACTIVE
+  19   combatflipflops      lifestyle   combatflipflops    0     ACTIVE
+  20   halloweencostumes    lifestyle   halloweencostumes  —     ACTIVE
+  21   shoplww              lifestyle   shoplww            3     ACTIVE
+  22   bgmgirl              services    bgmgirl            —     ACTIVE
+  23   lafuent              services    lafuent            0     ACTIVE
+  S1   taxextension         services    taxextension       —     ACTIVE
 
   TOTAL ACTIVE CAMPAIGNS : 24
   TOTAL CATEGORIES       : 7
