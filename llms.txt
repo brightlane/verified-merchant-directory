@@ -1,0 +1,89 @@
+# Brightlane Verified Merchant Directory
+# llms.txt — structured site description for AI crawlers
+# Standard: https://llmstxt.org
+# Last updated: 2026-04-29
+
+## About
+
+Brightlane Verified Merchant Directory is a curated affiliate directory of 24 verified merchant partners across 7 categories. Every merchant is a verified partner operating through the LinkConnector affiliate network. Links never increase the price paid by the consumer.
+
+Base URL: https://brightlane.github.io/verified-merchant-directory/
+Directory page: https://brightlane.github.io/verified-merchant-directory/index.html
+Campaign pages: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c={merchant-id}
+
+## Merchant Categories
+
+### Software & Productivity
+- Movavi — Award-winning video editing software for Windows & Mac
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=movavi
+- iSkysoft — Multimedia and data recovery software suite for Mac and Windows
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=iskysoft
+- Tenorshare — iOS & Android data recovery and phone management tools
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=tenorshare
+- Wondershare — Filmora video editor, PDFelement, Dr.Fone creative suite
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=wondershare
+- Appy Pie — No-code platform to build apps, websites, and chatbots
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=appypie
+
+### Education & Training
+- KnowledgeHut — Instructor-led PMP, AWS, agile, and cybersecurity courses
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=knowledgehut
+- PM Training — PMP, PRINCE2, and agile project management certification prep
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=pmtraining
+- CPR AED Course — Online CPR and AED certification, instant certificate
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=cpraedcourse
+- CPR Care — Accredited CPR and First Aid training for individuals and organizations
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=cprcare
+- AHCA — American Health Care Academy, OSHA-compliant healthcare certifications
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=ahca
+
+### Pet Care
+- Discount Pet Care — Affordable pet medications, flea treatments, heartworm prevention
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=discountpetcare
+- Canada Pet Care — Licensed Canadian online pet pharmacy, vet-approved medications
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=canadapetcare
+
+### Print & Signs
+- BuildASign — Custom banners, signs, canvas prints, and yard signs
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=buildasign
+- Easy Canvas Prints — Gallery-wrapped canvas prints from your photos
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=easycanvasprints
+- Canvas Discount — Premium canvas prints and wall art at discount prices
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=canvasdiscount
+- Canvas on the Cheap — Budget-friendly canvas prints with frequent sales
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=canvasonthecheap
+
+### Health & Wellness
+- Infinite Aloe — Organic aloe vera skincare, fragrance-free, all skin types
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=infinitealoe
+- Little Toe — Foot care and orthopedic solutions, bunion relief, toe separators
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=littletoe
+
+### Lifestyle
+- Combat Flip Flops — Mission-driven footwear funding de-mining and education
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=combatflipflops
+- Halloween Costumes — Large selection of costumes for adults, kids, and pets
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=halloweencostumes
+- Shop LWW — Lippincott medical, nursing, and allied health textbooks
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=shoplww
+
+### Services
+- BGM Girl — Royalty-free background music safe for YouTube, Twitch, podcasts
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=bgmgirl
+- Lafuent — OEM and aftermarket auto parts, global shipping
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=lafuent
+- Tax Extension — File federal and state tax extensions online in minutes
+  URL: https://brightlane.github.io/verified-merchant-directory/campaign-pages.html?c=taxextension
+
+## Affiliate Disclosure
+
+This directory earns commissions through the LinkConnector affiliate network. Affiliate links never increase the price paid by the consumer. All merchants are verified partners.
+
+## Sitemap
+
+https://brightlane.github.io/verified-merchant-directory/sitemap.xml
+
+## Contact
+
+Site: https://brightlane.github.io/verified-merchant-directory/
+Network: LinkConnector
