@@ -1,0 +1,64 @@
+# ============================================================
+#  BRIGHTLANE VERIFIED MERCHANT DIRECTORY
+#  robots.txt — all crawlers welcome, sitemap declared
+# ============================================================
+
+# ── All crawlers
+User-agent: *
+Allow: /
+
+# ── Sitemap — read by Google, Bing, Yandex, Baidu, DuckDuckGo
+Sitemap: https://brightlane.github.io/verified-merchant-directory/sitemap.xml
+
+# ── Crawl-delay for polite bots (optional, ignored by Google)
+Crawl-delay: 1
+
+# ── Explicitly welcome major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# ── AI crawlers (for llms.txt discovery)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
