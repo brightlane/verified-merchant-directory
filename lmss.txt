@@ -3025,7 +3025,7 @@
     {
       "slug": "bunion-surgery-alternatives-2026",
       "merchant": "littletoe",
-      "published": false,
+      "published": true,
       "title_en": "Bunion Surgery Alternatives 2026 — What Actually Works Without the Knife",
       "category_en": "Health",
       "metaDesc_en": "Alternatives to bunion surgery in 2026. Bunion correctors, orthotics, toe separators — what the evidence says about non-surgical bunion treatment.",
@@ -3061,12 +3061,30 @@
           "q": "At what point should I consider bunion surgery?",
           "a": "If pain significantly limits your ability to walk or participate in activities, and conservative treatment has failed after 6-12 months, consult an orthopedic surgeon."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "bunion-surgery-alternatives-2026.html",
+        "bunion-surgery-alternatives-2026-zh.html",
+        "bunion-surgery-alternatives-2026-es.html",
+        "bunion-surgery-alternatives-2026-fr.html",
+        "bunion-surgery-alternatives-2026-de.html",
+        "bunion-surgery-alternatives-2026-pt.html",
+        "bunion-surgery-alternatives-2026-ar.html",
+        "bunion-surgery-alternatives-2026-hi.html",
+        "bunion-surgery-alternatives-2026-ru.html",
+        "bunion-surgery-alternatives-2026-ja.html",
+        "bunion-surgery-alternatives-2026-ko.html",
+        "bunion-surgery-alternatives-2026-id.html",
+        "bunion-surgery-alternatives-2026-it.html",
+        "bunion-surgery-alternatives-2026-nl.html",
+        "bunion-surgery-alternatives-2026-pl.html"
       ]
     },
     {
       "slug": "ethical-gifts-veterans-2026",
       "merchant": "combatflipflops",
-      "published": false,
+      "published": true,
       "title_en": "Best Ethical Gifts for Veterans 2026 — Brands That Give Back",
       "category_en": "Lifestyle",
       "metaDesc_en": "Ethical gift ideas for veterans in 2026. Brands founded by veterans or that support military causes. Combat Flip Flops — footwear that funds peace in conflict zones.",
@@ -3102,6 +3120,24 @@
           "q": "Where are Combat Flip Flops products made?",
           "a": "Products are manufactured in conflict-affected regions where possible, creating employment alongside the charitable mission."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "ethical-gifts-veterans-2026.html",
+        "ethical-gifts-veterans-2026-zh.html",
+        "ethical-gifts-veterans-2026-es.html",
+        "ethical-gifts-veterans-2026-fr.html",
+        "ethical-gifts-veterans-2026-de.html",
+        "ethical-gifts-veterans-2026-pt.html",
+        "ethical-gifts-veterans-2026-ar.html",
+        "ethical-gifts-veterans-2026-hi.html",
+        "ethical-gifts-veterans-2026-ru.html",
+        "ethical-gifts-veterans-2026-ja.html",
+        "ethical-gifts-veterans-2026-ko.html",
+        "ethical-gifts-veterans-2026-id.html",
+        "ethical-gifts-veterans-2026-it.html",
+        "ethical-gifts-veterans-2026-nl.html",
+        "ethical-gifts-veterans-2026-pl.html"
       ]
     },
     {
