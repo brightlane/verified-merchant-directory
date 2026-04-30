@@ -4323,7 +4323,7 @@
     {
       "slug": "canvasdiscount-photo-gifts-2026",
       "merchant": "canvasdiscount",
-      "published": false,
+      "published": true,
       "title_en": "Best Photo Gift Ideas 2026 — Beyond Canvas Prints",
       "category_en": "Print & Signs",
       "metaDesc_en": "Photo gift ideas beyond basic canvas prints in 2026. Canvas Discount's full range of personalized photo products — metal prints, acrylic prints, photo books, and more.",
@@ -4359,12 +4359,30 @@
           "q": "How long do Canvas Discount photo products last?",
           "a": "Canvas Discount uses archival materials rated for 75+ years on canvas prints. Metal and acrylic prints are similarly durable with proper care."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "canvasdiscount-photo-gifts-2026.html",
+        "canvasdiscount-photo-gifts-2026-zh.html",
+        "canvasdiscount-photo-gifts-2026-es.html",
+        "canvasdiscount-photo-gifts-2026-fr.html",
+        "canvasdiscount-photo-gifts-2026-de.html",
+        "canvasdiscount-photo-gifts-2026-pt.html",
+        "canvasdiscount-photo-gifts-2026-ar.html",
+        "canvasdiscount-photo-gifts-2026-hi.html",
+        "canvasdiscount-photo-gifts-2026-ru.html",
+        "canvasdiscount-photo-gifts-2026-ja.html",
+        "canvasdiscount-photo-gifts-2026-ko.html",
+        "canvasdiscount-photo-gifts-2026-id.html",
+        "canvasdiscount-photo-gifts-2026-it.html",
+        "canvasdiscount-photo-gifts-2026-nl.html",
+        "canvasdiscount-photo-gifts-2026-pl.html"
       ]
     },
     {
       "slug": "infinite-aloe-sunburn-relief-2026",
       "merchant": "infinitealoe",
-      "published": false,
+      "published": true,
       "title_en": "Best Sunburn Relief 2026 — Why Aloe Vera Works and What to Use",
       "category_en": "Health",
       "metaDesc_en": "Best sunburn relief products in 2026. Why aloe vera is the most effective natural sunburn treatment and how Infinite Aloe's concentrated formula compares to drugstore options.",
@@ -4400,6 +4418,24 @@
           "q": "Can I use Infinite Aloe on sunburned skin on my face?",
           "a": "Yes. The fragrance-free, gentle formula is safe for use on facial sunburn."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "infinite-aloe-sunburn-relief-2026.html",
+        "infinite-aloe-sunburn-relief-2026-zh.html",
+        "infinite-aloe-sunburn-relief-2026-es.html",
+        "infinite-aloe-sunburn-relief-2026-fr.html",
+        "infinite-aloe-sunburn-relief-2026-de.html",
+        "infinite-aloe-sunburn-relief-2026-pt.html",
+        "infinite-aloe-sunburn-relief-2026-ar.html",
+        "infinite-aloe-sunburn-relief-2026-hi.html",
+        "infinite-aloe-sunburn-relief-2026-ru.html",
+        "infinite-aloe-sunburn-relief-2026-ja.html",
+        "infinite-aloe-sunburn-relief-2026-ko.html",
+        "infinite-aloe-sunburn-relief-2026-id.html",
+        "infinite-aloe-sunburn-relief-2026-it.html",
+        "infinite-aloe-sunburn-relief-2026-nl.html",
+        "infinite-aloe-sunburn-relief-2026-pl.html"
       ]
     },
     {
