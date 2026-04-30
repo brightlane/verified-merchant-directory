@@ -4087,7 +4087,7 @@
     {
       "slug": "pet-medication-savings-guide-2026",
       "merchant": "discountpetcare",
-      "published": false,
+      "published": true,
       "title_en": "Complete Guide to Saving on Pet Medications in 2026",
       "category_en": "Pet Care",
       "metaDesc_en": "How to save 30-50% on pet medications in 2026 without sacrificing quality. Where to buy flea treatment, heartworm prevention, and prescription pet meds online.",
@@ -4123,12 +4123,30 @@
           "q": "How much can I really save on pet medications online?",
           "a": "Average savings are 30-50% on prescription medications. Some medications show savings of 60%+ compared to vet office pricing for the identical product."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "pet-medication-savings-guide-2026.html",
+        "pet-medication-savings-guide-2026-zh.html",
+        "pet-medication-savings-guide-2026-es.html",
+        "pet-medication-savings-guide-2026-fr.html",
+        "pet-medication-savings-guide-2026-de.html",
+        "pet-medication-savings-guide-2026-pt.html",
+        "pet-medication-savings-guide-2026-ar.html",
+        "pet-medication-savings-guide-2026-hi.html",
+        "pet-medication-savings-guide-2026-ru.html",
+        "pet-medication-savings-guide-2026-ja.html",
+        "pet-medication-savings-guide-2026-ko.html",
+        "pet-medication-savings-guide-2026-id.html",
+        "pet-medication-savings-guide-2026-it.html",
+        "pet-medication-savings-guide-2026-nl.html",
+        "pet-medication-savings-guide-2026-pl.html"
       ]
     },
     {
       "slug": "canada-pet-care-dogs-2026",
       "merchant": "canadapetcare",
-      "published": false,
+      "published": true,
       "title_en": "Best Online Pet Pharmacy for Dogs in Canada 2026",
       "category_en": "Pet Care",
       "metaDesc_en": "Where Canadian dog owners can buy flea treatment, heartworm prevention, and other dog medications online at lower prices than the vet. Canada Pet Care review.",
@@ -4164,6 +4182,24 @@
           "q": "Can I save money buying dog medications online in Canada?",
           "a": "Yes. Typical savings are 20-40% compared to vet office pricing for the same Health Canada approved medications."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "canada-pet-care-dogs-2026.html",
+        "canada-pet-care-dogs-2026-zh.html",
+        "canada-pet-care-dogs-2026-es.html",
+        "canada-pet-care-dogs-2026-fr.html",
+        "canada-pet-care-dogs-2026-de.html",
+        "canada-pet-care-dogs-2026-pt.html",
+        "canada-pet-care-dogs-2026-ar.html",
+        "canada-pet-care-dogs-2026-hi.html",
+        "canada-pet-care-dogs-2026-ru.html",
+        "canada-pet-care-dogs-2026-ja.html",
+        "canada-pet-care-dogs-2026-ko.html",
+        "canada-pet-care-dogs-2026-id.html",
+        "canada-pet-care-dogs-2026-it.html",
+        "canada-pet-care-dogs-2026-nl.html",
+        "canada-pet-care-dogs-2026-pl.html"
       ]
     },
     {
