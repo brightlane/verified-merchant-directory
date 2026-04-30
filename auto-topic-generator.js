@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // auto-topic-generator.js — Brightlane Auto Topic Generator
-// Checks lmss.txt queue. If fewer than MIN_QUEUE topics remain,
+// Checks post-topics.json queue. If fewer than MIN_QUEUE topics remain,
 // calls Claude API to generate NEW_BATCH new topics and appends them.
 // Runs before inject.js in the Vulture Titan workflow.
 
@@ -8,8 +8,8 @@ const fs    = require('fs');
 const path  = require('path');
 const https = require('https');
 
-const LMSS      = path.join(__dirname, 'lmss.txt');
-const MIN_QUEUE = 10;   // generate more when queue drops below this
+const LMSS      = path.join(__dirname, 'post-topics.json');
+const MIN_QUEUE = 20;   // generate more when queue drops below this
 const NEW_BATCH = 20;   // how many new topics to generate each time
 
 // ─── All 24 merchants ────────────────────────────────────────────────────────
@@ -187,10 +187,11 @@ async function main() {
       return true;
     });
 
-    // Append to lmss
+    // Append to post-topics.json
     lmss.topics.push(...unique);
     lmss.meta.total = lmss.topics.length;
     lmss.meta.last_updated = new Date().toISOString().split('T')[0];
+    lmss.meta.languages = ["en","zh","zh-tw","es","fr","de","pt","pt-br","ja","ko","it","nl","pl","hi"];
 
     fs.writeFileSync(LMSS, JSON.stringify(lmss, null, 2), 'utf8');
 
