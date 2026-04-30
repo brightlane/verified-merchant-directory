@@ -3,63 +3,91 @@
 #  robots.txt — all crawlers welcome, sitemap declared
 # ============================================================
 
-# ── All crawlers
+# ── All crawlers (default)
 User-agent: *
 Allow: /
-
-# ── Sitemap — read by Google, Bing, Yandex, Baidu, DuckDuckGo
-Sitemap: https://brightlane.github.io/verified-merchant-directory/sitemap.xml
-
-# ── Crawl-delay for polite bots (optional, ignored by Google)
+Disallow: /inventory.html
 Crawl-delay: 1
 
-# ── Explicitly welcome major search engine bots
+# ── Google
 User-agent: Googlebot
 Allow: /
+Disallow: /inventory.html
 
 User-agent: Googlebot-Image
 Allow: /
 
+# ── Bing
 User-agent: Bingbot
 Allow: /
+Disallow: /inventory.html
 
+# ── Yahoo
 User-agent: Slurp
 Allow: /
+Disallow: /inventory.html
 
+# ── DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
+Disallow: /inventory.html
 
+# ── Baidu
 User-agent: Baiduspider
 Allow: /
+Disallow: /inventory.html
 
+# ── Yandex
 User-agent: YandexBot
 Allow: /
+Disallow: /inventory.html
 
+# ── Naver
 User-agent: NaverBot
 Allow: /
+Disallow: /inventory.html
 
+# ── Social preview bots
 User-agent: facebot
 Allow: /
 
 User-agent: Twitterbot
 Allow: /
 
-# ── AI crawlers (for llms.txt discovery)
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+# ── AI crawlers (llms.txt discovery)
 User-agent: GPTBot
 Allow: /
+Disallow: /inventory.html
 
 User-agent: ClaudeBot
 Allow: /
-
-User-agent: PerplexityBot
-Allow: /
+Disallow: /inventory.html
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /inventory.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /inventory.html
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /inventory.html
 
 User-agent: CCBot
 Allow: /
-Disallow: /verified-merchant-directory/inventory.html
+Disallow: /inventory.html
+
+User-agent: Applebot
+Allow: /
+Disallow: /inventory.html
+
+# ── Sitemap
+Sitemap: https://brightlane.github.io/verified-merchant-directory/sitemap.xml
