@@ -4205,7 +4205,7 @@
     {
       "slug": "buildasign-event-signage-2026",
       "merchant": "buildasign",
-      "published": false,
+      "published": true,
       "title_en": "Event Signage Guide 2026 — Order Custom Signs for Any Event",
       "category_en": "Print & Signs",
       "metaDesc_en": "How to order custom event signage in 2026. BuildASign guide for weddings, corporate events, trade shows, and fundraisers. Sizing, materials, and ordering tips.",
@@ -4241,12 +4241,30 @@
           "q": "Can BuildASign do last-minute event orders?",
           "a": "Yes. Rush production gets signs produced in 1 business day. Combined with express shipping, most events within 1 week can be accommodated."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "buildasign-event-signage-2026.html",
+        "buildasign-event-signage-2026-zh.html",
+        "buildasign-event-signage-2026-es.html",
+        "buildasign-event-signage-2026-fr.html",
+        "buildasign-event-signage-2026-de.html",
+        "buildasign-event-signage-2026-pt.html",
+        "buildasign-event-signage-2026-ar.html",
+        "buildasign-event-signage-2026-hi.html",
+        "buildasign-event-signage-2026-ru.html",
+        "buildasign-event-signage-2026-ja.html",
+        "buildasign-event-signage-2026-ko.html",
+        "buildasign-event-signage-2026-id.html",
+        "buildasign-event-signage-2026-it.html",
+        "buildasign-event-signage-2026-nl.html",
+        "buildasign-event-signage-2026-pl.html"
       ]
     },
     {
       "slug": "canvas-prints-home-decor-2026",
       "merchant": "easycanvasprints",
-      "published": false,
+      "published": true,
       "title_en": "Canvas Prints for Home Decor 2026 — Transform Your Walls",
       "category_en": "Print & Signs",
       "metaDesc_en": "How to use canvas prints for home decor in 2026. Gallery wall ideas, sizing guide, best photos to use, and where to order quality canvas prints for your home.",
@@ -4282,6 +4300,24 @@
           "q": "Do canvas prints come ready to hang?",
           "a": "Yes. Easy Canvas Prints gallery wrap canvases come with hanging hardware included. No additional framing or mounting is required."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "canvas-prints-home-decor-2026.html",
+        "canvas-prints-home-decor-2026-zh.html",
+        "canvas-prints-home-decor-2026-es.html",
+        "canvas-prints-home-decor-2026-fr.html",
+        "canvas-prints-home-decor-2026-de.html",
+        "canvas-prints-home-decor-2026-pt.html",
+        "canvas-prints-home-decor-2026-ar.html",
+        "canvas-prints-home-decor-2026-hi.html",
+        "canvas-prints-home-decor-2026-ru.html",
+        "canvas-prints-home-decor-2026-ja.html",
+        "canvas-prints-home-decor-2026-ko.html",
+        "canvas-prints-home-decor-2026-id.html",
+        "canvas-prints-home-decor-2026-it.html",
+        "canvas-prints-home-decor-2026-nl.html",
+        "canvas-prints-home-decor-2026-pl.html"
       ]
     },
     {
