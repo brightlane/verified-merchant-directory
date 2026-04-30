@@ -5031,7 +5031,7 @@
     {
       "slug": "wondershare-uniconverter-review-2026",
       "merchant": "wondershare",
-      "published": false,
+      "published": true,
       "title_en": "Wondershare UniConverter Review 2026 — All-in-One Video Tool",
       "category_en": "Software",
       "metaDesc_en": "Wondershare UniConverter review 2026. Convert, compress, edit, download, and burn video in one application. Is it better than using separate tools?",
@@ -5067,12 +5067,30 @@
           "q": "How does UniConverter compare to HandBrake?",
           "a": "HandBrake is free but limited to conversion and compression. UniConverter adds downloading, DVD burning, device transfer, and a much faster GPU-accelerated engine."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "wondershare-uniconverter-review-2026.html",
+        "wondershare-uniconverter-review-2026-zh.html",
+        "wondershare-uniconverter-review-2026-es.html",
+        "wondershare-uniconverter-review-2026-fr.html",
+        "wondershare-uniconverter-review-2026-de.html",
+        "wondershare-uniconverter-review-2026-pt.html",
+        "wondershare-uniconverter-review-2026-ar.html",
+        "wondershare-uniconverter-review-2026-hi.html",
+        "wondershare-uniconverter-review-2026-ru.html",
+        "wondershare-uniconverter-review-2026-ja.html",
+        "wondershare-uniconverter-review-2026-ko.html",
+        "wondershare-uniconverter-review-2026-id.html",
+        "wondershare-uniconverter-review-2026-it.html",
+        "wondershare-uniconverter-review-2026-nl.html",
+        "wondershare-uniconverter-review-2026-pl.html"
       ]
     },
     {
       "slug": "appypie-mobile-app-builder-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "Best No-Code Mobile App Builder 2026 — Appy Pie Review",
       "category_en": "Software",
       "metaDesc_en": "Appy Pie mobile app builder review 2026. Build iOS and Android apps without coding. What types of apps can you build, how long does it take, and what does it cost?",
@@ -5108,6 +5126,24 @@
           "q": "What is the cost of building an app with Appy Pie vs hiring a developer?",
           "a": "Appy Pie costs a fraction of hiring a developer. Custom development typically runs $20,000-100,000+. Check Appy Pie's site for current subscription pricing."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "appypie-mobile-app-builder-2026.html",
+        "appypie-mobile-app-builder-2026-zh.html",
+        "appypie-mobile-app-builder-2026-es.html",
+        "appypie-mobile-app-builder-2026-fr.html",
+        "appypie-mobile-app-builder-2026-de.html",
+        "appypie-mobile-app-builder-2026-pt.html",
+        "appypie-mobile-app-builder-2026-ar.html",
+        "appypie-mobile-app-builder-2026-hi.html",
+        "appypie-mobile-app-builder-2026-ru.html",
+        "appypie-mobile-app-builder-2026-ja.html",
+        "appypie-mobile-app-builder-2026-ko.html",
+        "appypie-mobile-app-builder-2026-id.html",
+        "appypie-mobile-app-builder-2026-it.html",
+        "appypie-mobile-app-builder-2026-nl.html",
+        "appypie-mobile-app-builder-2026-pl.html"
       ]
     },
     {
