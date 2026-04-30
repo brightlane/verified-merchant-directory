@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social Media Generator — Brightlane</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0a0b0d;--bg2:#111318;--bg3:#1a1d24;--bg4:#22262f;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#e8e9ed;--muted:#8a8d99;--dim:#555866;--accent:#e8ff47;--accent2:#47ffb8;--accent3:#ff6b35;--gold:#f5c842;--red:#ff4757;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;--radius:12px;--nav-h:60px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.4}
+
+    .nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:var(--nav-h);background:rgba(10,11,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:0.95rem;display:flex;align-items:center;gap:8px}
+    .nav-tag{font-family:var(--font-mono);font-size:0.62rem;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:3px 9px;border-radius:4px}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .nav-btn{font-family:var(--font-head);font-weight:700;font-size:0.72rem;background:var(--bg3);border:1px solid var(--border2);padding:6px 14px;border-radius:6px;color:var(--muted);cursor:pointer;transition:all .15s}
+    .nav-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:calc(var(--nav-h) + 32px) 24px 100px}
+
+    .page-header{margin-bottom:32px}
+    .page-eyebrow{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+    .page-title{font-family:var(--font-head);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+    .page-sub{font-size:0.85rem;color:var(--muted);max-width:650px;line-height:1.6}
+
+    .platform-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .plat-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-family:var(--font-mono);font-size:0.62rem;font-weight:600;border:1px solid}
+    .pb-twitter{background:rgba(29,161,242,0.08);border-color:rgba(29,161,242,0.25);color:#1da1f2}
+    .pb-reddit{background:rgba(255,69,0,0.08);border-color:rgba(255,69,0,0.25);color:#ff4500}
+    .pb-linkedin{background:rgba(0,119,181,0.08);border-color:rgba(0,119,181,0.25);color:#0077b5}
+    .pb-facebook{background:rgba(66,103,178,0.08);border-color:rgba(66,103,178,0.25);color:#4267b2}
+    .pb-pinterest{background:rgba(230,0,35,0.08);border-color:rgba(230,0,35,0.25);color:#e60023}
+    .pb-telegram{background:rgba(0,136,204,0.08);border-color:rgba(0,136,204,0.25);color:#0088cc}
+
+    .controls{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+    .controls-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-bottom:20px}
+    @media(max-width:800px){.controls-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:500px){.controls-grid{grid-template-columns:1fr}}
+    .control-group label{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:8px}
+    .control-select{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-family:var(--font-mono);font-size:0.78rem;color:var(--text);outline:none;transition:border-color .15s}
+    .control-select:focus{border-color:var(--accent)}
+    .control-select option{background:var(--bg3)}
+    .controls-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .generate-btn{font-family:var(--font-head);font-weight:800;font-size:0.9rem;background:var(--accent);color:#0a0b0d;padding:12px 28px;border-radius:10px;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+    .generate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,255,71,0.3)}
+    .generate-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .auto-btn{font-family:var(--font-head);font-weight:700;font-size:0.8rem;background:transparent;border:1px solid var(--border2);color:var(--muted);padding:12px 20px;border-radius:10px;cursor:pointer;transition:all .2s}
+    .auto-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+    .auto-btn.active{background:rgba(71,255,184,0.08);border-color:var(--accent2);color:var(--accent2)}
+    .status-text{font-family:var(--font-mono);font-size:0.72rem;color:var(--dim)}
+    .auto-indicator{display:none;align-items:center;gap:8px;font-family:var(--font-mono);font-size:0.72rem;color:var(--accent2)}
+    .auto-indicator.visible{display:flex}
+    .auto-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:blink 1.2s ease infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+    .session-stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;font-family:var(--font-mono);font-size:0.72rem;color:var(--dim)}
+    .stat-pill{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 14px;display:flex;align-items:center;gap:8px}
+    .stat-val{color:var(--accent);font-weight:700;font-size:0.9rem}
+
+    /* Platform tabs */
+    .platform-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+    .plat-tab{font-family:var(--font-head);font-weight:600;font-size:0.72rem;padding:7px 14px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s}
+    .plat-tab:hover{border-color:var(--border2);color:var(--text)}
+    .plat-tab.active{background:var(--bg2);border-color:var(--border2);color:var(--text)}
+    .plat-tab[data-plat="twitter"].active{border-color:#1da1f2;color:#1da1f2}
+    .plat-tab[data-plat="reddit"].active{border-color:#ff4500;color:#ff4500}
+    .plat-tab[data-plat="linkedin"].active{border-color:#0077b5;color:#0077b5}
+    .plat-tab[data-plat="facebook"].active{border-color:#4267b2;color:#4267b2}
+    .plat-tab[data-plat="pinterest"].active{border-color:#e60023;color:#e60023}
+    .plat-tab[data-plat="telegram"].active{border-color:#0088cc;color:#0088cc}
+
+    /* Posts grid */
+    .posts-wrap{display:flex;flex-direction:column;gap:20px}
+
+    .post-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s}
+    .post-card:hover{border-color:var(--border2)}
+
+    .card-header{padding:18px 22px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+    .card-platform{display:flex;align-items:center;gap:8px}
+    .plat-icon{font-size:1.2rem}
+    .plat-name{font-family:var(--font-head);font-weight:700;font-size:0.85rem}
+    .plat-meta{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim);margin-top:2px}
+    .card-lang{font-family:var(--font-mono);font-size:0.65rem;padding:2px 8px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
+
+    .card-body{padding:0 22px 16px}
+    .post-text{font-size:0.88rem;line-height:1.8;color:var(--text);background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;white-space:pre-wrap;word-break:break-word;min-height:80px}
+    .post-text .aff-link{color:var(--accent)}
+    .char-count{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim);margin-top:6px;text-align:right}
+    .char-count.over{color:var(--red)}
+
+    .reddit-title{font-size:0.82rem;color:var(--muted);margin-bottom:8px;padding:10px 14px;background:var(--bg4);border-radius:6px;font-family:var(--font-mono)}
+    .reddit-label{font-size:0.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px}
+    .subreddit-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .subreddit-tag{font-family:var(--font-mono);font-size:0.65rem;padding:3px 9px;background:rgba(255,69,0,0.08);border:1px solid rgba(255,69,0,0.2);border-radius:10px;color:#ff4500;cursor:pointer;transition:all .15s}
+    .subreddit-tag:hover{background:rgba(255,69,0,0.15)}
+
+    .card-footer{padding:12px 22px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--border)}
+    .footer-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tag-pill{font-family:var(--font-mono);font-size:0.6rem;padding:2px 8px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);color:var(--dim)}
+    .footer-actions{display:flex;gap:8px}
+    .copy-btn{font-family:var(--font-head);font-weight:700;font-size:0.75rem;background:var(--accent);color:#0a0b0d;padding:7px 16px;border-radius:7px;border:none;cursor:pointer;transition:all .15s}
+    .copy-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(232,255,71,0.25)}
+    .copy-btn.copied{background:var(--accent2)}
+    .open-btn{font-family:var(--font-head);font-weight:700;font-size:0.75rem;background:transparent;border:1px solid var(--border2);color:var(--muted);padding:7px 14px;border-radius:7px;cursor:pointer;transition:all .15s}
+    .open-btn:hover{border-color:var(--border2);color:var(--text)}
+
+    /* Loading */
+    .loading-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center}
+    .spinner{width:32px;height:32px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .loading-text{font-family:var(--font-mono);font-size:0.8rem;color:var(--dim)}
+
+    .empty-state{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:60px 40px;text-align:center}
+    .empty-icon{font-size:2.5rem;margin-bottom:16px}
+    .empty-title{font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:8px}
+    .empty-sub{font-size:0.82rem;color:var(--muted)}
+
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--bg3);border:1px solid var(--accent2);border-radius:8px;padding:10px 18px;font-family:var(--font-mono);font-size:0.75rem;color:var(--accent2);z-index:999;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none}
+    .toast.show{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">Brightlane <span style="color:var(--red);font-size:0.65rem;font-family:var(--font-mono);margin-left:4px">[INTERNAL]</span></div>
+    <div class="nav-tag">SOCIAL ENGINE · 6 PLATFORMS · 15 LANGUAGES</div>
+    <div class="nav-right">
+      <a href="quora-generator.html" class="nav-btn">Quora</a>
+      <a href="inventory.html" class="nav-btn">Inventory</a>
+      <a href="index.html" class="nav-btn">← Home</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <div class="page-header">
+      <div class="page-eyebrow">brightlane · content engine · social strategy</div>
+      <div class="page-title">Social Media Generator</div>
+      <div class="page-sub">Auto-generates platform-optimized social posts for every published blog topic. Each post has your affiliate link embedded and is formatted perfectly for that platform. Open the page — posts are ready instantly.</div>
+      <div class="platform-badges">
+        <span class="plat-badge pb-twitter">🐦 Twitter / X</span>
+        <span class="plat-badge pb-reddit">🔴 Reddit</span>
+        <span class="plat-badge pb-linkedin">💼 LinkedIn</span>
+        <span class="plat-badge pb-facebook">📘 Facebook</span>
+        <span class="plat-badge pb-pinterest">📌 Pinterest</span>
+        <span class="plat-badge pb-telegram">✈️ Telegram</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="controls-grid">
+        <div class="control-group">
+          <label>Merchant</label>
+          <select class="control-select" id="merchant-select">
+            <option value="random">🎲 Auto (Latest Published)</option>
+            <option value="movavi">🎬 Movavi</option>
+            <option value="iskysoft">💿 iSkysoft</option>
+            <option value="tenorshare">📱 Tenorshare</option>
+            <option value="wondershare">✨ Wondershare</option>
+            <option value="appypie">⚙️ Appy Pie</option>
+            <option value="knowledgehut">🎓 KnowledgeHut</option>
+            <option value="pmtraining">📋 PM Training</option>
+            <option value="cpraedcourse">❤️‍🔥 CPR AED Course</option>
+            <option value="cprcare">🏥 CPR Care</option>
+            <option value="ahca">🩺 AHCA</option>
+            <option value="discountpetcare">🐾 Discount Pet Care</option>
+            <option value="canadapetcare">🐕 Canada Pet Care</option>
+            <option value="buildasign">🪧 BuildASign</option>
+            <option value="easycanvasprints">🖼️ Easy Canvas Prints</option>
+            <option value="canvasdiscount">🎨 Canvas Discount</option>
+            <option value="canvasonthecheap">💲 Canvas on the Cheap</option>
+            <option value="infinitealoe">🌿 Infinite Aloe</option>
+            <option value="littletoe">🦶 Little Toe</option>
+            <option value="combatflipflops">🩴 Combat Flip Flops</option>
+            <option value="halloweencostumes">🎃 Halloween Costumes</option>
+            <option value="shoplww">📚 Shop LWW</option>
+            <option value="bgmgirl">🎵 BGM Girl</option>
+            <option value="lafuent">🔧 Lafuent</option>
+            <option value="taxextension">📄 Tax Extension</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Language</label>
+          <select class="control-select" id="lang-select">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh">🇨🇳 Chinese</option>
+            <option value="es">🇪🇸 Spanish</option>
+            <option value="fr">🇫🇷 French</option>
+            <option value="de">🇩🇪 German</option>
+            <option value="pt">🇧🇷 Portuguese</option>
+            <option value="ar">🇸🇦 Arabic</option>
+            <option value="hi">🇮🇳 Hindi</option>
+            <option value="ru">🇷🇺 Russian</option>
+            <option value="ja">🇯🇵 Japanese</option>
+            <option value="ko">🇰🇷 Korean</option>
+            <option value="id">🇮🇩 Indonesian</option>
+            <option value="it">🇮🇹 Italian</option>
+            <option value="nl">🇳🇱 Dutch</option>
+            <option value="pl">🇵🇱 Polish</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Tone</label>
+          <select class="control-select" id="tone-select">
+            <option value="helpful">Helpful Expert</option>
+            <option value="casual">Casual & Friendly</option>
+            <option value="urgent">Urgent / Time-Sensitive</option>
+            <option value="story">Personal Story</option>
+            <option value="question">Question Hook</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Platforms</label>
+          <select class="control-select" id="platforms-select">
+            <option value="all">All 6 Platforms</option>
+            <option value="twitter">Twitter / X Only</option>
+            <option value="reddit">Reddit Only</option>
+            <option value="linkedin">LinkedIn Only</option>
+            <option value="facebook">Facebook Only</option>
+            <option value="pinterest">Pinterest Only</option>
+            <option value="telegram">Telegram Only</option>
+          </select>
+        </div>
+      </div>
+      <div class="controls-actions">
+        <button class="generate-btn" id="generate-btn" onclick="generatePosts()">
+          <span id="gen-icon">⚡</span> Generate Social Posts
+        </button>
+        <button class="auto-btn" id="auto-btn" onclick="toggleAuto()">🔄 Auto Mode</button>
+        <div class="auto-indicator" id="auto-indicator">
+          <div class="auto-dot"></div>
+          <span id="auto-countdown">Next in 5:00</span>
+        </div>
+        <div class="status-text" id="status-text">Ready to generate</div>
+      </div>
+    </div>
+
+    <div class="session-stats">
+      <div class="stat-pill"><span>Generated Today</span><span class="stat-val" id="stat-today">0</span></div>
+      <div class="stat-pill"><span>Session Total</span><span class="stat-val" id="stat-session">0</span></div>
+      <div class="stat-pill"><span>Copied</span><span class="stat-val" id="stat-copied">0</span></div>
+      <div class="stat-pill"><span>Platforms Covered</span><span class="stat-val" id="stat-plats">0</span></div>
+    </div>
+
+    <!-- Platform filter tabs -->
+    <div class="platform-tabs" id="platform-tabs" style="display:none">
+      <button class="plat-tab active" data-plat="all" onclick="filterPlatform('all')">All Platforms</button>
+      <button class="plat-tab" data-plat="twitter" onclick="filterPlatform('twitter')">🐦 Twitter</button>
+      <button class="plat-tab" data-plat="reddit" onclick="filterPlatform('reddit')">🔴 Reddit</button>
+      <button class="plat-tab" data-plat="linkedin" onclick="filterPlatform('linkedin')">💼 LinkedIn</button>
+      <button class="plat-tab" data-plat="facebook" onclick="filterPlatform('facebook')">📘 Facebook</button>
+      <button class="plat-tab" data-plat="pinterest" onclick="filterPlatform('pinterest')">📌 Pinterest</button>
+      <button class="plat-tab" data-plat="telegram" onclick="filterPlatform('telegram')">✈️ Telegram</button>
+    </div>
+
+    <div class="posts-wrap" id="posts-wrap">
+      <div class="empty-state">
+        <div class="empty-icon">📱</div>
+        <div class="empty-title">Ready to Generate</div>
+        <div class="empty-sub">Click Generate Social Posts to create platform-optimized posts for your latest published topic — with affiliate links embedded and formatted perfectly for each platform.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ── Merchant data ──────────────────────────────────────────────────────────
+    const MERCHANTS = {
+      movavi:           { name:'Movavi',              icon:'🎬', cat:'software',   url:'https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3',            hashtags:['#VideoEditing','#Movavi','#ContentCreator','#VideoEditor','#YouTube'] },
+      iskysoft:         { name:'iSkysoft',             icon:'💿', cat:'software',   url:'https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3',            hashtags:['#DataRecovery','#iSkysoft','#TechTips','#RecoverFiles','#MustHave'] },
+      tenorshare:       { name:'Tenorshare',           icon:'📱', cat:'software',   url:'https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3',           hashtags:['#iPhone','#DataRecovery','#Tenorshare','#iPhoneTips','#TechHelp'] },
+      wondershare:      { name:'Wondershare',          icon:'✨', cat:'software',   url:'https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3',          hashtags:['#Filmora','#VideoEditing','#Wondershare','#ContentCreator','#PDFEditor'] },
+      appypie:          { name:'Appy Pie',             icon:'⚙️', cat:'software',   url:'https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie',                            hashtags:['#NoCode','#AppBuilder','#StartupLife','#AppyPie','#BuildAnApp'] },
+      knowledgehut:     { name:'KnowledgeHut',         icon:'🎓', cat:'education',  url:'https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=',          hashtags:['#AWS','#Certification','#CareerGrowth','#KnowledgeHut','#TechCareer'] },
+      pmtraining:       { name:'PM Training',          icon:'📋', cat:'education',  url:'https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining',                          hashtags:['#PMP','#ProjectManagement','#Certification','#CareerGrowth','#PMTraining'] },
+      cpraedcourse:     { name:'CPR AED Course',       icon:'❤️‍🔥',cat:'education', url:'https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3',          hashtags:['#CPR','#FirstAid','#LifeSavingSkills','#CPRCertified','#Safety'] },
+      cprcare:          { name:'CPR Care',             icon:'🏥', cat:'education',  url:'https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=',               hashtags:['#BLS','#CPR','#HealthcareWorkers','#FirstAid','#CPRCare'] },
+      ahca:             { name:'AHCA',                 icon:'🩺', cat:'education',  url:'https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3',                  hashtags:['#HIPAA','#Healthcare','#Compliance','#OSHA','#HealthcareTraining'] },
+      discountpetcare:  { name:'Discount Pet Care',    icon:'🐾', cat:'petcare',    url:'https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=',         hashtags:['#PetCare','#DogHealth','#CatHealth','#PetMeds','#SaveOnPets'] },
+      canadapetcare:    { name:'Canada Pet Care',      icon:'🐕', cat:'petcare',    url:'https://www.linkconnector.com/ta.php?lc=014538000012006219&url=https%3A%2F%2Fwww.canadapetcare.com%2F', hashtags:['#CanadaPets','#PetCare','#DogHealth','#CatHealth','#PetMeds'] },
+      buildasign:       { name:'BuildASign',           icon:'🪧', cat:'print',      url:'https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3',            hashtags:['#CustomSigns','#Banners','#SmallBusiness','#BuildASign','#Marketing'] },
+      easycanvasprints: { name:'Easy Canvas Prints',   icon:'🖼️', cat:'print',      url:'https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3',      hashtags:['#CanvasPrints','#HomeDecor','#PhotoGifts','#WallArt','#PersonalizedGifts'] },
+      canvasdiscount:   { name:'Canvas Discount',      icon:'🎨', cat:'print',      url:'https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3',         hashtags:['#CanvasPrints','#HomeDecor','#PhotoPrints','#WallArt','#Discount'] },
+      canvasonthecheap: { name:'Canvas on the Cheap',  icon:'💲', cat:'print',      url:'https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3',       hashtags:['#CheapCanvasPrints','#HomeDecor','#PhotoGifts','#BudgetDecor','#Sale'] },
+      infinitealoe:     { name:'Infinite Aloe',        icon:'🌿', cat:'health',     url:'https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0',           hashtags:['#NaturalSkincare','#AloeVera','#SensitiveSkin','#CleanBeauty','#Eczema'] },
+      littletoe:        { name:'Little Toe',           icon:'🦶', cat:'health',     url:'https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe',                            hashtags:['#FootCare','#BunionRelief','#FootHealth','#LittleToe','#FootPain'] },
+      combatflipflops:  { name:'Combat Flip Flops',    icon:'🩴', cat:'lifestyle',  url:'https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0',        hashtags:['#SocialImpact','#Veterans','#EthicalShopping','#CombatFlipFlops','#GiveBack'] },
+      halloweencostumes:{ name:'Halloween Costumes',   icon:'🎃', cat:'lifestyle',  url:'https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=',        hashtags:['#Halloween','#HalloweenCostume','#HalloweenIdeas','#Costume','#Halloween2026'] },
+      shoplww:          { name:'Shop LWW',             icon:'📚', cat:'education',  url:'https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3',                hashtags:['#NursingStudent','#NCLEX','#NursingBooks','#MedicalBooks','#Lippincott'] },
+      bgmgirl:          { name:'BGM Girl',             icon:'🎵', cat:'services',   url:'https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=',                 hashtags:['#RoyaltyFreeMusic','#YouTubeMusic','#ContentCreator','#NocopyrightMusic','#BGMGirl'] },
+      lafuent:          { name:'Lafuent',              icon:'🔧', cat:'services',   url:'https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0',                 hashtags:['#CarParts','#OEMParts','#AutoRepair','#CarMaintenance','#Lafuent'] },
+      taxextension:     { name:'Tax Extension',        icon:'📄', cat:'services',   url:'https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension',                          hashtags:['#TaxExtension','#TaxTips','#IRS','#Taxes','#TaxDeadline'] },
+    };
+
+    const PLATFORMS = [
+      { id:'twitter',   name:'Twitter / X',  icon:'🐦', color:'#1da1f2', charLimit:280,  url:'https://twitter.com/intent/tweet?text=' },
+      { id:'reddit',    name:'Reddit',       icon:'🔴', color:'#ff4500', charLimit:null,  url:'https://reddit.com/submit?url=' },
+      { id:'linkedin',  name:'LinkedIn',     icon:'💼', color:'#0077b5', charLimit:3000, url:'https://www.linkedin.com/sharing/share-offsite/?url=' },
+      { id:'facebook',  name:'Facebook',     icon:'📘', color:'#4267b2', charLimit:63206,url:'https://www.facebook.com/sharer/sharer.php?u=' },
+      { id:'pinterest', name:'Pinterest',    icon:'📌', color:'#e60023', charLimit:500,  url:'https://pinterest.com/pin/create/button/?description=' },
+      { id:'telegram',  name:'Telegram',     icon:'✈️', color:'#0088cc', charLimit:4096, url:'https://t.me/share/url?url=' },
+    ];
+
+    const SUBREDDITS = {
+      software:   ['r/software', 'r/techsupport', 'r/productivity', 'r/windows', 'r/mac'],
+      education:  ['r/learnprogramming', 'r/careerguidance', 'r/PMP', 'r/nursing', 'r/firstaid'],
+      petcare:    ['r/dogs', 'r/cats', 'r/pets', 'r/AskVet', 'r/PetAdvice'],
+      print:      ['r/DIY', 'r/HomeDecorating', 'r/Frugal', 'r/photography', 'r/crafts'],
+      health:     ['r/SkincareAddiction', 'r/PlantBasedDiet', 'r/footcare', 'r/eczema', 'r/naturalbeauty'],
+      lifestyle:  ['r/halloween', 'r/veterans', 'r/ethicalshopping', 'r/BuyItForLife', 'r/femalefashionadvice'],
+      services:   ['r/personalfinance', 'r/tax', 'r/WeAreTheMusicMakers', 'r/AskMechanics', 'r/podcasting'],
+    };
+
+    const BLOG_BASE = 'https://brightlane.github.io/verified-merchant-directory/blog/';
+
+    // ── State ──────────────────────────────────────────────────────────────────
+    let sessionCount = 0;
+    let copiedCount = 0;
+    let currentPosts = [];
+    let autoMode = false;
+    let autoTimer = null;
+    let autoSeconds = 300;
+    let activePlatFilter = 'all';
+
+    // ── Claude API ─────────────────────────────────────────────────────────────
+    async function callClaude(prompt) {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 800,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      return data.content[0].text.trim();
+    }
+
+    // ── Generate post for one platform ────────────────────────────────────────
+    async function generatePlatformPost(platform, merchant, topic, lang, tone, affUrl, blogUrl) {
+      const m = MERCHANTS[merchant];
+      const toneGuides = {
+        helpful:  'Write as a knowledgeable friend sharing genuinely useful advice. Helpful, clear, and trustworthy.',
+        casual:   'Write casually and conversationally — like texting a friend. Relaxed, real, with personality.',
+        urgent:   'Create urgency — this is time-sensitive, limited, or solving a pressing problem. But not spammy.',
+        story:    'Start with a brief personal story or relatable situation before introducing the solution.',
+        question: 'Open with a compelling question that makes the reader stop and think before revealing the answer.',
+      };
+
+      const platformGuides = {
+        twitter: `Twitter/X post — MAXIMUM 270 characters total including the URL and hashtags.
+Format: Hook sentence. Solution mention. URL. 2-3 hashtags.
+The URL to include: ${blogUrl}
+Hashtags to use (pick 2-3): ${m.hashtags.slice(0,3).join(' ')}
+NO line breaks — single flowing text.`,
+
+        reddit: `Reddit post with TITLE and BODY.
+Format your response as:
+TITLE: [compelling question or statement — under 300 chars]
+BODY: [helpful 150-250 word post that provides real value. Mention ${m.name} naturally as a solution with this link: ${affUrl}. Don't be overtly promotional — Reddit hates that. Be genuinely helpful first.]
+SUBREDDIT: [suggest the best subreddit from: ${(SUBREDDITS[m.cat]||[]).join(', ')}]`,
+
+        linkedin: `LinkedIn professional post — 150-250 words.
+Professional insight tone. Open with a bold statement or surprising fact.
+Structure: Hook → Problem → Solution (mention ${m.name}) → Call to action.
+Include: ${blogUrl}
+Use line breaks between paragraphs. Max 3 relevant hashtags at the end.`,
+
+        facebook: `Facebook post — 100-200 words.
+Conversational and warm. Use 2-3 relevant emojis naturally.
+Start with something relatable that makes people stop scrolling.
+Mention ${m.name} as the solution naturally.
+Include: ${blogUrl}
+End with a question to drive comments.`,
+
+        pinterest: `Pinterest pin description — 100-150 words.
+Keyword-rich for Pinterest search. Describe what someone will learn or get.
+Include the main benefit of ${m.name} for this topic.
+End with a clear call to action.
+Include: ${blogUrl}
+Include 5-8 relevant keywords naturally in the text.`,
+
+        telegram: `Telegram channel message — 100-200 words.
+Direct and informative. Telegram audiences like substance.
+Share a genuine tip or insight related to the topic.
+Mention ${m.name} as a resource naturally.
+Include: ${affUrl}
+Can use *bold* and simple formatting. No hashtags needed.`,
+      };
+
+      const langNote = lang !== 'en' ? `\n\nIMPORTANT: Write the entire post in ${lang} language. Keep brand names (${m.name}) and URLs in English. Everything else in ${lang}.` : '';
+
+      const prompt = `You are a social media expert creating a ${platform} post about: "${topic}"
+
+Merchant: ${m.name}
+Affiliate URL: ${affUrl}
+Blog post URL: ${blogUrl}
+Tone: ${toneGuides[tone]}
+
+Platform requirements:
+${platformGuides[platform]}${langNote}
+
+Return ONLY the post text — no explanation, no labels, just the post content ready to copy and paste.`;
+
+      return await callClaude(prompt);
+    }
+
+    // ── Parse Reddit response ─────────────────────────────────────────────────
+    function parseReddit(text) {
+      const titleMatch = text.match(/TITLE:\s*(.+?)(?=\nBODY:|$)/s);
+      const bodyMatch  = text.match(/BODY:\s*(.+?)(?=\nSUBREDDIT:|$)/s);
+      const subMatch   = text.match(/SUBREDDIT:\s*(.+?)$/s);
+      return {
+        title:     titleMatch ? titleMatch[1].trim() : '',
+        body:      bodyMatch  ? bodyMatch[1].trim()  : text,
+        subreddit: subMatch   ? subMatch[1].trim()   : (SUBREDDITS[MERCHANTS[currentMerchant]?.cat]||[])[0] || 'r/AskReddit',
+      };
+    }
+
+    // ── Get random merchant weighted by volume ─────────────────────────────────
+    const VOLUMES = { tenorshare:100,wondershare:90,movavi:95,halloweencostumes:85,iskysoft:80,appypie:70,knowledgehut:75,discountpetcare:72,taxextension:62,pmtraining:65,cpraedcourse:60,cprcare:55,shoplww:45,buildasign:58,ahca:50,easycanvasprints:55,canvasonthecheap:48,canvasdiscount:45,canadapetcare:40,lafuent:42,infinitealoe:42,bgmgirl:38,littletoe:35,combatflipflops:30 };
+    function getWeightedMerchant() {
+      const list = Object.entries(VOLUMES);
+      const total = list.reduce((s,[,v])=>s+v,0);
+      let r = Math.random()*total;
+      for(const [id,v] of list){ r-=v; if(r<=0) return id; }
+      return 'movavi';
+    }
+
+    let currentMerchant = 'movavi';
+    let currentTopic = '';
+    let currentBlogUrl = '';
+
+    // ── Main generate ──────────────────────────────────────────────────────────
+    async function generatePosts() {
+      const btn       = document.getElementById('generate-btn');
+      const icon      = document.getElementById('gen-icon');
+      const status    = document.getElementById('status-text');
+      const wrap      = document.getElementById('posts-wrap');
+      const tabs      = document.getElementById('platform-tabs');
+      const merchantSel = document.getElementById('merchant-select').value;
+      const lang      = document.getElementById('lang-select').value;
+      const tone      = document.getElementById('tone-select').value;
+      const platSel   = document.getElementById('platforms-select').value;
+
+      currentMerchant = merchantSel === 'random' ? getWeightedMerchant() : merchantSel;
+      const m = MERCHANTS[currentMerchant];
+
+      btn.disabled = true;
+      icon.textContent = '⏳';
+      wrap.innerHTML = '';
+      tabs.style.display = 'none';
+      currentPosts = [];
+      activePlatFilter = 'all';
+
+      // Reset tab active states
+      document.querySelectorAll('.plat-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.plat-tab[data-plat="all"]')?.classList.add('active');
+
+      // Loading
+      wrap.innerHTML = `<div class="loading-card"><div class="spinner"></div><div class="loading-text" id="loading-msg">Generating posts for ${m.name} across platforms...</div></div>`;
+
+      const platforms = platSel === 'all' ? PLATFORMS : PLATFORMS.filter(p => p.id === platSel);
+      const affUrl = m.url + '&utm_source=' + platforms[0]?.id + '&utm_medium=social&utm_campaign=' + currentMerchant;
+
+      // Generate topic description
+      const topics = {
+        movavi:'best video editing software 2026', iskysoft:'how to recover deleted files 2026',
+        tenorshare:'iPhone data recovery and repair 2026', wondershare:'Filmora video editor and creative tools 2026',
+        appypie:'building apps and chatbots without coding 2026', knowledgehut:'AWS and tech certifications 2026',
+        pmtraining:'PMP and project management certifications 2026', cpraedcourse:'online CPR certification 2026',
+        cprcare:'BLS and first aid certification 2026', ahca:'HIPAA and healthcare compliance training 2026',
+        discountpetcare:'saving on pet medications online 2026', canadapetcare:'Canadian online pet pharmacy 2026',
+        buildasign:'custom banners and signs online 2026', easycanvasprints:'canvas photo prints and gifts 2026',
+        canvasdiscount:'discount canvas prints 2026', canvasonthecheap:'cheapest canvas prints online 2026',
+        infinitealoe:'organic aloe vera skincare for sensitive skin 2026', littletoe:'bunion relief and foot care 2026',
+        combatflipflops:'veteran-founded ethical footwear 2026', halloweencostumes:'best Halloween costumes 2026',
+        shoplww:'nursing textbooks and NCLEX prep 2026', bgmgirl:'royalty-free music for YouTube and podcasts 2026',
+        lafuent:'OEM and aftermarket car parts online 2026', taxextension:'filing a tax extension online 2026',
+      };
+      currentTopic = topics[currentMerchant] || m.name + ' review 2026';
+      currentBlogUrl = BLOG_BASE + currentMerchant + '-review-2026.html';
+
+      try {
+        const results = [];
+        for (let i = 0; i < platforms.length; i++) {
+          const plat = platforms[i];
+          document.getElementById('loading-msg').textContent = `Generating ${plat.name} post (${i+1}/${platforms.length})...`;
+          status.textContent = `Writing ${plat.name} post...`;
+
+          const platAffUrl = m.url + `&utm_source=${plat.id}&utm_medium=social&utm_campaign=${currentMerchant}`;
+          const text = await generatePlatformPost(plat.id, currentMerchant, currentTopic, lang, tone, platAffUrl, currentBlogUrl);
+
+          results.push({ platform: plat, text, merchant: currentMerchant, lang, tone });
+        }
+
+        wrap.innerHTML = '';
+        results.forEach((r, i) => {
+          currentPosts.push(r);
+          wrap.appendChild(renderPostCard(r, i));
+        });
+
+        tabs.style.display = platSel === 'all' ? 'flex' : 'none';
+        sessionCount += platforms.length;
+        document.getElementById('stat-session').textContent = sessionCount;
+        document.getElementById('stat-plats').textContent = new Set(results.map(r=>r.platform.id)).size;
+        updateTodayCount(platforms.length);
+        status.textContent = `✓ ${platforms.length} posts ready to share`;
+
+      } catch(e) {
+        wrap.innerHTML = `<div class="loading-card" style="border-color:rgba(255,71,87,0.3)"><div style="color:var(--red);font-family:var(--font-mono)">❌ Error: ${e.message}</div></div>`;
+        status.textContent = 'Generation failed';
+      }
+
+      btn.disabled = false;
+      icon.textContent = '⚡';
+    }
+
+    // ── Render post card ───────────────────────────────────────────────────────
+    function renderPostCard(data, index) {
+      const { platform, text, merchant, lang } = data;
+      const m = MERCHANTS[merchant];
+      const isReddit = platform.id === 'reddit';
+      const reddit = isReddit ? parseReddit(text) : null;
+      const displayText = isReddit ? reddit.body : text;
+      const charCount = displayText.length;
+      const overLimit = platform.charLimit && charCount > platform.charLimit;
+      const blogUrl = encodeURIComponent(currentBlogUrl);
+      const subreddits = (SUBREDDITS[m.cat] || []).slice(0, 5);
+
+      const card = document.createElement('div');
+      card.className = 'post-card';
+      card.dataset.platform = platform.id;
+
+      const openUrl = platform.id === 'reddit'
+        ? `https://www.reddit.com/submit?title=${encodeURIComponent(reddit?.title||'')}`
+        : platform.id === 'twitter'
+        ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(displayText.substring(0,270))}`
+        : platform.url + blogUrl;
+
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-platform">
+            <span class="plat-icon">${platform.icon}</span>
+            <div>
+              <div class="plat-name" style="color:${platform.color}">${platform.name}</div>
+              <div class="plat-meta">${platform.charLimit ? platform.charLimit + ' char limit' : 'No limit'} · ${m.name} · ${data.tone}</div>
+            </div>
+          </div>
+          <span class="card-lang">${lang.toUpperCase()}</span>
+        </div>
+        <div class="card-body">
+          ${isReddit && reddit.title ? `<div class="reddit-title"><span class="reddit-label">Post Title</span>${reddit.title}</div>` : ''}
+          ${isReddit ? `<div class="subreddit-row">${subreddits.map(s=>`<span class="subreddit-tag" onclick="copySubreddit('${s}')">${s}</span>`).join('')}</div>` : ''}
+          <div class="post-text" id="post-text-${index}">${displayText.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+          <div class="char-count ${overLimit?'over':''}">${charCount} chars${platform.charLimit?' / '+platform.charLimit+' limit':''} ${overLimit?'⚠ Over limit!':''}</div>
+        </div>
+        <div class="card-footer">
+          <div class="footer-tags">
+            <span class="tag-pill">${platform.name}</span>
+            <span class="tag-pill">${m.name}</span>
+            <span class="tag-pill">${lang.toUpperCase()}</span>
+          </div>
+          <div class="footer-actions">
+            <button class="open-btn" onclick="window.open('${openUrl}','_blank')">↗ Open ${platform.name}</button>
+            <button class="copy-btn" id="copy-${index}" onclick="copyPost(${index})">📋 Copy Post</button>
+          </div>
+        </div>`;
+      return card;
+    }
+
+    // ── Filter by platform ─────────────────────────────────────────────────────
+    function filterPlatform(plat) {
+      activePlatFilter = plat;
+      document.querySelectorAll('.plat-tab').forEach(t => t.classList.toggle('active', t.dataset.plat === plat));
+      document.querySelectorAll('.post-card').forEach(card => {
+        card.style.display = (plat === 'all' || card.dataset.platform === plat) ? '' : 'none';
+      });
+    }
+
+    // ── Copy functions ─────────────────────────────────────────────────────────
+    function copyPost(index) {
+      const data = currentPosts[index];
+      if (!data) return;
+      const isReddit = data.platform.id === 'reddit';
+      const reddit = isReddit ? parseReddit(data.text) : null;
+      const text = isReddit ? (reddit.title + '\n\n' + reddit.body) : data.text;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-' + index);
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '📋 Copy Post'; btn.classList.remove('copied'); }, 2000);
+        copiedCount++;
+        document.getElementById('stat-copied').textContent = copiedCount;
+        showToast(`${data.platform.name} post copied — paste and publish!`);
+      });
+    }
+
+    function copySubreddit(sub) {
+      navigator.clipboard.writeText(sub).then(() => showToast(`${sub} copied!`));
+    }
+
+    // ── Auto mode ──────────────────────────────────────────────────────────────
+    function toggleAuto() {
+      autoMode = !autoMode;
+      const btn = document.getElementById('auto-btn');
+      const indicator = document.getElementById('auto-indicator');
+      if (autoMode) {
+        btn.classList.add('active');
+        btn.textContent = '⏹ Stop Auto';
+        indicator.classList.add('visible');
+        startAutoTimer();
+        showToast('Auto mode ON — generating every 5 minutes');
+      } else {
+        btn.classList.remove('active');
+        btn.textContent = '🔄 Auto Mode';
+        indicator.classList.remove('visible');
+        if (autoTimer) clearInterval(autoTimer);
+        showToast('Auto mode OFF');
+      }
+    }
+
+    function startAutoTimer() {
+      autoSeconds = 300;
+      updateAutoCountdown();
+      autoTimer = setInterval(() => {
+        autoSeconds--;
+        updateAutoCountdown();
+        if (autoSeconds <= 0) { generatePosts(); autoSeconds = 300; }
+      }, 1000);
+    }
+
+    function updateAutoCountdown() {
+      const m = Math.floor(autoSeconds/60);
+      const s = autoSeconds%60;
+      document.getElementById('auto-countdown').textContent = `Next in ${m}:${String(s).padStart(2,'0')}`;
+    }
+
+    // ── Stats ──────────────────────────────────────────────────────────────────
+    function updateTodayCount(add) {
+      const key = 'social_today_' + new Date().toDateString();
+      const current = parseInt(localStorage.getItem(key)||'0');
+      try { localStorage.setItem(key, current+add); } catch(e){}
+      document.getElementById('stat-today').textContent = current+add;
+    }
+
+    function loadTodayCount() {
+      const key = 'social_today_' + new Date().toDateString();
+      try { document.getElementById('stat-today').textContent = localStorage.getItem(key)||'0'; } catch(e){}
+    }
+
+    // ── Toast ──────────────────────────────────────────────────────────────────
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // ── Auto-generate on load ──────────────────────────────────────────────────
+    loadTodayCount();
+    window.addEventListener('load', () => {
+      setTimeout(() => generatePosts(), 800);
+    });
+  </script>
+</body>
+</html>
