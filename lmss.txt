@@ -4913,7 +4913,7 @@
     {
       "slug": "iskysoft-data-recovery-windows-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft Data Recovery for Windows 2026 — Recover Deleted Files from PC",
       "category_en": "Software",
       "metaDesc_en": "iSkysoft data recovery for Windows PC in 2026. Recover deleted files from hard drive, SSD, USB, and Recycle Bin. Works on Windows 10 and Windows 11.",
@@ -4949,12 +4949,30 @@
           "q": "Can iSkysoft recover data from a formatted Windows drive?",
           "a": "Yes. Deep scan mode can recover data from formatted drives in most cases where the data hasn't been overwritten."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "iskysoft-data-recovery-windows-2026.html",
+        "iskysoft-data-recovery-windows-2026-zh.html",
+        "iskysoft-data-recovery-windows-2026-es.html",
+        "iskysoft-data-recovery-windows-2026-fr.html",
+        "iskysoft-data-recovery-windows-2026-de.html",
+        "iskysoft-data-recovery-windows-2026-pt.html",
+        "iskysoft-data-recovery-windows-2026-ar.html",
+        "iskysoft-data-recovery-windows-2026-hi.html",
+        "iskysoft-data-recovery-windows-2026-ru.html",
+        "iskysoft-data-recovery-windows-2026-ja.html",
+        "iskysoft-data-recovery-windows-2026-ko.html",
+        "iskysoft-data-recovery-windows-2026-id.html",
+        "iskysoft-data-recovery-windows-2026-it.html",
+        "iskysoft-data-recovery-windows-2026-nl.html",
+        "iskysoft-data-recovery-windows-2026-pl.html"
       ]
     },
     {
       "slug": "tenorshare-ios-backup-2026",
       "merchant": "tenorshare",
-      "published": false,
+      "published": true,
       "title_en": "How to Backup iPhone Without iCloud in 2026 — Better Alternatives",
       "category_en": "Software",
       "metaDesc_en": "How to backup your iPhone without iCloud in 2026. Tenorshare alternatives to iCloud backup — local backup, selective backup, and encrypted backup options.",
@@ -4990,6 +5008,24 @@
           "q": "Can I selectively restore from a Tenorshare backup?",
           "a": "Yes. Unlike iCloud and iTunes which require full restores, Tenorshare lets you browse backup content and restore individual files, photos, or contacts."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "tenorshare-ios-backup-2026.html",
+        "tenorshare-ios-backup-2026-zh.html",
+        "tenorshare-ios-backup-2026-es.html",
+        "tenorshare-ios-backup-2026-fr.html",
+        "tenorshare-ios-backup-2026-de.html",
+        "tenorshare-ios-backup-2026-pt.html",
+        "tenorshare-ios-backup-2026-ar.html",
+        "tenorshare-ios-backup-2026-hi.html",
+        "tenorshare-ios-backup-2026-ru.html",
+        "tenorshare-ios-backup-2026-ja.html",
+        "tenorshare-ios-backup-2026-ko.html",
+        "tenorshare-ios-backup-2026-id.html",
+        "tenorshare-ios-backup-2026-it.html",
+        "tenorshare-ios-backup-2026-nl.html",
+        "tenorshare-ios-backup-2026-pl.html"
       ]
     },
     {
