@@ -2907,7 +2907,7 @@
     {
       "slug": "aloe-vera-eczema-2026",
       "merchant": "infinitealoe",
-      "published": false,
+      "published": true,
       "title_en": "Aloe Vera for Eczema 2026 — Does It Actually Work?",
       "category_en": "Health",
       "metaDesc_en": "Can aloe vera help eczema? The science behind aloe vera for eczema treatment in 2026. Infinite Aloe review for eczema and sensitive skin conditions.",
@@ -2943,12 +2943,30 @@
           "q": "How long before I see results using aloe for eczema?",
           "a": "Most users report improvement within 2-4 weeks of consistent daily use."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "aloe-vera-eczema-2026.html",
+        "aloe-vera-eczema-2026-zh.html",
+        "aloe-vera-eczema-2026-es.html",
+        "aloe-vera-eczema-2026-fr.html",
+        "aloe-vera-eczema-2026-de.html",
+        "aloe-vera-eczema-2026-pt.html",
+        "aloe-vera-eczema-2026-ar.html",
+        "aloe-vera-eczema-2026-hi.html",
+        "aloe-vera-eczema-2026-ru.html",
+        "aloe-vera-eczema-2026-ja.html",
+        "aloe-vera-eczema-2026-ko.html",
+        "aloe-vera-eczema-2026-id.html",
+        "aloe-vera-eczema-2026-it.html",
+        "aloe-vera-eczema-2026-nl.html",
+        "aloe-vera-eczema-2026-pl.html"
       ]
     },
     {
       "slug": "natural-skincare-sensitive-skin-2026",
       "merchant": "infinitealoe",
-      "published": false,
+      "published": true,
       "title_en": "Best Natural Skincare for Sensitive Skin 2026 — Fragrance-Free Guide",
       "category_en": "Health",
       "metaDesc_en": "Best natural skincare products for sensitive and reactive skin in 2026. Fragrance-free, paraben-free moisturizers that actually work. Infinite Aloe review.",
@@ -2984,6 +3002,24 @@
           "q": "Is Infinite Aloe tested on animals?",
           "a": "No. Infinite Aloe does not conduct animal testing."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "natural-skincare-sensitive-skin-2026.html",
+        "natural-skincare-sensitive-skin-2026-zh.html",
+        "natural-skincare-sensitive-skin-2026-es.html",
+        "natural-skincare-sensitive-skin-2026-fr.html",
+        "natural-skincare-sensitive-skin-2026-de.html",
+        "natural-skincare-sensitive-skin-2026-pt.html",
+        "natural-skincare-sensitive-skin-2026-ar.html",
+        "natural-skincare-sensitive-skin-2026-hi.html",
+        "natural-skincare-sensitive-skin-2026-ru.html",
+        "natural-skincare-sensitive-skin-2026-ja.html",
+        "natural-skincare-sensitive-skin-2026-ko.html",
+        "natural-skincare-sensitive-skin-2026-id.html",
+        "natural-skincare-sensitive-skin-2026-it.html",
+        "natural-skincare-sensitive-skin-2026-nl.html",
+        "natural-skincare-sensitive-skin-2026-pl.html"
       ]
     },
     {
