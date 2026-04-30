@@ -3,869 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventory — Brightlane VMD</title>
+  <title>Campaign Inventory — Brightlane VMD</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
   <style>
-    :root {
-      --bg:       #0a0b0d;
-      --bg2:      #111318;
-      --bg3:      #1a1d24;
-      --bg4:      #22262f;
-      --border:   rgba(255,255,255,0.07);
-      --border2:  rgba(255,255,255,0.13);
-      --text:     #e8e9ed;
-      --muted:    #8a8d99;
-      --dim:      #555866;
-      --accent:   #e8ff47;
-      --accent2:  #47ffb8;
-      --accent3:  #ff6b35;
-      --gold:     #f5c842;
-      --red:      #ff4757;
-      --blue:     #4facfe;
-      --font-head: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --font-mono: 'DM Mono', monospace;
-      --radius:   8px;
-      --nav-h:    56px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      overflow-x: hidden;
-      font-size: 14px;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* ── NOISE ── */
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 9999; opacity: .35;
-    }
-
-    /* ── NAV ── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-h);
-      background: rgba(10,11,13,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center;
-      padding: 0 24px;
-      gap: 16px;
-      z-index: 100;
-    }
-
-    .nav-logo {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: -0.02em;
-      display: flex; align-items: center; gap: 8px;
-      margin-right: 8px;
-    }
-
-    .nav-sep { width: 1px; height: 20px; background: var(--border2); }
-
-    .nav-crumb {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    .nav-crumb span { color: var(--dim); }
-    .nav-crumb .cur { color: var(--accent); }
-
-    .nav-right {
-      margin-left: auto;
-      display: flex; align-items: center; gap: 10px;
-    }
-
-    .status-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--accent2);
-      box-shadow: 0 0 6px var(--accent2);
-      animation: blink 2.4s ease infinite;
-    }
-
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50%      { opacity: .3; }
-    }
-
-    .nav-tag {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--muted);
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 3px 9px;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-    }
-
-    .nav-home-btn {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 0.72rem;
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      padding: 6px 14px;
-      border-radius: 6px;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all .15s;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-home-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── LAYOUT ── */
-    .shell {
-      display: flex;
-      padding-top: var(--nav-h);
-      min-height: 100vh;
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      border-right: 1px solid var(--border);
-      padding: 24px 0;
-      position: sticky;
-      top: var(--nav-h);
-      height: calc(100vh - var(--nav-h));
-      overflow-y: auto;
-    }
-
-    .sidebar-section {
-      padding: 0 16px;
-      margin-bottom: 28px;
-    }
-
-    .sidebar-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 10px;
-      padding: 0 4px;
-    }
-
-    .sidebar-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 7px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background .12s;
-      margin-bottom: 2px;
-    }
-
-    .sidebar-item:hover { background: var(--bg3); }
-    .sidebar-item.active { background: rgba(232,255,71,0.07); }
-
-    .sidebar-item-left {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .sidebar-item.active .sidebar-item-left { color: var(--accent); }
-
-    .sidebar-count {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--dim);
-      background: var(--bg4);
-      padding: 1px 7px;
-      border-radius: 10px;
-    }
-
-    .sidebar-item.active .sidebar-count {
-      background: rgba(232,255,71,0.12);
-      color: var(--accent);
-    }
-
-    .sidebar-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 12px 16px;
-    }
-
-    /* ── MAIN CONTENT ── */
-    .main {
-      flex: 1;
-      min-width: 0;
-      padding: 28px 32px;
-    }
-
-    /* ── PAGE HEADER ── */
-    .page-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .page-title-block {}
-
-    .page-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 6px;
-    }
-
-    .page-title {
-      font-family: var(--font-head);
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .page-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .page-actions {
-      display: flex; align-items: center; gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-sm {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 0.72rem;
-      padding: 7px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      border: none;
-      transition: all .15s;
-      display: flex; align-items: center; gap: 6px;
-    }
-
-    .btn-outline-sm {
-      background: transparent;
-      border: 1px solid var(--border2);
-      color: var(--muted);
-    }
-
-    .btn-outline-sm:hover { border-color: var(--accent); color: var(--accent); }
-
-    .btn-accent-sm {
-      background: var(--accent);
-      color: #0a0b0d;
-    }
-
-    .btn-accent-sm:hover { box-shadow: 0 4px 16px rgba(232,255,71,0.25); transform: translateY(-1px); }
-
-    /* ── KPI ROW ── */
-    .kpi-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .kpi-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--kpi-color, var(--accent));
-      opacity: 0.7;
-    }
-
-    .kpi-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 10px;
-    }
-
-    .kpi-value {
-      font-family: var(--font-head);
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--kpi-color, var(--accent));
-      line-height: 1;
-    }
-
-    .kpi-sub {
-      font-size: 0.7rem;
-      color: var(--dim);
-      margin-top: 5px;
-    }
-
-    /* ── TOOLBAR ── */
-    .toolbar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .search-box {
-      flex: 1;
-      min-width: 180px;
-      position: relative;
-    }
-
-    .search-box svg {
-      position: absolute; left: 11px; top: 50%;
-      transform: translateY(-50%);
-      color: var(--dim);
-    }
-
-    #inv-search {
-      width: 100%;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 12px 8px 34px;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text);
-      outline: none;
-      transition: border-color .15s;
-    }
-
-    #inv-search::placeholder { color: var(--dim); }
-    #inv-search:focus { border-color: var(--accent); }
-
-    .filter-select {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      outline: none;
-      cursor: pointer;
-      transition: border-color .15s;
-    }
-
-    .filter-select:focus { border-color: var(--accent); }
-
-    .sort-btn {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all .15s;
-      display: flex; align-items: center; gap: 6px;
-    }
-
-    .sort-btn:hover { border-color: var(--border2); color: var(--text); }
-    .sort-btn.active { border-color: var(--accent); color: var(--accent); }
-
-    .results-label {
-      margin-left: auto;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--dim);
-      white-space: nowrap;
-    }
-
-    /* ── TABLE ── */
-    .table-wrap {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    thead tr {
-      border-bottom: 1px solid var(--border2);
-    }
-
-    th {
-      text-align: left;
-      padding: 11px 14px;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--dim);
-      background: var(--bg3);
-      white-space: nowrap;
-      cursor: pointer;
-      user-select: none;
-      transition: color .12s;
-    }
-
-    th:hover { color: var(--muted); }
-    th.sort-active { color: var(--accent); }
-
-    th .th-inner {
-      display: flex; align-items: center; gap: 5px;
-    }
-
-    th .sort-arrow { font-size: 0.6rem; opacity: .5; }
-    th.sort-active .sort-arrow { opacity: 1; }
-
-    tbody tr {
-      border-bottom: 1px solid var(--border);
-      transition: background .1s;
-    }
-
-    tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: rgba(255,255,255,0.025); }
-
-    td {
-      padding: 10px 14px;
-      font-size: 0.82rem;
-      vertical-align: middle;
-    }
-
-    td.mono {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-    }
-
-    .row-num {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--dim);
-      width: 36px;
-    }
-
-    /* icon cell */
-    .icon-cell {
-      font-size: 1.1rem;
-      width: 36px;
-      text-align: center;
-    }
-
-    /* id cell */
-    .id-cell {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.02em;
-    }
-
-    /* name cell */
-    .name-cell {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 0.88rem;
-      letter-spacing: -0.01em;
-    }
-
-    /* category badge */
-    .cat-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 3px 9px;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.04em;
-      border: 1px solid;
-      white-space: nowrap;
-    }
-
-    .cat-software   { background: rgba(255,107,53,0.08); border-color: rgba(255,107,53,0.2); color: #ff9a7a; }
-    .cat-education  { background: rgba(71,255,184,0.07); border-color: rgba(71,255,184,0.2); color: #47ffb8; }
-    .cat-petcare    { background: rgba(245,200,66,0.07); border-color: rgba(245,200,66,0.2); color: #f5c842; }
-    .cat-print      { background: rgba(79,172,254,0.07); border-color: rgba(79,172,254,0.2); color: #4facfe; }
-    .cat-health     { background: rgba(255,71,87,0.07);  border-color: rgba(255,71,87,0.2);  color: #ff6b78; }
-    .cat-lifestyle  { background: rgba(175,82,222,0.07); border-color: rgba(175,82,222,0.2); color: #bf7fff; }
-    .cat-services   { background: rgba(232,255,71,0.07); border-color: rgba(232,255,71,0.2); color: #e8ff47; }
-
-    /* status */
-    .status-pill {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--accent2);
-    }
-
-    .status-pill::before {
-      content: '';
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent2);
-    }
-
-    /* lc code */
-    .lc-code {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
-
-    /* lcpf badge */
-    .lcpf-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      padding: 2px 7px;
-      border-radius: 4px;
-      background: var(--bg4);
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .lcpf-badge.lcpf-3 { background: rgba(71,255,184,0.06); border-color: rgba(71,255,184,0.15); color: var(--accent2); }
-    .lcpf-badge.lcpf-0 { background: rgba(245,200,66,0.06); border-color: rgba(245,200,66,0.15); color: var(--gold); }
-    .lcpf-badge.lcpf-none { color: var(--dim); }
-
-    /* affiliate link */
-    .link-cell {
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    .link-text {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--dim);
-      max-width: 260px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .copy-btn {
-      background: var(--bg4);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 3px 7px;
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--dim);
-      cursor: pointer;
-      transition: all .12s;
-      flex-shrink: 0;
-    }
-
-    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .copy-btn.copied { border-color: var(--accent2); color: var(--accent2); }
-
-    .visit-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 3px 9px;
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--dim);
-      cursor: pointer;
-      transition: all .12s;
-      white-space: nowrap;
-    }
-
-    .visit-btn:hover { border-color: var(--border2); color: var(--text); }
-
-    /* hidden row */
-    tr.hidden { display: none; }
-
-    /* ── NOTES PANEL ── */
-    .notes-row td {
-      background: var(--bg);
-      padding: 10px 14px 14px 54px;
-      border-top: none;
-    }
-
-    .notes-inner {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 10px 14px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      display: flex; align-items: flex-start; gap: 10px;
-    }
-
-    .notes-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--dim);
-      flex-shrink: 0;
-      padding-top: 1px;
-    }
-
-    /* ── EMPTY STATE ── */
-    .empty-row td {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--dim);
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-    }
-
-    /* ── FOOTER ── */
-    .inv-footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .inv-footer-left {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--dim);
-    }
-
-    .inv-footer-left strong {
-      color: var(--muted);
-    }
-
-    .inv-footer-right {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--dim);
-    }
-
-    /* ── TOAST ── */
-    .toast {
-      position: fixed;
-      bottom: 24px; right: 24px;
-      background: var(--bg3);
-      border: 1px solid var(--accent2);
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent2);
-      z-index: 500;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all .25s;
-      pointer-events: none;
-    }
-
-    .toast.show { opacity: 1; transform: translateY(0); }
-
-    /* ── EXPAND toggle ── */
-    .expand-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--dim);
-      font-size: 0.7rem;
-      padding: 2px 5px;
-      border-radius: 3px;
-      transition: color .1s;
-    }
-
-    .expand-btn:hover { color: var(--accent); }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--border2); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .sidebar { display: none; }
-      .main { padding: 20px 16px; }
-    }
-
-    @media (max-width: 640px) {
-      .kpi-row { grid-template-columns: repeat(2, 1fr); }
-      th:nth-child(n+7), td:nth-child(n+7) { display: none; }
-    }
+    :root{--bg:#0a0b0d;--bg2:#111318;--bg3:#1a1d24;--bg4:#22262f;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#e8e9ed;--muted:#8a8d99;--dim:#555866;--accent:#e8ff47;--accent2:#47ffb8;--accent3:#ff6b35;--gold:#f5c842;--red:#ff4757;--blue:#4facfe;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;--radius:8px;--nav-h:56px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden;font-size:14px}
+    a{color:inherit;text-decoration:none}
+    body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.35}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,11,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:16px;z-index:100}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:0.95rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;margin-right:8px}
+    .nav-sep{width:1px;height:20px;background:var(--border2)}
+    .nav-crumb{font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+    .nav-crumb span{color:var(--dim)}
+    .nav-crumb .cur{color:var(--accent)}
+    .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 6px var(--accent2);animation:blink 2.4s ease infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .nav-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:3px 9px;border-radius:4px;letter-spacing:0.04em}
+    .nav-home-btn{font-family:var(--font-head);font-weight:700;font-size:0.72rem;background:var(--bg3);border:1px solid var(--border2);padding:6px 14px;border-radius:6px;color:var(--muted);cursor:pointer;transition:all .15s;letter-spacing:0.02em}
+    .nav-home-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* LAYOUT */
+    .shell{display:flex;padding-top:var(--nav-h);min-height:100vh}
+
+    /* SIDEBAR */
+    .sidebar{width:220px;flex-shrink:0;border-right:1px solid var(--border);padding:24px 0;position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow-y:auto}
+    .sidebar-section{padding:0 16px;margin-bottom:28px}
+    .sidebar-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;padding:0 4px}
+    .sidebar-item{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:6px;cursor:pointer;transition:background .12s;margin-bottom:2px}
+    .sidebar-item:hover{background:var(--bg3)}
+    .sidebar-item.active{background:rgba(232,255,71,0.07)}
+    .sidebar-item-left{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--muted)}
+    .sidebar-item.active .sidebar-item-left{color:var(--accent)}
+    .sidebar-count{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim);background:var(--bg4);padding:1px 7px;border-radius:10px}
+    .sidebar-item.active .sidebar-count{background:rgba(232,255,71,0.12);color:var(--accent)}
+    .sidebar-divider{height:1px;background:var(--border);margin:12px 16px}
+
+    /* MAIN */
+    .main{flex:1;min-width:0;padding:28px 32px}
+
+    /* PAGE HEADER */
+    .page-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:16px}
+    .page-eyebrow{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+    .page-title{font-family:var(--font-head);font-size:1.6rem;font-weight:800;letter-spacing:-0.03em;line-height:1}
+    .page-sub{font-size:0.8rem;color:var(--muted);margin-top:6px}
+    .page-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btn-sm{font-family:var(--font-head);font-weight:700;font-size:0.72rem;padding:7px 14px;border-radius:6px;cursor:pointer;border:none;transition:all .15s;display:flex;align-items:center;gap:6px}
+    .btn-outline-sm{background:transparent;border:1px solid var(--border2);color:var(--muted)}
+    .btn-outline-sm:hover{border-color:var(--accent);color:var(--accent)}
+    .btn-accent-sm{background:var(--accent);color:#0a0b0d}
+    .btn-accent-sm:hover{box-shadow:0 4px 16px rgba(232,255,71,0.25);transform:translateY(-1px)}
+
+    /* KPI ROW */
+    .kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:28px}
+    .kpi-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;position:relative;overflow:hidden}
+    .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--kpi-color,var(--accent));opacity:0.7}
+    .kpi-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+    .kpi-value{font-family:var(--font-head);font-size:1.8rem;font-weight:800;letter-spacing:-0.03em;color:var(--kpi-color,var(--accent));line-height:1}
+    .kpi-sub{font-size:0.7rem;color:var(--dim);margin-top:5px}
+
+    /* TOOLBAR */
+    .toolbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+    .search-box{flex:1;min-width:180px;position:relative}
+    .search-box svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--dim)}
+    #inv-search{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 12px 8px 34px;font-family:var(--font-mono);font-size:0.78rem;color:var(--text);outline:none;transition:border-color .15s}
+    #inv-search::placeholder{color:var(--dim)}
+    #inv-search:focus{border-color:var(--accent)}
+    .filter-select{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);outline:none;cursor:pointer;transition:border-color .15s}
+    .filter-select:focus{border-color:var(--accent)}
+    .results-label{margin-left:auto;font-family:var(--font-mono);font-size:0.7rem;color:var(--dim);white-space:nowrap}
+
+    /* TABLE */
+    .table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    table{width:100%;border-collapse:collapse}
+    thead tr{border-bottom:1px solid var(--border2)}
+    th{text-align:left;padding:11px 14px;font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);background:var(--bg3);white-space:nowrap;cursor:pointer;user-select:none;transition:color .12s}
+    th:hover{color:var(--muted)}
+    th.sort-active{color:var(--accent)}
+    th .th-inner{display:flex;align-items:center;gap:5px}
+    th .sort-arrow{font-size:0.6rem;opacity:.5}
+    th.sort-active .sort-arrow{opacity:1}
+    tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+    tbody tr:last-child{border-bottom:none}
+    tbody tr:hover{background:rgba(255,255,255,0.025)}
+    td{padding:10px 14px;font-size:0.82rem;vertical-align:middle}
+    td.mono{font-family:var(--font-mono);font-size:0.72rem}
+    .row-num{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim);width:36px}
+    .icon-cell{font-size:1.1rem;width:36px;text-align:center}
+    .id-cell{font-family:var(--font-mono);font-size:0.72rem;color:var(--accent);letter-spacing:0.02em}
+    .name-cell{font-family:var(--font-head);font-weight:700;font-size:0.88rem;letter-spacing:-0.01em}
+    .cat-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:4px;font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.04em;border:1px solid;white-space:nowrap}
+    .cat-software{background:rgba(255,107,53,0.08);border-color:rgba(255,107,53,0.2);color:#ff9a7a}
+    .cat-education{background:rgba(71,255,184,0.07);border-color:rgba(71,255,184,0.2);color:#47ffb8}
+    .cat-petcare{background:rgba(245,200,66,0.07);border-color:rgba(245,200,66,0.2);color:#f5c842}
+    .cat-print{background:rgba(79,172,254,0.07);border-color:rgba(79,172,254,0.2);color:#4facfe}
+    .cat-health{background:rgba(255,71,87,0.07);border-color:rgba(255,71,87,0.2);color:#ff6b78}
+    .cat-lifestyle{background:rgba(175,82,222,0.07);border-color:rgba(175,82,222,0.2);color:#bf7fff}
+    .cat-services{background:rgba(232,255,71,0.07);border-color:rgba(232,255,71,0.2);color:#e8ff47}
+    .lc-code{font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);letter-spacing:0.02em}
+    .lcpf-badge{display:inline-block;font-family:var(--font-mono);font-size:0.65rem;padding:2px 7px;border-radius:4px;background:var(--bg4);border:1px solid var(--border);color:var(--muted)}
+    .lcpf-badge.lcpf-3{background:rgba(71,255,184,0.06);border-color:rgba(71,255,184,0.15);color:var(--accent2)}
+    .lcpf-badge.lcpf-0{background:rgba(245,200,66,0.06);border-color:rgba(245,200,66,0.15);color:var(--gold)}
+    .lcpf-badge.lcpf-none{color:var(--dim)}
+    .link-cell{display:flex;align-items:center;gap:8px}
+    .link-text{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .copy-btn{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:3px 7px;font-family:var(--font-mono);font-size:0.6rem;color:var(--dim);cursor:pointer;transition:all .12s;flex-shrink:0}
+    .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+    .copy-btn.copied{border-color:var(--accent2);color:var(--accent2)}
+    .visit-btn{background:transparent;border:1px solid var(--border);border-radius:4px;padding:3px 9px;font-family:var(--font-mono);font-size:0.6rem;color:var(--dim);cursor:pointer;transition:all .12s;white-space:nowrap}
+    .visit-btn:hover{border-color:var(--border2);color:var(--text)}
+    tr.hidden{display:none}
+    .notes-row td{background:var(--bg);padding:10px 14px 14px 54px;border-top:none}
+    .notes-inner{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:0.78rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px}
+    .notes-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);flex-shrink:0;padding-top:1px}
+    .empty-row td{text-align:center;padding:60px 20px;color:var(--dim);font-family:var(--font-mono);font-size:0.8rem}
+
+    /* FOOTER */
+    .inv-footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .inv-footer-left{font-family:var(--font-mono);font-size:0.68rem;color:var(--dim)}
+    .inv-footer-left strong{color:var(--muted)}
+    .inv-footer-right{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim)}
+
+    /* SECURITY BANNER */
+    .sec-banner{background:rgba(255,71,87,0.06);border:1px solid rgba(255,71,87,0.2);border-radius:8px;padding:10px 16px;margin-bottom:20px;font-family:var(--font-mono);font-size:0.72rem;color:#ff6b78;display:flex;align-items:center;gap:10px}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--bg3);border:1px solid var(--accent2);border-radius:8px;padding:10px 18px;font-family:var(--font-mono);font-size:0.75rem;color:var(--accent2);z-index:500;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none}
+    .toast.show{opacity:1;transform:translateY(0)}
+    .expand-btn{background:none;border:none;cursor:pointer;color:var(--dim);font-size:0.7rem;padding:2px 5px;border-radius:3px;transition:color .1s}
+    .expand-btn:hover{color:var(--accent)}
+
+    /* STATS BAR */
+    .stats-bar{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 18px;margin-bottom:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.72rem;color:var(--dim)}
+    .stat-item{display:flex;align-items:center;gap:6px}
+    .stat-val{color:var(--accent);font-weight:700}
+    .stat-sep{color:var(--border2)}
+
+    ::-webkit-scrollbar{width:6px;height:6px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--border2)}
+
+    @media(max-width:900px){.sidebar{display:none}.main{padding:20px 16px}}
+    @media(max-width:640px){.kpi-row{grid-template-columns:repeat(2,1fr)}th:nth-child(n+7),td:nth-child(n+7){display:none}}
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="nav-logo">Brightlane <span style="color:var(--accent);margin-left:2px">VMD</span></div>
     <div class="nav-sep"></div>
     <div class="nav-crumb">
       <span>Internal</span>
       <span style="color:var(--dim)">›</span>
-      <span class="cur">inventory.html</span>
+      <span class="cur">Campaign Inventory</span>
     </div>
     <div class="nav-right">
       <div class="status-dot"></div>
-      <div class="nav-tag">VULTURE TITAN ENGINE · OPERATIONAL</div>
+      <div class="nav-tag">VULTURE TITAN · OPERATIONAL</div>
       <a href="index.html" class="nav-home-btn">← Directory</a>
     </div>
   </nav>
 
   <div class="shell">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-section">
         <div class="sidebar-label">View</div>
         <div class="sidebar-item active" data-filter="all">
           <div class="sidebar-item-left">⬡ All Campaigns</div>
-          <div class="sidebar-count" id="sb-all">24</div>
+          <div class="sidebar-count">24</div>
         </div>
       </div>
-
       <div class="sidebar-divider"></div>
-
       <div class="sidebar-section">
         <div class="sidebar-label">Category</div>
-        <div class="sidebar-item" data-filter="software">
-          <div class="sidebar-item-left">◈ Software</div>
-          <div class="sidebar-count" id="sb-software">5</div>
-        </div>
-        <div class="sidebar-item" data-filter="education">
-          <div class="sidebar-item-left">◈ Education</div>
-          <div class="sidebar-count" id="sb-education">5</div>
-        </div>
-        <div class="sidebar-item" data-filter="petcare">
-          <div class="sidebar-item-left">◈ Pet Care</div>
-          <div class="sidebar-count" id="sb-petcare">2</div>
-        </div>
-        <div class="sidebar-item" data-filter="print">
-          <div class="sidebar-item-left">◈ Print & Signs</div>
-          <div class="sidebar-count" id="sb-print">4</div>
-        </div>
-        <div class="sidebar-item" data-filter="health">
-          <div class="sidebar-item-left">◈ Health</div>
-          <div class="sidebar-count" id="sb-health">2</div>
-        </div>
-        <div class="sidebar-item" data-filter="lifestyle">
-          <div class="sidebar-item-left">◈ Lifestyle</div>
-          <div class="sidebar-count" id="sb-lifestyle">3</div>
-        </div>
-        <div class="sidebar-item" data-filter="services">
-          <div class="sidebar-item-left">◈ Services</div>
-          <div class="sidebar-count" id="sb-services">3</div>
-        </div>
+        <div class="sidebar-item" data-filter="software"><div class="sidebar-item-left">◈ Software</div><div class="sidebar-count">5</div></div>
+        <div class="sidebar-item" data-filter="education"><div class="sidebar-item-left">◈ Education</div><div class="sidebar-count">6</div></div>
+        <div class="sidebar-item" data-filter="petcare"><div class="sidebar-item-left">◈ Pet Care</div><div class="sidebar-count">2</div></div>
+        <div class="sidebar-item" data-filter="print"><div class="sidebar-item-left">◈ Print & Signs</div><div class="sidebar-count">4</div></div>
+        <div class="sidebar-item" data-filter="health"><div class="sidebar-item-left">◈ Health</div><div class="sidebar-count">2</div></div>
+        <div class="sidebar-item" data-filter="lifestyle"><div class="sidebar-item-left">◈ Lifestyle</div><div class="sidebar-count">2</div></div>
+        <div class="sidebar-item" data-filter="services"><div class="sidebar-item-left">◈ Services</div><div class="sidebar-count">3</div></div>
       </div>
-
       <div class="sidebar-divider"></div>
-
       <div class="sidebar-section">
         <div class="sidebar-label">LCPF Filter</div>
-        <div class="sidebar-item" data-filter-lcpf="3">
-          <div class="sidebar-item-left">lcpf=3</div>
-          <div class="sidebar-count">12</div>
-        </div>
-        <div class="sidebar-item" data-filter-lcpf="0">
-          <div class="sidebar-item-left">lcpf=0</div>
-          <div class="sidebar-count">3</div>
-        </div>
-        <div class="sidebar-item" data-filter-lcpf="none">
-          <div class="sidebar-item-left">lcpf=—</div>
-          <div class="sidebar-count">9</div>
-        </div>
+        <div class="sidebar-item" data-filter-lcpf="3"><div class="sidebar-item-left">lcpf=3</div><div class="sidebar-count">12</div></div>
+        <div class="sidebar-item" data-filter-lcpf="0"><div class="sidebar-item-left">lcpf=0</div><div class="sidebar-count">3</div></div>
+        <div class="sidebar-item" data-filter-lcpf="none"><div class="sidebar-item-left">lcpf=—</div><div class="sidebar-count">9</div></div>
       </div>
     </aside>
 
-    <!-- MAIN -->
     <main class="main">
 
-      <!-- PAGE HEADER -->
+      <div class="sec-banner">
+        🔒 Internal use only — <meta name="robots" content="noindex"> tag active · Do not share this URL publicly · API credentials removed from display
+      </div>
+
       <div class="page-header">
         <div class="page-title-block">
-          <div class="page-eyebrow">brightlane · linkconnector · 2026-04-29</div>
+          <div class="page-eyebrow">brightlane · linkconnector · internal ops</div>
           <div class="page-title">Campaign Inventory</div>
           <div class="page-sub">24 active campaigns · 7 categories · LinkConnector network</div>
         </div>
         <div class="page-actions">
           <button class="btn-sm btn-outline-sm" id="export-csv-btn">↓ Export CSV</button>
           <button class="btn-sm btn-outline-sm" id="expand-all-btn">⊞ Expand All</button>
-          <button class="btn-sm btn-accent-sm" onclick="window.open('https://brightlane.github.io/verified-merchant-directory/')">↗ Live Directory</button>
+          <button class="btn-sm btn-accent-sm" onclick="window.open('https://brightlane.github.io/verified-merchant-directory/')">↗ Live Site</button>
         </div>
       </div>
 
-      <!-- KPI ROW -->
       <div class="kpi-row">
-        <div class="kpi-card" style="--kpi-color:var(--accent)">
-          <div class="kpi-label">Total Campaigns</div>
-          <div class="kpi-value">24</div>
-          <div class="kpi-sub">23 canonical + 1 bonus</div>
-        </div>
-        <div class="kpi-card" style="--kpi-color:var(--accent2)">
-          <div class="kpi-label">Categories</div>
-          <div class="kpi-value">7</div>
-          <div class="kpi-sub">All verified active</div>
-        </div>
-        <div class="kpi-card" style="--kpi-color:var(--gold)">
-          <div class="kpi-label">lcpf=3 Links</div>
-          <div class="kpi-value">12</div>
-          <div class="kpi-sub">Standard tracking</div>
-        </div>
-        <div class="kpi-card" style="--kpi-color:var(--accent3)">
-          <div class="kpi-label">lcpf=0 Links</div>
-          <div class="kpi-value">3</div>
-          <div class="kpi-sub">Alternate mode</div>
-        </div>
-        <div class="kpi-card" style="--kpi-color:var(--blue)">
-          <div class="kpi-label">No lcpf Param</div>
-          <div class="kpi-value">9</div>
-          <div class="kpi-sub">Absent or empty</div>
-        </div>
-        <div class="kpi-card" style="--kpi-color:var(--accent)">
-          <div class="kpi-label">Deduped</div>
-          <div class="kpi-value">6</div>
-          <div class="kpi-sub">IDs had duplicates</div>
-        </div>
+        <div class="kpi-card" style="--kpi-color:var(--accent)"><div class="kpi-label">Total Campaigns</div><div class="kpi-value">24</div><div class="kpi-sub">All verified active</div></div>
+        <div class="kpi-card" style="--kpi-color:var(--accent2)"><div class="kpi-label">Categories</div><div class="kpi-value">7</div><div class="kpi-sub">Software to Services</div></div>
+        <div class="kpi-card" style="--kpi-color:var(--gold)"><div class="kpi-label">lcpf=3 Links</div><div class="kpi-value">12</div><div class="kpi-sub">Standard tracking</div></div>
+        <div class="kpi-card" style="--kpi-color:var(--accent3)"><div class="kpi-label">lcpf=0 Links</div><div class="kpi-value">3</div><div class="kpi-sub">Alternate mode</div></div>
+        <div class="kpi-card" style="--kpi-color:var(--blue)"><div class="kpi-label">No lcpf Param</div><div class="kpi-value">9</div><div class="kpi-sub">Absent or empty</div></div>
+        <div class="kpi-card" style="--kpi-color:var(--accent)"><div class="kpi-label">Deduped IDs</div><div class="kpi-value">6</div><div class="kpi-sub">Had duplicates</div></div>
       </div>
 
-      <!-- TOOLBAR -->
       <div class="toolbar">
         <div class="search-box">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-          </svg>
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
           <input type="text" id="inv-search" placeholder="Search id, name, LC code, tag…" />
         </div>
         <select class="filter-select" id="cat-select">
@@ -887,7 +254,6 @@
         <div class="results-label" id="results-label">24 results</div>
       </div>
 
-      <!-- TABLE -->
       <div class="table-wrap">
         <table id="inv-table" aria-label="Campaign Inventory">
           <thead>
@@ -908,94 +274,69 @@
         </table>
       </div>
 
-      <!-- FOOTER -->
       <div class="inv-footer">
         <div class="inv-footer-left">
           Network: <strong>LinkConnector</strong> ·
-          API Key: <strong id="apikey-display">621835730ae935d10dc9bf41380d1f54</strong> ·
-          Base: <strong>https://brightlane.github.io/verified-merchant-directory/</strong>
+          Base: <strong>https://brightlane.github.io/verified-merchant-directory/</strong> ·
+          <span style="color:var(--red)">🔒 Credentials hidden — internal use only</span>
         </div>
-        <div class="inv-footer-right">Next review: 2026-05-29 · LMSS v1.0</div>
+        <div class="inv-footer-right">Vulture Titan Engine · Auto-updated</div>
       </div>
 
     </main>
   </div>
 
-  <!-- TOAST -->
   <div class="toast" id="toast">Copied to clipboard</div>
 
   <script>
     const CAMPAIGNS = [
-      { num:1,  id:'movavi',           name:'Movavi',             category:'software',  icon:'🎬', tag:'Video Editor',      lccode:'014538108972006513', lcpf:'3',    notes:'Video editing suite for Win/Mac. Strong search volume on "video editor software".',               url:'https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3' },
-      { num:2,  id:'iskysoft',         name:'iSkysoft',           category:'software',  icon:'💿', tag:'Multimedia Suite',  lccode:'014538080056005679', lcpf:'3',    notes:'Data recovery + multimedia tools. Targets Mac/Windows power users.',                              url:'https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3' },
-      { num:3,  id:'tenorshare',       name:'Tenorshare',         category:'software',  icon:'📱', tag:'Phone Tools',       lccode:'014538147585006847', lcpf:'3',    notes:'iOS/Android data recovery. High intent keywords: "recover deleted photos iphone".',             url:'https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3' },
-      { num:4,  id:'wondershare',      name:'Wondershare',        category:'software',  icon:'✨', tag:'Creative Suite',    lccode:'014538165262004532', lcpf:'3',    notes:'Filmora, PDFelement. Broad appeal — creators, students, professionals.',                         url:'https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3' },
-      { num:5,  id:'appypie',          name:'Appy Pie',           category:'software',  icon:'⚙️', tag:'No-Code Builder',   lccode:'014538139894005541', lcpf:'none', notes:'No-code app/website builder. Growing SaaS segment. No lcpt/lcpf params.',                        url:'https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie' },
-      { num:6,  id:'knowledgehut',     name:'KnowledgeHut',       category:'education', icon:'🎓', tag:'Tech Certification',lccode:'014538151487007786', lcpf:'none', notes:'PMP, AWS, agile courses. High CPC niche — strong commission potential.',                         url:'https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=' },
-      { num:7,  id:'pmtraining',       name:'PM Training',        category:'education', icon:'📋', tag:'PMP / Agile',       lccode:'014538081796006139', lcpf:'none', notes:'Focused PMP/PRINCE2 cert prep. Appears twice in raw link list — confirm dedup.',               url:'https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining' },
-      { num:8,  id:'cpraedcourse',     name:'CPR AED Course',     category:'education', icon:'❤️‍🔥', tag:'CPR Certification',lccode:'014538047418004897', lcpf:'3',    notes:'Online CPR/AED cert. Evergreen demand from workplaces, parents, coaches.',                      url:'https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3' },
-      { num:9,  id:'cprcare',          name:'CPR Care',           category:'education', icon:'🏥', tag:'First Aid',         lccode:'014538104426006955', lcpf:'none', notes:'Sister campaign to CPR AED Course. Both active — differentiate in copy.',                         url:'https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=' },
-      { num:10, id:'ahca',             name:'AHCA',               category:'education', icon:'🩺', tag:'Healthcare Training',lccode:'014538092157004897',lcpf:'3',    notes:'American Health Care Academy. OSHA compliance angle. B2B potential.',                           url:'https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3' },
-      { num:11, id:'discountpetcare',  name:'Discount Pet Care',  category:'petcare',   icon:'🐾', tag:'Pet Meds',          lccode:'014538154581007847', lcpf:'none', notes:'Appears multiple times in raw link list — deduped to one card. Confirm active.',                  url:'https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=' },
-      { num:12, id:'canadapetcare',    name:'Canada Pet Care',    category:'petcare',   icon:'🐕', tag:'Pet Pharmacy',      lccode:'014538000012006219', lcpf:'none', notes:'URL-passthrough link format. Appears 3x in raw list — deduped. Verify tracking.',              url:'https://www.linkconnector.com/ta.php?lc=014538000012006219&url=https%3A%2F%2Fwww.canadapetcare.com%2F' },
-      { num:13, id:'buildasign',       name:'BuildASign',         category:'print',     icon:'🪧', tag:'Custom Signs',      lccode:'014538059259004756', lcpf:'3',    notes:'Appears 3x in raw link list — deduped. Banners, yard signs, canvas.',                           url:'https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3' },
-      { num:14, id:'easycanvasprints', name:'Easy Canvas Prints', category:'print',     icon:'🖼️', tag:'Canvas Prints',     lccode:'014538095217004760', lcpf:'3',    notes:'Photo-to-canvas. Seasonal spikes: Mother\'s Day, Christmas, graduation.',                      url:'https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3' },
-      { num:15, id:'canvasdiscount',   name:'Canvas Discount',    category:'print',     icon:'🎨', tag:'Photo Prints',      lccode:'014538165146007920', lcpf:'3',    notes:'Premium prints at discount pricing. Competes with Easy Canvas — differentiate by price angle.',url:'https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3' },
-      { num:16, id:'canvasonthecheap', name:'Canvas on the Cheap',category:'print',     icon:'💲', tag:'Budget Canvas',     lccode:'014538153308006216', lcpf:'3',    notes:'Budget-first angle. 3 canvas merchants total — use filter tags to help users choose.',         url:'https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3' },
-      { num:17, id:'infinitealoe',     name:'Infinite Aloe',      category:'health',    icon:'🌿', tag:'Natural Skincare',  lccode:'014538155218007855', lcpf:'0',    notes:'Organic aloe skincare. lcpf=0 (not lcpf=3). Natural/clean beauty segment.',                    url:'https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0' },
-      { num:18, id:'littletoe',        name:'Little Toe',         category:'health',    icon:'🦶', tag:'Foot Care',         lccode:'014538126445007124', lcpf:'none', notes:'Foot orthotics/bunion relief. No lcpt/lcpf params in link. Niche but high intent.',              url:'https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe' },
-      { num:19, id:'combatflipflops',  name:'Combat Flip Flops',  category:'lifestyle', icon:'🩴', tag:'Social Impact',     lccode:'014538089787006486', lcpf:'0',    notes:'Mission-driven brand. Appears 3x in raw list — deduped. lcpf=0 confirmed.',                   url:'https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0' },
-      { num:20, id:'halloweencostumes',name:'Halloween Costumes', category:'lifestyle', icon:'🎃', tag:'Costumes',          lccode:'014538069092004909', lcpf:'none', notes:'Seasonal peak Aug–Oct. Plan content pushes ahead of Halloween.',                                 url:'https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=' },
-      { num:21, id:'shoplww',          name:'Shop LWW',           category:'lifestyle', icon:'📚', tag:'Medical Books',     lccode:'014538165369003224', lcpf:'3',    notes:'Lippincott medical/nursing textbooks. Back-to-school seasonal spikes.',                         url:'https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3' },
-      { num:22, id:'bgmgirl',          name:'BGM Girl',           category:'services',  icon:'🎵', tag:'Royalty-Free Music',lccode:'014538163184007840', lcpf:'none', notes:'Background music for creators. YouTube-safe. Growing creator economy niche.',                    url:'https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=' },
-      { num:23, id:'lafuent',          name:'Lafuent',            category:'services',  icon:'🔧', tag:'Auto Parts',        lccode:'014538034203001545', lcpf:'0',    notes:'OEM/aftermarket auto parts. International shipping. lcpf=0 confirmed.',                        url:'https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0' },
-      { num:24, id:'taxextension',     name:'Tax Extension',      category:'services',  icon:'📄', tag:'Tax Service',       lccode:'014538121293006198', lcpf:'none', notes:'Seasonal peak Jan–Apr. IRS extension deadline angle. No lcpt/lcpf params.',                    url:'https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension' },
+      { num:1,  id:'movavi',           name:'Movavi',              category:'software',  icon:'🎬', tag:'Video Editor',       lccode:'014538108972006513', lcpf:'3',    notes:'Video editing suite for Win/Mac. Strong search volume on "best video editor software 2026". One-time purchase angle converts well.', url:'https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3' },
+      { num:2,  id:'iskysoft',         name:'iSkysoft',            category:'software',  icon:'💿', tag:'Multimedia Suite',   lccode:'014538080056005679', lcpf:'3',    notes:'Data recovery + multimedia tools. Panic-driven buyer intent. Target "recover deleted files Mac Windows". Free scan preview reduces friction.', url:'https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3' },
+      { num:3,  id:'tenorshare',       name:'Tenorshare',          category:'software',  icon:'📱', tag:'Phone Tools',        lccode:'014538147585006847', lcpf:'3',    notes:'iOS/Android recovery tools. Highest panic intent — "recover deleted photos iphone" is 1M+ monthly. ReiBoot and 4uKey are top products.', url:'https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3' },
+      { num:4,  id:'wondershare',      name:'Wondershare',         category:'software',  icon:'✨', tag:'Creative Suite',     lccode:'014538165262004532', lcpf:'3',    notes:'Filmora, PDFelement, Recoverit. 100M+ users globally. Filmora free trial angle + PDFelement vs Adobe Acrobat comparison both strong.', url:'https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3' },
+      { num:5,  id:'appypie',          name:'Appy Pie',            category:'software',  icon:'⚙️', tag:'No-Code Builder',    lccode:'014538139894005541', lcpf:'none', notes:'No-code app/website/chatbot builder. 10M+ apps created. Target "build app without coding" and "Zapier alternative cheap". No lcpf params.', url:'https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie' },
+      { num:6,  id:'knowledgehut',     name:'KnowledgeHut',        category:'education', icon:'🎓', tag:'Tech Certification', lccode:'014538151487007786', lcpf:'none', notes:'AWS, PMP, data science, cybersecurity, agile courses. 500K+ trained. High CPC niche — "AWS certification 2026" targets $15K-30K salary uplift.', url:'https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=' },
+      { num:7,  id:'pmtraining',       name:'PM Training',         category:'education', icon:'📋', tag:'PMP / PRINCE2',      lccode:'014538081796006139', lcpf:'none', notes:'PMP/PRINCE2/Agile certification prep. 98% pass rate. 40 PDUs included. "PMP certification worth it" angle — 33% average salary increase.', url:'https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining' },
+      { num:8,  id:'cpraedcourse',     name:'CPR AED Course',      category:'education', icon:'❤️‍🔥', tag:'CPR Certification', lccode:'014538047418004897', lcpf:'3',    notes:'Online CPR/AED cert — instant certificate. 500K+ issued. Evergreen demand from teachers, coaches, workplace. lcpf=3 confirmed.', url:'https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3' },
+      { num:9,  id:'cprcare',          name:'CPR Care',            category:'education', icon:'🏥', tag:'BLS / First Aid',    lccode:'014538104426006955', lcpf:'none', notes:'BLS and CPR for healthcare workers and organizations. Group training dashboard. Sister campaign to CPR AED Course — differentiate by BLS angle.', url:'https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=' },
+      { num:10, id:'ahca',             name:'AHCA',                category:'education', icon:'🩺', tag:'Healthcare Training', lccode:'014538092157004897', lcpf:'3',    notes:'OSHA, HIPAA, BLS, bloodborne pathogen training. B2B angle strong — annual compliance requirements. lcpf=3 confirmed.', url:'https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3' },
+      { num:11, id:'discountpetcare',  name:'Discount Pet Care',   category:'petcare',   icon:'🐾', tag:'Pet Meds',           lccode:'014538154581007847', lcpf:'none', notes:'Online pet pharmacy — NexGard, Heartgard, Bravecto at 30-50% less than vet. Deduped from multiple raw links. Confirm active tracking.', url:'https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=' },
+      { num:12, id:'canadapetcare',    name:'Canada Pet Care',     category:'petcare',   icon:'🐕', tag:'Pet Pharmacy CA',    lccode:'014538000012006219', lcpf:'none', notes:'Licensed Canadian pet pharmacy. URL-passthrough link format. Deduped 3x. Target Canadian pet owners — Health Canada approved medications.', url:'https://www.linkconnector.com/ta.php?lc=014538000012006219&url=https%3A%2F%2Fwww.canadapetcare.com%2F' },
+      { num:13, id:'buildasign',       name:'BuildASign',          category:'print',     icon:'🪧', tag:'Custom Signs',       lccode:'014538059259004756', lcpf:'3',    notes:'Custom banners, yard signs, canvas. 10M+ signs produced. Deduped 3x. Real estate signs + trade show banners are high-volume angles.', url:'https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3' },
+      { num:14, id:'easycanvasprints', name:'Easy Canvas Prints',  category:'print',     icon:'🖼️', tag:'Canvas Prints',      lccode:'014538095217004760', lcpf:'3',    notes:'Photo-to-canvas prints. Seasonal spikes — Mother\'s Day, Christmas, weddings, graduation. "Canvas print wedding gift" is high intent.', url:'https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3' },
+      { num:15, id:'canvasdiscount',   name:'Canvas Discount',     category:'print',     icon:'🎨', tag:'Photo Prints',       lccode:'014538165146007920', lcpf:'3',    notes:'Premium canvas at discount everyday pricing. Differentiate from Canvas on the Cheap by no-sale-needed angle. Metal + acrylic prints also.', url:'https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3' },
+      { num:16, id:'canvasonthecheap', name:'Canvas on the Cheap', category:'print',     icon:'💲', tag:'Budget Canvas',      lccode:'014538153308006216', lcpf:'3',    notes:'Budget canvas with frequent 40-70% off sales. Sale timing angle — email list for early access. "Cheapest quality canvas prints online."', url:'https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3' },
+      { num:17, id:'infinitealoe',     name:'Infinite Aloe',       category:'health',    icon:'🌿', tag:'Natural Skincare',   lccode:'014538155218007855', lcpf:'0',    notes:'Organic aloe vera skincare. lcpf=0 (not lcpf=3). Target sensitive skin + eczema angle. "Does aloe vera help eczema" is 180K+ monthly.', url:'https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0' },
+      { num:18, id:'littletoe',        name:'Little Toe',          category:'health',    icon:'🦶', tag:'Foot Care',          lccode:'014538126445007124', lcpf:'none', notes:'Orthotics, bunion correctors, toe separators. No lcpf params. "Bunion corrector that actually works" is high intent. Runner foot pain angle.', url:'https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe' },
+      { num:19, id:'combatflipflops',  name:'Combat Flip Flops',   category:'lifestyle', icon:'🩴', tag:'Mission Footwear',   lccode:'014538089787006486', lcpf:'0',    notes:'Army Ranger-founded. Funds landmine removal. lcpf=0. Deduped 3x. Veteran gift angle strongest. "Ethical gifts veterans 2026" converts well.', url:'https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0' },
+      { num:20, id:'halloweencostumes',name:'Halloween Costumes',  category:'lifestyle', icon:'🎃', tag:'Costumes',           lccode:'014538069092004909', lcpf:'none', notes:'10,000+ costumes. Seasonal peak Aug-Oct — 2M+ monthly searches at peak. Group + couples + kids angles. Order early for delivery guarantee.', url:'https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=' },
+      { num:21, id:'shoplww',          name:'Shop LWW',            category:'education', icon:'📚', tag:'Medical Books',      lccode:'014538165369003224', lcpf:'3',    notes:'Official Lippincott store — nursing + medical textbooks. NCLEX review books highest intent. "Best NCLEX review book 2026" angle strong.', url:'https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3' },
+      { num:22, id:'bgmgirl',          name:'BGM Girl',            category:'services',  icon:'🎵', tag:'Royalty-Free Music', lccode:'014538163184007840', lcpf:'none', notes:'Licensed music for YouTube, Twitch, podcasts. No lcpf params. DMCA-safe angle is #1 concern for creators. Monetized channel coverage key.', url:'https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=' },
+      { num:23, id:'lafuent',          name:'Lafuent',             category:'services',  icon:'🔧', tag:'Auto Parts',         lccode:'014538034203001545', lcpf:'0',    notes:'OEM + aftermarket auto parts, global shipping. lcpf=0. European car specialty (BMW, Mercedes, Audi). OEM vs aftermarket guide converts well.', url:'https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0' },
+      { num:24, id:'taxextension',     name:'Tax Extension',       category:'services',  icon:'📄', tag:'Tax Filing',         lccode:'014538121293006198', lcpf:'none', notes:'IRS Form 4868 online. Seasonal peak Jan-Apr. No lcpf params. "How to file tax extension 2026" is 500K+ monthly at peak. Self-employed angle.', url:'https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension' },
     ];
 
-    let sortCol = 'id';
-    let sortDir = 1;
-    let catFilter = 'all';
-    let lcpfFilter = 'all';
-    let searchQ = '';
-    let expandedRows = new Set();
-    let allExpanded = false;
+    let sortCol='id', sortDir=1, catFilter='all', lcpfFilter='all', searchQ='', expandedRows=new Set(), allExpanded=false;
 
-    function lcpfClass(v) {
-      if (v === '3') return 'lcpf-3';
-      if (v === '0') return 'lcpf-0';
-      return 'lcpf-none';
-    }
-
-    function lcpfDisplay(v) {
-      if (v === '3') return 'lcpf=3';
-      if (v === '0') return 'lcpf=0';
-      return '—';
-    }
-
-    function truncateUrl(u, max=52) {
-      return u.length > max ? u.slice(0, max) + '…' : u;
-    }
+    const lcpfClass = v => v==='3'?'lcpf-3':v==='0'?'lcpf-0':'lcpf-none';
+    const lcpfDisplay = v => v==='3'?'lcpf=3':v==='0'?'lcpf=0':'—';
+    const truncate = (u,max=52) => u.length>max?u.slice(0,max)+'…':u;
 
     function getFiltered() {
       return CAMPAIGNS.filter(c => {
-        const catOk = catFilter === 'all' || c.category === catFilter;
-        const lcpfOk = lcpfFilter === 'all' || c.lcpf === lcpfFilter;
+        const catOk = catFilter==='all'||c.category===catFilter;
+        const lcpfOk = lcpfFilter==='all'||c.lcpf===lcpfFilter;
         const q = searchQ.toLowerCase();
-        const searchOk = !q || c.id.includes(q) || c.name.toLowerCase().includes(q) ||
-                         c.tag.toLowerCase().includes(q) || c.lccode.includes(q) ||
-                         c.category.includes(q);
-        return catOk && lcpfOk && searchOk;
+        const searchOk = !q||c.id.includes(q)||c.name.toLowerCase().includes(q)||c.tag.toLowerCase().includes(q)||c.lccode.includes(q)||c.category.includes(q)||c.notes.toLowerCase().includes(q);
+        return catOk&&lcpfOk&&searchOk;
       });
     }
 
     function getSorted(arr) {
-      return [...arr].sort((a, b) => {
-        let va = a[sortCol] ?? a.id;
-        let vb = b[sortCol] ?? b.id;
-        if (sortCol === 'num') { va = +va; vb = +vb; }
-        if (va < vb) return -1 * sortDir;
-        if (va > vb) return 1 * sortDir;
-        return 0;
+      return [...arr].sort((a,b)=>{
+        let va=a[sortCol]??a.id, vb=b[sortCol]??b.id;
+        if(sortCol==='num'){va=+va;vb=+vb;}
+        return va<vb?-1*sortDir:va>vb?1*sortDir:0;
       });
     }
 
@@ -1003,23 +344,19 @@
       const filtered = getSorted(getFiltered());
       const tbody = document.getElementById('inv-tbody');
       tbody.innerHTML = '';
-
-      document.getElementById('results-label').textContent = `${filtered.length} result${filtered.length !== 1 ? 's' : ''}`;
+      document.getElementById('results-label').textContent = `${filtered.length} result${filtered.length!==1?'s':''}`;
 
       if (!filtered.length) {
-        const tr = document.createElement('tr');
-        tr.className = 'empty-row';
-        tr.innerHTML = `<td colspan="10">No campaigns match your filters.</td>`;
-        tbody.appendChild(tr);
+        tbody.innerHTML = '<tr class="empty-row"><td colspan="10">No campaigns match your filters.</td></tr>';
         return;
       }
 
-      filtered.forEach((c, i) => {
-        const isExp = expandedRows.has(c.id) || allExpanded;
+      filtered.forEach((c,i) => {
+        const isExp = expandedRows.has(c.id)||allExpanded;
         const tr = document.createElement('tr');
         tr.dataset.id = c.id;
         tr.innerHTML = `
-          <td class="row-num mono">${i + 1}</td>
+          <td class="row-num mono">${i+1}</td>
           <td class="icon-cell">${c.icon}</td>
           <td class="id-cell mono">${c.id}</td>
           <td class="name-cell">${c.name}</td>
@@ -1029,153 +366,93 @@
           <td><span class="lcpf-badge ${lcpfClass(c.lcpf)}">${lcpfDisplay(c.lcpf)}</span></td>
           <td>
             <div class="link-cell">
-              <span class="link-text" title="${c.url}">${truncateUrl(c.url)}</span>
+              <span class="link-text" title="${c.url}">${truncate(c.url)}</span>
               <button class="copy-btn" data-url="${c.url}">copy</button>
               <a href="${c.url}" target="_blank" rel="noopener sponsored" class="visit-btn">↗</a>
             </div>
           </td>
-          <td><button class="expand-btn" data-eid="${c.id}" title="Toggle notes">${isExp ? '▲' : '▼'}</button></td>
-        `;
+          <td><button class="expand-btn" data-eid="${c.id}">${isExp?'▲':'▼'}</button></td>`;
         tbody.appendChild(tr);
 
-        // notes row
         const nr = document.createElement('tr');
         nr.className = 'notes-row';
         nr.dataset.notesFor = c.id;
-        nr.style.display = isExp ? '' : 'none';
-        nr.innerHTML = `
-          <td colspan="10">
-            <div class="notes-inner">
-              <span class="notes-label">Notes</span>
-              <span>${c.notes}</span>
-            </div>
-          </td>
-        `;
+        nr.style.display = isExp?'':'none';
+        nr.innerHTML = `<td colspan="10"><div class="notes-inner"><span class="notes-label">Notes</span><span>${c.notes}</span></div></td>`;
         tbody.appendChild(nr);
       });
 
-      // copy buttons
       tbody.querySelectorAll('.copy-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           navigator.clipboard.writeText(btn.dataset.url).then(() => {
-            btn.textContent = '✓';
-            btn.classList.add('copied');
+            btn.textContent='✓'; btn.classList.add('copied');
             showToast('Affiliate link copied!');
-            setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1800);
+            setTimeout(()=>{btn.textContent='copy';btn.classList.remove('copied');},1800);
           });
         });
       });
 
-      // expand buttons
       tbody.querySelectorAll('.expand-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const eid = btn.dataset.eid;
           const nr = tbody.querySelector(`[data-notes-for="${eid}"]`);
-          if (expandedRows.has(eid)) {
-            expandedRows.delete(eid);
-            nr.style.display = 'none';
-            btn.textContent = '▼';
-          } else {
-            expandedRows.add(eid);
-            nr.style.display = '';
-            btn.textContent = '▲';
-          }
+          if (expandedRows.has(eid)) { expandedRows.delete(eid); nr.style.display='none'; btn.textContent='▼'; }
+          else { expandedRows.add(eid); nr.style.display=''; btn.textContent='▲'; }
         });
       });
     }
 
-    // Toast
     function showToast(msg) {
       const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2000);
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(()=>t.classList.remove('show'),2000);
     }
 
-    // Sort headers
     document.querySelectorAll('th[data-col]').forEach(th => {
       th.addEventListener('click', () => {
         const col = th.dataset.col;
-        if (sortCol === col) { sortDir *= -1; }
-        else { sortCol = col; sortDir = 1; }
-        document.querySelectorAll('th[data-col]').forEach(h => {
-          h.classList.remove('sort-active');
-          h.querySelector('.sort-arrow').textContent = '↕';
-        });
+        if(sortCol===col){sortDir*=-1;}else{sortCol=col;sortDir=1;}
+        document.querySelectorAll('th[data-col]').forEach(h=>{h.classList.remove('sort-active');h.querySelector('.sort-arrow').textContent='↕';});
         th.classList.add('sort-active');
-        th.querySelector('.sort-arrow').textContent = sortDir === 1 ? '↑' : '↓';
+        th.querySelector('.sort-arrow').textContent=sortDir===1?'↑':'↓';
         render();
       });
     });
 
-    // Search
-    document.getElementById('inv-search').addEventListener('input', e => {
-      searchQ = e.target.value.trim();
-      render();
-    });
+    document.getElementById('inv-search').addEventListener('input', e=>{searchQ=e.target.value.trim();render();});
+    document.getElementById('cat-select').addEventListener('change', e=>{catFilter=e.target.value;syncSidebar();render();});
+    document.getElementById('lcpf-select').addEventListener('change', e=>{lcpfFilter=e.target.value;render();});
 
-    // Cat select
-    document.getElementById('cat-select').addEventListener('change', e => {
-      catFilter = e.target.value;
-      syncSidebar();
-      render();
+    document.querySelectorAll('.sidebar-item[data-filter]').forEach(item=>{
+      item.addEventListener('click',()=>{catFilter=item.dataset.filter;document.getElementById('cat-select').value=catFilter;syncSidebar();render();});
     });
-
-    // LCPF select
-    document.getElementById('lcpf-select').addEventListener('change', e => {
-      lcpfFilter = e.target.value;
-      render();
-    });
-
-    // Sidebar
-    document.querySelectorAll('.sidebar-item[data-filter]').forEach(item => {
-      item.addEventListener('click', () => {
-        catFilter = item.dataset.filter;
-        document.getElementById('cat-select').value = catFilter;
-        syncSidebar();
-        render();
-      });
-    });
-
-    document.querySelectorAll('.sidebar-item[data-filter-lcpf]').forEach(item => {
-      item.addEventListener('click', () => {
-        lcpfFilter = item.dataset.filterLcpf;
-        document.getElementById('lcpf-select').value = lcpfFilter;
-        render();
-      });
+    document.querySelectorAll('.sidebar-item[data-filter-lcpf]').forEach(item=>{
+      item.addEventListener('click',()=>{lcpfFilter=item.dataset.filterLcpf;document.getElementById('lcpf-select').value=lcpfFilter;render();});
     });
 
     function syncSidebar() {
-      document.querySelectorAll('.sidebar-item[data-filter]').forEach(i => {
-        i.classList.toggle('active', i.dataset.filter === catFilter);
-      });
+      document.querySelectorAll('.sidebar-item[data-filter]').forEach(i=>{i.classList.toggle('active',i.dataset.filter===catFilter);});
     }
 
-    // Expand all
-    document.getElementById('expand-all-btn').addEventListener('click', () => {
-      allExpanded = !allExpanded;
-      document.getElementById('expand-all-btn').textContent = allExpanded ? '⊟ Collapse All' : '⊞ Expand All';
-      if (!allExpanded) expandedRows.clear();
+    document.getElementById('expand-all-btn').addEventListener('click',()=>{
+      allExpanded=!allExpanded;
+      document.getElementById('expand-all-btn').textContent=allExpanded?'⊟ Collapse All':'⊞ Expand All';
+      if(!allExpanded)expandedRows.clear();
       render();
     });
 
-    // Export CSV
-    document.getElementById('export-csv-btn').addEventListener('click', () => {
-      const headers = ['#','ID','Name','Category','Tag','LC Code','LCPF','Affiliate URL','Notes'];
-      const rows = CAMPAIGNS.map(c => [
-        c.num, c.id, c.name, c.category, c.tag, c.lccode,
-        lcpfDisplay(c.lcpf), c.url, c.notes
-      ].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
-      const csv = [headers.join(','), ...rows].join('\n');
-      const blob = new Blob([csv], { type: 'text/csv' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'brightlane-inventory-2026-04-29.csv';
+    document.getElementById('export-csv-btn').addEventListener('click',()=>{
+      const headers=['#','ID','Name','Category','Tag','LC Code','LCPF','Affiliate URL','Notes'];
+      const rows=CAMPAIGNS.map(c=>[c.num,c.id,c.name,c.category,c.tag,c.lccode,lcpfDisplay(c.lcpf),c.url,c.notes].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(','));
+      const csv=[headers.join(','),...rows].join('\n');
+      const blob=new Blob([csv],{type:'text/csv'});
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);
+      a.download=`brightlane-inventory-${new Date().toISOString().split('T')[0]}.csv`;
       a.click();
       showToast('CSV exported!');
     });
 
-    // Initial render
     render();
   </script>
 </body>
