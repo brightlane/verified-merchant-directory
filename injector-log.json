@@ -166,5 +166,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-04-30",
+    "slug": "osha-training-healthcare-2026",
+    "merchant": "ahca",
+    "title": "OSHA Training for Healthcare Workers 2026 — What's Required and Where to Get It",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

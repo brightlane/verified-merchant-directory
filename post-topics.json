@@ -771,7 +771,7 @@
     {
       "slug": "osha-training-healthcare-2026",
       "merchant": "ahca",
-      "published": false,
+      "published": true,
       "title_en": "OSHA Training for Healthcare Workers 2026 — What's Required and Where to Get It",
       "category_en": "Education",
       "metaDesc_en": "OSHA training requirements for healthcare workers in 2026. Bloodborne pathogens, HIPAA, and workplace safety — what you need and how to get certified fast.",
@@ -807,7 +807,8 @@
           "q": "Does AHCA cover HIPAA training?",
           "a": "Yes. AHCA includes HIPAA privacy and security awareness training as part of their healthcare compliance catalog."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "nexgard-online-vs-vet-2026",
