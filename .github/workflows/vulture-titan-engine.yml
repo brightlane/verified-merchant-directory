@@ -32,13 +32,14 @@ jobs:
       - name: ✅ Validate Required Files
         run: |
           echo "── Checking required files ──"
-          test -f index.html          && echo "✓ index.html"          || (echo "✗ index.html MISSING"          && exit 1)
-          test -f affiliate.json      && echo "✓ affiliate.json"      || (echo "✗ affiliate.json MISSING"      && exit 1)
-          test -f lmss.txt            && echo "✓ lmss.txt"            || (echo "✗ lmss.txt MISSING"            && exit 1)
-          test -f inject.js           && echo "✓ inject.js"           || (echo "✗ inject.js MISSING"           && exit 1)
-          test -f auto-topic-generator.js && echo "✓ auto-topic-generator.js" || echo "⚠ auto-topic-generator.js missing — skipping"
-          test -f keyword-injector.js     && echo "✓ keyword-injector.js"     || echo "⚠ keyword-injector.js missing — skipping"
-          test -f sitemap-updater.js      && echo "✓ sitemap-updater.js"      || echo "⚠ sitemap-updater.js missing — skipping"
+          test -f index.html              && echo "✓ index.html"              || (echo "✗ index.html MISSING"              && exit 1)
+          test -f affiliate.json          && echo "✓ affiliate.json"          || (echo "✗ affiliate.json MISSING"          && exit 1)
+          test -f lmss.txt               && echo "✓ lmss.txt"               || (echo "✗ lmss.txt MISSING"               && exit 1)
+          test -f inject.js              && echo "✓ inject.js"              || (echo "✗ inject.js MISSING"              && exit 1)
+          test -f auto-topic-generator.js && echo "✓ auto-topic-generator.js" || echo "⚠ auto-topic-generator.js missing"
+          test -f keyword-injector.js     && echo "✓ keyword-injector.js"     || echo "⚠ keyword-injector.js missing"
+          test -f targetedkeys.js         && echo "✓ targetedkeys.js"         || echo "⚠ targetedkeys.js missing"
+          test -f sitemap-updater.js      && echo "✓ sitemap-updater.js"      || echo "⚠ sitemap-updater.js missing"
 
       - name: 🔧 Setup Node
         uses: actions/setup-node@v4
@@ -55,7 +56,7 @@ jobs:
             echo "⚠ auto-topic-generator.js not found — skipping"
           fi
 
-      - name: 💉 Blog Injector
+      - name: 💉 Blog Injector — 15 Languages
         env:
           ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
         run: node inject.js
@@ -68,6 +69,16 @@ jobs:
             node keyword-injector.js
           else
             echo "⚠ keyword-injector.js not found — skipping"
+          fi
+
+      - name: 🎯 Targeted Keyword Injection
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+        run: |
+          if [ -f targetedkeys.js ]; then
+            node targetedkeys.js
+          else
+            echo "⚠ targetedkeys.js not found — skipping"
           fi
 
       - name: 🗺️ Sitemap + Ping Search Engines
