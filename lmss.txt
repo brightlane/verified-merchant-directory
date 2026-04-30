@@ -5149,7 +5149,7 @@
     {
       "slug": "knowledgehut-agile-certification-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "Best Agile Certification Training 2026 — KnowledgeHut vs Competitors",
       "category_en": "Education",
       "metaDesc_en": "KnowledgeHut agile certification training review 2026. CSM, PMI-ACP, SAFe — which agile certifications does KnowledgeHut offer and how do they compare?",
@@ -5185,12 +5185,30 @@
           "q": "What agile framework does KnowledgeHut focus on?",
           "a": "KnowledgeHut covers multiple frameworks — Scrum (CSM, CSPO), SAFe for enterprise, Kanban, and PMI's agile approach (PMI-ACP)."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "knowledgehut-agile-certification-2026.html",
+        "knowledgehut-agile-certification-2026-zh.html",
+        "knowledgehut-agile-certification-2026-es.html",
+        "knowledgehut-agile-certification-2026-fr.html",
+        "knowledgehut-agile-certification-2026-de.html",
+        "knowledgehut-agile-certification-2026-pt.html",
+        "knowledgehut-agile-certification-2026-ar.html",
+        "knowledgehut-agile-certification-2026-hi.html",
+        "knowledgehut-agile-certification-2026-ru.html",
+        "knowledgehut-agile-certification-2026-ja.html",
+        "knowledgehut-agile-certification-2026-ko.html",
+        "knowledgehut-agile-certification-2026-id.html",
+        "knowledgehut-agile-certification-2026-it.html",
+        "knowledgehut-agile-certification-2026-nl.html",
+        "knowledgehut-agile-certification-2026-pl.html"
       ]
     },
     {
       "slug": "tax-extension-business-2026",
       "merchant": "taxextension",
-      "published": false,
+      "published": true,
       "title_en": "Business Tax Extension 2026 — LLC, S-Corp, and Partnership Guide",
       "category_en": "Services",
       "metaDesc_en": "Business tax extension guide for 2026. LLC, S-Corp, C-Corp, and partnership extension deadlines and how to file. Different rules than individual extensions.",
@@ -5226,6 +5244,24 @@
           "q": "Does my LLC need to file a business extension separately from my personal return?",
           "a": "It depends on how your LLC is taxed. Single-member LLCs taxed as sole proprietors file on Schedule C with your personal return. Multi-member LLCs or LLCs taxed as S-Corps file separate returns with separate extensions."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "tax-extension-business-2026.html",
+        "tax-extension-business-2026-zh.html",
+        "tax-extension-business-2026-es.html",
+        "tax-extension-business-2026-fr.html",
+        "tax-extension-business-2026-de.html",
+        "tax-extension-business-2026-pt.html",
+        "tax-extension-business-2026-ar.html",
+        "tax-extension-business-2026-hi.html",
+        "tax-extension-business-2026-ru.html",
+        "tax-extension-business-2026-ja.html",
+        "tax-extension-business-2026-ko.html",
+        "tax-extension-business-2026-id.html",
+        "tax-extension-business-2026-it.html",
+        "tax-extension-business-2026-nl.html",
+        "tax-extension-business-2026-pl.html"
       ]
     },
     {
