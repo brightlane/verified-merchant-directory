@@ -1,56 +1,36 @@
 # llms.txt — Brightlane Verified Merchant Directory
 # https://brightlane.github.io/verified-merchant-directory/
+# Updated automatically by Vulture Titan Engine on each publish run
 
-> Brightlane is a verified affiliate merchant directory and blog. We publish honest product reviews and buyer guides across 15 languages. All merchants are verified partners through LinkConnector.
+> Brightlane is a verified affiliate merchant directory and blog. We publish honest product reviews and buyer guides across 14 languages. All merchants are verified partners through LinkConnector.
 
 ## About
 
 Brightlane Verified Merchant Directory publishes affiliate-linked product reviews, comparisons, and buyer guides. Content covers software, education, pet care, print and signs, health, lifestyle, and services categories. All 24 merchants are verified through the LinkConnector affiliate network.
 
+## Directory
+
+The main merchant directory lists all 24 verified partners with descriptions, categories, and affiliate links.
+
+- [Verified Merchant Directory](https://brightlane.github.io/verified-merchant-directory/)
+
 ## Blog
 
-The Brightlane blog publishes multilingual buyer guides in English, Mandarin Chinese, Spanish, French, German, Portuguese, Arabic, Hindi, Russian, Japanese, Korean, Indonesian, Italian, Dutch, and Polish.
+The Brightlane blog publishes multilingual buyer guides in English, Simplified Chinese, Traditional Chinese, Spanish, French, German, Portuguese (EU), Portuguese (Brazil), Japanese, Korean, Italian, Dutch, Polish, and Hindi.
 
-- [Best Video Editor Software 2026](https://brightlane.github.io/verified-merchant-directory/blog/best-video-editor-2026.html)
-- [Movavi Video Editor Review 2026](https://brightlane.github.io/verified-merchant-directory/blog/movavi-review-2026.html)
-- [Cheapest Canvas Prints Online 2026](https://brightlane.github.io/verified-merchant-directory/blog/cheapest-canvas-prints-online.html)
-- [Best Online CPR Certification 2026](https://brightlane.github.io/verified-merchant-directory/blog/online-cpr-certification-2026.html)
-- [Best Pet Medication Online 2026](https://brightlane.github.io/verified-merchant-directory/blog/best-pet-medication-online-2026.html)
-- [Best PMP Certification Prep 2026](https://brightlane.github.io/verified-merchant-directory/blog/pmp-certification-online-2026.html)
-- [How to Recover Deleted Photos from iPhone 2026](https://brightlane.github.io/verified-merchant-directory/blog/recover-deleted-photos-iphone-2026.html)
-- [How to File a Tax Extension Online 2026](https://brightlane.github.io/verified-merchant-directory/blog/how-to-file-tax-extension-2026.html)
-- [Best Royalty-Free Music for YouTube 2026](https://brightlane.github.io/verified-merchant-directory/blog/royalty-free-music-youtube-2026.html)
-- [Best No-Code App Builder 2026](https://brightlane.github.io/verified-merchant-directory/blog/no-code-app-builder-2026.html)
-- [Best Bunion Relief Products 2026](https://brightlane.github.io/verified-merchant-directory/blog/bunion-relief-products-2026.html)
-- [Best Natural Skincare for Sensitive Skin 2026](https://brightlane.github.io/verified-merchant-directory/blog/natural-skincare-sensitive-skin-2026.html)
+- [Blog — English](https://brightlane.github.io/verified-merchant-directory/blog.html)
+- [Blog — Chinese (Simplified)](https://brightlane.github.io/verified-merchant-directory/blog-zh.html)
+- [Blog — Chinese (Traditional)](https://brightlane.github.io/verified-merchant-directory/blog-zh-tw.html)
+- [Blog — Spanish](https://brightlane.github.io/verified-merchant-directory/blog-es.html)
+- [Blog — French](https://brightlane.github.io/verified-merchant-directory/blog-fr.html)
+- [Blog — German](https://brightlane.github.io/verified-merchant-directory/blog-de.html)
+- [Blog — Portuguese (EU)](https://brightlane.github.io/verified-merchant-directory/blog-pt.html)
+- [Blog — Portuguese (Brazil)](https://brightlane.github.io/verified-merchant-directory/blog-pt-br.html)
+- [Blog — Japanese](https://brightlane.github.io/verified-merchant-directory/blog-ja.html)
+- [Blog — Korean](https://brightlane.github.io/verified-merchant-directory/blog-ko.html)
+- [Blog — Italian](https://brightlane.github.io/verified-merchant-directory/blog-it.html)
+- [Blog — Dutch](https://brightlane.github.io/verified-merchant-directory/blog-nl.html)
+- [Blog — Polish](https://brightlane.github.io/verified-merchant-directory/blog-pl.html)
+- [Blog — Hindi](https://brightlane.github.io/verified-merchant-directory/blog-hi.html)
 
-## Merchants
-
-- Movavi — Video editing software
-- iSkysoft — Multimedia suite and data recovery
-- Tenorshare — iPhone and Android tools
-- Wondershare — Creative software suite
-- Appy Pie — No-code app and chatbot builder
-- KnowledgeHut — Tech certifications and training
-- PM Training — PMP and project management certification
-- CPR AED Course — Online CPR certification
-- CPR Care — First aid and CPR training
-- AHCA — Healthcare compliance training
-- Discount Pet Care — Online pet pharmacy (USA)
-- Canada Pet Care — Online pet pharmacy (Canada)
-- BuildASign — Custom banners and signs
-- Easy Canvas Prints — Photo canvas prints
-- Canvas Discount — Discount canvas prints
-- Canvas on the Cheap — Budget canvas prints
-- Infinite Aloe — Organic aloe vera skincare
-- Little Toe — Orthopedic foot care
-- Combat Flip Flops — Mission-driven footwear
-- Halloween Costumes — Costume retailer
-- Shop LWW — Lippincott medical and nursing textbooks
-- BGM Girl — Royalty-free background music
-- Lafuent — OEM and aftermarket auto parts
-- Tax Extension — Online federal tax extension filing
-
-## Disclosure
-
-This site contains affiliate links. We earn a commission when purchases are made through our links at no additional cost to the visitor. All merchants are verified partners through LinkConnector.
+## Recent Posts
