@@ -645,7 +645,7 @@
     {
       "slug": "pmp-exam-prep-guide-2026",
       "merchant": "pmtraining",
-      "published": false,
+      "published": true,
       "title_en": "PMP Exam Prep Guide 2026 — Everything You Need to Pass First Time",
       "category_en": "Education",
       "metaDesc_en": "Complete PMP exam prep guide for 2026. Experience requirements, study plan, best prep courses, and tips from people who passed on their first attempt.",
@@ -681,7 +681,8 @@
           "q": "How long does PMP certification last?",
           "a": "PMP certification is valid for 3 years. You need 60 PDUs in that period to renew without re-sitting the exam."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "cpr-certification-online-workplace-2026",
