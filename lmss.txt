@@ -3497,7 +3497,7 @@
     {
       "slug": "movavi-video-suite-review-2026",
       "merchant": "movavi",
-      "published": false,
+      "published": true,
       "title_en": "Movavi Video Suite Review 2026 — Is the Bundle Worth the Upgrade?",
       "category_en": "Software",
       "metaDesc_en": "Movavi Video Suite vs Video Editor 2026 — what extra features do you get and is the upgrade worth it? Screen recorder, converter, and player compared.",
@@ -3533,12 +3533,30 @@
           "q": "Does Movavi Video Suite include future updates?",
           "a": "Yes. Suite licenses include updates for all included applications."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "movavi-video-suite-review-2026.html",
+        "movavi-video-suite-review-2026-zh.html",
+        "movavi-video-suite-review-2026-es.html",
+        "movavi-video-suite-review-2026-fr.html",
+        "movavi-video-suite-review-2026-de.html",
+        "movavi-video-suite-review-2026-pt.html",
+        "movavi-video-suite-review-2026-ar.html",
+        "movavi-video-suite-review-2026-hi.html",
+        "movavi-video-suite-review-2026-ru.html",
+        "movavi-video-suite-review-2026-ja.html",
+        "movavi-video-suite-review-2026-ko.html",
+        "movavi-video-suite-review-2026-id.html",
+        "movavi-video-suite-review-2026-it.html",
+        "movavi-video-suite-review-2026-nl.html",
+        "movavi-video-suite-review-2026-pl.html"
       ]
     },
     {
       "slug": "iskysoft-screen-recorder-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft Screen Recorder Review 2026 — Record, Edit, Share",
       "category_en": "Software",
       "metaDesc_en": "iSkysoft Screen Recorder review 2026. Record screen and webcam simultaneously with built-in editing tools. Best for tutorials, meetings, and gameplay on Mac and Windows.",
@@ -3574,6 +3592,24 @@
           "q": "Can I edit my recordings in iSkysoft?",
           "a": "Yes. A built-in editor handles trimming, cutting, and basic annotations."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "iskysoft-screen-recorder-2026.html",
+        "iskysoft-screen-recorder-2026-zh.html",
+        "iskysoft-screen-recorder-2026-es.html",
+        "iskysoft-screen-recorder-2026-fr.html",
+        "iskysoft-screen-recorder-2026-de.html",
+        "iskysoft-screen-recorder-2026-pt.html",
+        "iskysoft-screen-recorder-2026-ar.html",
+        "iskysoft-screen-recorder-2026-hi.html",
+        "iskysoft-screen-recorder-2026-ru.html",
+        "iskysoft-screen-recorder-2026-ja.html",
+        "iskysoft-screen-recorder-2026-ko.html",
+        "iskysoft-screen-recorder-2026-id.html",
+        "iskysoft-screen-recorder-2026-it.html",
+        "iskysoft-screen-recorder-2026-nl.html",
+        "iskysoft-screen-recorder-2026-pl.html"
       ]
     },
     {
