@@ -2317,7 +2317,7 @@
     {
       "slug": "ahca-osha-healthcare-2026",
       "merchant": "ahca",
-      "published": false,
+      "published": true,
       "title_en": "OSHA Compliance Training for Healthcare Workers 2026",
       "category_en": "Education",
       "metaDesc_en": "OSHA compliance training requirements for healthcare workers in 2026. Bloodborne pathogens, CPR, BLS — what certifications your employer requires and where to get them.",
@@ -2353,12 +2353,30 @@
           "q": "Does AHCA certification satisfy hospital requirements?",
           "a": "AHCA's BLS and compliance training satisfies most hospital and clinical employer requirements. Confirm with your specific employer."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "ahca-osha-healthcare-2026.html",
+        "ahca-osha-healthcare-2026-zh.html",
+        "ahca-osha-healthcare-2026-es.html",
+        "ahca-osha-healthcare-2026-fr.html",
+        "ahca-osha-healthcare-2026-de.html",
+        "ahca-osha-healthcare-2026-pt.html",
+        "ahca-osha-healthcare-2026-ar.html",
+        "ahca-osha-healthcare-2026-hi.html",
+        "ahca-osha-healthcare-2026-ru.html",
+        "ahca-osha-healthcare-2026-ja.html",
+        "ahca-osha-healthcare-2026-ko.html",
+        "ahca-osha-healthcare-2026-id.html",
+        "ahca-osha-healthcare-2026-it.html",
+        "ahca-osha-healthcare-2026-nl.html",
+        "ahca-osha-healthcare-2026-pl.html"
       ]
     },
     {
       "slug": "nexgard-vs-bravecto-2026",
       "merchant": "discountpetcare",
-      "published": false,
+      "published": true,
       "title_en": "NexGard vs Bravecto 2026 — Which Flea and Tick Treatment is Better?",
       "category_en": "Pet Care",
       "metaDesc_en": "NexGard vs Bravecto compared for 2026. Monthly vs every-3-month dosing, effectiveness, safety, and price. Which flea and tick treatment is right for your dog?",
@@ -2394,6 +2412,24 @@
           "q": "Can I buy NexGard cheaper online?",
           "a": "Yes. Online pet pharmacies like Discount Pet Care offer the same FDA-approved medications at 30-50% less than vet office pricing."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "nexgard-vs-bravecto-2026.html",
+        "nexgard-vs-bravecto-2026-zh.html",
+        "nexgard-vs-bravecto-2026-es.html",
+        "nexgard-vs-bravecto-2026-fr.html",
+        "nexgard-vs-bravecto-2026-de.html",
+        "nexgard-vs-bravecto-2026-pt.html",
+        "nexgard-vs-bravecto-2026-ar.html",
+        "nexgard-vs-bravecto-2026-hi.html",
+        "nexgard-vs-bravecto-2026-ru.html",
+        "nexgard-vs-bravecto-2026-ja.html",
+        "nexgard-vs-bravecto-2026-ko.html",
+        "nexgard-vs-bravecto-2026-id.html",
+        "nexgard-vs-bravecto-2026-it.html",
+        "nexgard-vs-bravecto-2026-nl.html",
+        "nexgard-vs-bravecto-2026-pl.html"
       ]
     },
     {
