@@ -520,7 +520,7 @@
     {
       "slug": "iskysoft-pdf-editor-review-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft PDF Editor Review 2026 — A Real Adobe Acrobat Alternative?",
       "category_en": "Software",
       "metaDesc_en": "iSkysoft PDF Editor review 2026. Edit, convert, and sign PDFs without Adobe Acrobat. Is it a viable alternative at a lower price?",
@@ -555,7 +555,8 @@
           "q": "Does it work on Mac?",
           "a": "Yes. iSkysoft has native Mac and Windows versions of their PDF editor."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "appypie-website-builder-review-2026",
