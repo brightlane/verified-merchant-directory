@@ -1078,7 +1078,7 @@
     {
       "slug": "iskysoft-pdf-editor-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft PDF Editor Review 2026 — Edit PDFs Without Adobe Acrobat",
       "category_en": "Software",
       "metaDesc_en": "iSkysoft PDF Editor review 2026. Edit text, images, and forms in PDF files without Adobe Acrobat. OCR, digital signatures, and password protection included.",
@@ -1114,6 +1114,24 @@
           "q": "Is iSkysoft PDF Editor a one-time purchase?",
           "a": "Yes. iSkysoft offers a one-time purchase license option with no ongoing subscription required."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "iskysoft-pdf-editor-2026.html",
+        "iskysoft-pdf-editor-2026-zh.html",
+        "iskysoft-pdf-editor-2026-es.html",
+        "iskysoft-pdf-editor-2026-fr.html",
+        "iskysoft-pdf-editor-2026-de.html",
+        "iskysoft-pdf-editor-2026-pt.html",
+        "iskysoft-pdf-editor-2026-ar.html",
+        "iskysoft-pdf-editor-2026-hi.html",
+        "iskysoft-pdf-editor-2026-ru.html",
+        "iskysoft-pdf-editor-2026-ja.html",
+        "iskysoft-pdf-editor-2026-ko.html",
+        "iskysoft-pdf-editor-2026-id.html",
+        "iskysoft-pdf-editor-2026-it.html",
+        "iskysoft-pdf-editor-2026-nl.html",
+        "iskysoft-pdf-editor-2026-pl.html"
       ]
     },
     {
