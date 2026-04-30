@@ -4441,7 +4441,7 @@
     {
       "slug": "littletoe-foot-pain-running-2026",
       "merchant": "littletoe",
-      "published": false,
+      "published": true,
       "title_en": "Foot Pain from Running 2026 — How to Fix It Without Stopping",
       "category_en": "Health",
       "metaDesc_en": "Foot pain from running in 2026 — causes and solutions. Bunions, plantar fasciitis, and toe pain while running. Products that help runners stay active.",
@@ -4477,12 +4477,30 @@
           "q": "Will orthopedic products slow bunion progression?",
           "a": "Yes. Clinical evidence shows that consistent use of bunion correctors, appropriate footwear, and toe separators slows progression in mild to moderate cases."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "littletoe-foot-pain-running-2026.html",
+        "littletoe-foot-pain-running-2026-zh.html",
+        "littletoe-foot-pain-running-2026-es.html",
+        "littletoe-foot-pain-running-2026-fr.html",
+        "littletoe-foot-pain-running-2026-de.html",
+        "littletoe-foot-pain-running-2026-pt.html",
+        "littletoe-foot-pain-running-2026-ar.html",
+        "littletoe-foot-pain-running-2026-hi.html",
+        "littletoe-foot-pain-running-2026-ru.html",
+        "littletoe-foot-pain-running-2026-ja.html",
+        "littletoe-foot-pain-running-2026-ko.html",
+        "littletoe-foot-pain-running-2026-id.html",
+        "littletoe-foot-pain-running-2026-it.html",
+        "littletoe-foot-pain-running-2026-nl.html",
+        "littletoe-foot-pain-running-2026-pl.html"
       ]
     },
     {
       "slug": "combat-flip-flops-sandals-review-2026",
       "merchant": "combatflipflops",
-      "published": false,
+      "published": true,
       "title_en": "Combat Flip Flops Sandals Review 2026 — Comfort, Durability, and Mission",
       "category_en": "Lifestyle",
       "metaDesc_en": "Combat Flip Flops sandals review 2026. Are they actually comfortable and durable? Honest product review of the Army Ranger-founded footwear brand.",
@@ -4518,6 +4536,24 @@
           "q": "How long do Combat Flip Flops last?",
           "a": "Most customers report 2-3x the lifespan of typical sandals in the same price range, consistent with the military-grade construction philosophy."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "combat-flip-flops-sandals-review-2026.html",
+        "combat-flip-flops-sandals-review-2026-zh.html",
+        "combat-flip-flops-sandals-review-2026-es.html",
+        "combat-flip-flops-sandals-review-2026-fr.html",
+        "combat-flip-flops-sandals-review-2026-de.html",
+        "combat-flip-flops-sandals-review-2026-pt.html",
+        "combat-flip-flops-sandals-review-2026-ar.html",
+        "combat-flip-flops-sandals-review-2026-hi.html",
+        "combat-flip-flops-sandals-review-2026-ru.html",
+        "combat-flip-flops-sandals-review-2026-ja.html",
+        "combat-flip-flops-sandals-review-2026-ko.html",
+        "combat-flip-flops-sandals-review-2026-id.html",
+        "combat-flip-flops-sandals-review-2026-it.html",
+        "combat-flip-flops-sandals-review-2026-nl.html",
+        "combat-flip-flops-sandals-review-2026-pl.html"
       ]
     },
     {
