@@ -1019,7 +1019,7 @@
     {
       "slug": "iskysoft-video-converter-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft Video Converter Review 2026 — Fast, High Quality, Worth It?",
       "category_en": "Software",
       "metaDesc_en": "iSkysoft Video Converter review 2026. Convert video files fast without quality loss. Supports 1000+ formats including MP4, MOV, MKV, AVI. Mac and Windows.",
@@ -1055,6 +1055,24 @@
           "q": "How fast is iSkysoft Video Converter?",
           "a": "With GPU acceleration enabled, most conversions run at 30-90x real-time speed."
         }
+      ],
+      "published_date": "2026-04-29",
+      "files_generated": [
+        "iskysoft-video-converter-2026.html",
+        "iskysoft-video-converter-2026-zh.html",
+        "iskysoft-video-converter-2026-es.html",
+        "iskysoft-video-converter-2026-fr.html",
+        "iskysoft-video-converter-2026-de.html",
+        "iskysoft-video-converter-2026-pt.html",
+        "iskysoft-video-converter-2026-ar.html",
+        "iskysoft-video-converter-2026-hi.html",
+        "iskysoft-video-converter-2026-ru.html",
+        "iskysoft-video-converter-2026-ja.html",
+        "iskysoft-video-converter-2026-ko.html",
+        "iskysoft-video-converter-2026-id.html",
+        "iskysoft-video-converter-2026-it.html",
+        "iskysoft-video-converter-2026-nl.html",
+        "iskysoft-video-converter-2026-pl.html"
       ]
     },
     {
