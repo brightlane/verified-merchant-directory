@@ -65,7 +65,7 @@
     {
       "slug": "iskysoft-data-recovery-review-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft Data Recovery Review 2026 — Can It Really Recover Lost Files?",
       "category_en": "Software",
       "metaDesc_en": "Honest iSkysoft data recovery review 2026. Does it recover deleted files from Mac and Windows? Pricing, success rates, and how to use it.",
@@ -100,7 +100,8 @@
           "q": "How long does a scan take?",
           "a": "A quick scan takes a few minutes. A deep scan for formatted drives can take 30 minutes to several hours depending on drive size."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "buildasign-custom-banners-review-2026",
