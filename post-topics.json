@@ -729,7 +729,7 @@
     {
       "slug": "bls-certification-nurses-2026",
       "merchant": "cprcare",
-      "published": false,
+      "published": true,
       "title_en": "BLS Certification for Nurses 2026 — Online Options That Meet Hospital Requirements",
       "category_en": "Education",
       "metaDesc_en": "BLS certification options for nurses in 2026. Which online BLS courses meet hospital requirements? How to recertify fast without taking a day off work.",
@@ -765,7 +765,8 @@
           "q": "What does BLS cover that basic CPR doesn't?",
           "a": "BLS covers adult, child, and infant CPR, AED use, rescue breathing, and team-based resuscitation — the full scope required for healthcare providers."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "osha-training-healthcare-2026",
