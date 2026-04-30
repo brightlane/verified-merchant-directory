@@ -18,7 +18,7 @@
       "nl",
       "pl"
     ],
-    "last_updated": "2026-04-29",
+    "last_updated": "2026-04-30",
     "note": "English only for new topics — injector auto-translates to all 15 languages via Claude API at publish time."
   },
   "topics": [
@@ -1137,7 +1137,7 @@
     {
       "slug": "tenorshare-reiboot-iphone-fix-2026",
       "merchant": "tenorshare",
-      "published": false,
+      "published": true,
       "title_en": "Tenorshare ReiBoot Review 2026 — Fix iPhone Stuck on Apple Logo",
       "category_en": "Software",
       "metaDesc_en": "Tenorshare ReiBoot review 2026. Fix iPhone stuck on Apple logo, boot loop, or black screen without losing data. Works on iPhone 15 and latest iOS.",
@@ -1173,12 +1173,30 @@
           "q": "How long does a ReiBoot repair take?",
           "a": "Standard mode typically completes in 10-20 minutes."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "tenorshare-reiboot-iphone-fix-2026.html",
+        "tenorshare-reiboot-iphone-fix-2026-zh.html",
+        "tenorshare-reiboot-iphone-fix-2026-es.html",
+        "tenorshare-reiboot-iphone-fix-2026-fr.html",
+        "tenorshare-reiboot-iphone-fix-2026-de.html",
+        "tenorshare-reiboot-iphone-fix-2026-pt.html",
+        "tenorshare-reiboot-iphone-fix-2026-ar.html",
+        "tenorshare-reiboot-iphone-fix-2026-hi.html",
+        "tenorshare-reiboot-iphone-fix-2026-ru.html",
+        "tenorshare-reiboot-iphone-fix-2026-ja.html",
+        "tenorshare-reiboot-iphone-fix-2026-ko.html",
+        "tenorshare-reiboot-iphone-fix-2026-id.html",
+        "tenorshare-reiboot-iphone-fix-2026-it.html",
+        "tenorshare-reiboot-iphone-fix-2026-nl.html",
+        "tenorshare-reiboot-iphone-fix-2026-pl.html"
       ]
     },
     {
       "slug": "tenorshare-4ukey-unlock-iphone-2026",
       "merchant": "tenorshare",
-      "published": false,
+      "published": true,
       "title_en": "Tenorshare 4uKey Review 2026 — Unlock iPhone Without Passcode",
       "category_en": "Software",
       "metaDesc_en": "Tenorshare 4uKey review 2026. Unlock a disabled iPhone, remove forgotten passcode, bypass Face ID or Touch ID. Works on iPhone 15 and iOS 17.",
@@ -1214,6 +1232,24 @@
           "q": "Does 4uKey work on the latest iOS?",
           "a": "Yes. Tenorshare updates 4uKey regularly to support the latest iOS versions."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "tenorshare-4ukey-unlock-iphone-2026.html",
+        "tenorshare-4ukey-unlock-iphone-2026-zh.html",
+        "tenorshare-4ukey-unlock-iphone-2026-es.html",
+        "tenorshare-4ukey-unlock-iphone-2026-fr.html",
+        "tenorshare-4ukey-unlock-iphone-2026-de.html",
+        "tenorshare-4ukey-unlock-iphone-2026-pt.html",
+        "tenorshare-4ukey-unlock-iphone-2026-ar.html",
+        "tenorshare-4ukey-unlock-iphone-2026-hi.html",
+        "tenorshare-4ukey-unlock-iphone-2026-ru.html",
+        "tenorshare-4ukey-unlock-iphone-2026-ja.html",
+        "tenorshare-4ukey-unlock-iphone-2026-ko.html",
+        "tenorshare-4ukey-unlock-iphone-2026-id.html",
+        "tenorshare-4ukey-unlock-iphone-2026-it.html",
+        "tenorshare-4ukey-unlock-iphone-2026-nl.html",
+        "tenorshare-4ukey-unlock-iphone-2026-pl.html"
       ]
     },
     {
