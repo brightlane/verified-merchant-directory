@@ -3379,7 +3379,7 @@
     {
       "slug": "oem-vs-aftermarket-parts-2026",
       "merchant": "lafuent",
-      "published": false,
+      "published": true,
       "title_en": "OEM vs Aftermarket Car Parts 2026 — Which Should You Buy?",
       "category_en": "Services",
       "metaDesc_en": "OEM vs aftermarket car parts explained for 2026. When to pay for OEM, when aftermarket is fine, and how to find the right parts online at the best price.",
@@ -3415,12 +3415,30 @@
           "q": "Why are OEM parts more expensive?",
           "a": "OEM parts carry the manufacturer's brand and come through authorized channels with warranty support."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "oem-vs-aftermarket-parts-2026.html",
+        "oem-vs-aftermarket-parts-2026-zh.html",
+        "oem-vs-aftermarket-parts-2026-es.html",
+        "oem-vs-aftermarket-parts-2026-fr.html",
+        "oem-vs-aftermarket-parts-2026-de.html",
+        "oem-vs-aftermarket-parts-2026-pt.html",
+        "oem-vs-aftermarket-parts-2026-ar.html",
+        "oem-vs-aftermarket-parts-2026-hi.html",
+        "oem-vs-aftermarket-parts-2026-ru.html",
+        "oem-vs-aftermarket-parts-2026-ja.html",
+        "oem-vs-aftermarket-parts-2026-ko.html",
+        "oem-vs-aftermarket-parts-2026-id.html",
+        "oem-vs-aftermarket-parts-2026-it.html",
+        "oem-vs-aftermarket-parts-2026-nl.html",
+        "oem-vs-aftermarket-parts-2026-pl.html"
       ]
     },
     {
       "slug": "tax-extension-self-employed-2026",
       "merchant": "taxextension",
-      "published": false,
+      "published": true,
       "title_en": "How to File a Tax Extension When Self-Employed 2026",
       "category_en": "Services",
       "metaDesc_en": "Self-employed tax extension guide for 2026. Freelancers and small business owners — how to file IRS Form 4868 online, estimate what you owe, and avoid penalties.",
@@ -3456,6 +3474,24 @@
           "q": "What happens if I don't pay enough with my extension?",
           "a": "The IRS charges interest on unpaid balances from the original due date."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "tax-extension-self-employed-2026.html",
+        "tax-extension-self-employed-2026-zh.html",
+        "tax-extension-self-employed-2026-es.html",
+        "tax-extension-self-employed-2026-fr.html",
+        "tax-extension-self-employed-2026-de.html",
+        "tax-extension-self-employed-2026-pt.html",
+        "tax-extension-self-employed-2026-ar.html",
+        "tax-extension-self-employed-2026-hi.html",
+        "tax-extension-self-employed-2026-ru.html",
+        "tax-extension-self-employed-2026-ja.html",
+        "tax-extension-self-employed-2026-ko.html",
+        "tax-extension-self-employed-2026-id.html",
+        "tax-extension-self-employed-2026-it.html",
+        "tax-extension-self-employed-2026-nl.html",
+        "tax-extension-self-employed-2026-pl.html"
       ]
     },
     {
