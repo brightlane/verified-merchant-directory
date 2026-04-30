@@ -1609,7 +1609,7 @@
     {
       "slug": "appypie-automation-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "Appy Pie Automation Review 2026 — Connect Your Apps Without Code",
       "category_en": "Software",
       "metaDesc_en": "Appy Pie Automation review 2026. Connect apps and automate workflows without coding. How does it compare to Zapier and Make? Pricing and use cases.",
@@ -1645,12 +1645,30 @@
           "q": "Do I need technical skills to use Appy Pie Automation?",
           "a": "No. The visual builder uses triggers and actions that anyone can configure without coding."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "appypie-automation-2026.html",
+        "appypie-automation-2026-zh.html",
+        "appypie-automation-2026-es.html",
+        "appypie-automation-2026-fr.html",
+        "appypie-automation-2026-de.html",
+        "appypie-automation-2026-pt.html",
+        "appypie-automation-2026-ar.html",
+        "appypie-automation-2026-hi.html",
+        "appypie-automation-2026-ru.html",
+        "appypie-automation-2026-ja.html",
+        "appypie-automation-2026-ko.html",
+        "appypie-automation-2026-id.html",
+        "appypie-automation-2026-it.html",
+        "appypie-automation-2026-nl.html",
+        "appypie-automation-2026-pl.html"
       ]
     },
     {
       "slug": "appypie-ecommerce-app-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "How to Build an Ecommerce App Without Coding in 2026 — Appy Pie Guide",
       "category_en": "Software",
       "metaDesc_en": "Build an ecommerce mobile app without coding in 2026 using Appy Pie. Sell products through your own iOS and Android app — no developer required.",
@@ -1686,6 +1704,24 @@
           "q": "Will my app work on both iPhone and Android?",
           "a": "Yes. Appy Pie publishes to both the Apple App Store and Google Play Store from a single build."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "appypie-ecommerce-app-2026.html",
+        "appypie-ecommerce-app-2026-zh.html",
+        "appypie-ecommerce-app-2026-es.html",
+        "appypie-ecommerce-app-2026-fr.html",
+        "appypie-ecommerce-app-2026-de.html",
+        "appypie-ecommerce-app-2026-pt.html",
+        "appypie-ecommerce-app-2026-ar.html",
+        "appypie-ecommerce-app-2026-hi.html",
+        "appypie-ecommerce-app-2026-ru.html",
+        "appypie-ecommerce-app-2026-ja.html",
+        "appypie-ecommerce-app-2026-ko.html",
+        "appypie-ecommerce-app-2026-id.html",
+        "appypie-ecommerce-app-2026-it.html",
+        "appypie-ecommerce-app-2026-nl.html",
+        "appypie-ecommerce-app-2026-pl.html"
       ]
     },
     {
