@@ -3615,7 +3615,7 @@
     {
       "slug": "tenorshare-icarefone-review-2026",
       "merchant": "tenorshare",
-      "published": false,
+      "published": true,
       "title_en": "Tenorshare iCareFone Review 2026 — Best iPhone Manager for PC and Mac?",
       "category_en": "Software",
       "metaDesc_en": "Tenorshare iCareFone review 2026. Transfer photos, music, and files between iPhone and computer without iTunes. Speed up slow iPhone. Honest review.",
@@ -3651,12 +3651,30 @@
           "q": "Does iCareFone work on Windows and Mac?",
           "a": "Yes. iCareFone has native applications for both Windows and Mac."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "tenorshare-icarefone-review-2026.html",
+        "tenorshare-icarefone-review-2026-zh.html",
+        "tenorshare-icarefone-review-2026-es.html",
+        "tenorshare-icarefone-review-2026-fr.html",
+        "tenorshare-icarefone-review-2026-de.html",
+        "tenorshare-icarefone-review-2026-pt.html",
+        "tenorshare-icarefone-review-2026-ar.html",
+        "tenorshare-icarefone-review-2026-hi.html",
+        "tenorshare-icarefone-review-2026-ru.html",
+        "tenorshare-icarefone-review-2026-ja.html",
+        "tenorshare-icarefone-review-2026-ko.html",
+        "tenorshare-icarefone-review-2026-id.html",
+        "tenorshare-icarefone-review-2026-it.html",
+        "tenorshare-icarefone-review-2026-nl.html",
+        "tenorshare-icarefone-review-2026-pl.html"
       ]
     },
     {
       "slug": "wondershare-filmora-vs-premiere-2026",
       "merchant": "wondershare",
-      "published": false,
+      "published": true,
       "title_en": "Wondershare Filmora vs Adobe Premiere Pro 2026 — Which Should You Choose?",
       "category_en": "Software",
       "metaDesc_en": "Filmora vs Adobe Premiere Pro compared for 2026. Price, features, learning curve, and who each editor is right for. Honest comparison for content creators.",
@@ -3692,6 +3710,24 @@
           "q": "Which is better for beginners — Filmora or Premiere?",
           "a": "Filmora by a wide margin. Premiere's interface is designed for professionals and takes months to learn properly. Filmora takes hours."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "wondershare-filmora-vs-premiere-2026.html",
+        "wondershare-filmora-vs-premiere-2026-zh.html",
+        "wondershare-filmora-vs-premiere-2026-es.html",
+        "wondershare-filmora-vs-premiere-2026-fr.html",
+        "wondershare-filmora-vs-premiere-2026-de.html",
+        "wondershare-filmora-vs-premiere-2026-pt.html",
+        "wondershare-filmora-vs-premiere-2026-ar.html",
+        "wondershare-filmora-vs-premiere-2026-hi.html",
+        "wondershare-filmora-vs-premiere-2026-ru.html",
+        "wondershare-filmora-vs-premiere-2026-ja.html",
+        "wondershare-filmora-vs-premiere-2026-ko.html",
+        "wondershare-filmora-vs-premiere-2026-id.html",
+        "wondershare-filmora-vs-premiere-2026-it.html",
+        "wondershare-filmora-vs-premiere-2026-nl.html",
+        "wondershare-filmora-vs-premiere-2026-pl.html"
       ]
     },
     {
