@@ -1373,7 +1373,7 @@
     {
       "slug": "wondershare-pdfelement-review-2026",
       "merchant": "wondershare",
-      "published": false,
+      "published": true,
       "title_en": "Wondershare PDFelement Review 2026 — Best PDF Editor for the Price?",
       "category_en": "Software",
       "metaDesc_en": "Wondershare PDFelement review 2026. Edit, annotate, convert, and sign PDF files. How does it compare to Adobe Acrobat? Honest review with pricing.",
@@ -1409,12 +1409,30 @@
           "q": "Is PDFelement better than Adobe Acrobat?",
           "a": "For most everyday PDF tasks, PDFelement covers everything Acrobat does at a fraction of the price."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "wondershare-pdfelement-review-2026.html",
+        "wondershare-pdfelement-review-2026-zh.html",
+        "wondershare-pdfelement-review-2026-es.html",
+        "wondershare-pdfelement-review-2026-fr.html",
+        "wondershare-pdfelement-review-2026-de.html",
+        "wondershare-pdfelement-review-2026-pt.html",
+        "wondershare-pdfelement-review-2026-ar.html",
+        "wondershare-pdfelement-review-2026-hi.html",
+        "wondershare-pdfelement-review-2026-ru.html",
+        "wondershare-pdfelement-review-2026-ja.html",
+        "wondershare-pdfelement-review-2026-ko.html",
+        "wondershare-pdfelement-review-2026-id.html",
+        "wondershare-pdfelement-review-2026-it.html",
+        "wondershare-pdfelement-review-2026-nl.html",
+        "wondershare-pdfelement-review-2026-pl.html"
       ]
     },
     {
       "slug": "wondershare-recoverit-2026",
       "merchant": "wondershare",
-      "published": false,
+      "published": true,
       "title_en": "Wondershare Recoverit Review 2026 — Best Data Recovery Software?",
       "category_en": "Software",
       "metaDesc_en": "Wondershare Recoverit review 2026. Recover deleted files from PC, Mac, USB, and hard drives. How does it compare to other data recovery tools?",
@@ -1450,6 +1468,24 @@
           "q": "What is the success rate of Wondershare Recoverit?",
           "a": "Success rates depend on how recently files were deleted and how much new data has been written since."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "wondershare-recoverit-2026.html",
+        "wondershare-recoverit-2026-zh.html",
+        "wondershare-recoverit-2026-es.html",
+        "wondershare-recoverit-2026-fr.html",
+        "wondershare-recoverit-2026-de.html",
+        "wondershare-recoverit-2026-pt.html",
+        "wondershare-recoverit-2026-ar.html",
+        "wondershare-recoverit-2026-hi.html",
+        "wondershare-recoverit-2026-ru.html",
+        "wondershare-recoverit-2026-ja.html",
+        "wondershare-recoverit-2026-ko.html",
+        "wondershare-recoverit-2026-id.html",
+        "wondershare-recoverit-2026-it.html",
+        "wondershare-recoverit-2026-nl.html",
+        "wondershare-recoverit-2026-pl.html"
       ]
     },
     {
