@@ -2199,7 +2199,7 @@
     {
       "slug": "cpr-certification-coaches-2026",
       "merchant": "cprcare",
-      "published": false,
+      "published": true,
       "title_en": "CPR Certification for Sports Coaches 2026 — What You Need",
       "category_en": "Education",
       "metaDesc_en": "CPR certification requirements for sports coaches in 2026. Most youth sports organizations require current CPR/AED certification. Which online course works for coaches?",
@@ -2235,12 +2235,30 @@
           "q": "Can I get CPR certified online as a coach?",
           "a": "Yes. Most youth sports organizations accept online CPR certification."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "cpr-certification-coaches-2026.html",
+        "cpr-certification-coaches-2026-zh.html",
+        "cpr-certification-coaches-2026-es.html",
+        "cpr-certification-coaches-2026-fr.html",
+        "cpr-certification-coaches-2026-de.html",
+        "cpr-certification-coaches-2026-pt.html",
+        "cpr-certification-coaches-2026-ar.html",
+        "cpr-certification-coaches-2026-hi.html",
+        "cpr-certification-coaches-2026-ru.html",
+        "cpr-certification-coaches-2026-ja.html",
+        "cpr-certification-coaches-2026-ko.html",
+        "cpr-certification-coaches-2026-id.html",
+        "cpr-certification-coaches-2026-it.html",
+        "cpr-certification-coaches-2026-nl.html",
+        "cpr-certification-coaches-2026-pl.html"
       ]
     },
     {
       "slug": "bls-certification-online-2026",
       "merchant": "cprcare",
-      "published": false,
+      "published": true,
       "title_en": "BLS Certification Online 2026 — Basic Life Support for Healthcare Workers",
       "category_en": "Education",
       "metaDesc_en": "BLS (Basic Life Support) certification online 2026. Required for nurses, EMTs, and other healthcare professionals. How to get BLS certified online and what employers accept.",
@@ -2276,6 +2294,24 @@
           "q": "Do hospitals accept online BLS certification?",
           "a": "Many do, but some require an in-person skills validation component. Confirm with your specific employer."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "bls-certification-online-2026.html",
+        "bls-certification-online-2026-zh.html",
+        "bls-certification-online-2026-es.html",
+        "bls-certification-online-2026-fr.html",
+        "bls-certification-online-2026-de.html",
+        "bls-certification-online-2026-pt.html",
+        "bls-certification-online-2026-ar.html",
+        "bls-certification-online-2026-hi.html",
+        "bls-certification-online-2026-ru.html",
+        "bls-certification-online-2026-ja.html",
+        "bls-certification-online-2026-ko.html",
+        "bls-certification-online-2026-id.html",
+        "bls-certification-online-2026-it.html",
+        "bls-certification-online-2026-nl.html",
+        "bls-certification-online-2026-pl.html"
       ]
     },
     {
