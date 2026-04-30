@@ -897,7 +897,7 @@
     {
       "slug": "custom-yard-signs-real-estate-2026",
       "merchant": "buildasign",
-      "published": false,
+      "published": true,
       "title_en": "Custom Yard Signs for Real Estate 2026 — Best Online Options",
       "category_en": "Print & Signs",
       "metaDesc_en": "Best custom yard signs for real estate agents in 2026. Where to order professional corrugated plastic signs online fast, cheap, and in bulk.",
@@ -933,7 +933,8 @@
           "q": "Does BuildASign include wire stakes?",
           "a": "Wire H-stakes are available separately or sometimes bundled. Check BuildASign's site for current bundling options."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "canvas-print-gift-ideas-2026",
