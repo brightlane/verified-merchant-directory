@@ -80,9 +80,11 @@ jobs:
         run: |
           git config user.name  "Vulture Titan Engine"
           git config user.email "vulture@brightlane.bot"
-          git add blog/ lmss.txt sitemap.xml blog*.html campaign-page.html post-topics.json
+          git add blog/ lmss.txt sitemap.xml blog*.html campaign-page.html post-topics.json injector-log.json
           git diff --cached --quiet && echo "Nothing to commit" || git commit -m "🦅 Auto-inject: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git stash
           git pull --rebase origin main
+          git stash pop
           git push
       - name: 📤 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
