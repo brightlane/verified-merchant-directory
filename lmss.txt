@@ -4677,7 +4677,7 @@
     {
       "slug": "bgmgirl-youtube-music-guide-2026",
       "merchant": "bgmgirl",
-      "published": false,
+      "published": true,
       "title_en": "Complete Guide to Using Music on YouTube Without Copyright Issues 2026",
       "category_en": "Services",
       "metaDesc_en": "How to use music on YouTube legally in 2026 without getting copyright claims or strikes. BGM Girl review for YouTube creators — what the license actually covers.",
@@ -4713,12 +4713,30 @@
           "q": "Does BGM Girl cover YouTube Shorts?",
           "a": "Yes. BGM Girl's license covers YouTube Shorts as well as standard YouTube videos."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "bgmgirl-youtube-music-guide-2026.html",
+        "bgmgirl-youtube-music-guide-2026-zh.html",
+        "bgmgirl-youtube-music-guide-2026-es.html",
+        "bgmgirl-youtube-music-guide-2026-fr.html",
+        "bgmgirl-youtube-music-guide-2026-de.html",
+        "bgmgirl-youtube-music-guide-2026-pt.html",
+        "bgmgirl-youtube-music-guide-2026-ar.html",
+        "bgmgirl-youtube-music-guide-2026-hi.html",
+        "bgmgirl-youtube-music-guide-2026-ru.html",
+        "bgmgirl-youtube-music-guide-2026-ja.html",
+        "bgmgirl-youtube-music-guide-2026-ko.html",
+        "bgmgirl-youtube-music-guide-2026-id.html",
+        "bgmgirl-youtube-music-guide-2026-it.html",
+        "bgmgirl-youtube-music-guide-2026-nl.html",
+        "bgmgirl-youtube-music-guide-2026-pl.html"
       ]
     },
     {
       "slug": "lafuent-european-car-parts-2026",
       "merchant": "lafuent",
-      "published": false,
+      "published": true,
       "title_en": "Best Source for European Car Parts Online 2026 — Lafuent Review",
       "category_en": "Services",
       "metaDesc_en": "Where to buy European car parts online in 2026. BMW, Mercedes, Audi, Volkswagen, Volvo, Peugeot — OEM and quality aftermarket parts with international shipping. Lafuent review.",
@@ -4754,6 +4772,24 @@
           "q": "How long does international shipping take for European car parts?",
           "a": "Shipping times vary by destination and part availability. Check Lafuent's site for estimated delivery times to your location when ordering."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "lafuent-european-car-parts-2026.html",
+        "lafuent-european-car-parts-2026-zh.html",
+        "lafuent-european-car-parts-2026-es.html",
+        "lafuent-european-car-parts-2026-fr.html",
+        "lafuent-european-car-parts-2026-de.html",
+        "lafuent-european-car-parts-2026-pt.html",
+        "lafuent-european-car-parts-2026-ar.html",
+        "lafuent-european-car-parts-2026-hi.html",
+        "lafuent-european-car-parts-2026-ru.html",
+        "lafuent-european-car-parts-2026-ja.html",
+        "lafuent-european-car-parts-2026-ko.html",
+        "lafuent-european-car-parts-2026-id.html",
+        "lafuent-european-car-parts-2026-it.html",
+        "lafuent-european-car-parts-2026-nl.html",
+        "lafuent-european-car-parts-2026-pl.html"
       ]
     },
     {
