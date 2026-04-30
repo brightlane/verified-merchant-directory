@@ -3261,7 +3261,7 @@
     {
       "slug": "lippincott-nclex-review-2026",
       "merchant": "shoplww",
-      "published": false,
+      "published": true,
       "title_en": "Best Lippincott NCLEX Review Books 2026 — Which Edition to Buy",
       "category_en": "Education",
       "metaDesc_en": "Which Lippincott NCLEX review book is best for 2026? Q&A review, alternate format questions, comprehensive review — which edition and where to buy at the best price.",
@@ -3297,12 +3297,30 @@
           "q": "How current is the Lippincott NCLEX review content?",
           "a": "Lippincott updates their NCLEX books regularly. Always buy the most recent edition."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "lippincott-nclex-review-2026.html",
+        "lippincott-nclex-review-2026-zh.html",
+        "lippincott-nclex-review-2026-es.html",
+        "lippincott-nclex-review-2026-fr.html",
+        "lippincott-nclex-review-2026-de.html",
+        "lippincott-nclex-review-2026-pt.html",
+        "lippincott-nclex-review-2026-ar.html",
+        "lippincott-nclex-review-2026-hi.html",
+        "lippincott-nclex-review-2026-ru.html",
+        "lippincott-nclex-review-2026-ja.html",
+        "lippincott-nclex-review-2026-ko.html",
+        "lippincott-nclex-review-2026-id.html",
+        "lippincott-nclex-review-2026-it.html",
+        "lippincott-nclex-review-2026-nl.html",
+        "lippincott-nclex-review-2026-pl.html"
       ]
     },
     {
       "slug": "bgmgirl-twitch-music-2026",
       "merchant": "bgmgirl",
-      "published": false,
+      "published": true,
       "title_en": "Best DMCA-Safe Music for Twitch Streaming 2026",
       "category_en": "Services",
       "metaDesc_en": "How to use music on Twitch without DMCA strikes in 2026. BGM Girl review for Twitch streamers — is their music safe for live streams and VODs?",
@@ -3338,6 +3356,24 @@
           "q": "What music genres does BGM Girl offer for streaming?",
           "a": "Ambient, lo-fi, upbeat, cinematic, gaming, and corporate styles."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "bgmgirl-twitch-music-2026.html",
+        "bgmgirl-twitch-music-2026-zh.html",
+        "bgmgirl-twitch-music-2026-es.html",
+        "bgmgirl-twitch-music-2026-fr.html",
+        "bgmgirl-twitch-music-2026-de.html",
+        "bgmgirl-twitch-music-2026-pt.html",
+        "bgmgirl-twitch-music-2026-ar.html",
+        "bgmgirl-twitch-music-2026-hi.html",
+        "bgmgirl-twitch-music-2026-ru.html",
+        "bgmgirl-twitch-music-2026-ja.html",
+        "bgmgirl-twitch-music-2026-ko.html",
+        "bgmgirl-twitch-music-2026-id.html",
+        "bgmgirl-twitch-music-2026-it.html",
+        "bgmgirl-twitch-music-2026-nl.html",
+        "bgmgirl-twitch-music-2026-pl.html"
       ]
     },
     {
