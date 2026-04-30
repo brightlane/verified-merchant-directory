@@ -3733,7 +3733,7 @@
     {
       "slug": "appypie-design-tool-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "Appy Pie Design Review 2026 — Create Graphics Without a Designer",
       "category_en": "Software",
       "metaDesc_en": "Appy Pie Design review 2026. Create social media graphics, logos, presentations, and marketing materials without design skills. How does it compare to Canva?",
@@ -3769,12 +3769,30 @@
           "q": "How does Appy Pie Design compare to Canva?",
           "a": "Both are strong no-code design tools. Appy Pie has an edge with AI image generation. Canva has a slightly larger template library and more polished interface."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "appypie-design-tool-2026.html",
+        "appypie-design-tool-2026-zh.html",
+        "appypie-design-tool-2026-es.html",
+        "appypie-design-tool-2026-fr.html",
+        "appypie-design-tool-2026-de.html",
+        "appypie-design-tool-2026-pt.html",
+        "appypie-design-tool-2026-ar.html",
+        "appypie-design-tool-2026-hi.html",
+        "appypie-design-tool-2026-ru.html",
+        "appypie-design-tool-2026-ja.html",
+        "appypie-design-tool-2026-ko.html",
+        "appypie-design-tool-2026-id.html",
+        "appypie-design-tool-2026-it.html",
+        "appypie-design-tool-2026-nl.html",
+        "appypie-design-tool-2026-pl.html"
       ]
     },
     {
       "slug": "knowledgehut-pmp-certification-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "KnowledgeHut PMP Certification Training 2026 — Review and Comparison",
       "category_en": "Education",
       "metaDesc_en": "KnowledgeHut PMP certification training review 2026. How does it compare to PM Training? Which PMP prep course gives you the best chance of passing on the first attempt?",
@@ -3810,6 +3828,24 @@
           "q": "How is KnowledgeHut PMP different from PM Training?",
           "a": "PM Training specializes exclusively in project management certifications. KnowledgeHut covers PMP alongside tech certifications — better if you want multiple credentials from one provider."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "knowledgehut-pmp-certification-2026.html",
+        "knowledgehut-pmp-certification-2026-zh.html",
+        "knowledgehut-pmp-certification-2026-es.html",
+        "knowledgehut-pmp-certification-2026-fr.html",
+        "knowledgehut-pmp-certification-2026-de.html",
+        "knowledgehut-pmp-certification-2026-pt.html",
+        "knowledgehut-pmp-certification-2026-ar.html",
+        "knowledgehut-pmp-certification-2026-hi.html",
+        "knowledgehut-pmp-certification-2026-ru.html",
+        "knowledgehut-pmp-certification-2026-ja.html",
+        "knowledgehut-pmp-certification-2026-ko.html",
+        "knowledgehut-pmp-certification-2026-id.html",
+        "knowledgehut-pmp-certification-2026-it.html",
+        "knowledgehut-pmp-certification-2026-nl.html",
+        "knowledgehut-pmp-certification-2026-pl.html"
       ]
     },
     {
