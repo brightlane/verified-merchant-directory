@@ -2435,7 +2435,7 @@
     {
       "slug": "heartgard-online-discount-2026",
       "merchant": "discountpetcare",
-      "published": false,
+      "published": true,
       "title_en": "Where to Buy Heartgard Plus Online Cheaper in 2026",
       "category_en": "Pet Care",
       "metaDesc_en": "Save on Heartgard Plus heartworm prevention in 2026. Buy the same FDA-approved medication online at 30-50% less than vet pricing. Discount Pet Care review.",
@@ -2471,12 +2471,30 @@
           "q": "How much can I save on Heartgard Plus online?",
           "a": "Typically 30-50% compared to vet office pricing."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "heartgard-online-discount-2026.html",
+        "heartgard-online-discount-2026-zh.html",
+        "heartgard-online-discount-2026-es.html",
+        "heartgard-online-discount-2026-fr.html",
+        "heartgard-online-discount-2026-de.html",
+        "heartgard-online-discount-2026-pt.html",
+        "heartgard-online-discount-2026-ar.html",
+        "heartgard-online-discount-2026-hi.html",
+        "heartgard-online-discount-2026-ru.html",
+        "heartgard-online-discount-2026-ja.html",
+        "heartgard-online-discount-2026-ko.html",
+        "heartgard-online-discount-2026-id.html",
+        "heartgard-online-discount-2026-it.html",
+        "heartgard-online-discount-2026-nl.html",
+        "heartgard-online-discount-2026-pl.html"
       ]
     },
     {
       "slug": "canada-pet-care-cats-2026",
       "merchant": "canadapetcare",
-      "published": false,
+      "published": true,
       "title_en": "Best Online Pet Pharmacy for Cats in Canada 2026",
       "category_en": "Pet Care",
       "metaDesc_en": "Where Canadian cat owners can buy flea treatment, heartworm prevention, and other cat medications online at lower prices than the vet. Canada Pet Care review.",
@@ -2512,6 +2530,24 @@
           "q": "How much can I save buying cat medications online in Canada?",
           "a": "Typical savings are 20-40% compared to vet office pricing."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "canada-pet-care-cats-2026.html",
+        "canada-pet-care-cats-2026-zh.html",
+        "canada-pet-care-cats-2026-es.html",
+        "canada-pet-care-cats-2026-fr.html",
+        "canada-pet-care-cats-2026-de.html",
+        "canada-pet-care-cats-2026-pt.html",
+        "canada-pet-care-cats-2026-ar.html",
+        "canada-pet-care-cats-2026-hi.html",
+        "canada-pet-care-cats-2026-ru.html",
+        "canada-pet-care-cats-2026-ja.html",
+        "canada-pet-care-cats-2026-ko.html",
+        "canada-pet-care-cats-2026-id.html",
+        "canada-pet-care-cats-2026-it.html",
+        "canada-pet-care-cats-2026-nl.html",
+        "canada-pet-care-cats-2026-pl.html"
       ]
     },
     {
