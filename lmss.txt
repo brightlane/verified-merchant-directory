@@ -5267,7 +5267,7 @@
     {
       "slug": "movavi-video-editing-tips-2026",
       "merchant": "movavi",
-      "published": false,
+      "published": true,
       "title_en": "10 Movavi Video Editing Tips That Make Your Videos Look Professional in 2026",
       "category_en": "Software",
       "metaDesc_en": "Pro Movavi video editing tips for 2026. Color grading, audio cleanup, transitions, and pacing — simple techniques that make a dramatic difference in video quality.",
@@ -5303,12 +5303,30 @@
           "q": "What is the J-cut technique in video editing?",
           "a": "A J-cut is where the audio from the next clip starts before the video cuts — the audio leads the video switch. It creates smoother, more professional-feeling transitions."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "movavi-video-editing-tips-2026.html",
+        "movavi-video-editing-tips-2026-zh.html",
+        "movavi-video-editing-tips-2026-es.html",
+        "movavi-video-editing-tips-2026-fr.html",
+        "movavi-video-editing-tips-2026-de.html",
+        "movavi-video-editing-tips-2026-pt.html",
+        "movavi-video-editing-tips-2026-ar.html",
+        "movavi-video-editing-tips-2026-hi.html",
+        "movavi-video-editing-tips-2026-ru.html",
+        "movavi-video-editing-tips-2026-ja.html",
+        "movavi-video-editing-tips-2026-ko.html",
+        "movavi-video-editing-tips-2026-id.html",
+        "movavi-video-editing-tips-2026-it.html",
+        "movavi-video-editing-tips-2026-nl.html",
+        "movavi-video-editing-tips-2026-pl.html"
       ]
     },
     {
       "slug": "littletoe-toe-separators-review-2026",
       "merchant": "littletoe",
-      "published": false,
+      "published": true,
       "title_en": "Best Toe Separators 2026 — Do They Actually Work?",
       "category_en": "Health",
       "metaDesc_en": "Do toe separators actually work in 2026? Review of Little Toe toe separators for bunions, overlapping toes, and foot pain. Clinical evidence and honest assessment.",
@@ -5344,6 +5362,24 @@
           "q": "How long should you wear toe separators?",
           "a": "Start with a few hours daily and increase as comfort allows. Most users find they can wear them throughout the day after a short adjustment period."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "littletoe-toe-separators-review-2026.html",
+        "littletoe-toe-separators-review-2026-zh.html",
+        "littletoe-toe-separators-review-2026-es.html",
+        "littletoe-toe-separators-review-2026-fr.html",
+        "littletoe-toe-separators-review-2026-de.html",
+        "littletoe-toe-separators-review-2026-pt.html",
+        "littletoe-toe-separators-review-2026-ar.html",
+        "littletoe-toe-separators-review-2026-hi.html",
+        "littletoe-toe-separators-review-2026-ru.html",
+        "littletoe-toe-separators-review-2026-ja.html",
+        "littletoe-toe-separators-review-2026-ko.html",
+        "littletoe-toe-separators-review-2026-id.html",
+        "littletoe-toe-separators-review-2026-it.html",
+        "littletoe-toe-separators-review-2026-nl.html",
+        "littletoe-toe-separators-review-2026-pl.html"
       ]
     },
     {
