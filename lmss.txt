@@ -1491,7 +1491,7 @@
     {
       "slug": "wondershare-democreator-2026",
       "merchant": "wondershare",
-      "published": false,
+      "published": true,
       "title_en": "Wondershare DemoCreator Review 2026 — Best for Online Teaching and Demo Videos",
       "category_en": "Software",
       "metaDesc_en": "Wondershare DemoCreator review 2026. Record screen and webcam with annotations for online teaching, demos, and presentations. Is it better than Camtasia?",
@@ -1527,12 +1527,30 @@
           "q": "How does DemoCreator compare to Camtasia?",
           "a": "DemoCreator covers most of Camtasia's core use cases at significantly lower cost."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "wondershare-democreator-2026.html",
+        "wondershare-democreator-2026-zh.html",
+        "wondershare-democreator-2026-es.html",
+        "wondershare-democreator-2026-fr.html",
+        "wondershare-democreator-2026-de.html",
+        "wondershare-democreator-2026-pt.html",
+        "wondershare-democreator-2026-ar.html",
+        "wondershare-democreator-2026-hi.html",
+        "wondershare-democreator-2026-ru.html",
+        "wondershare-democreator-2026-ja.html",
+        "wondershare-democreator-2026-ko.html",
+        "wondershare-democreator-2026-id.html",
+        "wondershare-democreator-2026-it.html",
+        "wondershare-democreator-2026-nl.html",
+        "wondershare-democreator-2026-pl.html"
       ]
     },
     {
       "slug": "appypie-website-builder-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "Appy Pie Website Builder Review 2026 — Build a Business Website Without Coding",
       "category_en": "Software",
       "metaDesc_en": "Appy Pie website builder review 2026. Create a professional business website without coding. E-commerce, booking, and lead capture built in.",
@@ -1568,6 +1586,24 @@
           "q": "Does Appy Pie website builder require coding?",
           "a": "No. The drag-and-drop builder requires zero coding knowledge."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "appypie-website-builder-2026.html",
+        "appypie-website-builder-2026-zh.html",
+        "appypie-website-builder-2026-es.html",
+        "appypie-website-builder-2026-fr.html",
+        "appypie-website-builder-2026-de.html",
+        "appypie-website-builder-2026-pt.html",
+        "appypie-website-builder-2026-ar.html",
+        "appypie-website-builder-2026-hi.html",
+        "appypie-website-builder-2026-ru.html",
+        "appypie-website-builder-2026-ja.html",
+        "appypie-website-builder-2026-ko.html",
+        "appypie-website-builder-2026-id.html",
+        "appypie-website-builder-2026-it.html",
+        "appypie-website-builder-2026-nl.html",
+        "appypie-website-builder-2026-pl.html"
       ]
     },
     {
