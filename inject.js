@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ═══════════════════════════════════════════════════════════════════════
-//  BRIGHTLANE DAILY POST INJECTOR — v3.0 (no API required)
+//  BRIGHTLANE DAILY POST INJECTOR — v3.1 (no API required)
 //  Run: node inject.js
 //
 //  What it does:
@@ -8,7 +8,8 @@
 //    2. Builds post HTML from pre-written fields in the topic object
 //    3. Injects into all 15 blog-xx.html files
 //    4. Updates sitemap.xml with correct hreflang for all 15 languages
-//    5. Marks topic as published and logs the run
+//    5. Updates llms.txt with the new post URL
+//    6. Marks topic as published and logs the run
 //
 //  No API key required — content comes from post-topics.json
 //  auto-topic-generator.js handles topic generation (uses API separately)
@@ -22,6 +23,8 @@ const BASE_URL   = 'https://brightlane.github.io/verified-merchant-directory';
 const TODAY      = new Date().toISOString().slice(0, 10);
 const LOG_FILE   = 'injector-log.json';
 const TOPICS     = 'post-topics.json';
+const LLMS_FILE  = 'llms.txt';
+const MAX_POSTS  = 20; // max recent posts to keep in llms.txt
 
 // ── All 15 language targets
 const LANGUAGES = [
@@ -83,12 +86,10 @@ function affLink(merchantId, pos, slug, langCode) {
 
 // ── Get field for a language, fall back gracefully
 function field(topic, name, langCode) {
-  // zh-tw falls back to zh, pt-br falls back to pt, everything falls back to en
   const fallbacks = [langCode];
   if (langCode === 'zh-tw') fallbacks.push('zh');
   if (langCode === 'pt-br') fallbacks.push('pt');
   fallbacks.push('en');
-
   for (const code of fallbacks) {
     const val = topic[`${name}_${code}`];
     if (val) return val;
@@ -102,7 +103,6 @@ function arrayField(topic, name, langCode) {
   if (langCode === 'zh-tw') fallbacks.push('zh');
   if (langCode === 'pt-br') fallbacks.push('pt');
   fallbacks.push('en');
-
   for (const code of fallbacks) {
     const val = topic[`${name}_${code}`];
     if (Array.isArray(val) && val.length > 0) return val;
@@ -112,20 +112,20 @@ function arrayField(topic, name, langCode) {
 
 // ── Read times by language
 const READ_TIMES = {
-  en:    '4 min read',
-  zh:    '4分钟阅读',
+  en:      '4 min read',
+  zh:      '4分钟阅读',
   'zh-tw': '4分鐘閱讀',
-  es:    '4 min de lectura',
-  fr:    '4 min de lecture',
-  de:    '4 Min. Lesezeit',
-  pt:    '4 min de leitura',
+  es:      '4 min de lectura',
+  fr:      '4 min de lecture',
+  de:      '4 Min. Lesezeit',
+  pt:      '4 min de leitura',
   'pt-br': '4 min de leitura',
-  ja:    '4分で読めます',
-  ko:    '4분 읽기',
-  it:    '4 min di lettura',
-  nl:    '4 min lezen',
-  pl:    '4 min czytania',
-  hi:    '4 मिनट पढ़ें'
+  ja:      '4分で読めます',
+  ko:      '4분 읽기',
+  it:      '4 min di lettura',
+  nl:      '4 min lezen',
+  pl:      '4 min czytania',
+  hi:      '4 मिनट पढ़ें'
 };
 
 // ── Build post body HTML from topic fields
@@ -247,6 +247,56 @@ ${links}
   console.log(`  ✓ sitemap.xml updated — ${LANGUAGES.length} URL blocks`);
 }
 
+// ── Update llms.txt with new post URL
+function updateLlms(topic, slug) {
+  if (!fs.existsSync(LLMS_FILE)) {
+    console.warn('  ⚠ llms.txt not found — skipping');
+    return;
+  }
+
+  const slugKey  = `${slug}__${TODAY}`;
+  const title    = topic.title_en || slug;
+  const url      = `${BASE_URL}/blog.html?p=${slugKey}`;
+  const newLine  = `- [${title}](${url})`;
+  const marker   = '## Recent Posts';
+
+  let content = fs.readFileSync(LLMS_FILE, 'utf8');
+
+  // Update the last-updated comment at the top
+  content = content.replace(
+    /# Updated automatically.*$/m,
+    `# Updated automatically by Vulture Titan Engine on ${TODAY}`
+  );
+
+  // Find the Recent Posts section
+  const markerIdx = content.indexOf(marker);
+  if (markerIdx === -1) {
+    // Section missing — append it
+    content += `\n${marker}\n\n${newLine}\n`;
+    fs.writeFileSync(LLMS_FILE, content, 'utf8');
+    console.log('  ✓ llms.txt updated — Recent Posts section added');
+    return;
+  }
+
+  // Extract everything after the marker
+  const afterMarker = content.slice(markerIdx + marker.length);
+
+  // Parse existing post lines
+  const existingLines = afterMarker
+    .split('\n')
+    .filter(l => l.trim().startsWith('- ['));
+
+  // Add new post at top, keep max MAX_POSTS
+  const allLines = [newLine, ...existingLines].slice(0, MAX_POSTS);
+
+  // Rebuild the file
+  const before = content.slice(0, markerIdx + marker.length);
+  content = before + '\n\n' + allLines.join('\n') + '\n';
+
+  fs.writeFileSync(LLMS_FILE, content, 'utf8');
+  console.log(`  ✓ llms.txt updated — ${allLines.length} recent posts listed`);
+}
+
 // ── Log the run
 function logRun(topic, results) {
   let log = [];
@@ -254,10 +304,10 @@ function logRun(topic, results) {
     try { log = JSON.parse(fs.readFileSync(LOG_FILE, 'utf8')); } catch(e) {}
   }
   log.push({
-    date:              TODAY,
-    slug:              topic.slug,
-    merchant:          topic.merchant,
-    title:             topic.title_en || topic.slug,
+    date:               TODAY,
+    slug:               topic.slug,
+    merchant:           topic.merchant,
+    title:              topic.title_en || topic.slug,
     languages_injected: results.filter(r => r.ok).map(r => r.lang),
     languages_skipped:  results.filter(r => !r.ok).map(r => r.lang)
   });
@@ -269,7 +319,7 @@ function logRun(topic, results) {
 // ═══════════════════════════════════════════════════════════════════════
 
 function main() {
-  console.log('\n🦅 BRIGHTLANE POST INJECTOR v3.0 — 15 Languages (No API Required)');
+  console.log('\n🦅 BRIGHTLANE POST INJECTOR v3.1 — 15 Languages (No API Required)');
   console.log('═════════════════════════════════════════════════════════════════');
   console.log(`Date: ${TODAY}\n`);
 
@@ -293,6 +343,7 @@ function main() {
   console.log(`Slug:     ${topic.slug}`);
   console.log(`Queue:    ${pending.length} topics remaining\n`);
 
+  // Inject into each language blog file
   console.log('Injecting into blog files...');
   const results = [];
 
@@ -303,8 +354,13 @@ function main() {
     if (ok) console.log(`  ✓ ${lang.file} (${lang.label})`);
   }
 
+  // Update sitemap
   console.log('\nUpdating sitemap...');
   updateSitemap(topic.slug);
+
+  // Update llms.txt
+  console.log('Updating llms.txt...');
+  updateLlms(topic, topic.slug);
 
   // Mark as published
   const topicIdx = topicsData.topics.findIndex(t => t.slug === topic.slug);
