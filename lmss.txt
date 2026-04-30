@@ -4559,7 +4559,7 @@
     {
       "slug": "halloween-kids-costume-guide-2026",
       "merchant": "halloweencostumes",
-      "published": false,
+      "published": true,
       "title_en": "Best Halloween Costumes for Kids 2026 — Safe, Comfortable, Fun",
       "category_en": "Lifestyle",
       "metaDesc_en": "Best Halloween costumes for kids in 2026. Safety tips, size guides, trending character costumes, and where to order with guaranteed delivery before Halloween.",
@@ -4595,12 +4595,30 @@
           "q": "How do I choose the right size kids Halloween costume?",
           "a": "Use the size chart on each product — children's costume sizing varies by brand. Measure your child's height and chest and compare to the chart for best fit."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "halloween-kids-costume-guide-2026.html",
+        "halloween-kids-costume-guide-2026-zh.html",
+        "halloween-kids-costume-guide-2026-es.html",
+        "halloween-kids-costume-guide-2026-fr.html",
+        "halloween-kids-costume-guide-2026-de.html",
+        "halloween-kids-costume-guide-2026-pt.html",
+        "halloween-kids-costume-guide-2026-ar.html",
+        "halloween-kids-costume-guide-2026-hi.html",
+        "halloween-kids-costume-guide-2026-ru.html",
+        "halloween-kids-costume-guide-2026-ja.html",
+        "halloween-kids-costume-guide-2026-ko.html",
+        "halloween-kids-costume-guide-2026-id.html",
+        "halloween-kids-costume-guide-2026-it.html",
+        "halloween-kids-costume-guide-2026-nl.html",
+        "halloween-kids-costume-guide-2026-pl.html"
       ]
     },
     {
       "slug": "lippincott-medical-surgical-nursing-2026",
       "merchant": "shoplww",
-      "published": false,
+      "published": true,
       "title_en": "Best Medical-Surgical Nursing Textbooks 2026 — Lippincott Guide",
       "category_en": "Education",
       "metaDesc_en": "Best medical-surgical nursing textbooks from Lippincott for 2026. Which edition to buy, what's new in the latest update, and where to get the best price.",
@@ -4636,6 +4654,24 @@
           "q": "Do I need both Brunner and Suddarth and the Incredibly Easy edition?",
           "a": "Most students do well with Brunner and Suddarth alone. Incredibly Easy is a good supplement if you find the main text dense or want a more accessible explanation of key concepts."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "lippincott-medical-surgical-nursing-2026.html",
+        "lippincott-medical-surgical-nursing-2026-zh.html",
+        "lippincott-medical-surgical-nursing-2026-es.html",
+        "lippincott-medical-surgical-nursing-2026-fr.html",
+        "lippincott-medical-surgical-nursing-2026-de.html",
+        "lippincott-medical-surgical-nursing-2026-pt.html",
+        "lippincott-medical-surgical-nursing-2026-ar.html",
+        "lippincott-medical-surgical-nursing-2026-hi.html",
+        "lippincott-medical-surgical-nursing-2026-ru.html",
+        "lippincott-medical-surgical-nursing-2026-ja.html",
+        "lippincott-medical-surgical-nursing-2026-ko.html",
+        "lippincott-medical-surgical-nursing-2026-id.html",
+        "lippincott-medical-surgical-nursing-2026-it.html",
+        "lippincott-medical-surgical-nursing-2026-nl.html",
+        "lippincott-medical-surgical-nursing-2026-pl.html"
       ]
     },
     {
