@@ -2081,7 +2081,7 @@
     {
       "slug": "cpr-certification-teachers-2026",
       "merchant": "cpraedcourse",
-      "published": false,
+      "published": true,
       "title_en": "CPR Certification for Teachers and School Staff 2026",
       "category_en": "Education",
       "metaDesc_en": "CPR certification requirements for teachers and school staff in 2026. Which online CPR courses are accepted by schools and districts? Complete guide.",
@@ -2117,12 +2117,30 @@
           "q": "How long does the online CPR course take for teachers?",
           "a": "Most teachers complete the CPR AED Course in 1-2 hours."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "cpr-certification-teachers-2026.html",
+        "cpr-certification-teachers-2026-zh.html",
+        "cpr-certification-teachers-2026-es.html",
+        "cpr-certification-teachers-2026-fr.html",
+        "cpr-certification-teachers-2026-de.html",
+        "cpr-certification-teachers-2026-pt.html",
+        "cpr-certification-teachers-2026-ar.html",
+        "cpr-certification-teachers-2026-hi.html",
+        "cpr-certification-teachers-2026-ru.html",
+        "cpr-certification-teachers-2026-ja.html",
+        "cpr-certification-teachers-2026-ko.html",
+        "cpr-certification-teachers-2026-id.html",
+        "cpr-certification-teachers-2026-it.html",
+        "cpr-certification-teachers-2026-nl.html",
+        "cpr-certification-teachers-2026-pl.html"
       ]
     },
     {
       "slug": "cpr-recertification-online-2026",
       "merchant": "cpraedcourse",
-      "published": false,
+      "published": true,
       "title_en": "CPR Recertification Online 2026 — Renew Your Certificate Fast",
       "category_en": "Education",
       "metaDesc_en": "CPR recertification online in 2026. How to renew your CPR certificate before it expires. Fast online renewal accepted by most employers and organizations.",
@@ -2158,6 +2176,24 @@
           "q": "How long does online CPR recertification take?",
           "a": "Most people complete the recertification in 1-2 hours."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "cpr-recertification-online-2026.html",
+        "cpr-recertification-online-2026-zh.html",
+        "cpr-recertification-online-2026-es.html",
+        "cpr-recertification-online-2026-fr.html",
+        "cpr-recertification-online-2026-de.html",
+        "cpr-recertification-online-2026-pt.html",
+        "cpr-recertification-online-2026-ar.html",
+        "cpr-recertification-online-2026-hi.html",
+        "cpr-recertification-online-2026-ru.html",
+        "cpr-recertification-online-2026-ja.html",
+        "cpr-recertification-online-2026-ko.html",
+        "cpr-recertification-online-2026-id.html",
+        "cpr-recertification-online-2026-it.html",
+        "cpr-recertification-online-2026-nl.html",
+        "cpr-recertification-online-2026-pl.html"
       ]
     },
     {
