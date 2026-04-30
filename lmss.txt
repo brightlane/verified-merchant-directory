@@ -1727,7 +1727,7 @@
     {
       "slug": "knowledgehut-aws-certification-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "Best AWS Certification Course Online 2026 — KnowledgeHut Review",
       "category_en": "Education",
       "metaDesc_en": "KnowledgeHut AWS certification course review 2026. Which AWS cert is right for you? Cloud practitioner, solutions architect, developer. Pricing and pass rates compared.",
@@ -1763,12 +1763,30 @@
           "q": "What is the pass rate for KnowledgeHut AWS courses?",
           "a": "KnowledgeHut reports high pass rates for their structured courses. Check their site for current data."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "knowledgehut-aws-certification-2026.html",
+        "knowledgehut-aws-certification-2026-zh.html",
+        "knowledgehut-aws-certification-2026-es.html",
+        "knowledgehut-aws-certification-2026-fr.html",
+        "knowledgehut-aws-certification-2026-de.html",
+        "knowledgehut-aws-certification-2026-pt.html",
+        "knowledgehut-aws-certification-2026-ar.html",
+        "knowledgehut-aws-certification-2026-hi.html",
+        "knowledgehut-aws-certification-2026-ru.html",
+        "knowledgehut-aws-certification-2026-ja.html",
+        "knowledgehut-aws-certification-2026-ko.html",
+        "knowledgehut-aws-certification-2026-id.html",
+        "knowledgehut-aws-certification-2026-it.html",
+        "knowledgehut-aws-certification-2026-nl.html",
+        "knowledgehut-aws-certification-2026-pl.html"
       ]
     },
     {
       "slug": "knowledgehut-data-science-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "Best Data Science Course Online 2026 — KnowledgeHut Review",
       "category_en": "Education",
       "metaDesc_en": "KnowledgeHut data science course review 2026. Python, machine learning, data analysis — what's included, what certifications you earn, and whether it's worth the investment.",
@@ -1804,6 +1822,24 @@
           "q": "What jobs can I get after a data science course?",
           "a": "Data analyst, data scientist, machine learning engineer, business intelligence analyst, and data engineer roles are common outcomes."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "knowledgehut-data-science-2026.html",
+        "knowledgehut-data-science-2026-zh.html",
+        "knowledgehut-data-science-2026-es.html",
+        "knowledgehut-data-science-2026-fr.html",
+        "knowledgehut-data-science-2026-de.html",
+        "knowledgehut-data-science-2026-pt.html",
+        "knowledgehut-data-science-2026-ar.html",
+        "knowledgehut-data-science-2026-hi.html",
+        "knowledgehut-data-science-2026-ru.html",
+        "knowledgehut-data-science-2026-ja.html",
+        "knowledgehut-data-science-2026-ko.html",
+        "knowledgehut-data-science-2026-id.html",
+        "knowledgehut-data-science-2026-it.html",
+        "knowledgehut-data-science-2026-nl.html",
+        "knowledgehut-data-science-2026-pl.html"
       ]
     },
     {
