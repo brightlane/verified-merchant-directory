@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Brightlane — Verified Merchant</title>
+  <meta name="description" id="page-desc" content="Verified merchant partner — Brightlane Directory"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" id="page-canonical" href="https://brightlane.github.io/verified-merchant-directory/campaign-page.html"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Brightlane Verified Merchant Directory"/>
+  <meta property="og:title" id="og-title" content="Brightlane — Verified Merchant"/>
+  <meta property="og:description" id="og-desc" content="Verified merchant partner"/>
+  <meta property="og:image" content="https://brightlane.github.io/verified-merchant-directory/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <script id="jsonld-product" type="application/ld+json"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --cream:   #f5f0e8;
+      --warm:    #ede8df;
+      --paper:   #faf7f2;
+      --ink:     #1a1610;
+      --ink2:    #2e2820;
+      --muted:   #7a7265;
+      --dim:     #b0a898;
+      --rule:    rgba(26,22,16,0.12);
+      --rule2:   rgba(26,22,16,0.06);
+      --red:     #c0392b;
+      --green:   #2d6a4f;
+      --gold:    #b8860b;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Outfit', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 14px clamp(20px,5vw,80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .masthead-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+    }
+
+    .masthead-logo span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .masthead-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .masthead-nav a:hover { color: var(--cream); }
+
+    /* ── DATELINE STRIP ── */
+    .dateline {
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      padding: 8px clamp(20px,5vw,80px);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .dateline-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .verified-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(40px,6vw,80px) clamp(20px,5vw,80px) 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .hero-kicker {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-kicker::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 32px;
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .meta-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .meta-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .meta-value.tag {
+      display: inline-block;
+      background: var(--warm);
+      border: 1px solid var(--rule);
+      padding: 2px 10px;
+      border-radius: 2px;
+      font-size: 0.78rem;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 16px 36px;
+      border: 2px solid var(--ink);
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      letter-spacing: 0.02em;
+    }
+
+    .cta-primary:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+    }
+
+    .cta-primary svg { transition: transform .2s; }
+    .cta-primary:hover svg { transform: translateX(4px); }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 16px 0;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--rule);
+      transition: color .2s;
+    }
+
+    .cta-secondary:hover { color: var(--ink); }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* ── SIDEBAR CARD ── */
+    .sidebar-card {
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      border-top: 4px solid var(--ink);
+      padding: 28px 24px;
+      width: 260px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 700px) { .sidebar-card { width: 100%; } }
+
+    .sidebar-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .sidebar-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+
+    .sidebar-merchant {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .sidebar-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--rule2);
+      font-size: 0.8rem;
+    }
+
+    .sidebar-stat:last-of-type { border-bottom: none; }
+    .sidebar-stat-label { color: var(--muted); }
+    .sidebar-stat-value { font-weight: 600; color: var(--ink); }
+    .sidebar-stat-value.green { color: var(--green); }
+
+    /* ── DIVIDER ── */
+    .section-rule {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 0 clamp(20px,5vw,80px);
+      border: none;
+      border-top: 2px solid var(--ink);
+      position: relative;
+    }
+
+    .section-rule::after {
+      content: attr(data-label);
+      position: absolute;
+      top: -0.6em;
+      left: clamp(20px,5vw,80px);
+      background: var(--paper);
+      padding: 0 12px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── BODY CONTENT ── */
+    .content-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px clamp(20px,5vw,80px) 80px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .content-wrap { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ── FEATURE COLUMNS ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--rule);
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 500px) { .features-grid { grid-template-columns: 1fr; } }
+
+    .feature-item {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--rule);
+      border-right: 1px solid var(--rule);
+    }
+
+    .feature-item:nth-child(even) { border-right: none; }
+    .feature-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .feature-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .feature-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .feature-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-top: 3px double var(--rule);
+      border-bottom: 3px double var(--rule);
+      padding: 24px 0;
+      margin: 36px 0;
+    }
+
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: var(--ink2);
+      line-height: 1.5;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── WHY LIST ── */
+    .why-list {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+
+    .why-list li {
+      display: flex;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule2);
+      font-size: 0.9rem;
+      color: var(--ink2);
+      line-height: 1.5;
+    }
+
+    .why-list li:last-child { border-bottom: none; }
+
+    .why-num {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dim);
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    /* ── RIGHT RAIL ── */
+    .rail-box {
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .rail-box h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .disclosure-box {
+      background: transparent;
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .rail-cta {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .rail-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--cream);
+    }
+
+    .rail-cta p {
+      font-size: 0.8rem;
+      color: var(--dim);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .rail-btn {
+      display: block;
+      width: 100%;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 13px;
+      letter-spacing: 0.03em;
+      transition: opacity .2s;
+      text-align: center;
+    }
+
+    .rail-btn:hover { opacity: 0.85; }
+
+    .rail-btn-outline {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--dim);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      margin-top: 10px;
+      text-align: center;
+      transition: border-color .2s, color .2s;
+    }
+
+    .rail-btn-outline:hover { border-color: var(--cream); color: var(--cream); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--ink2);
+      color: var(--dim);
+      padding: 28px clamp(20px,5vw,80px);
+      font-size: 0.75rem;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--cream);
+      font-size: 0.9rem;
+    }
+
+    /* ── 404 / error state ── */
+    .error-state {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 0 clamp(20px,5vw,80px);
+      text-align: center;
+    }
+
+    .error-state h1 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .error-state p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .content-wrap {
+      animation: fadeIn .5s ease both;
+    }
+
+    .content-wrap { animation-delay: .1s; }
+  </style>
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <a href="index.html" class="masthead-logo">Bright<span>lane</span></a>
+    <nav class="masthead-nav">
+      <a href="index.html">Directory</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- DATELINE -->
+  <div class="dateline">
+    <span>Brightlane Verified Merchant Directory &mdash; Partner Profile</span>
+    <div class="dateline-right">
+      <span class="verified-stamp">✓ Verified Partner</span>
+      <span id="dateline-date"></span>
+    </div>
+  </div>
+
+  <!-- PAGE ROOT -->
+  <div id="page-root"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-brand">Brightlane</span>
+    <span>This page contains affiliate links. We may earn a commission at no extra cost to you. All merchants are verified partners through the LinkConnector affiliate network.</span>
+  </footer>
+
+<script>
+// ─── MERCHANT DATA ────────────────────────────────────────────────────
+const MERCHANTS = {
+  movavi: {
+    name: "Movavi",
+    icon: "🎬",
+    tag: "Video Editor",
+    category: "Software & Productivity",
+    tagline: "Professional video editing without the professional price tag.",
+    description: "Movavi has been helping everyday users create polished videos for over 15 years. Award-winning software for Windows and Mac — cut, trim, add effects, and export in minutes without a steep learning curve.",
+    pullQuote: "The editor that gets out of your way and lets you create.",
+    features: [
+      { n:"01", title:"One-Time Purchase", desc:"Own it forever — no subscription required." },
+      { n:"02", title:"Mac & Windows", desc:"Full-featured native apps on both platforms." },
+      { n:"03", title:"200+ Effects", desc:"Filters, transitions, and titles built right in." },
+      { n:"04", title:"Fast Export", desc:"Quick rendering even on modest hardware." },
+      { n:"05", title:"Built-in Tutorials", desc:"Learn while you create with guided walkthroughs." },
+      { n:"06", title:"15M+ Users", desc:"Trusted by millions of creators worldwide." }
+    ],
+    why: [
+      "No subscription trap — pay once, use forever",
+      "Beginner-friendly interface with zero compromise on output quality",
+      "Supports all major formats including MP4, MOV, AVI, and GIF",
+      "Direct YouTube export built in",
+      "Background noise removal and audio normalization included"
+    ],
+    stats: [{ l:"Category", v:"Video Editing" },{ l:"Platform", v:"Win & Mac" },{ l:"License", v:"One-Time", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3"
+  },
+  iskysoft: {
+    name: "iSkysoft",
+    icon: "💿",
+    tag: "Multimedia Suite",
+    category: "Software & Productivity",
+    tagline: "A complete multimedia and data recovery toolkit for power users.",
+    description: "iSkysoft offers a versatile suite of multimedia and data recovery software tools built for Mac and Windows. From video conversion to file recovery, iSkysoft covers the tools serious users actually need.",
+    pullQuote: "One suite. Every multimedia task covered.",
+    features: [
+      { n:"01", title:"Data Recovery", desc:"Recover lost files from drives, cards, and devices." },
+      { n:"02", title:"Video Tools", desc:"Convert, edit, and manage video files with ease." },
+      { n:"03", title:"Mac & Windows", desc:"Full native support on both operating systems." },
+      { n:"04", title:"PDF Tools", desc:"Create, edit, and convert PDF documents." },
+      { n:"05", title:"Phone Manager", desc:"Manage iOS and Android devices from your desktop." },
+      { n:"06", title:"Trusted Quality", desc:"Used by millions of professionals worldwide." }
+    ],
+    why: [
+      "Covers multimedia, recovery, and PDF in one trusted brand",
+      "One-time purchase options available across the product line",
+      "Regular updates keep tools compatible with latest OS versions",
+      "Professional-grade output for home and business users",
+      "Clean interfaces with minimal learning curve"
+    ],
+    stats: [{ l:"Category", v:"Multimedia" },{ l:"Platform", v:"Win & Mac" },{ l:"License", v:"One-Time", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3"
+  },
+  tenorshare: {
+    name: "Tenorshare",
+    icon: "📱",
+    tag: "Phone Tools",
+    category: "Software & Productivity",
+    tagline: "iOS & Android data recovery and system repair, trusted by millions.",
+    description: "Tenorshare specializes in mobile device recovery and management tools. With over 50 million downloads, their tools recover lost photos, messages, and contacts — and fix iOS system issues without data loss.",
+    pullQuote: "When your phone fails you, Tenorshare has your back.",
+    features: [
+      { n:"01", title:"50M+ Downloads", desc:"One of the most trusted mobile recovery brands globally." },
+      { n:"02", title:"iOS Recovery", desc:"Recover photos, messages, contacts from iPhone or backup." },
+      { n:"03", title:"Android Support", desc:"Full data recovery for Android devices too." },
+      { n:"04", title:"System Repair", desc:"Fix iOS stuck, black screen, and boot loop issues." },
+      { n:"05", title:"Read-Only Scan", desc:"Safe scanning — never overwrites existing data." },
+      { n:"06", title:"Latest Models", desc:"Always updated to support newest iPhone and iOS." }
+    ],
+    why: [
+      "Recovers data directly from device, iTunes, or iCloud backup",
+      "No technical knowledge required — step-by-step guided process",
+      "Preview recoverable files before committing to purchase",
+      "Works after accidental deletion, factory reset, or water damage",
+      "Trusted by IT professionals and everyday users alike"
+    ],
+    stats: [{ l:"Category", v:"Mobile Tools" },{ l:"Platform", v:"iOS & Android" },{ l:"Downloads", v:"50M+", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3"
+  },
+  wondershare: {
+    name: "Wondershare",
+    icon: "✨",
+    tag: "Creative Suite",
+    category: "Software & Productivity",
+    tagline: "Filmora, PDFelement & more — professional tools made for everyone.",
+    description: "Wondershare creates the software that millions of creators rely on daily. Filmora for video editing, PDFelement for documents, and a growing suite of AI-powered creative tools built for professionals and beginners alike.",
+    pullQuote: "Professional-grade creative tools, made genuinely accessible.",
+    features: [
+      { n:"01", title:"Filmora", desc:"AI-powered video editor loved by content creators." },
+      { n:"02", title:"PDFelement", desc:"Complete PDF editor and converter for work and school." },
+      { n:"03", title:"AI Features", desc:"Auto-subtitles, background removal, noise reduction." },
+      { n:"04", title:"Cross-Platform", desc:"Mac, Windows, iOS, and Android covered." },
+      { n:"05", title:"Huge Template Library", desc:"Thousands of titles, effects, and transitions." },
+      { n:"06", title:"Regular Updates", desc:"Constant new features rolled out to subscribers." }
+    ],
+    why: [
+      "Industry-leading AI tools for subtitles, editing, and enhancement",
+      "Filmora is consistently rated the best beginner-to-intermediate editor",
+      "PDFelement competes with Adobe Acrobat at a fraction of the price",
+      "Supports direct upload to YouTube, TikTok, and Vimeo",
+      "Trusted by over 100 million users across 150+ countries"
+    ],
+    stats: [{ l:"Category", v:"Creative Suite" },{ l:"Users", v:"100M+" },{ l:"Platform", v:"All Platforms" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3"
+  },
+  appypie: {
+    name: "Appy Pie",
+    icon: "⚙️",
+    tag: "No-Code Builder",
+    category: "Software & Productivity",
+    tagline: "Build apps, websites, and chatbots without writing a single line of code.",
+    description: "Appy Pie is the world's leading no-code platform. Over 10 million apps built and counting. Drag-and-drop tools for mobile apps, websites, chatbots, and workflow automations — all without a developer budget.",
+    pullQuote: "Your idea deserves to exist. Code shouldn't be the barrier.",
+    features: [
+      { n:"01", title:"10M+ Apps Built", desc:"The most popular no-code app builder on the market." },
+      { n:"02", title:"iOS & Android", desc:"Publish directly to the App Store and Google Play." },
+      { n:"03", title:"Website Builder", desc:"E-commerce, bookings, portfolios — all drag-and-drop." },
+      { n:"04", title:"AI Chatbots", desc:"Build customer support bots without any coding." },
+      { n:"05", title:"Automations", desc:"Connect your tools and automate repetitive workflows." },
+      { n:"06", title:"150+ Countries", desc:"Used by businesses and creators around the world." }
+    ],
+    why: [
+      "No coding, design, or technical skills required",
+      "Handles App Store and Google Play submission for you",
+      "Scales from solo creator to enterprise business",
+      "All-in-one: apps, websites, chatbots, and automations",
+      "Costs a fraction of hiring a developer"
+    ],
+    stats: [{ l:"Category", v:"No-Code" },{ l:"Apps Built", v:"10M+", cls:"green" },{ l:"Countries", v:"150+" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie"
+  },
+  knowledgehut: {
+    name: "KnowledgeHut",
+    icon: "🎓",
+    tag: "Tech Certification",
+    category: "Education & Training",
+    tagline: "Instructor-led upskilling in cloud, agile, cybersecurity, and data science.",
+    description: "KnowledgeHut is a global training platform offering instructor-led courses across the most in-demand tech certifications. PMP, AWS, Agile, cybersecurity, data science — live classes with real instructors and guaranteed support.",
+    pullQuote: "The certification you earn here is the career change you've been planning.",
+    features: [
+      { n:"01", title:"Live Instructors", desc:"Real-time classes with certified expert trainers." },
+      { n:"02", title:"PMP & Agile", desc:"Top-rated project management certification prep." },
+      { n:"03", title:"Cloud & AWS", desc:"AWS, Azure, GCP — all major cloud platforms covered." },
+      { n:"04", title:"Cybersecurity", desc:"CEH, CISSP, CompTIA — industry-recognized certs." },
+      { n:"05", title:"Data Science", desc:"Python, ML, AI — hands-on practical training." },
+      { n:"06", title:"Global Reach", desc:"Serving learners in 100+ countries." }
+    ],
+    why: [
+      "Live instructor-led training beats self-paced for retention and results",
+      "Covers the widest range of tech certifications from one provider",
+      "Recognized by top employers globally",
+      "Flexible scheduling for working professionals",
+      "Includes PDUs required for PMP renewal"
+    ],
+    stats: [{ l:"Category", v:"Tech Training" },{ l:"Format", v:"Live + Online" },{ l:"Countries", v:"100+" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf="
+  },
+  pmtraining: {
+    name: "PM Training",
+    icon: "📋",
+    tag: "PMP / Agile",
+    category: "Education & Training",
+    tagline: "Dedicated PMP and PRINCE2 certification prep with a 98% pass rate.",
+    description: "PM Training is the specialist choice for project management certification. Focused exclusively on PMP, PRINCE2, and Agile — with over 40,000 certified students and a 98% pass rate that speaks for itself.",
+    pullQuote: "Forty thousand certified. Ninety-eight percent pass rate. That's not luck.",
+    features: [
+      { n:"01", title:"98% Pass Rate", desc:"Industry-leading success rate for PMP candidates." },
+      { n:"02", title:"40K+ Certified", desc:"Proven track record across thousands of graduates." },
+      { n:"03", title:"PMP Focused", desc:"Exclusively dedicated to PM certification success." },
+      { n:"04", title:"PRINCE2 Ready", desc:"Full PRINCE2 Foundation and Practitioner prep." },
+      { n:"05", title:"Live Classes", desc:"Real instructors, not just video libraries." },
+      { n:"06", title:"PDUs Included", desc:"All required PDUs for PMI exam eligibility covered." }
+    ],
+    why: [
+      "Specialist focus means deeper expertise than generalist platforms",
+      "98% pass rate backed by real graduate outcomes",
+      "PMI-approved 35-hour contact hours requirement fulfilled",
+      "Live support from instructors throughout your prep",
+      "Flexible scheduling designed for working professionals"
+    ],
+    stats: [{ l:"Category", v:"PM Certification" },{ l:"Pass Rate", v:"98%", cls:"green" },{ l:"Graduates", v:"40K+" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining"
+  },
+  cpraedcourse: {
+    name: "CPR AED Course",
+    icon: "❤️‍🔥",
+    tag: "CPR Certification",
+    category: "Education & Training",
+    tagline: "Online CPR and AED certification — complete at your own pace, print instantly.",
+    description: "CPR AED Course delivers fully online CPR, AED, and First Aid certification you can complete at your own pace and print the moment you pass. Over 500,000 certifications issued to individuals, parents, teachers, and workplace staff.",
+    pullQuote: "The certification that could save a life — completed in an afternoon.",
+    features: [
+      { n:"01", title:"500K+ Issued", desc:"Over half a million certifications and counting." },
+      { n:"02", title:"100% Online", desc:"No classroom, no scheduling — complete anytime." },
+      { n:"03", title:"Instant Certificate", desc:"Print or download your card the moment you pass." },
+      { n:"04", title:"Self-Paced", desc:"Pause and resume anytime on any device." },
+      { n:"05", title:"CPR + AED", desc:"Covers CPR, AED operation, and basic First Aid." },
+      { n:"06", title:"Workplace Ready", desc:"Accepted by most employers and organizations." }
+    ],
+    why: [
+      "Complete on your lunch break — most finish in under 2 hours",
+      "No scheduling, no travel, no classroom required",
+      "Certification valid for 2 years",
+      "Accepted by most employers — verify with yours before purchase",
+      "Instant digital certificate available immediately after passing"
+    ],
+    stats: [{ l:"Category", v:"CPR / First Aid" },{ l:"Format", v:"100% Online" },{ l:"Issued", v:"500K+", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3"
+  },
+  cprcare: {
+    name: "CPR Care",
+    icon: "🏥",
+    tag: "First Aid",
+    category: "Education & Training",
+    tagline: "Accredited CPR and First Aid training with instant digital certification.",
+    description: "CPR Care offers accredited online CPR and First Aid training for individuals and organizations. Instant digital certification, group training options, and a straightforward course built for busy people who need a valid cert fast.",
+    pullQuote: "Accredited. Instant. No excuses not to be certified.",
+    features: [
+      { n:"01", title:"Accredited", desc:"Meets standards recognized by employers and organizations." },
+      { n:"02", title:"Digital Certificate", desc:"Instant digital card — no waiting, no mail." },
+      { n:"03", title:"Group Options", desc:"Train entire teams or organizations at once." },
+      { n:"04", title:"CPR + First Aid", desc:"Full coverage of CPR, AED, and First Aid basics." },
+      { n:"05", title:"Self-Paced", desc:"Work through the course at your own speed." },
+      { n:"06", title:"2-Year Valid", desc:"Certification valid for two years from completion." }
+    ],
+    why: [
+      "Group training options make it ideal for workplaces and schools",
+      "Instant digital certificate with no waiting period",
+      "Accreditation recognized by most employers — verify before purchase",
+      "Simple course structure designed for non-medical learners",
+      "Affordable pricing for individuals and bulk group purchases"
+    ],
+    stats: [{ l:"Category", v:"CPR / First Aid" },{ l:"Format", v:"Online" },{ l:"Certificate", v:"Instant", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf="
+  },
+  ahca: {
+    name: "AHCA",
+    icon: "🩺",
+    tag: "Healthcare Training",
+    category: "Education & Training",
+    tagline: "OSHA-compliant safety training and healthcare certification programs.",
+    description: "The American Health Care Academy delivers OSHA-compliant safety training and healthcare certification programs online. BLS, CPR, First Aid, and OSHA safety courses — the choice for healthcare professionals who need recognized credentials.",
+    pullQuote: "The credential your healthcare employer actually requires.",
+    features: [
+      { n:"01", title:"BLS Certified", desc:"Basic Life Support for healthcare professionals." },
+      { n:"02", title:"OSHA Compliant", desc:"Safety training that meets OSHA workplace standards." },
+      { n:"03", title:"Healthcare Focus", desc:"Built for nurses, EMTs, and allied health workers." },
+      { n:"04", title:"100% Online", desc:"Complete on any device, any time." },
+      { n:"05", title:"Instant Certificate", desc:"Digital and printable cert immediately on passing." },
+      { n:"06", title:"Group Training", desc:"Organization-wide training options available." }
+    ],
+    why: [
+      "BLS certification required by most healthcare employers",
+      "OSHA compliance training built into the curriculum",
+      "Recognized by hospitals, clinics, and healthcare organizations",
+      "Faster and more affordable than in-person AHA courses",
+      "Group discounts for healthcare teams and facilities"
+    ],
+    stats: [{ l:"Category", v:"Healthcare" },{ l:"Standard", v:"OSHA Compliant" },{ l:"Certificate", v:"Instant", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3"
+  },
+  taxextension: {
+    name: "Tax Extension",
+    icon: "📄",
+    tag: "Tax Service",
+    category: "Services",
+    tagline: "File a federal or state tax extension online in minutes — IRS-accepted.",
+    description: "Tax Extension makes filing for a federal or state tax extension fast, simple, and stress-free. Complete the process online in minutes, receive IRS acceptance, and get the extra time you need to file your return right.",
+    pullQuote: "More time to file. Less stress. Done in minutes.",
+    features: [
+      { n:"01", title:"IRS Accepted", desc:"Extensions filed directly and accepted by the IRS." },
+      { n:"02", title:"Minutes to File", desc:"Complete the entire process online in under 10 minutes." },
+      { n:"03", title:"Federal + State", desc:"Both federal and state extension filing covered." },
+      { n:"04", title:"Instant Confirmation", desc:"Receive confirmation of your filed extension quickly." },
+      { n:"05", title:"Secure Filing", desc:"Bank-level security for all personal tax data." },
+      { n:"06", title:"No CPA Needed", desc:"Simple enough to complete entirely on your own." }
+    ],
+    why: [
+      "Extends your filing deadline by up to 6 months",
+      "Does not extend the time to pay — only the time to file",
+      "Far simpler than navigating the IRS website directly",
+      "Instant confirmation gives peace of mind before the deadline",
+      "Available for both individual and business filers"
+    ],
+    stats: [{ l:"Category", v:"Tax Services" },{ l:"Filing", v:"Federal + State" },{ l:"Time", v:"~10 Minutes", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension"
+  },
+  discountpetcare: {
+    name: "Discount Pet Care",
+    icon: "🐾",
+    tag: "Pet Meds",
+    category: "Pet Care",
+    tagline: "Affordable pet medications — the same brands your vet uses, up to 50% less.",
+    description: "Discount Pet Care offers the same vet-approved flea, tick, heartworm, and deworming medications your veterinarian prescribes — at up to 50% less than clinic prices. Real medications, real savings, shipped direct.",
+    pullQuote: "Same NexGard. Same Frontline. Half the price.",
+    features: [
+      { n:"01", title:"Up to 50% Off", desc:"Significant savings vs. veterinary clinic pricing." },
+      { n:"02", title:"Real Brands", desc:"NexGard, Frontline, Heartgard, Bravecto, and more." },
+      { n:"03", title:"Vet-Approved", desc:"Manufacturer-authorized medications — not counterfeits." },
+      { n:"04", title:"Dogs & Cats", desc:"Full range of products for both dogs and cats." },
+      { n:"05", title:"Fast Shipping", desc:"Quick delivery direct to your door." },
+      { n:"06", title:"Prescription Ready", desc:"Prescription items require valid vet prescription." }
+    ],
+    why: [
+      "Up to 50% savings on the exact same medications",
+      "All products are genuine, manufacturer-authorized",
+      "Covers flea, tick, heartworm, deworming, and more",
+      "Prescription required for certain items — same as at the vet",
+      "No membership or subscription required to save"
+    ],
+    stats: [{ l:"Category", v:"Pet Medications" },{ l:"Savings", v:"Up to 50%", cls:"green" },{ l:"Pets", v:"Dogs & Cats" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf="
+  },
+  canadapetcare: {
+    name: "Canada Pet Care",
+    icon: "🐕",
+    tag: "Pet Pharmacy",
+    category: "Pet Care",
+    tagline: "Canada's trusted online pet pharmacy — vet-approved, shipped to your door.",
+    description: "Canada Pet Care is a licensed Canadian online pet pharmacy serving Canadian pet owners with vet-approved medications shipped directly to their homes. The trusted choice for Canadian dog and cat owners who want real savings.",
+    pullQuote: "Canadian pets deserve Canadian savings.",
+    features: [
+      { n:"01", title:"Licensed Canadian", desc:"Fully licensed Canadian online pet pharmacy." },
+      { n:"02", title:"Vet-Approved Meds", desc:"All products are veterinarian-approved medications." },
+      { n:"03", title:"Ship Across Canada", desc:"Delivery to all Canadian provinces and territories." },
+      { n:"04", title:"Dogs & Cats", desc:"Full product range for dogs and cats." },
+      { n:"05", title:"Real Brands", desc:"Major flea, tick, and heartworm brands in stock." },
+      { n:"06", title:"Significant Savings", desc:"Substantial savings vs. Canadian vet clinic prices." }
+    ],
+    why: [
+      "Licensed and regulated Canadian pharmacy — not a grey market seller",
+      "Same medications Canadian vets prescribe and recommend",
+      "Convenient home delivery across all of Canada",
+      "Prescription items handled correctly and legally",
+      "Serving Canadian pet owners who want real value"
+    ],
+    stats: [{ l:"Category", v:"Pet Pharmacy" },{ l:"Region", v:"Canada" },{ l:"Licensed", v:"Yes ✓", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538000012006219&atid=canadapetcare"
+  },
+  buildasign: {
+    name: "BuildASign",
+    icon: "🪧",
+    tag: "Custom Signs",
+    category: "Print & Signs",
+    tagline: "Custom banners, signs, and canvas prints for business and personal use.",
+    description: "BuildASign is the go-to source for custom printed banners, yard signs, canvas prints, and business signage. Upload your design, pick your size, and receive professional-quality prints shipped fast.",
+    pullQuote: "Your message. Your design. Professionally printed and shipped fast.",
+    features: [
+      { n:"01", title:"Banners & Signs", desc:"Vinyl banners, yard signs, retractable displays." },
+      { n:"02", title:"Canvas Prints", desc:"Gallery-wrapped photo canvas in dozens of sizes." },
+      { n:"03", title:"Business Signage", desc:"Professional signs for storefronts and events." },
+      { n:"04", title:"Easy Upload", desc:"Upload your own design or use their design tool." },
+      { n:"05", title:"Fast Production", desc:"Quick turnaround with express options available." },
+      { n:"06", title:"Quality Materials", desc:"Durable inks and substrates built to last." }
+    ],
+    why: [
+      "One source for both signs and canvas — no need to use multiple vendors",
+      "Great for businesses needing real signage at real prices",
+      "Easy online design tool for non-designers",
+      "Fast turnaround makes it viable for last-minute needs",
+      "Wide range of sizes and materials for every use case"
+    ],
+    stats: [{ l:"Category", v:"Print & Signs" },{ l:"Products", v:"Signs + Canvas" },{ l:"Turnaround", v:"Fast", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3"
+  },
+  easycanvasprints: {
+    name: "Easy Canvas Prints",
+    icon: "🖼️",
+    tag: "Canvas Prints",
+    category: "Print & Signs",
+    tagline: "Turn your photos into stunning gallery-wrapped canvas prints.",
+    description: "Easy Canvas Prints transforms your photos into beautiful gallery-wrapped canvas prints. Dozens of size options, archival inks, and a straightforward ordering process make it one of the most popular canvas print services online.",
+    pullQuote: "Your photo. Gallery quality. Delivered.",
+    features: [
+      { n:"01", title:"Gallery Wrapped", desc:"Professional gallery-wrap finish included." },
+      { n:"02", title:"Archival Inks", desc:"Fade-resistant inks for lasting color quality." },
+      { n:"03", title:"Dozens of Sizes", desc:"From small desk prints to large wall statements." },
+      { n:"04", title:"Photo Upload", desc:"Easy online upload from phone, computer, or cloud." },
+      { n:"05", title:"Gift Ready", desc:"Great for birthdays, weddings, and home décor." },
+      { n:"06", title:"Express Options", desc:"Faster production available when you need it quick." }
+    ],
+    why: [
+      "Consistently rated among the best for print quality and color accuracy",
+      "Gallery wrap makes prints look professionally framed without the cost",
+      "Simple ordering process even for first-time buyers",
+      "Great gift option for any occasion",
+      "Archival inks mean prints last decades without fading"
+    ],
+    stats: [{ l:"Category", v:"Canvas Prints" },{ l:"Finish", v:"Gallery Wrap" },{ l:"Inks", v:"Archival", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3"
+  },
+  canvasdiscount: {
+    name: "Canvas Discount",
+    icon: "🎨",
+    tag: "Photo Prints",
+    category: "Print & Signs",
+    tagline: "Premium photo canvas prints and wall art at unbeatable everyday prices.",
+    description: "Canvas Discount delivers premium photo canvas prints, posters, and wall art at prices that don't require a sale to be affordable. Consistent daily pricing, archival quality, and fast shipping make it a reliable favourite.",
+    pullQuote: "Premium quality doesn't have to mean premium pricing.",
+    features: [
+      { n:"01", title:"Everyday Low Price", desc:"No need to wait for a sale — always competitive." },
+      { n:"02", title:"Canvas + Posters", desc:"Full range of wall art printing options." },
+      { n:"03", title:"Archival Quality", desc:"Professional inks and genuine canvas materials." },
+      { n:"04", title:"Fast Shipping", desc:"Quick production and reliable delivery." },
+      { n:"05", title:"Many Sizes", desc:"Wide range from small accent prints to statement walls." },
+      { n:"06", title:"Easy Upload", desc:"Simple file upload with preview before ordering." }
+    ],
+    why: [
+      "Stable everyday pricing — no need to hunt for coupon codes",
+      "Competes on quality with premium-priced competitors",
+      "Good choice for anyone ordering multiple prints at once",
+      "Reliable production and shipping track record",
+      "Works well for home décor and gifting equally"
+    ],
+    stats: [{ l:"Category", v:"Canvas Prints" },{ l:"Pricing", v:"Everyday Low" },{ l:"Quality", v:"Archival", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3"
+  },
+  canvasonthecheap: {
+    name: "Canvas on the Cheap",
+    icon: "💲",
+    tag: "Budget Canvas",
+    category: "Print & Signs",
+    tagline: "Budget-friendly canvas prints without sacrificing quality.",
+    description: "Canvas on the Cheap lives up to its name — consistently the lowest-priced option in the canvas print market, with frequent sales pushing prices even lower. Real canvas, archival inks, gallery wrap included.",
+    pullQuote: "The best price on canvas prints. Every time.",
+    features: [
+      { n:"01", title:"Lowest Prices", desc:"Systematically the most affordable canvas option." },
+      { n:"02", title:"Frequent Sales", desc:"Regular 50%+ discount events throughout the year." },
+      { n:"03", title:"Free Shipping", desc:"Periodic free shipping promotions — check site." },
+      { n:"04", title:"Real Canvas", desc:"Genuine canvas material, not poster stock." },
+      { n:"05", title:"Gallery Wrap", desc:"Professional gallery-wrap finish at budget price." },
+      { n:"06", title:"Express Available", desc:"Faster production when you're in a hurry." }
+    ],
+    why: [
+      "Best choice when price is your primary deciding factor",
+      "Quality doesn't drop despite the low price point",
+      "Frequent sales events can push per-print cost extremely low",
+      "Free shipping promotions available regularly",
+      "Great for ordering multiple prints without breaking the budget"
+    ],
+    stats: [{ l:"Category", v:"Canvas Prints" },{ l:"Price", v:"Lowest Available", cls:"green" },{ l:"Sales", v:"Frequent 50%+" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3"
+  },
+  infinitealoe: {
+    name: "Infinite Aloe",
+    icon: "🌿",
+    tag: "Natural Skincare",
+    category: "Health & Lifestyle",
+    tagline: "Organic aloe vera skincare — fragrance-free, for sensitive skin.",
+    description: "Infinite Aloe puts organic aloe vera where it belongs — as the base ingredient, not a marketing add-on. Fragrance-free, paraben-free, and trusted by those with sensitive, reactive, and eczema-prone skin.",
+    pullQuote: "When your skin reacts to everything else, it stops reacting to this.",
+    features: [
+      { n:"01", title:"Aloe-Based", desc:"Organic aloe vera is the primary ingredient, not water." },
+      { n:"02", title:"Fragrance-Free", desc:"Zero added fragrance — safe for sensitivities." },
+      { n:"03", title:"Paraben-Free", desc:"No parabens or artificial preservatives." },
+      { n:"04", title:"Multi-Use", desc:"Face and body — one product, multiple uses." },
+      { n:"05", title:"Eczema Friendly", desc:"Trusted by those with reactive and sensitive skin." },
+      { n:"06", title:"All Ages", desc:"Safe for adults and children alike." }
+    ],
+    why: [
+      "Aloe vera base penetrates skin more effectively than water-based creams",
+      "Fragrance-free means no irritation for scent-sensitive users",
+      "Anti-inflammatory properties reduce redness naturally",
+      "Multi-purpose — replaces multiple products in your routine",
+      "Trusted by the eczema and sensitive skin community for years"
+    ],
+    stats: [{ l:"Category", v:"Skincare" },{ l:"Base", v:"Organic Aloe" },{ l:"Fragrance", v:"Free ✓", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0"
+  },
+  littletoe: {
+    name: "Little Toe",
+    icon: "🦶",
+    tag: "Foot Care",
+    category: "Health & Lifestyle",
+    tagline: "Bunion relief, toe separators, and foot comfort products that work.",
+    description: "Little Toe specializes in orthopedic foot care solutions. Bunion correctors, toe separators, arch support insoles, and gel cushions — designed to reduce pain, slow progression, and keep you moving comfortably.",
+    pullQuote: "Your feet carry you everywhere. They deserve proper care.",
+    features: [
+      { n:"01", title:"Bunion Relief", desc:"Correctors designed to reduce hallux valgus pain." },
+      { n:"02", title:"Toe Separators", desc:"Create space, reduce friction and pressure." },
+      { n:"03", title:"Arch Support", desc:"Insoles that redistribute pressure away from joints." },
+      { n:"04", title:"Gel Cushions", desc:"Cushion the bunion bump against shoe pressure." },
+      { n:"05", title:"Medical Grade", desc:"Orthopedic-quality materials for daily use." },
+      { n:"06", title:"Non-Surgical", desc:"Pain management without the operating room." }
+    ],
+    why: [
+      "Orthopedic-quality materials at accessible consumer prices",
+      "Reduces bunion pain without surgery or prescription",
+      "Can slow the progression of hallux valgus with regular use",
+      "Works for both day use during activity and night use",
+      "Trusted by those with mild to moderate bunion conditions"
+    ],
+    stats: [{ l:"Category", v:"Foot Care" },{ l:"Type", v:"Orthopedic" },{ l:"Approach", v:"Non-Surgical", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe"
+  },
+  combatflipflops: {
+    name: "Combat Flip Flops",
+    icon: "🩴",
+    tag: "Social Impact",
+    category: "Health & Lifestyle",
+    tagline: "Footwear that funds education and de-mining in conflict zones.",
+    description: "Combat Flip Flops is a mission-driven footwear and apparel brand founded by Army Rangers. Every purchase funds education programs and landmine clearance in conflict-affected communities. Wear something that does something.",
+    pullQuote: "Business as a force for peace. Buy a pair, change a life.",
+    features: [
+      { n:"01", title:"Mission-Driven", desc:"Founded by Army Rangers with a clear social mission." },
+      { n:"02", title:"Funds Education", desc:"Purchases support education in conflict zones." },
+      { n:"03", title:"De-Mining Support", desc:"Profits fund landmine clearance operations." },
+      { n:"04", title:"Quality Products", desc:"Footwear and apparel built to last." },
+      { n:"05", title:"Transparent Impact", desc:"Clear reporting on where your money goes." },
+      { n:"06", title:"Global Reach", desc:"Operating in Afghanistan, Colombia, and beyond." }
+    ],
+    why: [
+      "The only footwear purchase that funds actual peace-building operations",
+      "Founded by veterans with direct experience in conflict zones",
+      "Transparent about impact — you can see exactly what your purchase funds",
+      "Quality products that you'd buy regardless of the mission",
+      "A genuine alternative to fast fashion with real-world consequences"
+    ],
+    stats: [{ l:"Category", v:"Social Enterprise" },{ l:"Founded By", v:"Army Rangers" },{ l:"Impact", v:"Real & Verified", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0"
+  },
+  halloweencostumes: {
+    name: "Halloween Costumes",
+    icon: "🎃",
+    tag: "Costumes",
+    category: "Health & Lifestyle",
+    tagline: "Huge selection of Halloween costumes for adults, kids, and pets.",
+    description: "Halloween Costumes is one of the largest online costume retailers. Thousands of options across every category — from funny to terrifying, classic to pop culture, adults, kids, babies, and pets. Fast shipping available.",
+    pullQuote: "Whatever character you want to be — they have it.",
+    features: [
+      { n:"01", title:"Thousands of Options", desc:"One of the widest selections online." },
+      { n:"02", title:"All Ages", desc:"Adults, kids, babies, toddlers, and pets covered." },
+      { n:"03", title:"Every Style", desc:"Funny, scary, classic, couples, group costumes." },
+      { n:"04", title:"Accessories Too", desc:"Wigs, makeup, props, and decoration bundles." },
+      { n:"05", title:"Fast Shipping", desc:"Express options to make last-minute possible." },
+      { n:"06", title:"Year-Round", desc:"Available beyond October for events and parties." }
+    ],
+    why: [
+      "Selection size is unmatched — hard to not find what you need",
+      "Group and couples costume bundles make coordination easy",
+      "Pet costumes are a surprisingly strong category",
+      "Fast shipping makes ordering close to Halloween viable",
+      "Accessories and décor available alongside costumes"
+    ],
+    stats: [{ l:"Category", v:"Costumes" },{ l:"Selection", v:"Thousands" },{ l:"Shipping", v:"Express Avail.", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf="
+  },
+  shoplww: {
+    name: "Shop LWW",
+    icon: "📚",
+    tag: "Medical Books",
+    category: "Health & Lifestyle",
+    tagline: "Lippincott Williams & Wilkins — medical and nursing textbooks and resources.",
+    description: "Shop LWW is the official store for Lippincott Williams & Wilkins — one of the most respected names in medical and nursing publishing. Textbooks, study guides, and clinical references for healthcare students and professionals.",
+    pullQuote: "The textbooks that train the people who save lives.",
+    features: [
+      { n:"01", title:"LWW Publisher", desc:"Official store for Lippincott Williams & Wilkins." },
+      { n:"02", title:"Medical Texts", desc:"Core textbooks for medicine, nursing, and allied health." },
+      { n:"03", title:"Nursing Focus", desc:"Comprehensive nursing education resources." },
+      { n:"04", title:"Study Guides", desc:"NCLEX prep and clinical reference guides." },
+      { n:"05", title:"Digital Options", desc:"eBook and digital access options available." },
+      { n:"06", title:"Trusted Publisher", desc:"Used by medical schools and nursing programs globally." }
+    ],
+    why: [
+      "LWW is one of the most cited medical publishers in the world",
+      "Required reading in nursing and medical programs internationally",
+      "Buying direct from publisher ensures latest editions",
+      "Digital options reduce cost and weight for students",
+      "Covers every healthcare specialty from nursing to pharmacy"
+    ],
+    stats: [{ l:"Category", v:"Medical Books" },{ l:"Publisher", v:"LWW" },{ l:"Format", v:"Print + Digital", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3"
+  },
+  bgmgirl: {
+    name: "BGM Girl",
+    icon: "🎵",
+    tag: "Royalty-Free Music",
+    category: "Services",
+    tagline: "Royalty-free background music — safe for YouTube, Twitch, and podcasts.",
+    description: "BGM Girl provides royalty-free background music built specifically for content creators. No copyright claims, no DMCA strikes, no surprises. Licensed for YouTube monetization, Twitch streaming, podcasts, and commercial use.",
+    pullQuote: "Music that works for your content — not against it.",
+    features: [
+      { n:"01", title:"YouTube Safe", desc:"Licensed for monetized YouTube channels." },
+      { n:"02", title:"Twitch Ready", desc:"Safe for live streaming without mute risk." },
+      { n:"03", title:"Podcast Licensed", desc:"Clear for podcast distribution and commercial use." },
+      { n:"04", title:"No Claims", desc:"Zero copyright claims on licensed tracks." },
+      { n:"05", title:"Wide Catalogue", desc:"Ambient, dynamic, cinematic, lo-fi, and more." },
+      { n:"06", title:"Commercial Use", desc:"Cleared for commercial video and content use." }
+    ],
+    why: [
+      "One copyright strike can demonetize your entire channel — don't risk it",
+      "Built specifically for creators, not a general music library",
+      "Covers YouTube, Twitch, podcasts, and commercial video",
+      "No ongoing royalty fees — pay once, use freely",
+      "Catalogue covers every mood and content style"
+    ],
+    stats: [{ l:"Category", v:"Music Licensing" },{ l:"Platforms", v:"YT / Twitch / Pod" },{ l:"Claims", v:"Zero ✓", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf="
+  },
+  lafuent: {
+    name: "Lafuent",
+    icon: "🔧",
+    tag: "Auto Parts",
+    category: "Services",
+    tagline: "Quality OEM and aftermarket car parts shipped globally.",
+    description: "Lafuent is an automotive spare parts specialist offering quality OEM and aftermarket components for a wide range of vehicle makes and models. Professional-grade parts shipped to customers worldwide.",
+    pullQuote: "The right part. The right price. Shipped to your door.",
+    features: [
+      { n:"01", title:"OEM & Aftermarket", desc:"Both original and quality aftermarket parts stocked." },
+      { n:"02", title:"Global Shipping", desc:"Parts shipped to customers around the world." },
+      { n:"03", title:"Wide Compatibility", desc:"Coverage across many makes and models." },
+      { n:"04", title:"Professional Grade", desc:"Quality components for reliable repairs." },
+      { n:"05", title:"Specialist Knowledge", desc:"Automotive parts expertise behind every listing." },
+      { n:"06", title:"Reliable Source", desc:"Trusted supplier for mechanics and owners alike." }
+    ],
+    why: [
+      "OEM options mean factory-quality replacement parts",
+      "Global shipping makes specialist parts accessible anywhere",
+      "Aftermarket options provide cost savings without quality sacrifice",
+      "Wide vehicle compatibility reduces the search for the right part",
+      "Trusted by both professional mechanics and home garage enthusiasts"
+    ],
+    stats: [{ l:"Category", v:"Auto Parts" },{ l:"Type", v:"OEM + Aftermarket" },{ l:"Shipping", v:"Global ✓", cls:"green" },{ l:"Network", v:"LinkConnector" }],
+    url: "https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0"
+  }
+};
+
+// ─── AFFILIATE LINK BUILDER ───────────────────────────────────────────
+function buildUrl(merchantId) {
+  const m = MERCHANTS[merchantId];
+  if (!m) return '#';
+  const u = new URL(m.url);
+  u.searchParams.set('utm_source', 'brightlane-campaign-page');
+  u.searchParams.set('utm_medium', 'affiliate');
+  u.searchParams.set('utm_campaign', merchantId);
+  u.searchParams.set('utm_content', 'campaign-page-cta');
+  return u.toString();
+}
+
+// ─── DATE ─────────────────────────────────────────────────────────────
+document.getElementById('dateline-date').textContent =
+  new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+// ─── RENDER ───────────────────────────────────────────────────────────
+function render() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('c');
+  const m = id ? MERCHANTS[id] : null;
+
+  if (!m) {
+    renderError(id);
+    return;
+  }
+
+  const url = buildUrl(id);
+  const BASE = 'https://brightlane.github.io/verified-merchant-directory';
+  const pageUrl = `${BASE}/campaign-page.html?c=${id}`;
+
+  // ── Meta updates
+  document.getElementById('page-title').textContent = `${m.name} — Brightlane Verified Partner`;
+  document.title = `${m.name} — Brightlane Verified Partner`;
+  document.getElementById('page-desc').setAttribute('content', m.description);
+  document.getElementById('page-canonical').setAttribute('href', pageUrl);
+  document.getElementById('og-title').setAttribute('content', `${m.name} — Brightlane Verified Partner`);
+  document.getElementById('og-desc').setAttribute('content', m.description);
+
+  // ── JSON-LD
+  document.getElementById('jsonld-product').textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `${m.name} — Brightlane Verified Partner`,
+    "description": m.description,
+    "url": pageUrl,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type":"ListItem","position":1,"name":"Directory","item":`${BASE}/` },
+        { "@type":"ListItem","position":2,"name":m.name,"item":pageUrl }
+      ]
+    }
+  });
+
+  // ── Features HTML
+  const featuresHTML = m.features.map(f => `
+    <div class="feature-item">
+      <div class="feature-number">${f.n}</div>
+      <div class="feature-title">${f.title}</div>
+      <div class="feature-desc">${f.desc}</div>
+    </div>`).join('');
+
+  // ── Why list HTML
+  const whyHTML = m.why.map((w,i) => `
+    <li>
+      <span class="why-num">${String(i+1).padStart(2,'0')}</span>
+      <span>${w}</span>
+    </li>`).join('');
+
+  // ── Stats HTML
+  const statsHTML = m.stats.map(s => `
+    <div class="sidebar-stat">
+      <span class="sidebar-stat-label">${s.l}</span>
+      <span class="sidebar-stat-value${s.cls ? ' '+s.cls : ''}">${s.v}</span>
+    </div>`).join('');
+
+  // ── Render page
+  document.getElementById('page-root').innerHTML = `
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker">${m.category}</div>
+        <h1 class="hero-name">${m.name}</h1>
+        <p class="hero-tagline">${m.tagline}</p>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Specialty</span>
+            <span class="meta-value tag">${m.tag}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value" style="color:var(--green);font-weight:600">✓ Verified Partner</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Network</span>
+            <span class="meta-value">LinkConnector</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="${url}" class="cta-primary" target="_blank" rel="noopener sponsored">
+            Visit ${m.name}
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="index.html" class="cta-secondary">← Back to Directory</a>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <span class="sidebar-icon">${m.icon}</span>
+        <div class="sidebar-label">Verified Merchant</div>
+        <div class="sidebar-merchant">${m.name}</div>
+        ${statsHTML}
+      </div>
+    </div>
+
+    <hr class="section-rule" data-label="About this merchant"/>
+
+    <div class="content-wrap">
+      <div class="content-main">
+        <h2 class="section-heading">About ${m.name}</h2>
+        <p style="color:var(--ink2);line-height:1.8;margin-bottom:28px;font-size:1rem">${m.description}</p>
+
+        <div class="pull-quote">
+          <p>&ldquo;${m.pullQuote}&rdquo;</p>
+        </div>
+
+        <h2 class="section-heading">Key Features</h2>
+        <div class="features-grid">${featuresHTML}</div>
+
+        <h2 class="section-heading">Why ${m.name}</h2>
+        <ul class="why-list">${whyHTML}</ul>
+      </div>
+
+      <div class="content-rail">
+        <div class="rail-cta">
+          <h3>Visit ${m.name}</h3>
+          <p>Verified affiliate partner. No extra cost to you — we earn a small commission that helps keep this directory free.</p>
+          <a href="${url}" class="rail-btn" target="_blank" rel="noopener sponsored">Go to ${m.name} →</a>
+          <a href="index.html" class="rail-btn-outline">← View All Merchants</a>
+        </div>
+
+        <div class="rail-box" style="margin-top:20px">
+          <h3>Quick Facts</h3>
+          ${statsHTML}
+        </div>
+
+        <div class="disclosure-box" style="margin-top:20px">
+          <strong style="display:block;margin-bottom:4px;color:var(--ink);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase">Affiliate Disclosure</strong>
+          This page contains affiliate links. Clicking through and purchasing may earn Brightlane a small commission at no additional cost to you. All merchants are independently verified partners.
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderError(id) {
+  document.getElementById('page-root').innerHTML = `
+    <div class="error-state">
+      <h1>Merchant Not Found</h1>
+      <p>${id ? `No merchant found for "<strong>${id}</strong>".` : 'No merchant specified.'} Please return to the directory and try again.</p>
+      <a href="index.html" class="cta-primary" style="display:inline-flex;align-items:center;gap:8px">
+        ← Back to Directory
+      </a>
+    </div>`;
+}
+
+render();
+</script>
+</body>
+</html>
