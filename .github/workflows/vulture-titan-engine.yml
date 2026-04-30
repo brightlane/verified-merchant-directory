@@ -40,7 +40,7 @@ jobs:
           node-version: '20'
       - name: 🎯 Auto-Generate Priority Topics
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: |
           if [ -f auto-topic-generator.js ]; then
             node auto-topic-generator.js
@@ -49,11 +49,11 @@ jobs:
           fi
       - name: 💉 Blog Injector — 15 Languages
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: node inject.js
       - name: 🔑 Keyword Injector
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: |
           if [ -f keyword-injector.js ]; then
             node keyword-injector.js
@@ -62,7 +62,7 @@ jobs:
           fi
       - name: 🎯 Targeted Keyword Injection
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.LC_API_KEY }}
         run: |
           if [ -f targetedkeys.js ]; then
             node targetedkeys.js
@@ -80,7 +80,7 @@ jobs:
         run: |
           git config user.name  "Vulture Titan Engine"
           git config user.email "vulture@brightlane.bot"
-          git add blog/ lmss.txt sitemap.xml blog*.html campaign-page.html
+          git add blog/ lmss.txt sitemap.xml blog*.html campaign-page.html post-topics.json
           git diff --cached --quiet && echo "Nothing to commit" || git commit -m "🦅 Auto-inject: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
