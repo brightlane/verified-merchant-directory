@@ -1845,7 +1845,7 @@
     {
       "slug": "knowledgehut-cybersecurity-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "Best Cybersecurity Certification Course Online 2026 — KnowledgeHut Review",
       "category_en": "Education",
       "metaDesc_en": "KnowledgeHut cybersecurity certification review 2026. CompTIA Security+, CEH, CISSP — which cybersecurity cert is worth getting and how does KnowledgeHut prepare you?",
@@ -1881,12 +1881,30 @@
           "q": "Does KnowledgeHut provide practice exams for cybersecurity certs?",
           "a": "Yes. Practice exams are included in most KnowledgeHut cybersecurity courses."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "knowledgehut-cybersecurity-2026.html",
+        "knowledgehut-cybersecurity-2026-zh.html",
+        "knowledgehut-cybersecurity-2026-es.html",
+        "knowledgehut-cybersecurity-2026-fr.html",
+        "knowledgehut-cybersecurity-2026-de.html",
+        "knowledgehut-cybersecurity-2026-pt.html",
+        "knowledgehut-cybersecurity-2026-ar.html",
+        "knowledgehut-cybersecurity-2026-hi.html",
+        "knowledgehut-cybersecurity-2026-ru.html",
+        "knowledgehut-cybersecurity-2026-ja.html",
+        "knowledgehut-cybersecurity-2026-ko.html",
+        "knowledgehut-cybersecurity-2026-id.html",
+        "knowledgehut-cybersecurity-2026-it.html",
+        "knowledgehut-cybersecurity-2026-nl.html",
+        "knowledgehut-cybersecurity-2026-pl.html"
       ]
     },
     {
       "slug": "pmtraining-pmp-prep-2026",
       "merchant": "pmtraining",
-      "published": false,
+      "published": true,
       "title_en": "Best PMP Exam Prep Course 2026 — PM Training Review",
       "category_en": "Education",
       "metaDesc_en": "PM Training PMP exam prep review 2026. 98% pass rate, 40 PDUs included, live instructor coaching. Is PM Training the best way to prepare for the PMP exam?",
@@ -1922,6 +1940,24 @@
           "q": "How long does PMP prep with PM Training take?",
           "a": "Most students complete the prep program in 4-6 weeks of part-time study alongside the live training sessions."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "pmtraining-pmp-prep-2026.html",
+        "pmtraining-pmp-prep-2026-zh.html",
+        "pmtraining-pmp-prep-2026-es.html",
+        "pmtraining-pmp-prep-2026-fr.html",
+        "pmtraining-pmp-prep-2026-de.html",
+        "pmtraining-pmp-prep-2026-pt.html",
+        "pmtraining-pmp-prep-2026-ar.html",
+        "pmtraining-pmp-prep-2026-hi.html",
+        "pmtraining-pmp-prep-2026-ru.html",
+        "pmtraining-pmp-prep-2026-ja.html",
+        "pmtraining-pmp-prep-2026-ko.html",
+        "pmtraining-pmp-prep-2026-id.html",
+        "pmtraining-pmp-prep-2026-it.html",
+        "pmtraining-pmp-prep-2026-nl.html",
+        "pmtraining-pmp-prep-2026-pl.html"
       ]
     },
     {
