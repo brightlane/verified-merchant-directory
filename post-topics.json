@@ -687,7 +687,7 @@
     {
       "slug": "cpr-certification-online-workplace-2026",
       "merchant": "cpraedcourse",
-      "published": false,
+      "published": true,
       "title_en": "Online CPR Certification for Workplace Requirements 2026 — What You Need to Know",
       "category_en": "Education",
       "metaDesc_en": "Everything about online CPR certification for workplace compliance in 2026. Which employers accept it, how long it takes, and where to get certified fast.",
@@ -723,7 +723,8 @@
           "q": "What's the difference between CPR and BLS certification?",
           "a": "CPR is the general public certification. BLS (Basic Life Support) is a higher-level certification required for healthcare professionals like nurses and paramedics."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "bls-certification-nurses-2026",
