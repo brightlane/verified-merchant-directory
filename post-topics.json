@@ -813,7 +813,7 @@
     {
       "slug": "nexgard-online-vs-vet-2026",
       "merchant": "discountpetcare",
-      "published": false,
+      "published": true,
       "title_en": "NexGard Online vs Vet — How Much Can You Actually Save in 2026?",
       "category_en": "Pet Care",
       "metaDesc_en": "How much does NexGard cost online vs at the vet in 2026? Real price comparison and where to buy NexGard safely at the lowest price.",
@@ -849,7 +849,8 @@
           "q": "How long does shipping take?",
           "a": "Check Discount Pet Care's site for current shipping times and options. Standard shipping is typically several business days."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "heartgard-canada-buy-online-2026",
