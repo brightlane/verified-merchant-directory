@@ -3851,7 +3851,7 @@
     {
       "slug": "pmtraining-project-management-career-2026",
       "merchant": "pmtraining",
-      "published": false,
+      "published": true,
       "title_en": "Project Management Career Guide 2026 — Which Certifications Actually Pay Off?",
       "category_en": "Education",
       "metaDesc_en": "Project management career guide for 2026. Which certifications — PMP, PRINCE2, Agile — give the best salary bump? How to choose the right path for your career.",
@@ -3887,12 +3887,30 @@
           "q": "Is project management a good career in 2026?",
           "a": "Yes. PMI projects 25 million new project management roles globally by 2030. Demand consistently outpaces supply of certified professionals."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "pmtraining-project-management-career-2026.html",
+        "pmtraining-project-management-career-2026-zh.html",
+        "pmtraining-project-management-career-2026-es.html",
+        "pmtraining-project-management-career-2026-fr.html",
+        "pmtraining-project-management-career-2026-de.html",
+        "pmtraining-project-management-career-2026-pt.html",
+        "pmtraining-project-management-career-2026-ar.html",
+        "pmtraining-project-management-career-2026-hi.html",
+        "pmtraining-project-management-career-2026-ru.html",
+        "pmtraining-project-management-career-2026-ja.html",
+        "pmtraining-project-management-career-2026-ko.html",
+        "pmtraining-project-management-career-2026-id.html",
+        "pmtraining-project-management-career-2026-it.html",
+        "pmtraining-project-management-career-2026-nl.html",
+        "pmtraining-project-management-career-2026-pl.html"
       ]
     },
     {
       "slug": "workplace-cpr-training-2026",
       "merchant": "cpraedcourse",
-      "published": false,
+      "published": true,
       "title_en": "Workplace CPR Training 2026 — OSHA Requirements and Best Options",
       "category_en": "Education",
       "metaDesc_en": "Workplace CPR training requirements under OSHA in 2026. Which industries require CPR certification for employees? Best online options for workplace training.",
@@ -3928,6 +3946,24 @@
           "q": "Is online CPR certification acceptable for OSHA compliance?",
           "a": "Generally yes for most industries. Healthcare settings may require additional hands-on skills components."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "workplace-cpr-training-2026.html",
+        "workplace-cpr-training-2026-zh.html",
+        "workplace-cpr-training-2026-es.html",
+        "workplace-cpr-training-2026-fr.html",
+        "workplace-cpr-training-2026-de.html",
+        "workplace-cpr-training-2026-pt.html",
+        "workplace-cpr-training-2026-ar.html",
+        "workplace-cpr-training-2026-hi.html",
+        "workplace-cpr-training-2026-ru.html",
+        "workplace-cpr-training-2026-ja.html",
+        "workplace-cpr-training-2026-ko.html",
+        "workplace-cpr-training-2026-id.html",
+        "workplace-cpr-training-2026-it.html",
+        "workplace-cpr-training-2026-nl.html",
+        "workplace-cpr-training-2026-pl.html"
       ]
     },
     {
