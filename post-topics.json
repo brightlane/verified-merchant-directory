@@ -603,7 +603,7 @@
     {
       "slug": "knowledgehut-aws-certification-review-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "KnowledgeHut AWS Certification Course Review 2026 — Worth It?",
       "category_en": "Education",
       "metaDesc_en": "KnowledgeHut AWS certification course review 2026. Is it worth the cost for cloud career changers? Pass rates, course quality, and what to expect.",
@@ -639,7 +639,8 @@
           "q": "Do I need technical experience to start?",
           "a": "Cloud Practitioner requires no prior cloud experience. Solutions Architect assumes some IT background."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "pmp-exam-prep-guide-2026",

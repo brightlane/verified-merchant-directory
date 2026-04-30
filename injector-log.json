@@ -70,5 +70,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-04-30",
+    "slug": "knowledgehut-aws-certification-review-2026",
+    "merchant": "knowledgehut",
+    "title": "KnowledgeHut AWS Certification Course Review 2026 — Worth It?",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
