@@ -2671,7 +2671,7 @@
     {
       "slug": "canvas-print-wedding-gift-2026",
       "merchant": "easycanvasprints",
-      "published": false,
+      "published": true,
       "title_en": "Best Canvas Print Wedding Gifts 2026 — Order Guide",
       "category_en": "Print & Signs",
       "metaDesc_en": "How to order the perfect canvas print wedding gift in 2026. Best sites, sizing guide, and how to get it delivered before the wedding. Easy Canvas Prints review.",
@@ -2707,12 +2707,30 @@
           "q": "Can I upload a photo from my phone for a canvas print?",
           "a": "Yes, but use the highest resolution photo available."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "canvas-print-wedding-gift-2026.html",
+        "canvas-print-wedding-gift-2026-zh.html",
+        "canvas-print-wedding-gift-2026-es.html",
+        "canvas-print-wedding-gift-2026-fr.html",
+        "canvas-print-wedding-gift-2026-de.html",
+        "canvas-print-wedding-gift-2026-pt.html",
+        "canvas-print-wedding-gift-2026-ar.html",
+        "canvas-print-wedding-gift-2026-hi.html",
+        "canvas-print-wedding-gift-2026-ru.html",
+        "canvas-print-wedding-gift-2026-ja.html",
+        "canvas-print-wedding-gift-2026-ko.html",
+        "canvas-print-wedding-gift-2026-id.html",
+        "canvas-print-wedding-gift-2026-it.html",
+        "canvas-print-wedding-gift-2026-nl.html",
+        "canvas-print-wedding-gift-2026-pl.html"
       ]
     },
     {
       "slug": "easy-canvas-prints-family-photos-2026",
       "merchant": "easycanvasprints",
-      "published": false,
+      "published": true,
       "title_en": "Turn Family Photos Into Canvas Prints 2026 — Complete Guide",
       "category_en": "Print & Signs",
       "metaDesc_en": "How to turn your family photos into beautiful canvas prints in 2026. Best photo tips, sizing guide, and which canvas print service gives the best results.",
@@ -2748,6 +2766,24 @@
           "q": "How long does Easy Canvas Prints take to deliver?",
           "a": "Standard production is typically 3-5 business days plus shipping time."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "easy-canvas-prints-family-photos-2026.html",
+        "easy-canvas-prints-family-photos-2026-zh.html",
+        "easy-canvas-prints-family-photos-2026-es.html",
+        "easy-canvas-prints-family-photos-2026-fr.html",
+        "easy-canvas-prints-family-photos-2026-de.html",
+        "easy-canvas-prints-family-photos-2026-pt.html",
+        "easy-canvas-prints-family-photos-2026-ar.html",
+        "easy-canvas-prints-family-photos-2026-hi.html",
+        "easy-canvas-prints-family-photos-2026-ru.html",
+        "easy-canvas-prints-family-photos-2026-ja.html",
+        "easy-canvas-prints-family-photos-2026-ko.html",
+        "easy-canvas-prints-family-photos-2026-id.html",
+        "easy-canvas-prints-family-photos-2026-it.html",
+        "easy-canvas-prints-family-photos-2026-nl.html",
+        "easy-canvas-prints-family-photos-2026-pl.html"
       ]
     },
     {
