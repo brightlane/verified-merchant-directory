@@ -1963,7 +1963,7 @@
     {
       "slug": "pmtraining-prince2-2026",
       "merchant": "pmtraining",
-      "published": false,
+      "published": true,
       "title_en": "Best PRINCE2 Certification Course 2026 — PM Training Review",
       "category_en": "Education",
       "metaDesc_en": "PM Training PRINCE2 certification review 2026. Is PRINCE2 worth it? How does it compare to PMP? Pricing, pass rates, and who should get certified.",
@@ -1999,12 +1999,30 @@
           "q": "How long does PRINCE2 certification take?",
           "a": "Foundation can be achieved in 2-3 weeks. Combined Foundation + Practitioner programs run 5 days with PM Training."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "pmtraining-prince2-2026.html",
+        "pmtraining-prince2-2026-zh.html",
+        "pmtraining-prince2-2026-es.html",
+        "pmtraining-prince2-2026-fr.html",
+        "pmtraining-prince2-2026-de.html",
+        "pmtraining-prince2-2026-pt.html",
+        "pmtraining-prince2-2026-ar.html",
+        "pmtraining-prince2-2026-hi.html",
+        "pmtraining-prince2-2026-ru.html",
+        "pmtraining-prince2-2026-ja.html",
+        "pmtraining-prince2-2026-ko.html",
+        "pmtraining-prince2-2026-id.html",
+        "pmtraining-prince2-2026-it.html",
+        "pmtraining-prince2-2026-nl.html",
+        "pmtraining-prince2-2026-pl.html"
       ]
     },
     {
       "slug": "pmtraining-agile-scrum-2026",
       "merchant": "pmtraining",
-      "published": false,
+      "published": true,
       "title_en": "Best Agile Scrum Certification Course 2026 — PM Training Review",
       "category_en": "Education",
       "metaDesc_en": "PM Training Agile Scrum certification review 2026. CSM vs PSM vs PMI-ACP — which agile certification is worth getting? Pricing, difficulty, and employer recognition.",
@@ -2040,6 +2058,24 @@
           "q": "How long does agile certification training take with PM Training?",
           "a": "CSM requires 2 days of instructor-led training. PMI-ACP preparation typically involves 3-4 weeks of study."
         }
+      ],
+      "published_date": "2026-04-30",
+      "files_generated": [
+        "pmtraining-agile-scrum-2026.html",
+        "pmtraining-agile-scrum-2026-zh.html",
+        "pmtraining-agile-scrum-2026-es.html",
+        "pmtraining-agile-scrum-2026-fr.html",
+        "pmtraining-agile-scrum-2026-de.html",
+        "pmtraining-agile-scrum-2026-pt.html",
+        "pmtraining-agile-scrum-2026-ar.html",
+        "pmtraining-agile-scrum-2026-hi.html",
+        "pmtraining-agile-scrum-2026-ru.html",
+        "pmtraining-agile-scrum-2026-ja.html",
+        "pmtraining-agile-scrum-2026-ko.html",
+        "pmtraining-agile-scrum-2026-id.html",
+        "pmtraining-agile-scrum-2026-it.html",
+        "pmtraining-agile-scrum-2026-nl.html",
+        "pmtraining-agile-scrum-2026-pl.html"
       ]
     },
     {
