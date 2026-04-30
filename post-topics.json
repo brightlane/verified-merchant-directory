@@ -561,7 +561,7 @@
     {
       "slug": "appypie-website-builder-review-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "Appy Pie Website Builder Review 2026 — Build a Website Without Coding",
       "category_en": "Software",
       "metaDesc_en": "Appy Pie website builder review 2026. Create a professional website without coding. Features, pricing, and how it compares to Wix and Squarespace.",
@@ -597,7 +597,8 @@
           "q": "How long does it take to build a website?",
           "a": "Using the AI generator, a basic website is ready in minutes. A fully customized site typically takes a few hours."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "knowledgehut-aws-certification-review-2026",

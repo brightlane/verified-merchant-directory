@@ -46,5 +46,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-04-30",
+    "slug": "appypie-website-builder-review-2026",
+    "merchant": "appypie",
+    "title": "Appy Pie Website Builder Review 2026 — Build a Website Without Coding",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
