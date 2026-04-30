@@ -1,34 +1,27 @@
 name: 🦅 VULTURE TITAN ENGINE
-
 on:
   workflow_dispatch:
   push:
     branches: [ main ]
   schedule:
     - cron: '*/10 * * * *'
-
 permissions:
   contents: write
   pages: write
   id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: 🛰️ Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: ⚙️ Setup Pages
         uses: actions/configure-pages@v5
-
       - name: ✅ Validate Required Files
         run: |
           echo "── Checking required files ──"
@@ -36,16 +29,15 @@ jobs:
           test -f affiliate.json          && echo "✓ affiliate.json"          || (echo "✗ affiliate.json MISSING"          && exit 1)
           test -f lmss.txt               && echo "✓ lmss.txt"               || (echo "✗ lmss.txt MISSING"               && exit 1)
           test -f inject.js              && echo "✓ inject.js"              || (echo "✗ inject.js MISSING"              && exit 1)
+          test -f campaign-page.html     && echo "✓ campaign-page.html"     || echo "⚠ campaign-page.html missing"
           test -f auto-topic-generator.js && echo "✓ auto-topic-generator.js" || echo "⚠ auto-topic-generator.js missing"
           test -f keyword-injector.js     && echo "✓ keyword-injector.js"     || echo "⚠ keyword-injector.js missing"
           test -f targetedkeys.js         && echo "✓ targetedkeys.js"         || echo "⚠ targetedkeys.js missing"
           test -f sitemap-updater.js      && echo "✓ sitemap-updater.js"      || echo "⚠ sitemap-updater.js missing"
-
       - name: 🔧 Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
       - name: 🎯 Auto-Generate Priority Topics
         env:
           ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
@@ -55,12 +47,10 @@ jobs:
           else
             echo "⚠ auto-topic-generator.js not found — skipping"
           fi
-
       - name: 💉 Blog Injector — 15 Languages
         env:
           ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
         run: node inject.js
-
       - name: 🔑 Keyword Injector
         env:
           ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
@@ -70,7 +60,6 @@ jobs:
           else
             echo "⚠ keyword-injector.js not found — skipping"
           fi
-
       - name: 🎯 Targeted Keyword Injection
         env:
           ANTHROPIC_API_KEY: ${{ secrets.C_API_KEY }}
@@ -80,7 +69,6 @@ jobs:
           else
             echo "⚠ targetedkeys.js not found — skipping"
           fi
-
       - name: 🗺️ Sitemap + Ping Search Engines
         run: |
           if [ -f sitemap-updater.js ]; then
@@ -88,21 +76,18 @@ jobs:
           else
             echo "⚠ sitemap-updater.js not found — skipping"
           fi
-
       - name: 💾 Commit All Changes
         run: |
           git config user.name  "Vulture Titan Engine"
           git config user.email "vulture@brightlane.bot"
-          git add blog/ lmss.txt sitemap.xml
+          git add blog/ lmss.txt sitemap.xml blog*.html campaign-page.html
           git diff --cached --quiet && echo "Nothing to commit" || git commit -m "🦅 Auto-inject: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
-
       - name: 📤 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
