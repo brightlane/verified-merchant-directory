@@ -62,3 +62,4 @@ Allow: /
 
 User-agent: CCBot
 Allow: /
+Disallow: /verified-merchant-directory/inventory.html
