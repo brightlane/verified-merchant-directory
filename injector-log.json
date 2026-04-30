@@ -262,5 +262,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-04-30",
+    "slug": "canvas-print-gift-ideas-2026",
+    "merchant": "easycanvasprints",
+    "title": "Canvas Print Gift Ideas 2026 — The Thoughtful Gift That Lasts",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

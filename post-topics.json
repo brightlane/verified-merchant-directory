@@ -939,7 +939,7 @@
     {
       "slug": "canvas-print-gift-ideas-2026",
       "merchant": "easycanvasprints",
-      "published": false,
+      "published": true,
       "title_en": "Canvas Print Gift Ideas 2026 — The Thoughtful Gift That Lasts",
       "category_en": "Print & Signs",
       "metaDesc_en": "Best canvas print gift ideas for 2026. Turn photos into beautiful gallery-wrapped canvas prints for birthdays, anniversaries, weddings, and holidays.",
@@ -975,7 +975,8 @@
           "q": "Can I preview the canvas before ordering?",
           "a": "Yes. Easy Canvas Prints shows you a preview of how your photo will look on the canvas before you complete the order."
         }
-      ]
+      ],
+      "published_date": "2026-04-30"
     },
     {
       "slug": "canvas-discount-vs-canvas-on-the-cheap-2026",
