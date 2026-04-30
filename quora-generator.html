@@ -1,1 +1,647 @@
-vv
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quora Answer Generator — Brightlane</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0a0b0d;--bg2:#111318;--bg3:#1a1d24;--bg4:#22262f;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#e8e9ed;--muted:#8a8d99;--dim:#555866;--accent:#e8ff47;--accent2:#47ffb8;--accent3:#ff6b35;--gold:#f5c842;--red:#ff4757;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;--radius:12px;--nav-h:60px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.4}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:var(--nav-h);background:rgba(10,11,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--font-head);font-weight:800;font-size:0.95rem;display:flex;align-items:center;gap:8px}
+    .nav-tag{font-family:var(--font-mono);font-size:0.62rem;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:3px 9px;border-radius:4px}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .nav-btn{font-family:var(--font-head);font-weight:700;font-size:0.72rem;background:var(--bg3);border:1px solid var(--border2);padding:6px 14px;border-radius:6px;color:var(--muted);cursor:pointer;transition:all .15s}
+    .nav-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+    /* LAYOUT */
+    .wrap{max-width:960px;margin:0 auto;padding:calc(var(--nav-h) + 32px) 24px 100px}
+
+    /* HEADER */
+    .page-header{margin-bottom:32px}
+    .page-eyebrow{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+    .page-title{font-family:var(--font-head);font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+    .page-sub{font-size:0.85rem;color:var(--muted);max-width:600px;line-height:1.6}
+
+    /* STRATEGY BADGES */
+    .strategy-bar{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .strategy-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;font-family:var(--font-mono);font-size:0.65rem;font-weight:600;letter-spacing:0.04em;border:1px solid}
+    .s1{background:rgba(232,255,71,0.07);border-color:rgba(232,255,71,0.2);color:var(--accent)}
+    .s2{background:rgba(71,255,184,0.07);border-color:rgba(71,255,184,0.2);color:var(--accent2)}
+    .s3{background:rgba(255,107,53,0.07);border-color:rgba(255,107,53,0.2);color:var(--accent3)}
+
+    /* CONTROLS */
+    .controls{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+    .controls-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px}
+    @media(max-width:700px){.controls-grid{grid-template-columns:1fr}}
+    .control-group label{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:8px}
+    .control-select,.control-input{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-family:var(--font-mono);font-size:0.78rem;color:var(--text);outline:none;transition:border-color .15s}
+    .control-select:focus,.control-input:focus{border-color:var(--accent)}
+    .control-select option{background:var(--bg3)}
+    .controls-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .generate-btn{font-family:var(--font-head);font-weight:800;font-size:0.9rem;background:var(--accent);color:#0a0b0d;padding:12px 28px;border-radius:10px;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+    .generate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,255,71,0.3)}
+    .generate-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+    .auto-btn{font-family:var(--font-head);font-weight:700;font-size:0.8rem;background:transparent;border:1px solid var(--border2);color:var(--muted);padding:12px 20px;border-radius:10px;cursor:pointer;transition:all .2s}
+    .auto-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+    .auto-btn.active{background:rgba(71,255,184,0.08);border-color:var(--accent2);color:var(--accent2)}
+    .status-text{font-family:var(--font-mono);font-size:0.72rem;color:var(--dim)}
+
+    /* STATS */
+    .session-stats{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px;font-family:var(--font-mono);font-size:0.72rem;color:var(--dim)}
+    .stat-pill{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 14px;display:flex;align-items:center;gap:8px}
+    .stat-val{color:var(--accent);font-weight:700;font-size:0.9rem}
+
+    /* ANSWER CARDS */
+    .answers-wrap{display:flex;flex-direction:column;gap:20px}
+
+    .answer-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s}
+    .answer-card:hover{border-color:var(--border2)}
+
+    .card-header{padding:18px 22px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+    .card-meta{flex:1}
+    .card-strategy{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+    .card-strategy.s1{color:var(--accent)}
+    .card-strategy.s2{color:var(--accent2)}
+    .card-strategy.s3{color:var(--accent3)}
+    .card-question{font-family:var(--font-head);font-size:1.05rem;font-weight:700;letter-spacing:-0.02em;line-height:1.3;color:var(--text)}
+    .card-merchant{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:0.72rem;color:var(--dim);font-family:var(--font-mono)}
+    .card-merchant span{color:var(--accent)}
+
+    .card-actions-top{display:flex;gap:8px;flex-shrink:0}
+    .icon-btn{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:0.65rem;color:var(--dim);cursor:pointer;transition:all .15s;font-family:var(--font-mono);white-space:nowrap}
+    .icon-btn:hover{border-color:var(--border2);color:var(--text)}
+    .icon-btn.copied{border-color:var(--accent2);color:var(--accent2)}
+
+    .card-body{padding:16px 22px}
+    .answer-text{font-size:0.88rem;line-height:1.8;color:var(--muted);white-space:pre-wrap;word-break:break-word}
+    .answer-text .aff-link{color:var(--accent);font-weight:500;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+
+    .card-footer{padding:12px 22px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--border)}
+    .footer-left{display:flex;gap:8px;flex-wrap:wrap}
+    .tag-pill{font-family:var(--font-mono);font-size:0.6rem;padding:3px 9px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);color:var(--dim)}
+    .footer-right{display:flex;gap:8px}
+    .copy-full-btn{font-family:var(--font-head);font-weight:700;font-size:0.75rem;background:var(--accent);color:#0a0b0d;padding:7px 16px;border-radius:7px;border:none;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px}
+    .copy-full-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(232,255,71,0.25)}
+    .copy-full-btn.copied{background:var(--accent2);color:#0a0b0d}
+    .quora-btn{font-family:var(--font-head);font-weight:700;font-size:0.75rem;background:transparent;border:1px solid rgba(178,0,0,0.4);color:#ff6b6b;padding:7px 16px;border-radius:7px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px}
+    .quora-btn:hover{background:rgba(178,0,0,0.08);border-color:rgba(178,0,0,0.6)}
+
+    /* LOADING */
+    .loading-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center}
+    .spinner{width:32px;height:32px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .loading-text{font-family:var(--font-mono);font-size:0.8rem;color:var(--dim)}
+    .loading-steps{margin-top:12px;display:flex;flex-direction:column;gap:6px;align-items:center}
+    .loading-step{font-family:var(--font-mono);font-size:0.7rem;color:var(--dim);opacity:0;transition:opacity .3s}
+    .loading-step.visible{opacity:1;color:var(--accent2)}
+
+    /* EMPTY */
+    .empty-state{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:60px 40px;text-align:center}
+    .empty-icon{font-size:2.5rem;margin-bottom:16px}
+    .empty-title{font-family:var(--font-head);font-size:1.1rem;font-weight:700;margin-bottom:8px}
+    .empty-sub{font-size:0.82rem;color:var(--muted)}
+
+    /* AUTO TIMER */
+    .auto-indicator{display:none;align-items:center;gap:8px;font-family:var(--font-mono);font-size:0.72rem;color:var(--accent2)}
+    .auto-indicator.visible{display:flex}
+    .auto-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:blink 1.2s ease infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--bg3);border:1px solid var(--accent2);border-radius:8px;padding:10px 18px;font-family:var(--font-mono);font-size:0.75rem;color:var(--accent2);z-index:999;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none}
+    .toast.show{opacity:1;transform:translateY(0)}
+
+    /* HISTORY */
+    .history-section{margin-top:40px;padding-top:28px;border-top:1px solid var(--border)}
+    .history-label{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+    .history-list{display:flex;flex-direction:column;gap:8px}
+    .history-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.8rem;color:var(--muted);cursor:pointer;transition:border-color .15s}
+    .history-item:hover{border-color:var(--border2)}
+    .history-q{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .history-meta{font-family:var(--font-mono);font-size:0.65rem;color:var(--dim);flex-shrink:0}
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">Brightlane <span style="color:var(--red);font-size:0.65rem;font-family:var(--font-mono);margin-left:4px">[INTERNAL]</span></div>
+    <div class="nav-tag">QUORA ENGINE · 3-STRATEGY</div>
+    <div class="nav-right">
+      <a href="inventory.html" class="nav-btn">Inventory</a>
+      <a href="index.html" class="nav-btn">← Home</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <div class="page-header">
+      <div class="page-eyebrow">brightlane · content engine · quora strategy</div>
+      <div class="page-title">Quora Answer Generator</div>
+      <div class="page-sub">Generates 3 high-quality Quora answers per session using all three traffic strategies. Each answer has your affiliate links naturally embedded and is ready to post immediately.</div>
+      <div class="strategy-bar">
+        <span class="strategy-badge s1">① Auto-Generate Q&A</span>
+        <span class="strategy-badge s2">② Affiliate-Embedded Answers</span>
+        <span class="strategy-badge s3">③ Auto-Post Ready Format</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="controls-grid">
+        <div class="control-group">
+          <label>Merchant</label>
+          <select class="control-select" id="merchant-select">
+            <option value="random">🎲 Random (Highest Volume)</option>
+            <option value="movavi">🎬 Movavi</option>
+            <option value="iskysoft">💿 iSkysoft</option>
+            <option value="tenorshare">📱 Tenorshare</option>
+            <option value="wondershare">✨ Wondershare</option>
+            <option value="appypie">⚙️ Appy Pie</option>
+            <option value="knowledgehut">🎓 KnowledgeHut</option>
+            <option value="pmtraining">📋 PM Training</option>
+            <option value="cpraedcourse">❤️‍🔥 CPR AED Course</option>
+            <option value="cprcare">🏥 CPR Care</option>
+            <option value="ahca">🩺 AHCA</option>
+            <option value="discountpetcare">🐾 Discount Pet Care</option>
+            <option value="canadapetcare">🐕 Canada Pet Care</option>
+            <option value="buildasign">🪧 BuildASign</option>
+            <option value="easycanvasprints">🖼️ Easy Canvas Prints</option>
+            <option value="canvasdiscount">🎨 Canvas Discount</option>
+            <option value="canvasonthecheap">💲 Canvas on the Cheap</option>
+            <option value="infinitealoe">🌿 Infinite Aloe</option>
+            <option value="littletoe">🦶 Little Toe</option>
+            <option value="combatflipflops">🩴 Combat Flip Flops</option>
+            <option value="halloweencostumes">🎃 Halloween Costumes</option>
+            <option value="shoplww">📚 Shop LWW</option>
+            <option value="bgmgirl">🎵 BGM Girl</option>
+            <option value="lafuent">🔧 Lafuent</option>
+            <option value="taxextension">📄 Tax Extension</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Answer Style</label>
+          <select class="control-select" id="style-select">
+            <option value="expert">Expert Advice (High Authority)</option>
+            <option value="personal">Personal Experience Story</option>
+            <option value="comparison">Comparison & Review</option>
+            <option value="howto">Step-by-Step How-To</option>
+            <option value="problem">Problem → Solution</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Answers per Session</label>
+          <select class="control-select" id="count-select">
+            <option value="3" selected>3 Answers</option>
+            <option value="5">5 Answers</option>
+            <option value="10">10 Answers</option>
+          </select>
+        </div>
+      </div>
+      <div class="controls-actions">
+        <button class="generate-btn" id="generate-btn" onclick="generateAnswers()">
+          <span id="gen-icon">⚡</span> Generate Answers
+        </button>
+        <button class="auto-btn" id="auto-btn" onclick="toggleAuto()">
+          🔄 Auto Mode
+        </button>
+        <div class="auto-indicator" id="auto-indicator">
+          <div class="auto-dot"></div>
+          <span id="auto-countdown">Next in 5:00</span>
+        </div>
+        <div class="status-text" id="status-text">Ready to generate</div>
+      </div>
+    </div>
+
+    <div class="session-stats">
+      <div class="stat-pill"><span>Generated Today</span><span class="stat-val" id="stat-today">0</span></div>
+      <div class="stat-pill"><span>Session Total</span><span class="stat-val" id="stat-session">0</span></div>
+      <div class="stat-pill"><span>Copied</span><span class="stat-val" id="stat-copied">0</span></div>
+      <div class="stat-pill"><span>Merchants Covered</span><span class="stat-val" id="stat-merchants">0</span></div>
+    </div>
+
+    <div class="answers-wrap" id="answers-wrap">
+      <div class="empty-state">
+        <div class="empty-icon">💬</div>
+        <div class="empty-title">Ready to Generate</div>
+        <div class="empty-sub">Click Generate Answers to create 3 Quora-ready answers with your affiliate links embedded. Each answer targets a different high-volume search question.</div>
+      </div>
+    </div>
+
+    <div class="history-section" id="history-section" style="display:none">
+      <div class="history-label">Session History</div>
+      <div class="history-list" id="history-list"></div>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ── Merchant data ──────────────────────────────────────────────────────────
+    const MERCHANTS = {
+      movavi:           { name:'Movavi',              icon:'🎬', cat:'Software',    vol:95,  url:'https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3',            topic:'video editing software', keywords:['video editor','edit videos','video editing software','best video editor','free video editor'] },
+      iskysoft:         { name:'iSkysoft',             icon:'💿', cat:'Software',    vol:80,  url:'https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3',            topic:'data recovery software', keywords:['recover deleted files','data recovery','lost files','recover photos','file recovery'] },
+      tenorshare:       { name:'Tenorshare',           icon:'📱', cat:'Software',    vol:100, url:'https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3',           topic:'iPhone data recovery', keywords:['recover deleted photos iPhone','iPhone data recovery','unlock iPhone','fix iPhone','WhatsApp recovery'] },
+      wondershare:      { name:'Wondershare',          icon:'✨', cat:'Software',    vol:90,  url:'https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3',          topic:'Filmora video editor', keywords:['Filmora','video editor','PDF editor','data recovery software','screen recorder'] },
+      appypie:          { name:'Appy Pie',             icon:'⚙️', cat:'Software',    vol:70,  url:'https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie',                            topic:'no-code app builder', keywords:['build app without coding','no code app builder','create app','chatbot builder','website builder'] },
+      knowledgehut:     { name:'KnowledgeHut',         icon:'🎓', cat:'Education',   vol:75,  url:'https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=',          topic:'online tech certification', keywords:['AWS certification','PMP certification','data science course','cybersecurity certification','online certification'] },
+      pmtraining:       { name:'PM Training',          icon:'📋', cat:'Education',   vol:65,  url:'https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining',                          topic:'PMP certification', keywords:['PMP exam','PMP certification','project management certification','PRINCE2','agile certification'] },
+      cpraedcourse:     { name:'CPR AED Course',       icon:'❤️‍🔥',cat:'Education',  vol:60,  url:'https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3',          topic:'online CPR certification', keywords:['CPR certification','get CPR certified','CPR online','AED training','first aid certification'] },
+      cprcare:          { name:'CPR Care',             icon:'🏥', cat:'Education',   vol:55,  url:'https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=',               topic:'BLS certification online', keywords:['BLS certification','CPR for healthcare','group CPR training','CPR for coaches','first aid training'] },
+      ahca:             { name:'AHCA',                 icon:'🩺', cat:'Education',   vol:50,  url:'https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3',                  topic:'healthcare compliance training', keywords:['HIPAA training','bloodborne pathogen training','OSHA healthcare','healthcare compliance','BLS healthcare'] },
+      discountpetcare:  { name:'Discount Pet Care',    icon:'🐾', cat:'Pet Care',    vol:72,  url:'https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=',         topic:'cheap pet medications online', keywords:['NexGard cheap','buy pet meds online','Heartgard discount','Bravecto online','save on pet medications'] },
+      canadapetcare:    { name:'Canada Pet Care',      icon:'🐕', cat:'Pet Care',    vol:40,  url:'https://www.linkconnector.com/ta.php?lc=014538000012006219&url=https%3A%2F%2Fwww.canadapetcare.com%2F', topic:'Canadian pet pharmacy online', keywords:['buy pet medications Canada','Canadian pet pharmacy','NexGard Canada','cat medications Canada','save on pet meds Canada'] },
+      buildasign:       { name:'BuildASign',           icon:'🪧', cat:'Print',       vol:58,  url:'https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3',            topic:'custom banners and signs', keywords:['custom banners','yard signs','trade show banners','real estate signs','custom signs online'] },
+      easycanvasprints: { name:'Easy Canvas Prints',   icon:'🖼️', cat:'Print',       vol:55,  url:'https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3',      topic:'canvas photo prints', keywords:['canvas prints','photo canvas','canvas print gift','wall art canvas','turn photo into canvas'] },
+      canvasdiscount:   { name:'Canvas Discount',      icon:'🎨', cat:'Print',       vol:45,  url:'https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3',         topic:'discount canvas prints', keywords:['canvas prints cheap','discount canvas','metal prints','acrylic prints','canvas print review'] },
+      canvasonthecheap: { name:'Canvas on the Cheap',  icon:'💲', cat:'Print',       vol:48,  url:'https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3',       topic:'cheap canvas prints', keywords:['cheapest canvas prints','canvas sale','canvas on the cheap review','budget canvas prints','canvas discount code'] },
+      infinitealoe:     { name:'Infinite Aloe',        icon:'🌿', cat:'Health',      vol:42,  url:'https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0',           topic:'organic aloe vera skincare', keywords:['aloe vera for eczema','sensitive skin moisturizer','fragrance free moisturizer','organic skincare','aloe vera review'] },
+      littletoe:        { name:'Little Toe',           icon:'🦶', cat:'Health',      vol:35,  url:'https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe',                            topic:'bunion corrector', keywords:['bunion corrector','bunion relief','bunion surgery alternative','toe separator','foot pain relief'] },
+      combatflipflops:  { name:'Combat Flip Flops',    icon:'🩴', cat:'Lifestyle',   vol:30,  url:'https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0',        topic:'veteran-founded footwear', keywords:['gifts for veterans','ethical footwear','combat flip flops review','veteran owned brand','mission driven brand'] },
+      halloweencostumes:{ name:'Halloween Costumes',   icon:'🎃', cat:'Lifestyle',   vol:85,  url:'https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=',        topic:'Halloween costumes', keywords:['best Halloween costumes','group Halloween costumes','couples costumes','Halloween costume ideas','kids Halloween costumes'] },
+      shoplww:          { name:'Shop LWW',             icon:'📚', cat:'Education',   vol:45,  url:'https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3',                topic:'nursing textbooks', keywords:['NCLEX review book','nursing textbooks','Lippincott nursing','best NCLEX prep','medical surgical nursing textbook'] },
+      bgmgirl:          { name:'BGM Girl',             icon:'🎵', cat:'Services',    vol:38,  url:'https://www.linkconnector.com/ta.php?lc=014538163184007840&atid=bgmgirl&lcpt=0&lcpf=',                 topic:'royalty-free music', keywords:['DMCA safe music','royalty free music YouTube','music for Twitch','podcast background music','no copyright music'] },
+      lafuent:          { name:'Lafuent',              icon:'🔧', cat:'Services',    vol:42,  url:'https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0',                 topic:'OEM auto parts online', keywords:['OEM car parts','buy car parts online','European car parts','BMW parts cheap','aftermarket vs OEM'] },
+      taxextension:     { name:'Tax Extension',        icon:'📄', cat:'Services',    vol:62,  url:'https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension',                          topic:'tax extension online', keywords:['file tax extension','IRS extension','tax extension deadline','form 4868','self employed tax extension'] },
+    };
+
+    const STRATEGIES = [
+      { id:'s1', label:'Strategy 1 — Auto-Generate Q&A', desc:'High-volume question targeting organic Quora search traffic' },
+      { id:'s2', label:'Strategy 2 — Affiliate-Embedded Answer', desc:'Conversational answer with naturally embedded affiliate recommendation' },
+      { id:'s3', label:'Strategy 3 — Auto-Post Ready Format', desc:'Structured expert answer formatted exactly for Quora posting standards' },
+    ];
+
+    // ── State ──────────────────────────────────────────────────────────────────
+    let sessionCount = 0;
+    let copiedCount = 0;
+    let merchantsCovered = new Set();
+    let history = [];
+    let autoMode = false;
+    let autoTimer = null;
+    let autoSeconds = 300; // 5 minutes
+
+    // ── Get random merchant weighted by volume ─────────────────────────────────
+    function getWeightedMerchant() {
+      const list = Object.entries(MERCHANTS);
+      const total = list.reduce((s, [, m]) => s + m.vol, 0);
+      let r = Math.random() * total;
+      for (const [id, m] of list) {
+        r -= m.vol;
+        if (r <= 0) return id;
+      }
+      return list[0][0];
+    }
+
+    // ── Claude API ─────────────────────────────────────────────────────────────
+    async function callClaude(prompt) {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      return data.content[0].text.trim();
+    }
+
+    // ── Generate single answer ─────────────────────────────────────────────────
+    async function generateSingleAnswer(merchantId, strategy, style) {
+      const m = MERCHANTS[merchantId];
+      const affUrl = m.url + '&utm_source=quora&utm_medium=answer&utm_campaign=' + merchantId;
+      const keyword = m.keywords[Math.floor(Math.random() * m.keywords.length)];
+
+      const styleGuides = {
+        expert:     'Write as a recognized expert in this field. Use authoritative language, cite statistics where relevant, and structure the answer with clear logic.',
+        personal:   'Write as someone who personally experienced this problem and found the solution. Use first-person narrative, be specific about your situation, and feel genuine.',
+        comparison: 'Write a balanced comparison answer that evaluates multiple options before recommending one. Be fair to alternatives but conclude with a clear recommendation.',
+        howto:      'Write a practical step-by-step guide. Number your steps, be specific and actionable, and include practical tips from experience.',
+        problem:    'Start by deeply validating the reader\'s problem, then pivot to the solution. Show you understand their frustration before offering the answer.',
+      };
+
+      const strategyPrompts = {
+        s1: `Generate a Quora question AND answer about "${keyword}".
+
+The question should be exactly what someone would type into Quora's search bar when frustrated — specific, conversational, and real.
+The answer should be a high-quality, helpful response that naturally mentions ${m.name} as a solution.
+
+${styleGuides[style]}
+
+Format your response as:
+QUESTION: [the question]
+ANSWER: [the full answer — 150-250 words, Quora-style formatting with natural paragraphs]
+
+Include this affiliate link naturally in the answer — REPLACE the text [AFFILIATE_LINK] with this URL: ${affUrl}
+Mention the link as "you can try it here: [AFFILIATE_LINK]" or similar natural placement.
+Do NOT use markdown headers or bullet formatting — write in natural Quora paragraphs.`,
+
+        s2: `Write a Quora answer about "${keyword}" that naturally recommends ${m.name}.
+
+${styleGuides[style]}
+
+The answer must:
+- Open with something that makes the reader feel understood
+- Provide genuine value and insight (not just a sales pitch)
+- Naturally weave in ${m.name} as the solution you found/recommend
+- Include this URL naturally as a recommendation: ${affUrl}
+- End with an encouraging closer
+- Be 180-250 words
+- Use natural paragraph breaks like real Quora answers
+
+Also generate a realistic Quora question this answers. Format as:
+QUESTION: [question]
+ANSWER: [the answer with the URL naturally embedded]`,
+
+        s3: `Create a Quora answer formatted for immediate posting about "${keyword}" mentioning ${m.name}.
+
+${styleGuides[style]}
+
+Quora best practices to follow:
+- Start with a hook that gets upvotes (surprising fact, bold statement, or empathetic opener)
+- Include personal credibility signals naturally
+- Break into readable paragraphs (2-4 sentences each)
+- Add one concrete, specific tip that shows real expertise
+- Include this link naturally: ${affUrl}
+- End with a clear takeaway or call to action
+- 200-260 words total
+- No bullet points or headers — pure flowing Quora-style prose
+
+Format as:
+QUESTION: [an excellent Quora question this answers]
+ANSWER: [the perfectly formatted answer]`,
+      };
+
+      const response = await callClaude(strategyPrompts[strategy]);
+
+      // Parse question and answer
+      const qMatch = response.match(/QUESTION:\s*(.+?)(?=\nANSWER:|$)/s);
+      const aMatch = response.match(/ANSWER:\s*(.+?)$/s);
+
+      return {
+        question: qMatch ? qMatch[1].trim() : `What is the best ${m.topic}?`,
+        answer: aMatch ? aMatch[1].trim() : response,
+        merchant: merchantId,
+        merchantName: m.name,
+        merchantIcon: m.icon,
+        strategy,
+        keyword,
+        affUrl,
+        timestamp: new Date().toLocaleTimeString(),
+      };
+    }
+
+    // ── Render answer card ─────────────────────────────────────────────────────
+    function renderAnswerCard(data, index) {
+      const s = STRATEGIES.find(x => x.id === data.strategy);
+      const answerHtml = data.answer.replace(
+        /(https?:\/\/[^\s]+)/g,
+        `<span class="aff-link" onclick="copyLink('$1')" title="Click to copy link">$1</span>`
+      );
+
+      const card = document.createElement('div');
+      card.className = 'answer-card';
+      card.id = 'card-' + index;
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-meta">
+            <div class="card-strategy ${data.strategy}">${data.merchantIcon} ${s.label}</div>
+            <div class="card-question">${data.question}</div>
+            <div class="card-merchant">Merchant: <span>${data.merchantName}</span> · Keyword: <span>${data.keyword}</span> · ${data.timestamp}</div>
+          </div>
+          <div class="card-actions-top">
+            <button class="icon-btn" onclick="copyQuestion(${index})" title="Copy question">📋 Q</button>
+            <button class="icon-btn" onclick="openQuora(${index})" title="Search Quora">🔍 Quora</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="answer-text" id="answer-text-${index}">${answerHtml}</div>
+        </div>
+        <div class="card-footer">
+          <div class="footer-left">
+            <span class="tag-pill">${MERCHANTS[data.merchant].cat}</span>
+            <span class="tag-pill">${data.keyword}</span>
+            <span class="tag-pill">${s.desc}</span>
+          </div>
+          <div class="footer-right">
+            <button class="quora-btn" onclick="openQuoraPost(${index})">🔴 Post on Quora</button>
+            <button class="copy-full-btn" id="copy-btn-${index}" onclick="copyFull(${index})">📋 Copy Answer</button>
+          </div>
+        </div>`;
+      return card;
+    }
+
+    // ── Main generate function ─────────────────────────────────────────────────
+    let currentAnswers = [];
+
+    async function generateAnswers() {
+      const btn = document.getElementById('generate-btn');
+      const icon = document.getElementById('gen-icon');
+      const status = document.getElementById('status-text');
+      const wrap = document.getElementById('answers-wrap');
+      const merchantSel = document.getElementById('merchant-select').value;
+      const style = document.getElementById('style-select').value;
+      const count = parseInt(document.getElementById('count-select').value);
+
+      btn.disabled = true;
+      icon.textContent = '⏳';
+      wrap.innerHTML = '';
+      currentAnswers = [];
+
+      // Show loading
+      const loadCard = document.createElement('div');
+      loadCard.className = 'loading-card';
+      loadCard.innerHTML = `
+        <div class="spinner"></div>
+        <div class="loading-text">Generating ${count} Quora answers with all 3 strategies...</div>
+        <div class="loading-steps">
+          <div class="loading-step" id="ls1">① Selecting high-volume questions...</div>
+          <div class="loading-step" id="ls2">② Writing affiliate-embedded answers...</div>
+          <div class="loading-step" id="ls3">③ Formatting for Quora posting...</div>
+        </div>`;
+      wrap.appendChild(loadCard);
+
+      try {
+        const strategies = ['s1', 's2', 's3'];
+        const results = [];
+
+        for (let i = 0; i < count; i++) {
+          const strategy = strategies[i % 3];
+          const mid = merchantSel === 'random' ? getWeightedMerchant() : merchantSel;
+
+          // Show loading step
+          const step = i < 3 ? document.getElementById('ls' + (i+1)) : null;
+          if (step) step.classList.add('visible');
+          status.textContent = `Generating answer ${i+1} of ${count}...`;
+
+          const result = await generateSingleAnswer(mid, strategy, style);
+          results.push(result);
+          merchantsCovered.add(mid);
+        }
+
+        // Render results
+        wrap.innerHTML = '';
+        results.forEach((r, i) => {
+          currentAnswers.push(r);
+          wrap.appendChild(renderAnswerCard(r, i));
+          history.unshift({ question: r.question, merchant: r.merchantName, time: r.timestamp });
+        });
+
+        // Update stats
+        sessionCount += count;
+        document.getElementById('stat-session').textContent = sessionCount;
+        document.getElementById('stat-merchants').textContent = merchantsCovered.size;
+        updateTodayCount(count);
+        renderHistory();
+        status.textContent = `✓ ${count} answers ready to post`;
+
+      } catch(e) {
+        wrap.innerHTML = `<div class="loading-card" style="border-color:rgba(255,71,87,0.3)"><div style="color:var(--red);font-family:var(--font-mono);font-size:0.85rem">❌ Error: ${e.message}</div><div style="margin-top:12px;font-size:0.78rem;color:var(--dim)">Check your API key is set correctly. This page requires the Anthropic API.</div></div>`;
+        status.textContent = 'Generation failed';
+      }
+
+      btn.disabled = false;
+      icon.textContent = '⚡';
+    }
+
+    // ── Copy functions ─────────────────────────────────────────────────────────
+    function copyFull(index) {
+      const data = currentAnswers[index];
+      if (!data) return;
+      const text = `${data.question}\n\n${data.answer}`;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn-' + index);
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = '📋 Copy Answer'; btn.classList.remove('copied'); }, 2000);
+        copiedCount++;
+        document.getElementById('stat-copied').textContent = copiedCount;
+        showToast('Answer copied — ready to paste into Quora!');
+      });
+    }
+
+    function copyQuestion(index) {
+      const data = currentAnswers[index];
+      if (!data) return;
+      navigator.clipboard.writeText(data.question).then(() => showToast('Question copied!'));
+    }
+
+    function copyLink(url) {
+      navigator.clipboard.writeText(url).then(() => showToast('Affiliate link copied!'));
+    }
+
+    function openQuora(index) {
+      const data = currentAnswers[index];
+      if (!data) return;
+      const q = encodeURIComponent(data.question);
+      window.open(`https://www.quora.com/search?q=${q}`, '_blank');
+    }
+
+    function openQuoraPost(index) {
+      const data = currentAnswers[index];
+      if (!data) return;
+      // Copy the answer first, then open Quora
+      copyFull(index);
+      setTimeout(() => {
+        window.open('https://www.quora.com/answer', '_blank');
+        showToast('Answer copied + Quora opened — paste your answer!');
+      }, 500);
+    }
+
+    // ── Auto mode ──────────────────────────────────────────────────────────────
+    function toggleAuto() {
+      autoMode = !autoMode;
+      const btn = document.getElementById('auto-btn');
+      const indicator = document.getElementById('auto-indicator');
+
+      if (autoMode) {
+        btn.classList.add('active');
+        btn.textContent = '⏹ Stop Auto';
+        indicator.classList.add('visible');
+        startAutoTimer();
+        showToast('Auto mode ON — generating every 5 minutes');
+      } else {
+        btn.classList.remove('active');
+        btn.textContent = '🔄 Auto Mode';
+        indicator.classList.remove('visible');
+        if (autoTimer) clearInterval(autoTimer);
+        showToast('Auto mode OFF');
+      }
+    }
+
+    function startAutoTimer() {
+      autoSeconds = 300;
+      updateAutoCountdown();
+      autoTimer = setInterval(() => {
+        autoSeconds--;
+        updateAutoCountdown();
+        if (autoSeconds <= 0) {
+          generateAnswers();
+          autoSeconds = 300;
+        }
+      }, 1000);
+    }
+
+    function updateAutoCountdown() {
+      const m = Math.floor(autoSeconds / 60);
+      const s = autoSeconds % 60;
+      document.getElementById('auto-countdown').textContent = `Next in ${m}:${String(s).padStart(2,'0')}`;
+    }
+
+    // ── Stats ──────────────────────────────────────────────────────────────────
+    function updateTodayCount(add) {
+      const key = 'quora_today_' + new Date().toDateString();
+      const current = parseInt(localStorage.getItem(key) || '0');
+      const newVal = current + add;
+      try { localStorage.setItem(key, newVal); } catch(e) {}
+      document.getElementById('stat-today').textContent = newVal;
+    }
+
+    function loadTodayCount() {
+      const key = 'quora_today_' + new Date().toDateString();
+      try { document.getElementById('stat-today').textContent = localStorage.getItem(key) || '0'; } catch(e) {}
+    }
+
+    // ── History ────────────────────────────────────────────────────────────────
+    function renderHistory() {
+      if (history.length === 0) return;
+      const section = document.getElementById('history-section');
+      const list = document.getElementById('history-list');
+      section.style.display = 'block';
+      list.innerHTML = history.slice(0, 10).map((h, i) => `
+        <div class="history-item">
+          <div class="history-q">${h.question}</div>
+          <div class="history-meta">${h.merchant} · ${h.time}</div>
+        </div>`).join('');
+    }
+
+    // ── Toast ──────────────────────────────────────────────────────────────────
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // ── Auto-generate on page load ─────────────────────────────────────────────
+    loadTodayCount();
+
+    // Auto-generate when page opens (Strategy #1 — fires on browser open)
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        generateAnswers();
+      }, 800);
+    });
+  </script>
+</body>
+</html>
