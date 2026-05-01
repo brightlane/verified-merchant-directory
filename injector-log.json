@@ -430,5 +430,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "nclex-rn-prep-books-2026",
+    "merchant": "shoplww",
+    "title": "Best NCLEX-RN Prep Books 2026 — Lippincott Q&A vs the Competition",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

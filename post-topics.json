@@ -1233,7 +1233,7 @@
     {
       "slug": "nclex-rn-prep-books-2026",
       "merchant": "shoplww",
-      "published": false,
+      "published": true,
       "title_en": "Best NCLEX-RN Prep Books 2026 — Lippincott Q&A vs the Competition",
       "category_en": "Education",
       "metaDesc_en": "Best NCLEX-RN prep books for 2026 nursing graduates. Lippincott Q&A review vs Saunders vs Kaplan — which gives you the best chance of passing first time?",
@@ -1269,7 +1269,8 @@
           "q": "Should I use Lippincott alone or with other resources?",
           "a": "Most successful candidates use Lippincott Q&A alongside a content review book and an online question bank. Lippincott is strongest for question practice and rationale study."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "royalty-free-music-youtube-2026",
