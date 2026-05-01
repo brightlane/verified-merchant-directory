@@ -2,7 +2,6 @@
   "name": "verified-merchant-directory",
   "version": "2.0.0",
   "description": "Brightlane Verified Merchant Directory — LinkConnector affiliate blog system",
-  "type": "module",
   "scripts": {
     "blog": "node generate-blog-post.js",
     "sitemaps": "node generate-sitemaps.js",
