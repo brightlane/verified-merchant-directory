@@ -593,7 +593,8 @@ async function main() {
 
   for (const kw of keywords) {
     console.log(`\n📝 Writing: "${kw.keyword}" [${kw.tool}] vol:${kw.volume.toLocaleString()}`);
-    const slug = slugify(kw.keyword);
+    const slug   = slugify(kw.keyword);
+    const affUrl = getAffiliateUrl(kw);
 
     // Write English post
     let post;
@@ -601,9 +602,12 @@ async function main() {
       try {
         post = await writeBlogPost(kw);
 
+        // Set affiliate_url on post so auditor can check it
+        post.affiliate_url = affUrl;
+        post.keyword = kw.keyword;
+
         // Audit
-        const affUrl = getAffiliateUrl(kw);
-        const { passed, feedback } = await runAllAudits(post, kw.tool, affUrl);
+        const { passed, feedback } = await runAllAudits(post, kw, affUrl);
         if (passed) {
           console.log(`✅ Audit passed on attempt ${attempt}`);
           break;
