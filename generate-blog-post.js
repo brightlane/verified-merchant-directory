@@ -620,7 +620,11 @@ async function main() {
         }
       } catch (err) {
         console.error(`❌ Error writing post: ${err.message}`);
-        if (attempt === MAX_RETRIES) throw err;
+        if (attempt === MAX_RETRIES) {
+          console.warn(`⚠️  Skipping "${kw.keyword}" after ${MAX_RETRIES} failed attempts`);
+          post = null;
+          break;
+        }
       }
     }
 
