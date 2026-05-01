@@ -1107,7 +1107,7 @@
     {
       "slug": "bunion-pain-relief-without-surgery-2026",
       "merchant": "littletoe",
-      "published": false,
+      "published": true,
       "title_en": "Bunion Pain Relief Without Surgery 2026 — Products That Actually Help",
       "category_en": "Health",
       "metaDesc_en": "Bunion pain relief options in 2026 that don't require surgery. Honest look at what works, what doesn't, and the best orthopedic products for daily bunion management.",
@@ -1143,7 +1143,8 @@
           "q": "When should I consider bunion surgery?",
           "a": "Surgery becomes worth considering when pain is severe enough to limit daily activities and non-surgical management no longer provides adequate relief. Consult a podiatrist."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "combat-flip-flops-vs-fast-fashion-2026",
