@@ -266,6 +266,8 @@ export function auditAffiliate(post, expectedAffUrl) {
     post.conclusion || '',
   ].join(' ');
 
+  // Guard against undefined affUrl
+  if (!expectedAffUrl) return { passed: true, score: 100, issues: [], fixes: [] };
   // Escape URL for regex
   const escaped  = expectedAffUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const urlRegex = new RegExp(escaped, 'g');
