@@ -602,7 +602,8 @@ async function main() {
         post = await writeBlogPost(kw);
 
         // Audit
-        const { passed, feedback } = await runAllAudits(post, kw);
+        const affUrl = getAffiliateUrl(kw);
+        const { passed, feedback } = await runAllAudits(post, kw.tool, affUrl);
         if (passed) {
           console.log(`✅ Audit passed on attempt ${attempt}`);
           break;
