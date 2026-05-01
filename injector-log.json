@@ -694,5 +694,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "event-banners-online-2026",
+    "merchant": "buildasign",
+    "title": "Custom Event Banners 2026 — Order Online for Less Than Local Print",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
