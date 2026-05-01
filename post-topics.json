@@ -981,7 +981,7 @@
     {
       "slug": "canvas-discount-vs-canvas-on-the-cheap-2026",
       "merchant": "canvasdiscount",
-      "published": false,
+      "published": true,
       "title_en": "Canvas Discount vs Canvas on the Cheap 2026 — Which is Actually Cheaper?",
       "category_en": "Print & Signs",
       "metaDesc_en": "Canvas Discount vs Canvas on the Cheap compared for 2026. Real price comparison, quality test, and which site gives you the best value for photo canvas prints.",
@@ -1017,7 +1017,8 @@
           "q": "How do I know when Canvas on the Cheap has a sale?",
           "a": "Canvas on the Cheap runs sales regularly. Sign up for their email list or check their site directly — sales are usually visible on the homepage."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "canvas-prints-home-office-decor-2026",

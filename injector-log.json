@@ -286,5 +286,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "canvas-discount-vs-canvas-on-the-cheap-2026",
+    "merchant": "canvasdiscount",
+    "title": "Canvas Discount vs Canvas on the Cheap 2026 — Which is Actually Cheaper?",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
