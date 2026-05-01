@@ -742,5 +742,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "canvas-print-large-wall-art-2026",
+    "merchant": "canvasdiscount",
+    "title": "Large Canvas Prints for Wall Art 2026 — How to Buy Cheap Without Sacrificing Quality",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

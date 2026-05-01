@@ -1779,7 +1779,7 @@
     {
       "slug": "canvas-print-large-wall-art-2026",
       "merchant": "canvasdiscount",
-      "published": false,
+      "published": true,
       "title_en": "Large Canvas Prints for Wall Art 2026 — How to Buy Cheap Without Sacrificing Quality",
       "category_en": "Print & Signs",
       "metaDesc_en": "How to buy large canvas prints for wall art in 2026 at the best price. What size to choose, how to find quality at lower prices, and what to avoid.",
@@ -1815,7 +1815,8 @@
           "q": "Does Canvas Discount offer split canvas panels?",
           "a": "Check Canvas Discount's site for split panel and triptych options — these are popular for large wall coverage with multiple coordinated prints."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "aloe-vera-after-sun-care-2026",
