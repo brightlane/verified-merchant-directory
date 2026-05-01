@@ -1065,7 +1065,7 @@
     {
       "slug": "aloe-vera-skincare-eczema-2026",
       "merchant": "infinitealoe",
-      "published": false,
+      "published": true,
       "title_en": "Best Aloe Vera Skincare for Eczema 2026 — What Actually Works",
       "category_en": "Health",
       "metaDesc_en": "Best aloe vera skincare products for eczema in 2026. What the research says, what to look for in ingredients, and why Infinite Aloe stands out for sensitive skin.",
@@ -1101,7 +1101,8 @@
           "q": "Is Infinite Aloe steroid-free?",
           "a": "Yes. Infinite Aloe is a moisturizer, not a treatment. It contains no steroids or prescription ingredients."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "bunion-pain-relief-without-surgery-2026",
