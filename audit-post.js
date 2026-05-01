@@ -91,9 +91,9 @@ async function claude(system, user, maxTokens = 600) {
 export async function auditSEO(post, keyword) {
   console.log('    🔍  Auditor 1: SEO...');
 
-  const kw          = keyword.keyword.toLowerCase();
+  const kw          = (typeof keyword === 'string' ? keyword : (keyword?.keyword || '')).toLowerCase();
   const titleLower  = (post.title || '').toLowerCase();
-  const metaLower   = (post.meta_description || '').toLowerCase();
+  const metaLower   = (post.metaDescription || post.meta_description || '').toLowerCase();
   const h1Lower     = (post.h1 || '').toLowerCase();
   const allContent  = [
     post.intro,
@@ -107,8 +107,8 @@ export async function auditSEO(post, keyword) {
     keyword_in_meta:     metaLower.includes(kw),
     keyword_in_h1:       h1Lower.includes(kw),
     title_length_ok:     post.title?.length >= 40 && post.title?.length <= 65,
-    meta_length_ok:      post.meta_description?.length >= 140 && post.meta_description?.length <= 165,
-    word_count_ok:       (post.word_count || 0) >= 1200,
+    meta_length_ok:      (post.metaDescription || post.meta_description || "").length >= 140 && (post.metaDescription || post.meta_description || "").length <= 165,
+    word_count_ok:       (post.wordCount || post.word_count || 0) >= 1200,
     has_sections:        (post.sections || []).length >= 4,
     has_faq:             (post.faq || []).length >= 4,
     has_internal_links:  (post.internal_links || []).length >= 2,
@@ -160,11 +160,11 @@ export async function auditSEO(post, keyword) {
           fixes.push(`Rewrite title to be between 40-65 characters`);
           break;
         case 'meta_length_ok':
-          issues.push(`Meta description ${post.meta_description?.length} chars — must be 140-165`);
+          issues.push(`Meta description ${(post.metaDescription || post.meta_description || "").length} chars — must be 140-165`);
           fixes.push(`Rewrite meta description to be 140-165 characters`);
           break;
         case 'word_count_ok':
-          issues.push(`Word count ${post.word_count} is below minimum 1200`);
+          issues.push(`Word count ${post.wordCount || post.word_count} is below minimum 1200`);
           fixes.push(`Expand content to at least 1200 words — add more detail to each section`);
           break;
         case 'has_sections':
@@ -215,7 +215,7 @@ SECTION SAMPLES (first 2):
 ${(post.sections || []).slice(0, 2).map(s => `H2: ${s.h2}\n${(s.content || '').substring(0, 300)}`).join('\n\n')}
 
 FAQ COUNT: ${(post.faq || []).length}
-WORD COUNT: ${post.word_count}
+WORD COUNT: ${post.wordCount || post.word_count}
 
 CONCLUSION (first 200 chars):
 ${(post.conclusion || '').substring(0, 200)}
