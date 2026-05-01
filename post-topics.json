@@ -1653,7 +1653,7 @@
     {
       "slug": "revolution-cats-canada-2026",
       "merchant": "canadapetcare",
-      "published": false,
+      "published": true,
       "title_en": "Revolution for Cats in Canada 2026 — Buy Online and Save",
       "category_en": "Pet Care",
       "metaDesc_en": "How to buy Revolution for cats in Canada in 2026. Licensed online pharmacy options, prescription requirements, and savings vs your vet.",
@@ -1689,7 +1689,8 @@
           "q": "How much can I save buying Revolution online vs my vet?",
           "a": "Savings vary, but cat owners typically save 25-40% on prescription flea and parasite medications through licensed online pharmacies vs veterinary clinic pricing."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "event-banners-online-2026",
