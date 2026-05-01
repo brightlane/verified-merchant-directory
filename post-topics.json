@@ -1443,7 +1443,7 @@
     {
       "slug": "filmora-vs-premiere-rush-2026",
       "merchant": "wondershare",
-      "published": false,
+      "published": true,
       "title_en": "Filmora vs Adobe Premiere Rush 2026 — Which is Better for Mobile Creators?",
       "category_en": "Software",
       "metaDesc_en": "Wondershare Filmora vs Adobe Premiere Rush compared for mobile and desktop creators in 2026. Features, pricing, and which editing workflow suits you best.",
@@ -1479,7 +1479,8 @@
           "q": "Is there a Filmora free trial?",
           "a": "Yes. Filmora has a free version with watermarked exports so you can test before subscribing."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "no-code-app-small-business-2026",
