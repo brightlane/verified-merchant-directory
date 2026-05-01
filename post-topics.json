@@ -1401,7 +1401,7 @@
     {
       "slug": "iskysoft-video-converter-review-2026",
       "merchant": "iskysoft",
-      "published": false,
+      "published": true,
       "title_en": "iSkysoft Video Converter Review 2026 — Convert Any Video Format Fast",
       "category_en": "Software",
       "metaDesc_en": "iSkysoft Video Converter review 2026. Convert between MP4, MOV, AVI, MKV, and 1000+ formats. Speed, quality, and features tested honestly.",
@@ -1437,7 +1437,8 @@
           "q": "Can it convert protected DVDs?",
           "a": "iSkysoft Video Converter handles standard video files. DVD conversion features may vary — check their site for current capabilities."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "filmora-vs-premiere-rush-2026",
