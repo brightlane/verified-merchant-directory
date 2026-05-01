@@ -1527,7 +1527,7 @@
     {
       "slug": "cybersecurity-certification-2026",
       "merchant": "knowledgehut",
-      "published": false,
+      "published": true,
       "title_en": "Best Cybersecurity Certifications to Get in 2026 — Career and Salary Guide",
       "category_en": "Education",
       "metaDesc_en": "Best cybersecurity certifications in 2026 ranked by salary impact and job demand. CompTIA Security+, CEH, CISSP — which one to pursue first for your career stage.",
@@ -1563,7 +1563,8 @@
           "q": "Does KnowledgeHut guarantee job placement?",
           "a": "KnowledgeHut offers career support and job assistance services. Check their site for current job placement guarantees on specific programs."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "agile-scrum-master-certification-2026",
