@@ -718,5 +718,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "wedding-photo-canvas-print-2026",
+    "merchant": "easycanvasprints",
+    "title": "Wedding Photo Canvas Prints 2026 — The Best Gift for Newlyweds",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

@@ -1737,7 +1737,7 @@
     {
       "slug": "wedding-photo-canvas-print-2026",
       "merchant": "easycanvasprints",
-      "published": false,
+      "published": true,
       "title_en": "Wedding Photo Canvas Prints 2026 — The Best Gift for Newlyweds",
       "category_en": "Print & Signs",
       "metaDesc_en": "Wedding photo canvas prints as gifts in 2026. How to choose the right photo, size, and finish for a canvas print the couple will treasure for decades.",
@@ -1773,7 +1773,8 @@
           "q": "Will the canvas print last as long as a traditional photo print?",
           "a": "With archival inks and kept out of direct sunlight, canvas prints can last 50-75 years indoors without significant fading — comparable to archival photo prints."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "canvas-print-large-wall-art-2026",
