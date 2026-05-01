@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Generate 50 new keywords
-        run: node generate-keywords.js
+        run: node generate-keywords.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
