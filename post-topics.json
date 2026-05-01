@@ -1863,7 +1863,7 @@
     {
       "slug": "plantar-fasciitis-insoles-2026",
       "merchant": "littletoe",
-      "published": false,
+      "published": true,
       "title_en": "Best Insoles for Plantar Fasciitis 2026 — Relief Without the Doctor Visit",
       "category_en": "Health",
       "metaDesc_en": "Best insoles for plantar fasciitis in 2026. What actually reduces heel pain, what to look for in orthopedic insoles, and products that deliver real relief.",
@@ -1899,7 +1899,8 @@
           "q": "When should I see a doctor for plantar fasciitis?",
           "a": "If pain is severe, significantly limits your activity, or doesn't improve after 6 weeks of conservative management including insoles and stretching, consult a podiatrist."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "twitch-streaming-music-2026",
