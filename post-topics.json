@@ -1149,7 +1149,7 @@
     {
       "slug": "combat-flip-flops-vs-fast-fashion-2026",
       "merchant": "combatflipflops",
-      "published": false,
+      "published": true,
       "title_en": "Combat Flip Flops vs Fast Fashion — Why This Brand Is Different",
       "category_en": "Lifestyle",
       "metaDesc_en": "How Combat Flip Flops compares to fast fashion in 2026. Mission, quality, and real-world impact from an Army Ranger-founded footwear brand.",
@@ -1185,7 +1185,8 @@
           "q": "How do they verify the impact of donations?",
           "a": "Combat Flip Flops partners with verified NGOs and publishes transparent impact reports showing landmines cleared and students funded with documented outcomes."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "group-halloween-costumes-office-2026",

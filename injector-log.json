@@ -382,5 +382,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "combat-flip-flops-vs-fast-fashion-2026",
+    "merchant": "combatflipflops",
+    "title": "Combat Flip Flops vs Fast Fashion — Why This Brand Is Different",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
