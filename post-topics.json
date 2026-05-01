@@ -1569,7 +1569,7 @@
     {
       "slug": "agile-scrum-master-certification-2026",
       "merchant": "pmtraining",
-      "published": false,
+      "published": true,
       "title_en": "Agile Scrum Master Certification 2026 — Is CSM Worth It for Your Career?",
       "category_en": "Education",
       "metaDesc_en": "Agile Scrum Master certification guide for 2026. Is CSM worth the investment? Salary impact, exam requirements, and best preparation courses reviewed.",
@@ -1605,7 +1605,8 @@
           "q": "How much do Scrum Masters earn?",
           "a": "Scrum Master salaries range from $80,000-$130,000+ depending on industry, company size, and location. Agile-native companies pay at the higher end."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "frontline-plus-online-buy-2026",

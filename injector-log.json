@@ -622,5 +622,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "agile-scrum-master-certification-2026",
+    "merchant": "pmtraining",
+    "title": "Agile Scrum Master Certification 2026 — Is CSM Worth It for Your Career?",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
