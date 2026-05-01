@@ -1,0 +1,72 @@
+name: Blog Pipeline 02 [pt it nl pl]
+
+on:
+  schedule:
+    - cron: '2 0 * * *'
+    - cron: '2 3 * * *'
+    - cron: '2 6 * * *'
+    - cron: '2 9 * * *'
+    - cron: '2 12 * * *'
+    - cron: '2 15 * * *'
+    - cron: '2 18 * * *'
+    - cron: '2 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Expand languages if due
+        run: node expand-languages.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate 10 blog posts [pt it nl pl]
+        run: node generate-blog-post.js --lang pt,it,nl,pl
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update sitemaps
+        run: node generate-sitemaps.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Update llms files
+        run: node generate-llms.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "Seo-bot"
+          git config user.email "seo-bot@brightlane.dev"
+          git add -A
+          git stash || true
+          git pull --rebase origin main || true
+          git stash pop || true
+          git add -A
+          git diff --cached --quiet || git commit -m "blog[02]: publish 10 keywords × 100 langs [pt it nl pl] [skip ci]"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
