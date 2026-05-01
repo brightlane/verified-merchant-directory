@@ -132,6 +132,106 @@
       "code": "el",
       "name": "Greek",
       "locale": "el-GR"
+    },
+    {
+      "code": "uk",
+      "name": "Ukrainian",
+      "locale": "uk-UA"
+    },
+    {
+      "code": "cs",
+      "name": "Czech",
+      "locale": "cs-CZ"
+    },
+    {
+      "code": "ro",
+      "name": "Romanian",
+      "locale": "ro-RO"
+    },
+    {
+      "code": "hu",
+      "name": "Hungarian",
+      "locale": "hu-HU"
+    },
+    {
+      "code": "id",
+      "name": "Indonesian",
+      "locale": "id-ID"
+    },
+    {
+      "code": "ms",
+      "name": "Malay",
+      "locale": "ms-MY"
+    },
+    {
+      "code": "th",
+      "name": "Thai",
+      "locale": "th-TH"
+    },
+    {
+      "code": "vi",
+      "name": "Vietnamese",
+      "locale": "vi-VN"
+    },
+    {
+      "code": "bg",
+      "name": "Bulgarian",
+      "locale": "bg-BG"
+    },
+    {
+      "code": "hr",
+      "name": "Croatian",
+      "locale": "hr-HR"
+    },
+    {
+      "code": "sk",
+      "name": "Slovak",
+      "locale": "sk-SK"
+    },
+    {
+      "code": "lt",
+      "name": "Lithuanian",
+      "locale": "lt-LT"
+    },
+    {
+      "code": "lv",
+      "name": "Latvian",
+      "locale": "lv-LV"
+    },
+    {
+      "code": "et",
+      "name": "Estonian",
+      "locale": "et-EE"
+    },
+    {
+      "code": "he",
+      "name": "Hebrew",
+      "locale": "he-IL"
+    },
+    {
+      "code": "fa",
+      "name": "Persian",
+      "locale": "fa-IR"
+    },
+    {
+      "code": "bn",
+      "name": "Bengali",
+      "locale": "bn-BD"
+    },
+    {
+      "code": "ta",
+      "name": "Tamil",
+      "locale": "ta-IN"
+    },
+    {
+      "code": "sw",
+      "name": "Swahili",
+      "locale": "sw-KE"
+    },
+    {
+      "code": "fil",
+      "name": "Filipino",
+      "locale": "fil-PH"
     }
   ],
   "keywords": [

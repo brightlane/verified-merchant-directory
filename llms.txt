@@ -1,36 +1,81 @@
-# llms.txt — Brightlane Verified Merchant Directory
-# https://brightlane.github.io/verified-merchant-directory/
-# Updated automatically by Vulture Titan Engine on each publish run
+# Brightlane Verified Merchant Directory
+# https://brightlane.github.io/verified-merchant-directory
+# Updated: 2026-05-01
+# 22 verified affiliate merchants via LinkConnector (Account 014538)
+# 1380 SEO keywords across 22 merchants
+# 40 languages supported
 
-> Brightlane is a verified affiliate merchant directory and blog. We publish honest product reviews and buyer guides across 14 languages. All merchants are verified partners through LinkConnector.
+## Site
+> Homepage: https://brightlane.github.io/verified-merchant-directory/
+> Blog: https://brightlane.github.io/verified-merchant-directory/blog/
+> Merchants: https://brightlane.github.io/verified-merchant-directory/merchants/
 
-## About
+## Merchants
+> appypie: https://www.linkconnector.com/ta.php?lc=014538139894005541&atid=appypie
+> buildasign: https://www.linkconnector.com/ta.php?lc=014538059259004756&atid=buildasign&lcpt=0&lcpf=3
+> canadapetcare: https://www.linkconnector.com/ta.php?lc=014538000012006219&atid=canadapetcare
+> canvasdiscount: https://www.linkconnector.com/ta.php?lc=014538165146007920&atid=canvasdiscount&lcpt=0&lcpf=3
+> canvasonthecheap: https://www.linkconnector.com/ta.php?lc=014538153308006216&atid=canvasonthecheap&lcpt=0&lcpf=3
+> combatflipflops: https://www.linkconnector.com/ta.php?lc=014538089787006486&atid=combatflipflops&lcpt=0&lcpf=0
+> cpraedcourse: https://www.linkconnector.com/ta.php?lc=014538047418004897&atid=cpraedcourse&lcpt=0&lcpf=3
+> cprcare: https://www.linkconnector.com/ta.php?lc=014538104426006955&atid=cprcare&lcpt=0&lcpf=
+> discountpetcare: https://www.linkconnector.com/ta.php?lc=014538154581007847&atid=discountpetcare&lcpt=0&lcpf=
+> easycanvasprints: https://www.linkconnector.com/ta.php?lc=014538095217004760&atid=easycanvasprints&lcpt=0&lcpf=3
+> halloweencostumes: https://www.linkconnector.com/ta.php?lc=014538069092004909&atid=halloweencostumes&lcpt=0&lcpf=
+> ahca: https://www.linkconnector.com/ta.php?lc=014538092157004897&atid=ahca&lcpt=0&lcpf=3
+> infinitealoe: https://www.linkconnector.com/ta.php?lc=014538155218007855&atid=infinitealoe&lcpt=0&lcpf=0
+> iskysoft: https://www.linkconnector.com/ta.php?lc=014538080056005679&atid=iskysoft&lcpt=0&lcpf=3
+> knowledgehut: https://www.linkconnector.com/ta.php?lc=014538151487007786&atid=knowledgehut&lcpt=0&lcpf=
+> lafuent: https://www.linkconnector.com/ta.php?lc=014538034203001545&atid=lafuent&lcpt=0&lcpf=0
+> littletoe: https://www.linkconnector.com/ta.php?lc=014538126445007124&atid=littletoe
+> movavi: https://www.linkconnector.com/ta.php?lc=014538108972006513&atid=movavi&lcpt=0&lcpf=3
+> pmtraining: https://www.linkconnector.com/ta.php?lc=014538081796006139&atid=pmtraining
+> shoplww: https://www.linkconnector.com/ta.php?lc=014538165369003224&atid=shoplww&lcpt=0&lcpf=3
+> taxextension: https://www.linkconnector.com/ta.php?lc=014538121293006198&atid=taxextension
+> tenorshare: https://www.linkconnector.com/ta.php?lc=014538147585006847&atid=tenorshare&lcpt=0&lcpf=3
+> wondershare: https://www.linkconnector.com/ta.php?lc=014538165262004532&atid=wondershare&lcpt=0&lcpf=3
 
-Brightlane Verified Merchant Directory publishes affiliate-linked product reviews, comparisons, and buyer guides. Content covers software, education, pet care, print and signs, health, lifestyle, and services categories. All 24 merchants are verified through the LinkConnector affiliate network.
+## Language Blogs
+> English: https://brightlane.github.io/verified-merchant-directory/blog/en/
+> Spanish: https://brightlane.github.io/verified-merchant-directory/blog/es/
+> French: https://brightlane.github.io/verified-merchant-directory/blog/fr/
+> German: https://brightlane.github.io/verified-merchant-directory/blog/de/
+> Portuguese: https://brightlane.github.io/verified-merchant-directory/blog/pt/
+> Italian: https://brightlane.github.io/verified-merchant-directory/blog/it/
+> Dutch: https://brightlane.github.io/verified-merchant-directory/blog/nl/
+> Polish: https://brightlane.github.io/verified-merchant-directory/blog/pl/
+> Russian: https://brightlane.github.io/verified-merchant-directory/blog/ru/
+> Japanese: https://brightlane.github.io/verified-merchant-directory/blog/ja/
+> Chinese: https://brightlane.github.io/verified-merchant-directory/blog/zh/
+> Korean: https://brightlane.github.io/verified-merchant-directory/blog/ko/
+> Arabic: https://brightlane.github.io/verified-merchant-directory/blog/ar/
+> Hindi: https://brightlane.github.io/verified-merchant-directory/blog/hi/
+> Turkish: https://brightlane.github.io/verified-merchant-directory/blog/tr/
+> Swedish: https://brightlane.github.io/verified-merchant-directory/blog/sv/
+> Danish: https://brightlane.github.io/verified-merchant-directory/blog/da/
+> Norwegian: https://brightlane.github.io/verified-merchant-directory/blog/no/
+> Finnish: https://brightlane.github.io/verified-merchant-directory/blog/fi/
+> Greek: https://brightlane.github.io/verified-merchant-directory/blog/el/
+> Ukrainian: https://brightlane.github.io/verified-merchant-directory/blog/uk/
+> Czech: https://brightlane.github.io/verified-merchant-directory/blog/cs/
+> Romanian: https://brightlane.github.io/verified-merchant-directory/blog/ro/
+> Hungarian: https://brightlane.github.io/verified-merchant-directory/blog/hu/
+> Indonesian: https://brightlane.github.io/verified-merchant-directory/blog/id/
+> Malay: https://brightlane.github.io/verified-merchant-directory/blog/ms/
+> Thai: https://brightlane.github.io/verified-merchant-directory/blog/th/
+> Vietnamese: https://brightlane.github.io/verified-merchant-directory/blog/vi/
+> Bulgarian: https://brightlane.github.io/verified-merchant-directory/blog/bg/
+> Croatian: https://brightlane.github.io/verified-merchant-directory/blog/hr/
+> Slovak: https://brightlane.github.io/verified-merchant-directory/blog/sk/
+> Lithuanian: https://brightlane.github.io/verified-merchant-directory/blog/lt/
+> Latvian: https://brightlane.github.io/verified-merchant-directory/blog/lv/
+> Estonian: https://brightlane.github.io/verified-merchant-directory/blog/et/
+> Hebrew: https://brightlane.github.io/verified-merchant-directory/blog/he/
+> Persian: https://brightlane.github.io/verified-merchant-directory/blog/fa/
+> Bengali: https://brightlane.github.io/verified-merchant-directory/blog/bn/
+> Tamil: https://brightlane.github.io/verified-merchant-directory/blog/ta/
+> Swahili: https://brightlane.github.io/verified-merchant-directory/blog/sw/
+> Filipino: https://brightlane.github.io/verified-merchant-directory/blog/fil/
 
-## Directory
-
-The main merchant directory lists all 24 verified partners with descriptions, categories, and affiliate links.
-
-- [Verified Merchant Directory](https://brightlane.github.io/verified-merchant-directory/)
-
-## Blog
-
-The Brightlane blog publishes multilingual buyer guides in English, Simplified Chinese, Traditional Chinese, Spanish, French, German, Portuguese (EU), Portuguese (Brazil), Japanese, Korean, Italian, Dutch, Polish, and Hindi.
-
-- [Blog — English](https://brightlane.github.io/verified-merchant-directory/blog.html)
-- [Blog — Chinese (Simplified)](https://brightlane.github.io/verified-merchant-directory/blog-zh.html)
-- [Blog — Chinese (Traditional)](https://brightlane.github.io/verified-merchant-directory/blog-zh-tw.html)
-- [Blog — Spanish](https://brightlane.github.io/verified-merchant-directory/blog-es.html)
-- [Blog — French](https://brightlane.github.io/verified-merchant-directory/blog-fr.html)
-- [Blog — German](https://brightlane.github.io/verified-merchant-directory/blog-de.html)
-- [Blog — Portuguese (EU)](https://brightlane.github.io/verified-merchant-directory/blog-pt.html)
-- [Blog — Portuguese (Brazil)](https://brightlane.github.io/verified-merchant-directory/blog-pt-br.html)
-- [Blog — Japanese](https://brightlane.github.io/verified-merchant-directory/blog-ja.html)
-- [Blog — Korean](https://brightlane.github.io/verified-merchant-directory/blog-ko.html)
-- [Blog — Italian](https://brightlane.github.io/verified-merchant-directory/blog-it.html)
-- [Blog — Dutch](https://brightlane.github.io/verified-merchant-directory/blog-nl.html)
-- [Blog — Polish](https://brightlane.github.io/verified-merchant-directory/blog-pl.html)
-- [Blog — Hindi](https://brightlane.github.io/verified-merchant-directory/blog-hi.html)
-
-## Recent Posts
+## Sitemap
+> https://brightlane.github.io/verified-merchant-directory/sitemap-index.xml
