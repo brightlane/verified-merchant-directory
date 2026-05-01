@@ -37,23 +37,23 @@ jobs:
         run: npm install
 
       - name: Expand languages if due
-        run: node expand-languages.js
+        run: node expand-languages.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate 10 blog posts [en es fr de]
-        run: node generate-blog-post.js --lang en,es,fr,de
+        run: node generate-blog-post.mjs --lang en,es,fr,de
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update sitemaps
-        run: node generate-sitemaps.js
+        run: node generate-sitemaps.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
 
       - name: Update llms files
-        run: node generate-llms.js
+        run: node generate-llms.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
