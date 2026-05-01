@@ -406,5 +406,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "group-halloween-costumes-office-2026",
+    "merchant": "halloweencostumes",
+    "title": "Best Group Halloween Costumes for the Office 2026 — Work-Appropriate Ideas",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

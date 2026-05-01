@@ -1191,7 +1191,7 @@
     {
       "slug": "group-halloween-costumes-office-2026",
       "merchant": "halloweencostumes",
-      "published": false,
+      "published": true,
       "title_en": "Best Group Halloween Costumes for the Office 2026 — Work-Appropriate Ideas",
       "category_en": "Lifestyle",
       "metaDesc_en": "Best group Halloween costume ideas for the office in 2026. Work-appropriate themed costumes for teams of 3-10 people that are creative without being awkward.",
@@ -1227,7 +1227,8 @@
           "q": "Can we return costumes that don't fit?",
           "a": "Check HalloweenCostumes.com's current return policy. Returns are generally accepted within a timeframe — order early to allow for exchanges if needed."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "nclex-rn-prep-books-2026",
