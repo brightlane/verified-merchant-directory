@@ -1,0 +1,46 @@
+name: Keyword Generator — Weekly Expansion
+
+on:
+  schedule:
+    - cron: '0 2 * * 0'  # Every Sunday at 2am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  expand-keywords:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline || npm install
+
+      - name: Generate 50 new keywords
+        run: node generate-keywords.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "Seo-bot"
+          git config user.email "seo-bot@brightlane.dev"
+          git add keywords.json
+          git diff --cached --quiet || git commit -m "chore: weekly keyword expansion +50 keywords [skip ci]"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
