@@ -1,0 +1,112 @@
+name: Blog Master Pipeline
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      keyword:
+        description: 'Target keyword (blank = auto)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  blog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Expand languages if due
+        run: node expand-languages.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run all 100 languages in batches of 4 with 5 second breaks
+        run: |
+          LANGS=(
+            "en,es,fr,de"
+            "pt,it,nl,pl"
+            "ru,ja,zh,ko"
+            "ar,hi,tr,sv"
+            "da,no,fi,el"
+            "uk,cs,ro,hu"
+            "id,ms,th,vi"
+            "bg,hr,sk,lt"
+            "lv,et,he,fa"
+            "bn,ta,sw,fil"
+            "sq,sr,sl,mk"
+            "bs,ca,gl,eu"
+            "is,ga,cy,mt"
+            "hy,ka,az,kk"
+            "uz,tk,mn,ur"
+            "ne,si,my,km"
+            "lo,am,ha,ig"
+            "yo,so,rw,tl"
+            "ceb,jv,su,mg"
+            "ps,sd,gu,mr"
+            "pa,te,kn,ml"
+            "or,xh,zu,af"
+            "st,sn,ny,lb"
+            "oc,br,fy,yi"
+            "eo,la,haw,mi"
+          )
+          KEYWORD="${{ github.event.inputs.keyword }}"
+          BATCH_NUM=0
+          for BATCH in "${LANGS[@]}"; do
+            BATCH_NUM=$((BATCH_NUM + 1))
+            echo "🌐 Batch ${BATCH_NUM}/25 — languages: ${BATCH}"
+            ARGS="--lang ${BATCH}"
+            if [ -n "$KEYWORD" ]; then
+              ARGS="$ARGS --keyword \"$KEYWORD\""
+            fi
+            eval node generate-blog-post.js $ARGS
+            echo "✅ Batch ${BATCH_NUM} complete"
+            echo "💤 Resting 5 seconds..."
+            sleep 5
+          done
+          echo "🎉 All 100 languages processed"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Update sitemaps
+        run: node generate-sitemaps.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Update llms files
+        run: node generate-llms.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "Seo-bot"
+          git config user.email "seo-bot@users.noreply.github.com"
+          git add -A
+          git stash || true
+          git pull --rebase origin main || true
+          git stash pop || true
+          git add -A
+          git diff --cached --quiet || git commit -m "blog: auto-publish 100 languages [skip ci]"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
