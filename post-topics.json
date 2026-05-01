@@ -1359,7 +1359,7 @@
     {
       "slug": "movavi-screen-recorder-review-2026",
       "merchant": "movavi",
-      "published": false,
+      "published": true,
       "title_en": "Movavi Screen Recorder Review 2026 — Best for Tutorials and Game Capture?",
       "category_en": "Software",
       "metaDesc_en": "Movavi Screen Recorder review 2026. Record screen, webcam, and audio simultaneously. Is it the best option for tutorials, online courses, and game capture?",
@@ -1395,7 +1395,8 @@
           "q": "Is there a free trial?",
           "a": "Yes. Movavi Screen Recorder has a trial version with watermarked output so you can test it before purchasing."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "iskysoft-video-converter-review-2026",
