@@ -766,5 +766,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "aloe-vera-after-sun-care-2026",
+    "merchant": "infinitealoe",
+    "title": "Best Aloe Vera for After-Sun Care 2026 — Sunburn Relief That Actually Works",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
