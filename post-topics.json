@@ -1947,7 +1947,7 @@
     {
       "slug": "car-maintenance-save-money-2026",
       "merchant": "lafuent",
-      "published": false,
+      "published": true,
       "title_en": "Car Maintenance on a Budget 2026 — How to Save on Parts Without Cutting Corners",
       "category_en": "Services",
       "metaDesc_en": "How to save money on car maintenance in 2026 without risking safety. Smart strategies for buying parts online and doing basic maintenance yourself.",
@@ -1983,7 +1983,8 @@
           "q": "How do I know if an aftermarket part is good quality?",
           "a": "Look for established aftermarket brands with OEM-equivalent specifications. Avoid generic or unbranded parts for safety components like brakes and steering."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "file-taxes-late-extension-2026",
