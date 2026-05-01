@@ -574,5 +574,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "no-code-app-small-business-2026",
+    "merchant": "appypie",
+    "title": "No-Code Apps for Small Business 2026 — Replace Your Developer Budget",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

@@ -1485,7 +1485,7 @@
     {
       "slug": "no-code-app-small-business-2026",
       "merchant": "appypie",
-      "published": false,
+      "published": true,
       "title_en": "No-Code Apps for Small Business 2026 — Replace Your Developer Budget",
       "category_en": "Software",
       "metaDesc_en": "How small businesses can use no-code platforms like Appy Pie to build apps, automate workflows, and create chatbots in 2026 without hiring developers.",
@@ -1521,7 +1521,8 @@
           "q": "What happens if I stop paying for Appy Pie?",
           "a": "Your app would no longer be active. No-code apps depend on the platform subscription — factor this into your long-term business planning."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "cybersecurity-certification-2026",
