@@ -1317,7 +1317,7 @@
     {
       "slug": "auto-parts-european-cars-online-2026",
       "merchant": "lafuent",
-      "published": false,
+      "published": true,
       "title_en": "Where to Buy European Car Parts Online 2026 — Save vs the Dealer",
       "category_en": "Services",
       "metaDesc_en": "Best places to buy European car parts online in 2026. Save significantly vs dealer pricing on BMW, Mercedes, Audi, and Volkswagen OEM and aftermarket parts.",
@@ -1353,7 +1353,8 @@
           "q": "Is it safe to use aftermarket parts on European cars?",
           "a": "For most components, yes — especially from reputable manufacturers. For safety-critical parts, OEM or equivalent-specification parts are recommended."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "movavi-screen-recorder-review-2026",
