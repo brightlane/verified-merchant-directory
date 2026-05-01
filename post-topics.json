@@ -1989,7 +1989,7 @@
     {
       "slug": "file-taxes-late-extension-2026",
       "merchant": "taxextension",
-      "published": false,
+      "published": true,
       "title_en": "Filing Taxes Late in 2026 — Extension vs Penalty, What You Need to Know",
       "category_en": "Services",
       "metaDesc_en": "What happens if you file taxes late in 2026? How a tax extension avoids penalties, what the penalties actually are, and how to file an extension online in minutes.",
@@ -2025,7 +2025,8 @@
           "q": "What if I expect a refund — do I still need an extension?",
           "a": "If you're getting a refund, there's no penalty for filing late since you don't owe money. But you can't receive your refund until you file the return. An extension gives you more time to file accurately."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     }
   ]
 }
