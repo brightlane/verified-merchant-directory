@@ -310,5 +310,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "canvas-prints-home-office-decor-2026",
+    "merchant": "canvasonthecheap",
+    "title": "Canvas Prints for Home Office Decor 2026 — Affordable Wall Art Ideas",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]

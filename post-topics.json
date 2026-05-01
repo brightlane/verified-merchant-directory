@@ -1023,7 +1023,7 @@
     {
       "slug": "canvas-prints-home-office-decor-2026",
       "merchant": "canvasonthecheap",
-      "published": false,
+      "published": true,
       "title_en": "Canvas Prints for Home Office Decor 2026 — Affordable Wall Art Ideas",
       "category_en": "Print & Signs",
       "metaDesc_en": "Affordable canvas print ideas for home office decor in 2026. Custom photo prints and art prints that make your workspace look professional without breaking the budget.",
@@ -1059,7 +1059,8 @@
           "q": "Can I upload my own art or photos?",
           "a": "Yes. Canvas on the Cheap accepts JPG, PNG, and PDF uploads. You can print your own photography or digital art."
         }
-      ]
+      ],
+      "published_date": "2026-05-01"
     },
     {
       "slug": "aloe-vera-skincare-eczema-2026",
