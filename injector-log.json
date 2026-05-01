@@ -646,5 +646,29 @@
       "pl",
       "hi"
     ]
+  },
+  {
+    "date": "2026-05-01",
+    "slug": "frontline-plus-online-buy-2026",
+    "merchant": "discountpetcare",
+    "title": "Where to Buy Frontline Plus Online 2026 — Save vs the Vet and Pet Stores",
+    "languages_injected": [
+      "en",
+      "zh",
+      "es",
+      "fr",
+      "de"
+    ],
+    "languages_skipped": [
+      "zh-tw",
+      "pt",
+      "pt-br",
+      "ja",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "hi"
+    ]
   }
 ]
