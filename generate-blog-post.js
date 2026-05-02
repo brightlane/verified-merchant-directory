@@ -399,6 +399,14 @@ function buildHTML(post, lang, slug) {
     .related-merchants h3 { font-family: var(--font-head); font-weight: 700; margin-bottom: 16px; }
     .related-links { display: flex; gap: 12px; flex-wrap: wrap; }
     .related-link { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 0.85rem; color: var(--accent); }
+    .network-footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 16px; text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 0; }
+    .network-footer a { color: var(--accent); margin: 0 8px; text-decoration: none; }
+    .network-footer a:hover { text-decoration: underline; }
+    .sticky-cta { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; }
+    .sticky-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #0a0b0d; font-family: var(--font-head); font-weight: 700; font-size: 0.85rem; padding: 12px 22px; border-radius: 99px; box-shadow: 0 4px 20px rgba(232,255,71,0.3); transition: transform .15s, box-shadow .15s; text-decoration: none; }
+    .sticky-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,255,71,0.5); text-decoration: none; }
+    .star-row { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; font-size: 0.8rem; color: var(--muted); }
+    .stars { color: #f4c542; letter-spacing: 1px; }
     footer { border-top: 1px solid var(--border); padding: 40px clamp(20px,4vw,60px); text-align: center; }
     .footer-note { font-size: 0.75rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
   </style>
@@ -420,6 +428,11 @@ function buildHTML(post, lang, slug) {
           <span>📅 ${TODAY}</span>
           <span>📂 ${post.tool}</span>
           <span>🌐 ${langMeta.name}</span>
+          <span>⏱ ${Math.ceil((post.wordCount || 1800) / 200)} min read</span>
+        </div>
+        <div class="star-row">
+          <span class="stars">★★★★★</span>
+          <span>4.8/5 · Verified Merchant</span>
         </div>
         <h1 itemprop="headline">${post.h1 || post.title}</h1>
       </header>
@@ -479,6 +492,20 @@ function buildHTML(post, lang, slug) {
   <footer>
     <p class="footer-note">© ${new Date().getFullYear()} Brightlane Verified Merchant Directory · <a href="${BASE_URL}/">Browse All Merchants</a> · All affiliate links are verified and tracked through LinkConnector.</p>
   </footer>
+
+  <div class="network-footer">
+    <strong>Brightlane Affiliate Network:</strong>
+    <a href="https://brightlane.github.io/omni-hub/" rel="noopener">Business Tools Hub</a> ·
+    <a href="https://brightlane.github.io/verified-merchant-directory/" rel="noopener">Verified Merchant Directory</a> ·
+    <a href="https://brightlane.github.io/GlobalCampaignHub/" rel="noopener">Global Campaign Hub</a>
+  </div>
+
+  <div class="sticky-cta">
+    <a class="sticky-btn" href="${affUrl}" target="_blank" rel="sponsored noopener">
+      🔗 Best Deal at ${post.tool} →
+    </a>
+  </div>
+
 </body>
 </html>`;
 }
